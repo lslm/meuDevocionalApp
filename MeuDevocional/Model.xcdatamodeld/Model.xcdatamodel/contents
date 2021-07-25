@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Devocionais" representedClassName="Devocionais" syncable="YES">
+        <attribute name="aplicacao1" optional="YES" attributeType="String"/>
+        <attribute name="aplicacao2" optional="YES" attributeType="String"/>
+        <attribute name="aplicacao3" optional="YES" attributeType="String"/>
+        <attribute name="backgroundColor" optional="YES" attributeType="String"/>
+        <attribute name="backgroundImage" optional="YES" attributeType="String"/>
+        <attribute name="baseBiblica" optional="YES" attributeType="String"/>
+        <attribute name="capitulo" optional="YES" attributeType="String"/>
+        <attribute name="conclusao" optional="YES" attributeType="String"/>
+        <attribute name="contextualizacao" optional="YES" attributeType="String"/>
+        <attribute name="link" optional="YES" attributeType="String"/>
+        <attribute name="livro" optional="YES" attributeType="String"/>
+        <attribute name="reflexao" optional="YES" attributeType="String"/>
+        <attribute name="titulo" optional="YES" attributeType="String"/>
+        <attribute name="versiculo" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="DevocionaisBase" representedClassName="DevocionaisBase" syncable="YES">
+        <attribute name="anotacao" optional="YES" attributeType="String"/>
+        <attribute name="aplicacaoBase1" optional="YES" attributeType="String"/>
+        <attribute name="aplicacaoBase2" optional="YES" attributeType="String"/>
+        <attribute name="aplicacaoBase3" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Post" representedClassName="Post" syncable="YES">
+        <attribute name="backgroundImage" optional="YES" attributeType="String"/>
+        <attribute name="nota" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="Devocionais" positionX="-45" positionY="0" width="128" height="239"/>
+        <element name="DevocionaisBase" positionX="9" positionY="117" width="128" height="89"/>
+        <element name="Post" positionX="-18" positionY="99" width="128" height="59"/>
+    </elements>
+</model>

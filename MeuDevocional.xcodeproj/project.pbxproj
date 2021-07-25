@@ -1,0 +1,499 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		13026C3926A0A1FE00D683B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13026C3826A0A1FE00D683B0 /* AppDelegate.swift */; };
+		13026C3B26A0A1FE00D683B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13026C3A26A0A1FE00D683B0 /* SceneDelegate.swift */; };
+		13026C4026A0A1FE00D683B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13026C3E26A0A1FE00D683B0 /* Main.storyboard */; };
+		13026C4226A0A20300D683B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13026C4126A0A20300D683B0 /* Assets.xcassets */; };
+		13026C4526A0A20300D683B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13026C4326A0A20300D683B0 /* LaunchScreen.storyboard */; };
+		13026C4D26A0A3E300D683B0 /* CollectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13026C4C26A0A3E300D683B0 /* CollectionItem.swift */; };
+		13026C5326A0C10700D683B0 /* DevocionalDiarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13026C5226A0C10700D683B0 /* DevocionalDiarioViewController.swift */; };
+		13026C5526A0C2D300D683B0 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13026C5426A0C2D300D683B0 /* MyCollectionViewCell.swift */; };
+		13026C5726A0CC7400D683B0 /* baseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13026C5626A0CC7400D683B0 /* baseData.swift */; };
+		13026C5926A0CDC000D683B0 /* ConstraintsAndDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13026C5826A0CDC000D683B0 /* ConstraintsAndDesign.swift */; };
+		13026C5D26A1F85300D683B0 /* MinhaDevocionalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13026C5C26A1F85300D683B0 /* MinhaDevocionalViewController.swift */; };
+		13026C6126A211BA00D683B0 /* MinhaDevocional2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13026C6026A211BA00D683B0 /* MinhaDevocional2ViewController.swift */; };
+		1331FFD026AB2B11003BDFAC /* DevocionalMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1331FFCF26AB2B11003BDFAC /* DevocionalMusicViewController.swift */; };
+		1331FFD226AB6605003BDFAC /* baseDevocionais.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1331FFD126AB6605003BDFAC /* baseDevocionais.swift */; };
+		139B6F6D26A2724C00C50E06 /* DevocionalDiarioEstudoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B6F6C26A2724C00C50E06 /* DevocionalDiarioEstudoViewController.swift */; };
+		139B6F7126A2730F00C50E06 /* MuralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B6F7026A2730F00C50E06 /* MuralViewController.swift */; };
+		139B6F7326A2766400C50E06 /* MuralViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B6F7226A2766400C50E06 /* MuralViewController2.swift */; };
+		139B6FA026A72FA800C50E06 /* MinhaDevocional3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B6F9F26A72FA800C50E06 /* MinhaDevocional3ViewController.swift */; };
+		139B6FA226A7456A00C50E06 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B6FA126A7456A00C50E06 /* MyTableViewCell.swift */; };
+		139B6FC126A8CEE800C50E06 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 139B6FBF26A8CEE800C50E06 /* Model.xcdatamodeld */; };
+		139B6FC426A8CF7600C50E06 /* Devocionais+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B6FC226A8CF7600C50E06 /* Devocionais+CoreDataClass.swift */; };
+		139B6FC526A8CF7600C50E06 /* Devocionais+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B6FC326A8CF7600C50E06 /* Devocionais+CoreDataProperties.swift */; };
+		139B6FC826A8CF9700C50E06 /* CoreDataDevocionais.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B6FC726A8CF9700C50E06 /* CoreDataDevocionais.swift */; };
+		139B6FCB26A9DA5500C50E06 /* Post+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B6FC926A9DA5500C50E06 /* Post+CoreDataClass.swift */; };
+		139B6FCC26A9DA5500C50E06 /* Post+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B6FCA26A9DA5500C50E06 /* Post+CoreDataProperties.swift */; };
+		139B6FCF26A9DA9900C50E06 /* CoreDataPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B6FCE26A9DA9900C50E06 /* CoreDataPost.swift */; };
+		139B6FD226AA6C3900C50E06 /* DevocionaisBase+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B6FD026AA6C3900C50E06 /* DevocionaisBase+CoreDataClass.swift */; };
+		139B6FD326AA6C3900C50E06 /* DevocionaisBase+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B6FD126AA6C3900C50E06 /* DevocionaisBase+CoreDataProperties.swift */; };
+		139B6FD526AA6C5100C50E06 /* CoreDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B6FD426AA6C5100C50E06 /* CoreDataBase.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		13026C3526A0A1FE00D683B0 /* MeuDevocional.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeuDevocional.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13026C3826A0A1FE00D683B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		13026C3A26A0A1FE00D683B0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		13026C3F26A0A1FE00D683B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		13026C4126A0A20300D683B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		13026C4426A0A20300D683B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		13026C4626A0A20300D683B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13026C4C26A0A3E300D683B0 /* CollectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionItem.swift; sourceTree = "<group>"; };
+		13026C5226A0C10700D683B0 /* DevocionalDiarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevocionalDiarioViewController.swift; sourceTree = "<group>"; };
+		13026C5426A0C2D300D683B0 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
+		13026C5626A0CC7400D683B0 /* baseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = baseData.swift; sourceTree = "<group>"; };
+		13026C5826A0CDC000D683B0 /* ConstraintsAndDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsAndDesign.swift; sourceTree = "<group>"; };
+		13026C5C26A1F85300D683B0 /* MinhaDevocionalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinhaDevocionalViewController.swift; sourceTree = "<group>"; };
+		13026C6026A211BA00D683B0 /* MinhaDevocional2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinhaDevocional2ViewController.swift; sourceTree = "<group>"; };
+		1331FFCF26AB2B11003BDFAC /* DevocionalMusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevocionalMusicViewController.swift; sourceTree = "<group>"; };
+		1331FFD126AB6605003BDFAC /* baseDevocionais.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = baseDevocionais.swift; sourceTree = "<group>"; };
+		139B6F6C26A2724C00C50E06 /* DevocionalDiarioEstudoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevocionalDiarioEstudoViewController.swift; sourceTree = "<group>"; };
+		139B6F7026A2730F00C50E06 /* MuralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuralViewController.swift; sourceTree = "<group>"; };
+		139B6F7226A2766400C50E06 /* MuralViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuralViewController2.swift; sourceTree = "<group>"; };
+		139B6F9F26A72FA800C50E06 /* MinhaDevocional3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinhaDevocional3ViewController.swift; sourceTree = "<group>"; };
+		139B6FA126A7456A00C50E06 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
+		139B6FC026A8CEE800C50E06 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		139B6FC226A8CF7600C50E06 /* Devocionais+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Devocionais+CoreDataClass.swift"; sourceTree = "<group>"; };
+		139B6FC326A8CF7600C50E06 /* Devocionais+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Devocionais+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		139B6FC726A8CF9700C50E06 /* CoreDataDevocionais.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDevocionais.swift; sourceTree = "<group>"; };
+		139B6FC926A9DA5500C50E06 /* Post+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataClass.swift"; sourceTree = "<group>"; };
+		139B6FCA26A9DA5500C50E06 /* Post+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		139B6FCE26A9DA9900C50E06 /* CoreDataPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPost.swift; sourceTree = "<group>"; };
+		139B6FD026AA6C3900C50E06 /* DevocionaisBase+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DevocionaisBase+CoreDataClass.swift"; sourceTree = "<group>"; };
+		139B6FD126AA6C3900C50E06 /* DevocionaisBase+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DevocionaisBase+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		139B6FD426AA6C5100C50E06 /* CoreDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataBase.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		13026C3226A0A1FE00D683B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		13026C2C26A0A1FE00D683B0 = {
+			isa = PBXGroup;
+			children = (
+				139B6FD026AA6C3900C50E06 /* DevocionaisBase+CoreDataClass.swift */,
+				139B6FD126AA6C3900C50E06 /* DevocionaisBase+CoreDataProperties.swift */,
+				139B6FC926A9DA5500C50E06 /* Post+CoreDataClass.swift */,
+				139B6FCA26A9DA5500C50E06 /* Post+CoreDataProperties.swift */,
+				139B6FC226A8CF7600C50E06 /* Devocionais+CoreDataClass.swift */,
+				139B6FC326A8CF7600C50E06 /* Devocionais+CoreDataProperties.swift */,
+				13026C3726A0A1FE00D683B0 /* MeuDevocional */,
+				13026C3626A0A1FE00D683B0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		13026C3626A0A1FE00D683B0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				13026C3526A0A1FE00D683B0 /* MeuDevocional.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		13026C3726A0A1FE00D683B0 /* MeuDevocional */ = {
+			isa = PBXGroup;
+			children = (
+				139B6FC626A8CF8400C50E06 /* CoreData */,
+				139B6FA826A8A1E200C50E06 /* DevocionaisDiarias */,
+				139B6FAD26A8A25900C50E06 /* MinhasDevocionais */,
+				139B6FAC26A8A24800C50E06 /* Mural */,
+				139B6FAB26A8A21500C50E06 /* ViewControllersCell */,
+				139B6FA926A8A1EB00C50E06 /* Dependences */,
+				13026C3826A0A1FE00D683B0 /* AppDelegate.swift */,
+				13026C3A26A0A1FE00D683B0 /* SceneDelegate.swift */,
+				13026C3E26A0A1FE00D683B0 /* Main.storyboard */,
+				13026C4126A0A20300D683B0 /* Assets.xcassets */,
+				13026C4326A0A20300D683B0 /* LaunchScreen.storyboard */,
+				13026C4626A0A20300D683B0 /* Info.plist */,
+				139B6FBF26A8CEE800C50E06 /* Model.xcdatamodeld */,
+			);
+			path = MeuDevocional;
+			sourceTree = "<group>";
+		};
+		139B6FA826A8A1E200C50E06 /* DevocionaisDiarias */ = {
+			isa = PBXGroup;
+			children = (
+				139B6F6C26A2724C00C50E06 /* DevocionalDiarioEstudoViewController.swift */,
+				13026C5226A0C10700D683B0 /* DevocionalDiarioViewController.swift */,
+				1331FFCF26AB2B11003BDFAC /* DevocionalMusicViewController.swift */,
+			);
+			path = DevocionaisDiarias;
+			sourceTree = "<group>";
+		};
+		139B6FA926A8A1EB00C50E06 /* Dependences */ = {
+			isa = PBXGroup;
+			children = (
+				13026C5826A0CDC000D683B0 /* ConstraintsAndDesign.swift */,
+				1331FFD126AB6605003BDFAC /* baseDevocionais.swift */,
+				13026C5626A0CC7400D683B0 /* baseData.swift */,
+				13026C4C26A0A3E300D683B0 /* CollectionItem.swift */,
+			);
+			path = Dependences;
+			sourceTree = "<group>";
+		};
+		139B6FAB26A8A21500C50E06 /* ViewControllersCell */ = {
+			isa = PBXGroup;
+			children = (
+				13026C5426A0C2D300D683B0 /* MyCollectionViewCell.swift */,
+				139B6FA126A7456A00C50E06 /* MyTableViewCell.swift */,
+			);
+			path = ViewControllersCell;
+			sourceTree = "<group>";
+		};
+		139B6FAC26A8A24800C50E06 /* Mural */ = {
+			isa = PBXGroup;
+			children = (
+				139B6F7026A2730F00C50E06 /* MuralViewController.swift */,
+				139B6F7226A2766400C50E06 /* MuralViewController2.swift */,
+			);
+			path = Mural;
+			sourceTree = "<group>";
+		};
+		139B6FAD26A8A25900C50E06 /* MinhasDevocionais */ = {
+			isa = PBXGroup;
+			children = (
+				13026C5C26A1F85300D683B0 /* MinhaDevocionalViewController.swift */,
+				139B6F9F26A72FA800C50E06 /* MinhaDevocional3ViewController.swift */,
+				13026C6026A211BA00D683B0 /* MinhaDevocional2ViewController.swift */,
+			);
+			path = MinhasDevocionais;
+			sourceTree = "<group>";
+		};
+		139B6FC626A8CF8400C50E06 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				139B6FD426AA6C5100C50E06 /* CoreDataBase.swift */,
+				139B6FC726A8CF9700C50E06 /* CoreDataDevocionais.swift */,
+				139B6FCE26A9DA9900C50E06 /* CoreDataPost.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		13026C3426A0A1FE00D683B0 /* MeuDevocional */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13026C4926A0A20300D683B0 /* Build configuration list for PBXNativeTarget "MeuDevocional" */;
+			buildPhases = (
+				13026C3126A0A1FE00D683B0 /* Sources */,
+				13026C3226A0A1FE00D683B0 /* Frameworks */,
+				13026C3326A0A1FE00D683B0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MeuDevocional;
+			productName = MeuDevocional;
+			productReference = 13026C3526A0A1FE00D683B0 /* MeuDevocional.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		13026C2D26A0A1FE00D683B0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					13026C3426A0A1FE00D683B0 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+				};
+			};
+			buildConfigurationList = 13026C3026A0A1FE00D683B0 /* Build configuration list for PBXProject "MeuDevocional" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 13026C2C26A0A1FE00D683B0;
+			productRefGroup = 13026C3626A0A1FE00D683B0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				13026C3426A0A1FE00D683B0 /* MeuDevocional */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		13026C3326A0A1FE00D683B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13026C4526A0A20300D683B0 /* LaunchScreen.storyboard in Resources */,
+				13026C4226A0A20300D683B0 /* Assets.xcassets in Resources */,
+				13026C4026A0A1FE00D683B0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		13026C3126A0A1FE00D683B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				139B6FCF26A9DA9900C50E06 /* CoreDataPost.swift in Sources */,
+				139B6F7126A2730F00C50E06 /* MuralViewController.swift in Sources */,
+				139B6F6D26A2724C00C50E06 /* DevocionalDiarioEstudoViewController.swift in Sources */,
+				139B6FD526AA6C5100C50E06 /* CoreDataBase.swift in Sources */,
+				139B6FC426A8CF7600C50E06 /* Devocionais+CoreDataClass.swift in Sources */,
+				1331FFD226AB6605003BDFAC /* baseDevocionais.swift in Sources */,
+				139B6FC126A8CEE800C50E06 /* Model.xcdatamodeld in Sources */,
+				13026C5926A0CDC000D683B0 /* ConstraintsAndDesign.swift in Sources */,
+				139B6FC526A8CF7600C50E06 /* Devocionais+CoreDataProperties.swift in Sources */,
+				139B6FD326AA6C3900C50E06 /* DevocionaisBase+CoreDataProperties.swift in Sources */,
+				1331FFD026AB2B11003BDFAC /* DevocionalMusicViewController.swift in Sources */,
+				13026C5D26A1F85300D683B0 /* MinhaDevocionalViewController.swift in Sources */,
+				13026C5726A0CC7400D683B0 /* baseData.swift in Sources */,
+				139B6FA026A72FA800C50E06 /* MinhaDevocional3ViewController.swift in Sources */,
+				139B6F7326A2766400C50E06 /* MuralViewController2.swift in Sources */,
+				139B6FA226A7456A00C50E06 /* MyTableViewCell.swift in Sources */,
+				13026C6126A211BA00D683B0 /* MinhaDevocional2ViewController.swift in Sources */,
+				13026C5526A0C2D300D683B0 /* MyCollectionViewCell.swift in Sources */,
+				139B6FCC26A9DA5500C50E06 /* Post+CoreDataProperties.swift in Sources */,
+				13026C5326A0C10700D683B0 /* DevocionalDiarioViewController.swift in Sources */,
+				13026C3926A0A1FE00D683B0 /* AppDelegate.swift in Sources */,
+				139B6FC826A8CF9700C50E06 /* CoreDataDevocionais.swift in Sources */,
+				139B6FCB26A9DA5500C50E06 /* Post+CoreDataClass.swift in Sources */,
+				139B6FD226AA6C3900C50E06 /* DevocionaisBase+CoreDataClass.swift in Sources */,
+				13026C4D26A0A3E300D683B0 /* CollectionItem.swift in Sources */,
+				13026C3B26A0A1FE00D683B0 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		13026C3E26A0A1FE00D683B0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				13026C3F26A0A1FE00D683B0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		13026C4326A0A20300D683B0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				13026C4426A0A20300D683B0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		13026C4726A0A20300D683B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		13026C4826A0A20300D683B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		13026C4A26A0A20300D683B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V8V28A4DX2;
+				INFOPLIST_FILE = MeuDevocional/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = biaduque.MeuDevocional;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		13026C4B26A0A20300D683B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V8V28A4DX2;
+				INFOPLIST_FILE = MeuDevocional/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = biaduque.MeuDevocional;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		13026C3026A0A1FE00D683B0 /* Build configuration list for PBXProject "MeuDevocional" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13026C4726A0A20300D683B0 /* Debug */,
+				13026C4826A0A20300D683B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		13026C4926A0A20300D683B0 /* Build configuration list for PBXNativeTarget "MeuDevocional" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13026C4A26A0A20300D683B0 /* Debug */,
+				13026C4B26A0A20300D683B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		139B6FBF26A8CEE800C50E06 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				139B6FC026A8CEE800C50E06 /* Model.xcdatamodel */,
+			);
+			currentVersion = 139B6FC026A8CEE800C50E06 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 13026C2D26A0A1FE00D683B0 /* Project object */;
+}

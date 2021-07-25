@@ -1,0 +1,62 @@
+//Esse arquivo é a classe de cada item da devocional
+
+import Foundation
+import UIKit
+
+open class CollectionItem{
+    
+    open var titulo: String
+    open var baseBiblica: String
+    open var contextualizacao: String
+    open var reflexao: String
+    open var conclusao: String
+    open var aplicacao1: String
+    open var aplicacao2: String
+    open var aplicacao3: String
+    open var backgroundColor: UIColor
+    open var backgroundImage: UIImage
+    open var link: String
+    
+    public init(){
+        titulo = " "
+        baseBiblica = " "
+        contextualizacao = ""
+        reflexao = ""
+        conclusao = ""
+        aplicacao1 = " "
+        aplicacao2 = " "
+        aplicacao3 = " "
+        backgroundColor = verde
+        backgroundImage = UIImage(named: "crie2")!
+        link = ""
+    }
+    public init(titulo: String, baseBiblica: String, contextualizacao: String, reflexao: String, conclusao: String, aplicacao1: String, aplicacao2: String, aplicacao3: String, backgroundColor: UIColor, backgroundImage: UIImage, link: String) {
+        self.titulo = titulo
+        self.baseBiblica = baseBiblica
+        self.contextualizacao = contextualizacao
+        self.reflexao = reflexao
+        self.conclusao = conclusao
+        self.aplicacao1 = aplicacao1
+        self.aplicacao2 = aplicacao2
+        self.aplicacao3 = aplicacao3
+        self.backgroundColor = backgroundColor
+        self.backgroundImage = backgroundImage
+        self.link = link
+    }
+}
+
+open class CollectionItemMural{
+    
+    open var nota: String
+    open var backgroundImage: UIImage
+    
+    public init(){
+        nota = " "
+        backgroundImage = UIImage(named: "novopost")!
+    }
+    public init(nota: String, backgroundImage: UIImage) {
+        self.nota = nota
+        self.backgroundImage = backgroundImage
+    }
+}
+

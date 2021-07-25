@@ -1,0 +1,136 @@
+//
+//  MuralViewController.swift
+//  MeuDevocional
+//
+//  Created by Beatriz Duque on 16/07/21.
+//
+
+import UIKit
+
+class MuralViewController: UIViewController {
+    var minhaNota = ""
+    var selectedIndex: Int = 0
+    var isFirstRun = true
+
+    @IBOutlet weak var muralCollection: UICollectionView!
+        
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: verde]
+        
+        muralCollection.dataSource = self
+        muralCollection.delegate = self
+        
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(sender:)))
+                muralCollection.addGestureRecognizer(longPress)
+    }
+    
+    
+    @IBAction func addButton(_ sender: Any) {
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //adiciona o card que sera apenas editado na proxima view...
+        let _ = try? CoreDataStackPost.createPost(nota: " ", backgroundImage: "novopost")
+        muralCollection.reloadData()
+        let vc = segue.destination as! MuralViewController2
+        vc.delegate = self
+   }
+    
+    @objc private func handleLongPress(sender: UILongPressGestureRecognizer) {
+        let dataMural = try! CoreDataStackPost.getPost()
+        if sender.state == .began {
+            let touchPoint = sender.location(in: muralCollection)
+            if let indexPath = muralCollection.indexPathForItem(at: touchPoint) {
+                if dataMural.count == 0{
+                    let ac = UIAlertController(title: "Não é possível deletar", message: nil, preferredStyle: .actionSheet)
+                        ac.addAction(UIAlertAction(title: "OK", style: .cancel, handler: {
+                            [weak self] action in
+                            self?.muralCollection.reloadData()
+                            
+                    }))
+                    present(ac, animated: true)
+                }
+                else{
+                let ac = UIAlertController(title: "Deletar '\(dataMural[indexPath.item].nota ?? "NONE")'", message: nil, preferredStyle: .actionSheet)
+                    ac.addAction(UIAlertAction(title: "Confirmar", style: .destructive, handler: {
+                        [weak self] action in
+                        try! CoreDataStackPost.deletePost(post: dataMural[indexPath.row])
+                    self?.muralCollection.reloadData()
+                    }))
+                    ac.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+                    present(ac, animated: true)}
+            }
+        }
+    }
+}
+
+
+
+extension MuralViewController: UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        //retorna a quantidade de PostIts presentes no meu CoreData
+        let post = try! CoreDataStackPost.getPost()
+        if post.count == 0{
+            //se nada foi adicionado no banco de dados, vai mostrar a dataBase disponibilizada no app
+            return meuMural.count
+        }
+        return post.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: MyCollectionViewCell2 = muralCollection.dequeueReusableCell(withReuseIdentifier: "cell5", for: indexPath) as! MyCollectionViewCell2
+        let post = try! CoreDataStackPost.getPost()
+        //se nao houver nenhuma adicao no banco de dados, mostra os dados base do App
+        if post.count == 0{
+            cell.nota.text = meuMural[indexPath.row].nota
+            cell.background.image = meuMural[indexPath.row].backgroundImage
+            return cell
+        }
+        //caso haja valores no banco de dados, mostra os dados do Banco de dados
+        cell.nota.text = post[indexPath.row].nota
+        cell.background.image = UIImage(named: post[indexPath.row].backgroundImage!)
+        changeTextColor(cell: cell)
+        cell.layer.cornerRadius = 15
+        
+        return cell
+    }
+    func changeTextColor(cell: MyCollectionViewCell2){
+        cell.nota.font = UIFont(name:"Helvetica-Bold",size:17)
+        
+        if cell.background.image == UIImage(named: "postit1"){
+            cell.nota.textColor = .white
+        }
+        else if cell.background.image == UIImage(named: "postit2"){
+            cell.nota.textColor = .white
+        }
+        else if cell.background.image == UIImage(named: "postit3"){
+            cell.nota.textColor = verde
+        }
+        else if cell.background.image == UIImage(named: "postit4"){
+            cell.nota.textColor = amarelo
+        }
+    }
+    
+}
+
+
+
+extension MuralViewController: UICollectionViewDelegate {
+   
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //if let vc = storyboard?.instantiateViewController(identifier: "addmural") as?
+          //          MuralViewController2{
+            //        vc.myMural = data
+              //      navigationController?.pushViewController(vc, animated: true)
+                //}
+        muralCollection.reloadData()
+    }
+}
+
+extension MuralViewController: MuralViewController2Delegate{
+    func didRegister(){
+        muralCollection.reloadData()
+    }
+}
