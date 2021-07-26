@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class DevocionalDiarioViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -98,12 +99,8 @@ class DevocionalDiarioViewController: UIViewController, UICollectionViewDataSour
         //transformando o titulo
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: verde]
-        
-        //personalizando componentes da tela
-        //editaTituloVerde(titulo: (tituloCotidiano)!)
-        //editaTituloVerde(titulo: (tituloVida)!)
-        //editaTituloVerde(titulo: (tituloEstudos)!)
-        
+        //chama a solicitacao de notificacao
+        criaNotif()
         
     }
     
@@ -115,5 +112,39 @@ class DevocionalDiarioViewController: UIViewController, UICollectionViewDataSour
         cell.textCard.textColor = verde3
         cell.layer.cornerRadius = 15
     }
-
+    
+    func criaNotif(){
+        //pedindo permissão
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert,.sound]){
+            (granted,error) in
+        }
+        //criando o conteudo da notificacao
+        let rand = Int.random(in: 0..<notfTitles.count)
+        let content = UNMutableNotificationContent()
+        content.title = notfTitles[rand]
+        content.body = notfContents[rand]
+        
+        //criando o intervalo de tempo
+        //86200 = 24h
+        //43200 = metade de 1 dia
+        //5 para testes
+        
+        let date = Date().addingTimeInterval(43200)
+        let dateComponents = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+        
+        //criando o request
+        let uuidString = UUID().uuidString
+        let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
+        
+        //registrando no notification center
+        center.add(request){
+            (error) in
+            if error != nil {
+                print("Error = \(error?.localizedDescription ?? "error Local notification")")
+            }
+        }
+        
+    }
 }
