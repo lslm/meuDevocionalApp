@@ -12,8 +12,8 @@ protocol MinhaDevocional3ViewControllerDelegate: AnyObject {
 }
 
 class MinhaDevocional3ViewController: UIViewController {
-    weak var delegate: MinhaDevocional3ViewControllerDelegate?
     
+    weak var delegate: MinhaDevocional3ViewControllerDelegate?
     
     var dataDevocional: [Devocionais] = []
     var indice = 0
@@ -38,11 +38,15 @@ class MinhaDevocional3ViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
         tableView.delegate = self
         tableView.dataSource = self
         reflexaoView.delegate = self
         linkTextField.delegate = self
+        
+        ///funcao que faz o clique na tela ocultar o teclado
         view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
         
         dataDevocional = try! CoreDataStack.getDevocional()
@@ -58,16 +62,17 @@ class MinhaDevocional3ViewController: UIViewController {
             reflexaoView.text = "Comece a escrever..."
             reflexaoView.textColor = UIColor.lightGray
         }
+        
         ///mostra o link caso tiver armazenado
         linkTextField.text = dataDevocional[indice].link
         selectedColor = dataDevocional[indice].backgroundColor!
         
-        okayLinkButton.layer.cornerRadius = 15
+        okayLinkButton.layer.cornerRadius = 8
         
     }
     
     
-    //funcao criada para adicionar a nova celula criada
+    ///funcao criada para adicionar a nova celula criada
     @IBAction func addAndSave(_ sender: Any) {
         //titulo
         let index = IndexPath(row: 0, section: 0)
@@ -87,6 +92,7 @@ class MinhaDevocional3ViewController: UIViewController {
         let index3 = IndexPath(row: 3, section: 0)
         let cell3: MyTableViewCell = self.tableView.cellForRow(at: index3) as! MyTableViewCell
         
+        //minha base é a base Biblica concatenada (composto de livro, capitulo e versiculo)
         minhaBase += cell1.textFieldCell.text!
         dataDevocional[indice].livro = cell1.textFieldCell.text!
         
@@ -129,7 +135,7 @@ class MinhaDevocional3ViewController: UIViewController {
         ///reflexao
         dataDevocional[indice].reflexao = reflexaoView.text!
         if reflexaoView.textColor == UIColor.lightGray{
-            print("Batata")
+            ///caso o usuario nao tenha feito nenhuma alteracao em reflexao, é salvo no banco de dados um dado de string vazia
             dataDevocional[indice].reflexao = ""
         }
         
@@ -211,7 +217,6 @@ extension MinhaDevocional3ViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath) as! MyTableViewCell
         cell.textFieldCell.placeholder = inputLista[indexPath.row]
-        
         ///Se for a edicao de uma devocional ja criada, as celulas vao mostrar o que ja esta armazenado no banco de dados
         if inputLista[indexPath.row] == "Título"{
             cell.textFieldCell.text = dataDevocional[indice].titulo!
@@ -248,6 +253,7 @@ extension MinhaDevocional3ViewController: UITableViewDataSource{
     }
 }
 
+///extensao criada para a configuracao da textField que apresentara um texto default para o usuario
 extension MinhaDevocional3ViewController: UITextViewDelegate{
     func textViewDidBeginEditing(_ textView: UITextView) {
         
@@ -267,7 +273,8 @@ extension MinhaDevocional3ViewController: UITextViewDelegate{
 extension MinhaDevocional3ViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     ///essa funcao faz com que a tecla return do teclado faca o app aceitar a entrada e o teclado abaixe
-    textField.resignFirstResponder()
-    return true
+        textField.autocapitalizationType = .words
+        textField.resignFirstResponder()
+        return true
     }
 }

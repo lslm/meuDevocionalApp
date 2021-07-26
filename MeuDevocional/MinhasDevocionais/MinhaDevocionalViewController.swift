@@ -56,10 +56,11 @@ extension MinhaDevocionalViewController: UICollectionViewDataSource{
         
         cell.layer.cornerRadius = 15
         
-        //editando o visual dos elementos da celula
+        ///editando o visual dos elementos da celula
         let dataDevocional = try! CoreDataStack.getDevocional()
+        
+        ///se nao houver adicoes no banco de dados, pega a devocional disponibilizada como base
         if dataDevocional.count == 0 {
-            //se nao houver adicoes no banco de dados, pega a devocional disponibilizada como base
             cell.myTitle.text = meuDevocional[indexPath.row].titulo
             cell.myImage.image = meuDevocional[indexPath.row].backgroundImage
             cell.myReference.text = meuDevocional[indexPath.row].baseBiblica
@@ -71,16 +72,24 @@ extension MinhaDevocionalViewController: UICollectionViewDataSource{
             cell.pc3.text = " "
         }
         else{
-            //caso ja houverem dados no Banco de dados, mostra eles aos usuarios
+            ///caso ja houverem dados no Banco de dados, mostra eles aos usuarios
             editaCelula(cell: cell, index: indexPath.row)
             defineTextColor(cell: cell)
         }
+        
+        ///deixa o background da palavra chave vazio caso nao exista nada adicionado
+        if cell.pc1.text == "" {cell.pc1.backgroundColor = nil}
+        if cell.pc2.text == "" {cell.pc2.backgroundColor = nil}
+        if cell.pc3.text == "" {cell.pc3.backgroundColor = nil}
+        
         return cell
     }
     
-    //funcao generica que edita a celula da devocional criada
+    ///funcao generica que edita a celula da devocional criada
     func editaCelula(cell: MyCollectionViewCell,index: Int){
+        ///seleciona o que tem no banco de dados para exibir
         let dataDevocional = try! CoreDataStack.getDevocional()
+        
         cell.myTitle.text = dataDevocional[index].titulo
         cell.myReference.text = dataDevocional[index].baseBiblica
         cell.myImage.image = UIImage(named: dataDevocional[index].backgroundImage!)
@@ -88,6 +97,11 @@ extension MinhaDevocionalViewController: UICollectionViewDataSource{
         cell.pc1.text = dataDevocional[index].aplicacao1
         cell.pc2.text = dataDevocional[index].aplicacao2
         cell.pc3.text = dataDevocional[index].aplicacao3
+        
+        ///adiciona background nas palavras - chave apenas se houver algo adicionado
+        if dataDevocional[index].aplicacao1 != "" {cell.pc1.backgroundColor = verde3}
+        if dataDevocional[index].aplicacao2 != "" {cell.pc2.backgroundColor = verde3}
+        if dataDevocional[index].aplicacao3 != "" {cell.pc3.backgroundColor = verde3}
         
         cell.pc1.clipsToBounds = true
         cell.pc2.clipsToBounds = true
@@ -101,6 +115,7 @@ extension MinhaDevocionalViewController: UICollectionViewDataSource{
         cell.pc2.textColor = .white
         cell.pc3.textColor = .white
                 
+        ///define o background de acordo com o codigo armazenado
         if dataDevocional[index].backgroundColor == "1"{
             cell.backgroundColor = verde
         }
@@ -114,8 +129,9 @@ extension MinhaDevocionalViewController: UICollectionViewDataSource{
         else{
             cell.backgroundColor = amarelo3
         }
+        
     }
-    
+    ///define a cor do texto de acordo com o backgrund
     func defineTextColor(cell: MyCollectionViewCell){
         if cell.backgroundColor == verde {
             cell.myTitle.textColor = .white
@@ -133,16 +149,9 @@ extension MinhaDevocionalViewController: UICollectionViewDataSource{
             cell.myTitle.textColor = amarelo
             cell.myReference.textColor = amarelo
         }
-        if cell.pc1.text != ""{
-            cell.pc1.backgroundColor = verde3
-        }
-        if cell.pc2.text != ""{
-            cell.pc2.backgroundColor = verde3
-        }
-        if cell.pc3.text != ""{
-            cell.pc3.backgroundColor = verde3
-        }
     }
+    
+    ///funcao que gera a exclusao do item se for pressionado
     @objc private func handleLongPress(sender: UILongPressGestureRecognizer) {
         let dataDevocional = try! CoreDataStack.getDevocional()
         if sender.state == .began {
@@ -184,6 +193,9 @@ extension MinhaDevocionalViewController: UICollectionViewDelegate {
         self.collectionDevocional?.reloadData()
     }
 }
+
+
+///funcoes delegate utilizadas para atualizar o conteudo da view
 
 extension MinhaDevocionalViewController: MinhaDevocional3ViewControllerDelegate{
     func didRegister(){

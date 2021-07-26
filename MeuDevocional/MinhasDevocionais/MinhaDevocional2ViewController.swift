@@ -29,10 +29,17 @@ class MinhaDevocional2ViewController: UIViewController {
         super.viewDidLoad()
         dataDevocional = try! CoreDataStack.getDevocional()
         print(dataDevocional.count)
+        
         if dataDevocional.count != 0 {
             atualizaDevocional()
         }
         
+        pc1.layer.cornerRadius = 5
+        pc2.layer.cornerRadius = 5
+        pc3.layer.cornerRadius = 5
+        pc1.clipsToBounds = true
+        pc2.clipsToBounds = true
+        pc3.clipsToBounds = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -74,7 +81,6 @@ class MinhaDevocional2ViewController: UIViewController {
         baseBiblica.text = dataDevocional[devocional].baseBiblica
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: verde]
-        navigationController?.title = dataDevocional[devocional].titulo
         titulo.text = dataDevocional[devocional].titulo
         reflexao.text = dataDevocional[devocional].reflexao
         pc1.text = dataDevocional[devocional].aplicacao1
