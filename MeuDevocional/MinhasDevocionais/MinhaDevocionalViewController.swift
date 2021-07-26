@@ -33,7 +33,7 @@ class MinhaDevocionalViewController: UIViewController{
     //funcao que ira gerar o modal para a criacao da nova colecction
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //adiciona o card que sera apenas editado na proxima view...
-        let _ = try? CoreDataStack.createDevocional(titulo: "", baseBiblica: "", contextualizacao: "", reflexao: "", conclusao: "", aplicacao1: "", aplicacao2: "", aplicacao3: "", backgroundColor: "1", backgroundImage: "crie2", link: "https://www.youtube.com/watch?v=7SO3ObU99e4&list=RD7SO3ObU99e4&start_radio=1",livro: "",capitulo: "",versiculo: "")
+        let _ = try? CoreDataStack.createDevocional(titulo: "", baseBiblica: "", contextualizacao: "", reflexao: "", conclusao: "", aplicacao1: "", aplicacao2: "", aplicacao3: "", backgroundColor: "1", backgroundImage: "crie2", link: "",livro: "",capitulo: "",versiculo: "")
         self.collectionDevocional?.reloadData()
         let vc = segue.destination as! MinhaDevocional3ViewController
         vc.edit = false
@@ -97,6 +97,9 @@ extension MinhaDevocionalViewController: UICollectionViewDataSource{
         cell.pc2.layer.cornerRadius = 3
         cell.pc3.layer.cornerRadius = 3
         
+        cell.pc1.textColor = .white
+        cell.pc2.textColor = .white
+        cell.pc3.textColor = .white
                 
         if dataDevocional[index].backgroundColor == "1"{
             cell.backgroundColor = verde
@@ -117,30 +120,27 @@ extension MinhaDevocionalViewController: UICollectionViewDataSource{
         if cell.backgroundColor == verde {
             cell.myTitle.textColor = .white
             cell.myReference.textColor = .white
-            cell.pc1.textColor = .white
-            cell.pc2.textColor = .white
-            cell.pc3.textColor = .white
         }
         else if cell.backgroundColor == amarelo{
             cell.myTitle.textColor = .white
             cell.myReference.textColor = .white
-            cell.pc1.textColor = .white
-            cell.pc2.textColor = .white
-            cell.pc3.textColor = .white
         }
         else if cell.backgroundColor == amarelo2{
             cell.myTitle.textColor = verde
             cell.myReference.textColor = verde
-            cell.pc1.textColor = verde
-            cell.pc2.textColor = verde
-            cell.pc3.textColor = verde
         }
         else {
             cell.myTitle.textColor = amarelo
             cell.myReference.textColor = amarelo
-            cell.pc1.textColor = amarelo
-            cell.pc2.textColor = amarelo
-            cell.pc3.textColor = amarelo
+        }
+        if cell.pc1.text != ""{
+            cell.pc1.backgroundColor = verde3
+        }
+        if cell.pc2.text != ""{
+            cell.pc2.backgroundColor = verde3
+        }
+        if cell.pc3.text != ""{
+            cell.pc3.backgroundColor = verde3
         }
     }
     @objc private func handleLongPress(sender: UILongPressGestureRecognizer) {

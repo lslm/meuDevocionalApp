@@ -24,6 +24,10 @@ class DevocionalMusicViewController: UIViewController,WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = false
+        if recebe == ""{
+            //valor default
+            recebe = "https://www.youtube.com/watch?v=7SO3ObU99e4&list=RD7SO3ObU99e4&start_radio=1"
+        }
         let url = URL(string: recebe)!
         webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
