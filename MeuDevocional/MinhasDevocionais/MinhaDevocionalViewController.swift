@@ -33,7 +33,7 @@ class MinhaDevocionalViewController: UIViewController{
     //funcao que ira gerar o modal para a criacao da nova colecction
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //adiciona o card que sera apenas editado na proxima view...
-        let _ = try? CoreDataStack.createDevocional(titulo: "", baseBiblica: "", contextualizacao: "", reflexao: "", conclusao: "", aplicacao1: "", aplicacao2: "", aplicacao3: "", backgroundColor: "1", backgroundImage: "crie2", link: "",livro: "",capitulo: "",versiculo: "")
+        let _ = try? CoreDataStack.createDevocional(titulo: "", baseBiblica: "", contextualizacao: "", reflexao: "", conclusao: "", aplicacao1: "", aplicacao2: "", aplicacao3: "", backgroundColor: "1", backgroundImage: "crie2", link: "https://www.youtube.com/watch?v=7SO3ObU99e4&list=RD7SO3ObU99e4&start_radio=1",livro: "",capitulo: "",versiculo: "")
         self.collectionDevocional?.reloadData()
         let vc = segue.destination as! MinhaDevocional3ViewController
         vc.edit = false

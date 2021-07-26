@@ -51,17 +51,17 @@ class DevocionalDiarioViewController: UIViewController, UICollectionViewDataSour
         
         if collectionView == cotidiano{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! MyCollectionViewCell
-            editaCelulaDev(cell: cell, array: capaCotidiano, index: indexPath.row)
+            editaCelulaDev(cell: cell, array: capaCotidiano, index: indexPath.row,tit: titCotidiano,referencia: refCotidiano)
             return cell
         }
         else if collectionView == vida{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier2, for: indexPath as IndexPath) as! MyCollectionViewCell
-            editaCelulaDev(cell: cell, array: capaVida, index: indexPath.row)
+            editaCelulaDev(cell: cell, array: capaVida, index: indexPath.row,tit: titVida,referencia: refVida)
             return cell
         }
         else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier3, for: indexPath as IndexPath) as! MyCollectionViewCell
-            editaCelulaDev(cell: cell, array: capaEstudos, index: indexPath.row)
+            editaCelulaDev(cell: cell, array: capaEstudos, index: indexPath.row,tit: titEstudos,referencia: refEstudos)
             return cell
         }
     }
@@ -107,12 +107,12 @@ class DevocionalDiarioViewController: UIViewController, UICollectionViewDataSour
         
     }
     
-    func editaCelulaDev(cell: MyCollectionViewCell,array: [String],index: Int){
+    func editaCelulaDev(cell: MyCollectionViewCell,array: [String],index: Int,tit:[String],referencia: [String]){
         cell.image.image = UIImage(named: array[index])
-        cell.titleCard.text = "Titulo"
-        cell.textCard.text = "Referencia"
-        cell.titleCard.textColor = verde
-        cell.textCard.textColor = verde
+        cell.titleCard.text = tit[index]
+        cell.textCard.text = referencia[index]
+        cell.titleCard.textColor = verde3
+        cell.textCard.textColor = verde3
         cell.layer.cornerRadius = 15
     }
 

@@ -28,7 +28,7 @@ open class CollectionItem{
         aplicacao3 = " "
         backgroundColor = verde
         backgroundImage = UIImage(named: "crie2")!
-        link = ""
+        link = "https://www.youtube.com/watch?v=7SO3ObU99e4&list=RD7SO3ObU99e4&start_radio=1"
     }
     public init(titulo: String, baseBiblica: String, contextualizacao: String, reflexao: String, conclusao: String, aplicacao1: String, aplicacao2: String, aplicacao3: String, backgroundColor: UIColor, backgroundImage: UIImage, link: String) {
         self.titulo = titulo

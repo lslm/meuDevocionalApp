@@ -20,7 +20,9 @@
 		13026C5D26A1F85300D683B0 /* MinhaDevocionalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13026C5C26A1F85300D683B0 /* MinhaDevocionalViewController.swift */; };
 		13026C6126A211BA00D683B0 /* MinhaDevocional2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13026C6026A211BA00D683B0 /* MinhaDevocional2ViewController.swift */; };
 		1331FFD026AB2B11003BDFAC /* DevocionalMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1331FFCF26AB2B11003BDFAC /* DevocionalMusicViewController.swift */; };
-		1331FFD226AB6605003BDFAC /* baseDevocionais.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1331FFD126AB6605003BDFAC /* baseDevocionais.swift */; };
+		1331FFD226AB6605003BDFAC /* cotidianoBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1331FFD126AB6605003BDFAC /* cotidianoBase.swift */; };
+		136F9E1026AE0D590064F06F /* vidaBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F9E0F26AE0D590064F06F /* vidaBase.swift */; };
+		136F9E1226AE17C30064F06F /* estudosBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F9E1126AE17C30064F06F /* estudosBase.swift */; };
 		139B6F6D26A2724C00C50E06 /* DevocionalDiarioEstudoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B6F6C26A2724C00C50E06 /* DevocionalDiarioEstudoViewController.swift */; };
 		139B6F7126A2730F00C50E06 /* MuralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B6F7026A2730F00C50E06 /* MuralViewController.swift */; };
 		139B6F7326A2766400C50E06 /* MuralViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B6F7226A2766400C50E06 /* MuralViewController2.swift */; };
@@ -54,7 +56,9 @@
 		13026C5C26A1F85300D683B0 /* MinhaDevocionalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinhaDevocionalViewController.swift; sourceTree = "<group>"; };
 		13026C6026A211BA00D683B0 /* MinhaDevocional2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinhaDevocional2ViewController.swift; sourceTree = "<group>"; };
 		1331FFCF26AB2B11003BDFAC /* DevocionalMusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevocionalMusicViewController.swift; sourceTree = "<group>"; };
-		1331FFD126AB6605003BDFAC /* baseDevocionais.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = baseDevocionais.swift; sourceTree = "<group>"; };
+		1331FFD126AB6605003BDFAC /* cotidianoBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cotidianoBase.swift; sourceTree = "<group>"; };
+		136F9E0F26AE0D590064F06F /* vidaBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vidaBase.swift; sourceTree = "<group>"; };
+		136F9E1126AE17C30064F06F /* estudosBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = estudosBase.swift; sourceTree = "<group>"; };
 		139B6F6C26A2724C00C50E06 /* DevocionalDiarioEstudoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevocionalDiarioEstudoViewController.swift; sourceTree = "<group>"; };
 		139B6F7026A2730F00C50E06 /* MuralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuralViewController.swift; sourceTree = "<group>"; };
 		139B6F7226A2766400C50E06 /* MuralViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuralViewController2.swift; sourceTree = "<group>"; };
@@ -139,7 +143,9 @@
 			isa = PBXGroup;
 			children = (
 				13026C5826A0CDC000D683B0 /* ConstraintsAndDesign.swift */,
-				1331FFD126AB6605003BDFAC /* baseDevocionais.swift */,
+				1331FFD126AB6605003BDFAC /* cotidianoBase.swift */,
+				136F9E0F26AE0D590064F06F /* vidaBase.swift */,
+				136F9E1126AE17C30064F06F /* estudosBase.swift */,
 				13026C5626A0CC7400D683B0 /* baseData.swift */,
 				13026C4C26A0A3E300D683B0 /* CollectionItem.swift */,
 			);
@@ -256,10 +262,11 @@
 			files = (
 				139B6FCF26A9DA9900C50E06 /* CoreDataPost.swift in Sources */,
 				139B6F7126A2730F00C50E06 /* MuralViewController.swift in Sources */,
+				136F9E1026AE0D590064F06F /* vidaBase.swift in Sources */,
 				139B6F6D26A2724C00C50E06 /* DevocionalDiarioEstudoViewController.swift in Sources */,
 				139B6FD526AA6C5100C50E06 /* CoreDataBase.swift in Sources */,
 				139B6FC426A8CF7600C50E06 /* Devocionais+CoreDataClass.swift in Sources */,
-				1331FFD226AB6605003BDFAC /* baseDevocionais.swift in Sources */,
+				1331FFD226AB6605003BDFAC /* cotidianoBase.swift in Sources */,
 				139B6FC126A8CEE800C50E06 /* Model.xcdatamodeld in Sources */,
 				13026C5926A0CDC000D683B0 /* ConstraintsAndDesign.swift in Sources */,
 				139B6FC526A8CF7600C50E06 /* Devocionais+CoreDataProperties.swift in Sources */,
@@ -267,6 +274,7 @@
 				1331FFD026AB2B11003BDFAC /* DevocionalMusicViewController.swift in Sources */,
 				13026C5D26A1F85300D683B0 /* MinhaDevocionalViewController.swift in Sources */,
 				13026C5726A0CC7400D683B0 /* baseData.swift in Sources */,
+				136F9E1226AE17C30064F06F /* estudosBase.swift in Sources */,
 				139B6FA026A72FA800C50E06 /* MinhaDevocional3ViewController.swift in Sources */,
 				139B6F7326A2766400C50E06 /* MuralViewController2.swift in Sources */,
 				139B6FA226A7456A00C50E06 /* MyTableViewCell.swift in Sources */,

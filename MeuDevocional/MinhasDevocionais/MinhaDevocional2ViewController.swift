@@ -14,6 +14,7 @@ class MinhaDevocional2ViewController: UIViewController {
     weak var delegate2: MinhaDevocional2ViewControllerDelegate?
     var devocional = 0
     var dataDevocional: [Devocionais] = []
+    var textoDefaut = ""
     
     @IBOutlet weak var baseBiblica: UILabel!
     @IBOutlet weak var titulo: UILabel!
@@ -52,8 +53,7 @@ class MinhaDevocional2ViewController: UIViewController {
             }
     }
     @IBAction func shareButton(_ sender: Any) {
-        print("batata")
-        let vc = UIActivityViewController(activityItems: [dataDevocional[devocional].titulo!,dataDevocional[devocional].baseBiblica!,dataDevocional[devocional].reflexao!], applicationActivities: [])
+        let vc = UIActivityViewController(activityItems: [dataDevocional[devocional].titulo!,dataDevocional[devocional].baseBiblica!,dataDevocional[devocional].reflexao!,dataDevocional[devocional].link!], applicationActivities: [])
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(vc, animated: true)
     }
@@ -61,8 +61,10 @@ class MinhaDevocional2ViewController: UIViewController {
         if let vc = storyboard?.instantiateViewController(identifier: "music") as?
                     DevocionalMusicViewController {
             //envia o link que está armazenado no banco de dados
-            vc.recebe  = dataDevocional[devocional].link!
-            
+            if dataDevocional.count == 0{
+                vc.recebe = meuDevocional[0].link
+            }
+            else{vc.recebe  = dataDevocional[devocional].link!}
             navigationController?.pushViewController(vc, animated: true)
             }
     }
@@ -70,6 +72,9 @@ class MinhaDevocional2ViewController: UIViewController {
     
     func atualizaDevocional(){
         baseBiblica.text = dataDevocional[devocional].baseBiblica
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: verde]
+        navigationController?.title = dataDevocional[devocional].titulo
         titulo.text = dataDevocional[devocional].titulo
         reflexao.text = dataDevocional[devocional].reflexao
         pc1.text = dataDevocional[devocional].aplicacao1

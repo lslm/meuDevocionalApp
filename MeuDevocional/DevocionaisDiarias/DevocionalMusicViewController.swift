@@ -14,9 +14,10 @@ class DevocionalMusicViewController: UIViewController,WKNavigationDelegate {
     
     var webView: WKWebView!
     override func loadView() {
+        navigationController?.navigationBar.prefersLargeTitles = false
         webView = WKWebView()
         webView.navigationDelegate = self
-        view = webView
+        view = webView        
     }
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -60,7 +60,7 @@ class MinhaDevocional3ViewController: UIViewController {
         }
         ///mostra o link caso tiver armazenado
         linkTextField.text = dataDevocional[indice].link
-        
+        selectedColor = dataDevocional[indice].backgroundColor!
         
         okayLinkButton.layer.cornerRadius = 15
         

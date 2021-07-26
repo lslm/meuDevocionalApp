@@ -14,6 +14,9 @@ class DevocionalDiarioEstudoViewController: UIViewController {
     var estudo = 0
     var cell = 0
     
+    //vetor que armazenara a base de devocionais de acordo com o que for selecionado
+    var base: [CollectionItem] = []
+    
     var aplicacao1: [String] = []
     var aplicacao2: [String] = []
     var aplicacao3: [String] = []
@@ -45,22 +48,48 @@ class DevocionalDiarioEstudoViewController: UIViewController {
     @IBOutlet weak var check3: UIButton!
     
     
+    override func viewWillAppear(_ animated: Bool) {
+
+    }
     
     override func viewDidLoad() {
         //carregar banco de dados
+        
+        if cell == 1{
+            //cria a devocional que foi clicada
+            criaCotidiano(indice: estudo)
+            //atualiza o vetor que é utilizado
+            base = cotidianoBase
+        }
+        else if cell == 2{
+            criaVida(indice: estudo)
+            base = vidaBase
+        }
+        else{
+            criaEstudos(indice: estudo)
+            base = estudosBase
+        }
+        
         super.viewDidLoad()
         
         view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
         
+        ///carrega devocionais default
+        print(base)
+        titulo.text = base[estudo].titulo
+        baseBiblica.text = base[estudo].baseBiblica
+        imagemTema.image = base[estudo].backgroundImage
+        contextualizacaoConteudo.text = base[estudo].contextualizacao
+        reflexaoConteudo.text = base[estudo].reflexao
+        conclusaoConteudo.text = base[estudo].conclusao
+        
+        ///carrega dados armazenados dos usuarios
         selecionaBaseDados()
-        
-   
-        
+    
         aplicacao1 = defaults.object(forKey: keySelected1) as? [String] ?? [String]()
         aplicacao2 = defaults.object(forKey: keySelected2) as? [String] ?? [String]()
         aplicacao3 = defaults.object(forKey: keySelected3) as? [String] ?? [String]()
         anotacao = defaults.object(forKey: keySelected4) as? [String] ?? [String]()
-        
         
         selecionaVetores()
         
@@ -113,7 +142,7 @@ class DevocionalDiarioEstudoViewController: UIViewController {
     @IBAction func playMusicButton(_ sender: Any) {
         if let vc = storyboard?.instantiateViewController(identifier: "music") as?
                     DevocionalMusicViewController {
-            vc.recebe  = "https://www.youtube.com/watch?v=DpRIomLBQZA"
+            vc.recebe  = base[estudo].link
             navigationController?.pushViewController(vc, animated: true)
             }
     }
