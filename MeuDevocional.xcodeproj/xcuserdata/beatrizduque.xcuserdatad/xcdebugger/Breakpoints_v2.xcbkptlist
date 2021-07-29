@@ -36,5 +36,68 @@
             landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E45821DC-99F6-4BCA-B10A-42E3FDFDB388"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MeuDevocional/MinhasDevocionais/MinhaDevocional3ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "MinhaDevocional3ViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "E45821DC-99F6-4BCA-B10A-42E3FDFDB388 - 4497dd773a0850f6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MeuDevocional.MinhaDevocional3ViewController.inputLista.getter : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "MeuDevocional"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/beatrizduque/Aplicativos/MeuDevocionalApp/MeuDevocional/MinhasDevocionais/MinhaDevocional3ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "E45821DC-99F6-4BCA-B10A-42E3FDFDB388 - 4e4ae324adb58bc7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MeuDevocional.MinhaDevocional3ViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; MeuDevocional.MinhaDevocional3ViewController"
+                  moduleName = "MeuDevocional"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/beatrizduque/Aplicativos/MeuDevocionalApp/MeuDevocional/MinhasDevocionais/MinhaDevocional3ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "823">
+               </Location>
+               <Location
+                  uuid = "E45821DC-99F6-4BCA-B10A-42E3FDFDB388 - d40021f2ff612a4a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MeuDevocional.MinhaDevocional3ViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;MeuDevocional.MinhaDevocional3ViewController&gt;"
+                  moduleName = "MeuDevocional"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/beatrizduque/Aplicativos/MeuDevocionalApp/MeuDevocional/MinhasDevocionais/MinhaDevocional3ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "767">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

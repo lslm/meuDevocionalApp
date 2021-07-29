@@ -47,14 +47,16 @@ class DevocionalDiarioEstudoViewController: UIViewController {
     @IBOutlet weak var check2: UIButton!
     @IBOutlet weak var check3: UIButton!
     
+    @IBOutlet weak var play: UIButton!
     
     override func viewWillAppear(_ animated: Bool) {
 
     }
     
     override func viewDidLoad() {
-        //carregar banco de dados
         
+        editButton(button: play)
+        //carregar banco de dados
         if cell == 1{
             //cria a devocional que foi clicada
             criaCotidiano(indice: estudo)
@@ -75,7 +77,6 @@ class DevocionalDiarioEstudoViewController: UIViewController {
         view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
         
         ///carrega devocionais default
-        print(base)
         titulo.text = base[estudo].titulo
         baseBiblica.text = base[estudo].baseBiblica
         imagemTema.image = base[estudo].backgroundImage
@@ -97,6 +98,17 @@ class DevocionalDiarioEstudoViewController: UIViewController {
         fieldAplicacao1.text = aplicacao1[estudo]
         fieldAplicacao2.text = aplicacao2[estudo]
         fieldAplicacao3.text = aplicacao3[estudo]
+        
+        ///verificando o check de cada field
+        if fieldAplicacao1.text != ""{
+            check1.setBackgroundImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
+        }
+        if fieldAplicacao2.text != ""{
+            check2.setBackgroundImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
+        }
+        if fieldAplicacao3.text != "" {
+            check3.setBackgroundImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
+        }
         
         ///verificacao da anotacao pessoal
         ///define o tipo de texto que sera mostrado ao usuário na reflexao (se é o armazenado ou o default)
@@ -206,10 +218,24 @@ class DevocionalDiarioEstudoViewController: UIViewController {
         }
     }
     override func touchesBegan(_: Set<UITouch>, with: UIEvent?) {
-        ///anotacoesPessoais.resignFirstResponder()
+        //anotacoesPessoais.resignFirstResponder()
         hideKeyboard()
         self.view.endEditing(true)
     }
+    
+    ///funcao que adiciona sombra no botao de play
+    func editButton(button:UIButton){
+        button.layer.backgroundColor = nil
+        button.layer.cornerRadius = 1
+        //button.layer.borderWidth = 2
+        // button.layer.borderColor = verde.cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 1)
+        button.layer.shadowColor = UIColor.darkGray.cgColor
+        button.layer.shadowOpacity = 1
+        button.layer.shadowRadius = 3
+        button.layer.masksToBounds = false
+    }
+  
 }
 
 extension DevocionalDiarioEstudoViewController: UITextFieldDelegate{

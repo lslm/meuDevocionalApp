@@ -60,10 +60,11 @@ var baseAnotacaoEstudos = ["","","","",""]
 ///titulos e referencias de cada colecction
 
 let titCotidiano: [String] = ["O que eu cultivo no meu coração?","Tomando decisões","Por que estou passando por isso?","Faça o que eles dizem?","Minha vocação"]
-let refCotidiano: [String] = ["Provérbios 4:23","Isaías 41: 9-13","Atos 26: 1-23","Gálatas 1:10","1 Timóteo: 6-7"]
+let refCotidiano: [String] = ["Provérbios 4:23","Salmo 37: 1-7","Atos 26: 1-23","Gálatas 1:10","2 Timóteo 1: 3-11"]
 
 let titVida: [String] = ["Paternidade","Fidelidade","Me sentindo próximo","Nutrição da alma","O meu bem","Sabedoria e inteligência"]
-let refVida: [String] = ["Gálatas 4: 4-7","Filipenses 1: 5-7","Mateus 7:7", "João 4: 1- 30","Romanos 8: 28-31","Romanos 12: 1-3"]
+let refVida: [String] = ["Gálatas 4: 4-7","Filipenses 1: 5-7","Mateus 7: 7-8", "João 4: 1-30","Romanos 8: 28-31","Romanos 12: 1-3"]
+
 let titEstudos: [String] = ["Frutos do espírito","Religiosidade","O que é graça?","Buraco da agulha?","A rainha Ester"]
 let refEstudos: [String] = ["Gálatas 5: 16-26","Mateus 15: 1‭-‬20 ","Efésios 2: 1-10","Mateus 19: 23-24","Ester 4: 1-17"]
 

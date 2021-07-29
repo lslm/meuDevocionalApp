@@ -144,11 +144,24 @@ class MinhaDevocional3ViewController: UIViewController {
         
         ///salvando o progresso
         try? CoreDataStack.saveContext()
-        
         delegate?.didRegister()
         tableView.reloadData()
         tableView.reloadInputViews()
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    ///botao de cancelar
+    @IBAction func cancelButton(_ sender: Any) {
+        /// se for apenas uma edicao, apenas cancela a tela
+        if edit == true {
+            self.dismiss(animated: true, completion: nil)
+        }
+        else{
+            ///se for uma adicao, exclui o item que tinha adicionado anteriormente
+            try! CoreDataStack.deleteDevocional(devocionais: dataDevocional[indice])
+            delegate?.didRegister()
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     ///funcoes que selecionam as cores

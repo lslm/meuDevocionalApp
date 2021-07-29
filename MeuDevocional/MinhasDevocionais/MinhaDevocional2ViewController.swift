@@ -11,6 +11,7 @@ protocol MinhaDevocional2ViewControllerDelegate: AnyObject {
 }
 
 class MinhaDevocional2ViewController: UIViewController {
+    
     weak var delegate2: MinhaDevocional2ViewControllerDelegate?
     var devocional = 0
     var dataDevocional: [Devocionais] = []
@@ -23,16 +24,25 @@ class MinhaDevocional2ViewController: UIViewController {
     @IBOutlet weak var pc1: UILabel!
     @IBOutlet weak var pc2: UILabel!
     @IBOutlet weak var pc3: UILabel!
-    
+    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var editButton: UIButton!
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //navigationController?.navigationBar.prefersLargeTitles = true
         dataDevocional = try! CoreDataStack.getDevocional()
-        print(dataDevocional.count)
         
         if dataDevocional.count != 0 {
             atualizaDevocional()
         }
+        else{
+            ///caso nao haja nenhuma devocional, nao é possivel compartilhar nem editar
+            shareButton.isHidden = true
+            editButton.isHidden = true
+        }
+        
+        editButton(button: link)
         
         pc1.layer.cornerRadius = 5
         pc2.layer.cornerRadius = 5
@@ -42,14 +52,16 @@ class MinhaDevocional2ViewController: UIViewController {
         pc3.clipsToBounds = true
     }
     
+    
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
+        navigationController?.navigationBar.prefersLargeTitles = true
+        //super.viewWillDisappear(animated)
         if self.isMovingFromParent {
             delegate2?.didRegister2()
         }
     }
     
+    ///carrega o formulario de edicao
     @IBAction func editTrue(_ sender: Any) {
         if let vc = storyboard?.instantiateViewController(identifier: "minhadevocionalForms") as?
                     MinhaDevocional3ViewController {
@@ -59,6 +71,7 @@ class MinhaDevocional2ViewController: UIViewController {
             navigationController?.present(vc, animated: true, completion: nil)
             }
     }
+    
     @IBAction func shareButton(_ sender: Any) {
         let vc = UIActivityViewController(activityItems: [dataDevocional[devocional].titulo!,dataDevocional[devocional].baseBiblica!,dataDevocional[devocional].reflexao!,dataDevocional[devocional].link!], applicationActivities: [])
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
@@ -76,11 +89,9 @@ class MinhaDevocional2ViewController: UIViewController {
             }
     }
     
-    
+    ///funcao que atualiza a devocional depois de passar pela tela do edit
     func atualizaDevocional(){
         baseBiblica.text = dataDevocional[devocional].baseBiblica
-        navigationController?.navigationBar.prefersLargeTitles = false
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: verde]
         titulo.text = dataDevocional[devocional].titulo
         reflexao.text = dataDevocional[devocional].reflexao
         pc1.text = dataDevocional[devocional].aplicacao1
@@ -93,6 +104,19 @@ class MinhaDevocional2ViewController: UIViewController {
         else if dataDevocional[devocional].backgroundColor == "3"{titulo.textColor = amarelo2}
         else{titulo.textColor = amarelo3}
     }
+    
+    func editButton(button:UIButton){
+        button.layer.backgroundColor = nil
+        button.layer.cornerRadius = 1
+        //button.layer.borderWidth = 2
+        // button.layer.borderColor = verde.cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 1)
+        button.layer.shadowColor = UIColor.darkGray.cgColor
+        button.layer.shadowOpacity = 1
+        button.layer.shadowRadius = 3
+        button.layer.masksToBounds = false
+    }
+    
 }
 
 extension MinhaDevocional2ViewController: MinhaDevocional3ViewControllerDelegate{

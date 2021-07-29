@@ -130,7 +130,7 @@ class DevocionalDiarioViewController: UIViewController, UICollectionViewDataSour
         //43200 = metade de 1 dia
         //5 para testes
         
-        let date = Date().addingTimeInterval(43200)
+        let date = Date().addingTimeInterval(86200)
         let dateComponents = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
         

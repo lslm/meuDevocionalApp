@@ -20,6 +20,7 @@ class MuralViewController2: UIViewController {
     var indice = 0
     var minhaNota = ""
     var selectedColor = "postit1"
+    var isEdit = false
     
     @IBOutlet weak var minhaNotaInput: UITextField!
     @IBOutlet weak var okButton: UIButton!
@@ -34,13 +35,16 @@ class MuralViewController2: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        minhaNotaInput.delegate = self
         dataPost = try! CoreDataStackPost.getPost()
-        okButton.layer.cornerRadius = 10
+        okButton.layer.cornerRadius = 8
         // Do any additional setup after loading the view.
     }
     
     @IBAction func onTap(_ sender: Any) {
-        
+        if isEdit == true{
+            indice = dataPost.count-1
+        }
         dataPost.last?.nota = minhaNotaInput.text!
         dataPost.last?.backgroundImage = selectedColor
         
@@ -48,6 +52,13 @@ class MuralViewController2: UIViewController {
         try? CoreDataStackPost.saveContext()
         
         //atualiza a collectionView
+        delegate?.didRegister()
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func cancelButton(_ sender: Any) {
+        ///se for uma adicao, exclui o item que tinha adicionado anteriormente
+        try! CoreDataStackPost.deletePost(post: dataPost.last!)
         delegate?.didRegister()
         self.dismiss(animated: true, completion: nil)
     }
@@ -119,6 +130,7 @@ class MuralViewController2: UIViewController {
 extension MuralViewController2: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     //essa funcao faz com que a tecla return do teclado faca o app aceitar a entrada e o teclado abaixe
+    visualizacaoLabel.text = minhaNotaInput.text
     textField.resignFirstResponder()
     return true
     }

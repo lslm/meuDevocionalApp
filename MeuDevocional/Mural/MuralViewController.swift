@@ -11,7 +11,8 @@ class MuralViewController: UIViewController {
     var minhaNota = ""
     var selectedIndex: Int = 0
     var isFirstRun = true
-
+    var dataPost1: [Post] = []
+    
     @IBOutlet weak var muralCollection: UICollectionView!
         
     override func viewDidLoad() {
@@ -21,13 +22,20 @@ class MuralViewController: UIViewController {
         
         muralCollection.dataSource = self
         muralCollection.delegate = self
-        
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(sender:)))
                 muralCollection.addGestureRecognizer(longPress)
     }
     
     
     @IBAction func addButton(_ sender: Any) {
+    }
+    
+    @IBAction func infoView(_ sender: Any) {
+        if let vc = storyboard?.instantiateViewController(identifier: "info") as?
+                    InfoViewController {
+            vc.imagem = "mural"
+            navigationController?.present(vc, animated: true, completion: nil)
+            }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -120,11 +128,22 @@ extension MuralViewController: UICollectionViewDataSource{
 extension MuralViewController: UICollectionViewDelegate {
    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //if let vc = storyboard?.instantiateViewController(identifier: "addmural") as?
-          //          MuralViewController2{
-            //        vc.myMural = data
-              //      navigationController?.pushViewController(vc, animated: true)
-                //}
+//        if let vc = storyboard?.instantiateViewController(identifier: "addmural") as?
+//                   MuralViewController2{
+//            vc.isEdit = true
+//            vc.indice = indexPath.row
+//            navigationController?.present(vc, animated: true, completion: nil)
+//        }
+        dataPost1 = try! CoreDataStackPost.getPost()
+        if dataPost1.count != 0{
+            let ac = UIAlertController(title:"Meu motivo", message: dataPost1[indexPath.row].nota, preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "OK", style: .cancel, handler: {
+                    [weak self] action in
+                    self?.muralCollection.reloadData()
+            }))
+            present(ac, animated: true)
+        }
+        
         muralCollection.reloadData()
     }
 }
