@@ -25,10 +25,15 @@ class MyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var pc1: UILabel!
     @IBOutlet weak var pc2: UILabel!
     @IBOutlet weak var pc3: UILabel!
+    
+    //data
+    @IBOutlet weak var data: UILabel!
+    
 }
 
 //classe das celulas dos post its (em Mural)
 class MyCollectionViewCell2: UICollectionViewCell{
     @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var nota: UILabel!
+    @IBOutlet weak var data: UILabel!
 }

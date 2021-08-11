@@ -26,8 +26,10 @@ var item1 = CollectionItemMural(nota: "", backgroundImage: UIImage(named:"base2"
 var meuMural: [CollectionItemMural] = [item0,item1]
 
 //base de dados mostrado ao usuário na aba Meu Devocional
-var devocional0 = CollectionItem(titulo: "Crie sua devocional!", baseBiblica: "Esse é seu espaço", contextualizacao: "", reflexao: "", conclusao: "", aplicacao1: " ", aplicacao2: " ", aplicacao3: " ", backgroundColor: verde, backgroundImage: UIImage(named: "crie1")!,link:"https://www.youtube.com/watch?v=7SO3ObU99e4&list=RD7SO3ObU99e4&start_radio=1")
-var meuDevocional: [CollectionItem] = [devocional0]
+var devocional0 = CollectionItem(titulo: "", baseBiblica: "", contextualizacao: "", reflexao: "", conclusao: "", aplicacao1: " ", aplicacao2: " ", aplicacao3: " ", backgroundColor: .clear, backgroundImage: UIImage(named: "crieBase2")!,link:"https://www.youtube.com/watch?v=7SO3ObU99e4&list=RD7SO3ObU99e4&start_radio=1")
+var devocional1 = CollectionItem(titulo: "", baseBiblica: "", contextualizacao: "", reflexao: "", conclusao: "", aplicacao1: " ", aplicacao2: " ", aplicacao3: " ", backgroundColor: .clear, backgroundImage: UIImage(named: "crieBase")!,link:"https://www.youtube.com/watch?v=7SO3ObU99e4&list=RD7SO3ObU99e4&start_radio=1")
+var devocional2 = CollectionItem(titulo: "", baseBiblica: "", contextualizacao: "", reflexao: "", conclusao: "", aplicacao1: " ", aplicacao2: " ", aplicacao3: " ", backgroundColor: .clear, backgroundImage: UIImage(named: "crieBase3")!,link:"https://www.youtube.com/watch?v=7SO3ObU99e4&list=RD7SO3ObU99e4&start_radio=1")
+var meuDevocional: [CollectionItem] = [devocional0,devocional1,devocional2]
 
 
 
@@ -71,3 +73,4 @@ let refEstudos: [String] = ["Gálatas 5: 16-26","Mateus 15: 1‭-‬20 ","Efési
 //array com as notificações do app
 let notfTitles: [String] = ["Meu Devocional","Gratidão","Worship Time!","Salmo 37:5","Mateus 6:34","João 3:16","Colossenses 3:4","Momento de oração","Mateus 11:21","Mateus 22:37", "Romanos 8:38"]
 let notfContents: [String] = ["Não esqueça de anotar e compartilhar a devocional de hoje!","Já adicionou um motivo para ser grato no Mural hoje?","Que tal escolher uma devocional para leitura e louvor hoje?","'Entrega o teu caminho ao Senhor; confia nele, e ele tudo fará.'","...Portanto, não vos inquieteis com o dia de amanhã, pois o amanhã trará os seus cuidados; basta ao dia o seu próprio mal.","'Porque Deus tanto amou o mundo que deu o seu Filho Unigênito, para que todo o que nele crer não pereça, mas tenha a vida eterna.'","'Acima de tudo, porém, revistam-se do amor, que é o elo perfeito.'","Conta pra Ele, conte com Ele!","'Vinde a mim todos os que estais cansados e oprimidos, e eu vos aliviarei.'","'E Jesus disse-lhe: Amarás o Senhor, teu Deus, de todo o teu coração, e de toda a tua alma, e de todo o teu pensamento.'","'Nem a altura, nem a profundidade, nem alguma outra criatura nos poderá separar do amor de Deus, que está em Cristo Jesus, nosso Senhor!'"]
+

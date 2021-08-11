@@ -13,6 +13,7 @@ protocol MinhaDevocional2ViewControllerDelegate: AnyObject {
 class MinhaDevocional2ViewController: UIViewController {
     
     weak var delegate2: MinhaDevocional2ViewControllerDelegate?
+    var tituloShare = "𝑀𝑒𝓊 𝒟𝑒𝓋𝑜𝒸𝒾𝑜𝓃𝒶𝓁"
     var devocional = 0
     var dataDevocional: [Devocionais] = []
     var textoDefaut = ""
@@ -73,7 +74,7 @@ class MinhaDevocional2ViewController: UIViewController {
     }
     
     @IBAction func shareButton(_ sender: Any) {
-        let vc = UIActivityViewController(activityItems: [dataDevocional[devocional].titulo!,dataDevocional[devocional].baseBiblica!,dataDevocional[devocional].reflexao!,dataDevocional[devocional].link!], applicationActivities: [])
+        let vc = UIActivityViewController(activityItems: [tituloShare,dataDevocional[devocional].titulo!,dataDevocional[devocional].baseBiblica!,dataDevocional[devocional].reflexao!,dataDevocional[devocional].link!], applicationActivities: [])
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(vc, animated: true)
     }

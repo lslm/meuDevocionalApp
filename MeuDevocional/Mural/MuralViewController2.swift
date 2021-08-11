@@ -22,6 +22,7 @@ class MuralViewController2: UIViewController {
     var selectedColor = "postit1"
     var isEdit = false
     
+    @IBOutlet weak var limitText: UILabel!
     @IBOutlet weak var minhaNotaInput: UITextField!
     @IBOutlet weak var okButton: UIButton!
     @IBOutlet weak var color1: UIButton?
@@ -48,6 +49,11 @@ class MuralViewController2: UIViewController {
         dataPost.last?.nota = minhaNotaInput.text!
         dataPost.last?.backgroundImage = selectedColor
         
+        let date = Date()
+        let formatter =  DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        dataPost.last?.data =  formatter.string(from: date)
+        
         //salvando
         try? CoreDataStackPost.saveContext()
         
@@ -57,10 +63,18 @@ class MuralViewController2: UIViewController {
     }
     
     @IBAction func cancelButton(_ sender: Any) {
-        ///se for uma adicao, exclui o item que tinha adicionado anteriormente
-        try! CoreDataStackPost.deletePost(post: dataPost.last!)
-        delegate?.didRegister()
-        self.dismiss(animated: true, completion: nil)
+       
+            let ac = UIAlertController(title: "", message: "Tem certeza de que deseja descartar este novo motivo?", preferredStyle: .actionSheet)
+                ac.addAction(UIAlertAction(title: "Ignorar alterações", style: .destructive, handler: {
+                    [self] action in
+                    ///opcoes de cancelamento
+                    ///se for uma adicao, exclui o item que tinha adicionado anteriormente
+                    try! CoreDataStackPost.deletePost(post: dataPost.last!)
+                    delegate?.didRegister()
+                    self.dismiss(animated: true, completion: nil)
+                }))
+                ac.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+                present(ac, animated: true)
     }
     
     
@@ -134,4 +148,20 @@ extension MuralViewController2: UITextFieldDelegate{
     textField.resignFirstResponder()
     return true
     }
+    
+    //funcao criada para printar o limite de caracteres da palavra chave
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+           guard let text = textField.text else { return true }
+        let length = text.count + string.count - range.length
+           // create an Integer of 15 - the length of your TextField.text to count down
+           //let count = 15 - length
+            let count = length
+           // set the .text property of your UILabel to the live created String
+           limitText.text =  String(count) + "/100"
+           // if you want to limit to 15 charakters
+           // you need to return true and <= 15
+
+           return length < 100
+       }
 }

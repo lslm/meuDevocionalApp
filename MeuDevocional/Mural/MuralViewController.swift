@@ -40,7 +40,7 @@ class MuralViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //adiciona o card que sera apenas editado na proxima view...
-        let _ = try? CoreDataStackPost.createPost(nota: " ", backgroundImage: "novopost")
+        let _ = try? CoreDataStackPost.createPost(nota: " ", backgroundImage: "novopost", data: "")
         muralCollection.reloadData()
         let vc = segue.destination as! MuralViewController2
         vc.delegate = self
@@ -61,8 +61,8 @@ class MuralViewController: UIViewController {
                     present(ac, animated: true)
                 }
                 else{
-                let ac = UIAlertController(title: "Deletar '\(dataMural[indexPath.item].nota ?? "NONE")'", message: nil, preferredStyle: .actionSheet)
-                    ac.addAction(UIAlertAction(title: "Confirmar", style: .destructive, handler: {
+                let ac = UIAlertController(title: "Deletar '\(dataMural[indexPath.item].nota ?? "NONE")'", message: "O conteúdo não poderá ser recuperado.", preferredStyle: .actionSheet)
+                    ac.addAction(UIAlertAction(title: "Deletar", style: .destructive, handler: {
                         [weak self] action in
                         try! CoreDataStackPost.deletePost(post: dataMural[indexPath.row])
                     self?.muralCollection.reloadData()
@@ -94,10 +94,12 @@ extension MuralViewController: UICollectionViewDataSource{
         if post.count == 0{
             cell.nota.text = meuMural[indexPath.row].nota
             cell.background.image = meuMural[indexPath.row].backgroundImage
+            cell.data.text = ""
             return cell
         }
         //caso haja valores no banco de dados, mostra os dados do Banco de dados
         cell.nota.text = post[indexPath.row].nota
+        cell.data.text = post[indexPath.row].data
         cell.background.image = UIImage(named: post[indexPath.row].backgroundImage!)
         changeTextColor(cell: cell)
         cell.layer.cornerRadius = 15
@@ -109,15 +111,19 @@ extension MuralViewController: UICollectionViewDataSource{
         
         if cell.background.image == UIImage(named: "postit1"){
             cell.nota.textColor = .white
+            cell.data.textColor = .white
         }
         else if cell.background.image == UIImage(named: "postit2"){
             cell.nota.textColor = .white
+            cell.data.textColor = .white
         }
         else if cell.background.image == UIImage(named: "postit3"){
             cell.nota.textColor = verde
+            cell.data.textColor = verde
         }
         else if cell.background.image == UIImage(named: "postit4"){
             cell.nota.textColor = amarelo
+            cell.data.textColor = amarelo
         }
     }
     
@@ -128,12 +134,6 @@ extension MuralViewController: UICollectionViewDataSource{
 extension MuralViewController: UICollectionViewDelegate {
    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        if let vc = storyboard?.instantiateViewController(identifier: "addmural") as?
-//                   MuralViewController2{
-//            vc.isEdit = true
-//            vc.indice = indexPath.row
-//            navigationController?.present(vc, animated: true, completion: nil)
-//        }
         dataPost1 = try! CoreDataStackPost.getPost()
         if dataPost1.count != 0{
             let ac = UIAlertController(title:"Meu motivo", message: dataPost1[indexPath.row].nota, preferredStyle: .alert)

@@ -13,6 +13,7 @@ protocol MinhaDevocional3ViewControllerDelegate: AnyObject {
 
 class MinhaDevocional3ViewController: UIViewController {
     
+    var validation = Validation() //para validar links
     weak var delegate: MinhaDevocional3ViewControllerDelegate?
     
     var dataDevocional: [Devocionais] = []
@@ -36,11 +37,12 @@ class MinhaDevocional3ViewController: UIViewController {
     @IBOutlet weak var linkTextField: UITextField!
     @IBOutlet weak var okayLinkButton: UIButton!
     
+    //para pegar a data
+    private var datePicker: UIDatePicker?
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
         tableView.delegate = self
         tableView.dataSource = self
         reflexaoView.delegate = self
@@ -51,8 +53,11 @@ class MinhaDevocional3ViewController: UIViewController {
         
         dataDevocional = try! CoreDataStack.getDevocional()
         
+        
         ///define se está atualizando uma devocional ou apenas criando uma nova
-        if edit == false {indice = dataDevocional.count-1}
+        if edit == false {
+            indice = dataDevocional.count-1
+        }
         
         ///define o tipo de texto que sera mostrado ao usuário na reflexao (se é o armazenado ou o default)
         if dataDevocional[indice].reflexao != ""{
@@ -67,7 +72,15 @@ class MinhaDevocional3ViewController: UIViewController {
         linkTextField.text = dataDevocional[indice].link
         selectedColor = dataDevocional[indice].backgroundColor!
         
+        ///salvando data
+        let date = Date()
+        let formatter =  DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        dataDevocional[indice].data =  formatter.string(from: date)
         okayLinkButton.layer.cornerRadius = 8
+        
+        ///salvando o progresso
+        try? CoreDataStack.saveContext()
         
     }
     
@@ -153,15 +166,23 @@ class MinhaDevocional3ViewController: UIViewController {
     ///botao de cancelar
     @IBAction func cancelButton(_ sender: Any) {
         /// se for apenas uma edicao, apenas cancela a tela
-        if edit == true {
-            self.dismiss(animated: true, completion: nil)
-        }
-        else{
-            ///se for uma adicao, exclui o item que tinha adicionado anteriormente
-            try! CoreDataStack.deleteDevocional(devocionais: dataDevocional[indice])
-            delegate?.didRegister()
-            self.dismiss(animated: true, completion: nil)
-        }
+        ///alerta de cancelar
+        let ac = UIAlertController(title: "", message: "Tem certeza de que deseja descartar esta nova Devocional?", preferredStyle: .actionSheet)
+            ac.addAction(UIAlertAction(title: "Ignorar alterações", style: .destructive, handler: {
+                [self] action in
+                    ///opcoes de cancelamento
+                    if edit == true {
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                    else{
+                        ///se for uma adicao, exclui o item que tinha adicionado anteriormente
+                        try! CoreDataStack.deleteDevocional(devocionais: dataDevocional[indice])
+                        delegate?.didRegister()
+                        self.dismiss(animated: true, completion: nil)
+                    }
+            }))
+            ac.addAction(UIAlertAction(title: "Continuar editando", style: .cancel, handler: nil))
+            present(ac, animated: true)
     }
     
     ///funcoes que selecionam as cores
@@ -209,12 +230,31 @@ class MinhaDevocional3ViewController: UIViewController {
     
     ///guarda o link disponibilizado pela pessoa
     @IBAction func okayLink(_ sender: Any) {
+        
         linkTextField.returnKeyType = .done
         linkTextField.autocapitalizationType = .words
         linkTextField.delegate = self
         linkTextField.resignFirstResponder()
+        
+        ///confere se o link está correto
+        let isValidateLink = self.validation.validateYoutube(name: linkTextField.text!)
+        let isValidateLink2 = self.validation.validateSpotify(name: linkTextField.text!)
+        if (isValidateLink == false) && (isValidateLink2 == false){
+          alertLink()
+          return
+        }
+        //armazena o link certo ou vazio. Se estiver vazio irá mostrar uma playlist Default
         dataDevocional[indice].link = linkTextField.text!
 
+    }
+    
+    func alertLink(){
+        let ac = UIAlertController(title:"Link Inválido", message: "Insira um link do YouTube, Spotify, Apple Music ou Deezer.", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .cancel, handler: {
+                [weak self] action in
+                self!.linkTextField.text? = ""
+        }))
+        present(ac, animated: true)
     }
 }
 
@@ -233,24 +273,38 @@ extension MinhaDevocional3ViewController: UITableViewDataSource{
         ///Se for a edicao de uma devocional ja criada, as celulas vao mostrar o que ja esta armazenado no banco de dados
         if inputLista[indexPath.row] == "Título"{
             cell.textFieldCell.text = dataDevocional[indice].titulo!
+            cell.label.isHidden = true
+            cell.textFieldCell.maxLength = 40
         }
         else if inputLista[indexPath.row] == "Livro"{
             cell.textFieldCell.text = dataDevocional[indice].livro!
+            cell.textFieldCell.maxLength = 20
+            cell.label.isHidden = true
         }
         else if inputLista[indexPath.row] == "Capítulo"{
             cell.textFieldCell.text = dataDevocional[indice].capitulo!
+            cell.textFieldCell.maxLength = 20
+            cell.label.isHidden = true
         }
         else if inputLista[indexPath.row] == "Versículo"{
             cell.textFieldCell.text = dataDevocional[indice].versiculo!
+            cell.textFieldCell.maxLength = 30
+            cell.label.isHidden = true
         }
         else if inputLista[indexPath.row] == "Palavra chave 1"{
             cell.textFieldCell.text = dataDevocional[indice].aplicacao1!
+            ///definindo uma quanrtidade máxima de letras
+            cell.textFieldCell.maxLength = 15
         }
         else if inputLista[indexPath.row] == "Palavra chave 2"{
             cell.textFieldCell.text = dataDevocional[indice].aplicacao2!
+            ///definindo uma quanrtidade máxima de letras
+            cell.textFieldCell.maxLength = 15
         }
         else if inputLista[indexPath.row] == "Palavra chave 3"{
             cell.textFieldCell.text = dataDevocional[indice].aplicacao3!
+            ///definindo uma quanrtidade máxima de letras
+            cell.textFieldCell.maxLength = 15
         }
         
         if cell.textFieldCell.placeholder == "Capítulo"{
@@ -288,6 +342,16 @@ extension MinhaDevocional3ViewController: UITextFieldDelegate{
     ///essa funcao faz com que a tecla return do teclado faca o app aceitar a entrada e o teclado abaixe
         textField.autocapitalizationType = .words
         textField.resignFirstResponder()
+        
+        ///confere se o link está correto
+        let isValidateLink = self.validation.validateYoutube(name: linkTextField.text!)
+        let isValidateLink2 = self.validation.validateSpotify(name: linkTextField.text!)
+        if (isValidateLink == false) && (isValidateLink2 == false){
+          alertLink()
+        }
+        //armazena o link certo ou vazio. Se estiver vazio irá mostrar uma playlist Default
+        dataDevocional[indice].link = linkTextField.text!
+        
         return true
     }
 }

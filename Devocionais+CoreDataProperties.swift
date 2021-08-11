@@ -30,7 +30,7 @@ extension Devocionais {
     @NSManaged public var capitulo: String?
     @NSManaged public var versiculo: String?
     @NSManaged public var livro: String?
-
+    @NSManaged public var data: String?
 
 }
 

@@ -29,7 +29,7 @@ class CoreDataStack{
         }
     }
     
-    static func createDevocional(titulo: String, baseBiblica: String, contextualizacao: String, reflexao: String, conclusao: String, aplicacao1: String, aplicacao2: String, aplicacao3: String, backgroundColor: String, backgroundImage: String, link: String,livro: String,capitulo: String,versiculo: String) throws -> Devocionais{
+    static func createDevocional(titulo: String, baseBiblica: String, contextualizacao: String, reflexao: String, conclusao: String, aplicacao1: String, aplicacao2: String, aplicacao3: String, backgroundColor: String, backgroundImage: String, link: String,livro: String,capitulo: String,versiculo: String,data: String) throws -> Devocionais{
         guard let devocionais = NSEntityDescription.insertNewObject(forEntityName: "Devocionais", into: context) as? Devocionais else {preconditionFailure()}
         devocionais.titulo = titulo
         devocionais.baseBiblica = baseBiblica
@@ -45,6 +45,7 @@ class CoreDataStack{
         devocionais.livro = livro
         devocionais.capitulo = capitulo
         devocionais.versiculo = versiculo
+        devocionais.data = data
 
         try saveContext()
         return devocionais

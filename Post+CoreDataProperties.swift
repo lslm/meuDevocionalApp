@@ -18,6 +18,8 @@ extension Post {
 
     @NSManaged public var nota: String?
     @NSManaged public var backgroundImage: String?
+    @NSManaged public var data: String?
+
 
 }
 

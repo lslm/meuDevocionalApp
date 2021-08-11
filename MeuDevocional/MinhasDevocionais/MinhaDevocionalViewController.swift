@@ -38,7 +38,7 @@ class MinhaDevocionalViewController: UICollectionViewController {
     ///funcao que ira gerar o modal para a criacao da nova colecction
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         ///adiciona o card que sera apenas editado na proxima view...
-        let _ = try? CoreDataStack.createDevocional(titulo: "", baseBiblica: "", contextualizacao: "", reflexao: "", conclusao: "", aplicacao1: "", aplicacao2: "", aplicacao3: "", backgroundColor: "1", backgroundImage: "crie2", link: "",livro: "",capitulo: "",versiculo: "")
+        let _ = try? CoreDataStack.createDevocional(titulo: "", baseBiblica: "", contextualizacao: "", reflexao: "", conclusao: "", aplicacao1: "", aplicacao2: "", aplicacao3: "", backgroundColor: "1", backgroundImage: "crie2", link: "",livro: "",capitulo: "",versiculo: "",data: "")
         self.collectionView?.reloadData()
         let vc = segue.destination as! MinhaDevocional3ViewController
         vc.edit = false
@@ -76,15 +76,14 @@ class MinhaDevocionalViewController: UICollectionViewController {
         
         ///se nao houver adicoes no banco de dados, pega a devocional disponibilizada como base
         if dataDevocional.count == 0 {
+            cell.data.text = ""
             cell.myTitle.text = meuDevocional[indexPath.row].titulo
             cell.myImage.image = meuDevocional[indexPath.row].backgroundImage
             cell.myReference.text = meuDevocional[indexPath.row].baseBiblica
-            cell.backgroundColor = verde
-            cell.myTitle.textColor = .white
-            cell.myReference.textColor = .white
-            cell.pc1.text = " "
-            cell.pc2.text = " "
-            cell.pc3.text = " "
+            cell.backgroundColor = .clear
+            cell.pc1.text = ""
+            cell.pc2.text = ""
+            cell.pc3.text = ""
         }
         else{
             ///caso ja houverem dados no Banco de dados, mostra eles aos usuarios
@@ -107,13 +106,29 @@ class MinhaDevocionalViewController: UICollectionViewController {
     
     ///clique na celula leva para a visualizacao do conteudo
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let vc = storyboard?.instantiateViewController(identifier: "minhadevocional") as?
-                    MinhaDevocional2ViewController {
-            vc.devocional = indexPath.item
-            vc.delegate2 = self
-            self.collectionView?.reloadData()
-            navigationController?.pushViewController(vc, animated: true)
-            }
+        /// se nao houver nenhuma criada, começa a criar uma
+        let dataDevocional = try! CoreDataStack.getDevocional()
+        if dataDevocional.count == 0 {
+            if let vc = storyboard?.instantiateViewController(identifier: "minhadevocionalForms") as?
+                        MinhaDevocional3ViewController {
+                ///adiciona o card que sera apenas editado na proxima view...
+                let _ = try? CoreDataStack.createDevocional(titulo: "", baseBiblica: "", contextualizacao: "", reflexao: "", conclusao: "", aplicacao1: "", aplicacao2: "", aplicacao3: "", backgroundColor: "1", backgroundImage: "crie2", link: "",livro: "",capitulo: "",versiculo: "",data: "")
+                self.collectionView?.reloadData()
+                vc.edit = false
+                vc.delegate = self
+                navigationController?.present(vc, animated: true)
+                }
+        }
+        else{
+            if let vc = storyboard?.instantiateViewController(identifier: "minhadevocional") as?
+                        MinhaDevocional2ViewController {
+                vc.devocional = indexPath.row
+                vc.delegate2 = self
+                //self.collectionView?.reloadData()
+                navigationController?.pushViewController(vc, animated: true)
+                }
+        }
+    
     }
     
     /// --------- Funcoes auxiliares -----------
@@ -121,6 +136,7 @@ class MinhaDevocionalViewController: UICollectionViewController {
         ///seleciona o que tem no banco de dados para exibir
         let dataDevocional = try! CoreDataStack.getDevocional()
         
+        cell.data.text = dataDevocional[index].data
         cell.myTitle.text = dataDevocional[index].titulo
         cell.myReference.text = dataDevocional[index].baseBiblica
         cell.myImage.image = UIImage(named: dataDevocional[index].backgroundImage!)
@@ -165,18 +181,22 @@ class MinhaDevocionalViewController: UICollectionViewController {
     ///define a cor do texto de acordo com o backgrund
     func defineTextColor(cell: MyCollectionViewCell){
         if cell.backgroundColor == verde {
+            cell.data.textColor = .white
             cell.myTitle.textColor = .white
             cell.myReference.textColor = .white
         }
         else if cell.backgroundColor == amarelo{
+            cell.data.textColor = .white
             cell.myTitle.textColor = .white
             cell.myReference.textColor = .white
         }
         else if cell.backgroundColor == amarelo2{
+            cell.data.textColor = verde
             cell.myTitle.textColor = verde
             cell.myReference.textColor = verde
         }
         else {
+            cell.data.textColor = amarelo
             cell.myTitle.textColor = amarelo
             cell.myReference.textColor = amarelo
         }
@@ -197,8 +217,8 @@ class MinhaDevocionalViewController: UICollectionViewController {
                     present(ac, animated: true)
                 }
                 else{
-                let ac = UIAlertController(title: "Deletar todo o conteúdo de '\(dataDevocional[indexPath.item].titulo ?? "NONE")'", message: nil, preferredStyle: .actionSheet)
-                    ac.addAction(UIAlertAction(title: "Confirmar", style: .destructive, handler: {
+                let ac = UIAlertController(title: "Deletar todo o conteúdo de '\(dataDevocional[indexPath.item].titulo ?? "NONE")'", message: "O conteúdo não poderá ser recuperado.", preferredStyle: .actionSheet)
+                    ac.addAction(UIAlertAction(title: "Deletar", style: .destructive, handler: {
                         [weak self] action in
                     try! CoreDataStack.deleteDevocional(devocionais: dataDevocional[indexPath.row])
                     self?.collectionView.reloadData()
