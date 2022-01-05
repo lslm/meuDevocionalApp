@@ -56,11 +56,14 @@ class DevocionalDiarioEstudoViewController: UIViewController {
     override func viewDidLoad() {
         
         editButton(button: play)
-        //carregar banco de dados
+        // MARK: Carregar conteúdo
+        ///carregar dados das devocionais
+        #warning("Precisa ficar na viewDidLoad caso contrario da erro")
+        
         if cell == 1{
             //cria a devocional que foi clicada
             criaCotidiano(indice: estudo)
-            //atualiza o vetor que é utilizado
+            //atualiza o vetor que é atualizado e alimentado
             base = cotidianoBase
         }
         else if cell == 2{
@@ -85,14 +88,16 @@ class DevocionalDiarioEstudoViewController: UIViewController {
         conclusaoConteudo.text = base[estudo].conclusao
         
         ///carrega dados armazenados dos usuarios
-        selecionaBaseDados()
+        self.selecionaBaseDados()
     
         aplicacao1 = defaults.object(forKey: keySelected1) as? [String] ?? [String]()
         aplicacao2 = defaults.object(forKey: keySelected2) as? [String] ?? [String]()
         aplicacao3 = defaults.object(forKey: keySelected3) as? [String] ?? [String]()
         anotacao = defaults.object(forKey: keySelected4) as? [String] ?? [String]()
         
-        selecionaVetores()
+        self.selecionaVetores()
+        
+        // MARK: Conteúdo editável
         
         ///verificacao dos inputs na textField
         fieldAplicacao1.text = aplicacao1[estudo]
@@ -100,15 +105,9 @@ class DevocionalDiarioEstudoViewController: UIViewController {
         fieldAplicacao3.text = aplicacao3[estudo]
         
         ///verificando o check de cada field
-        if fieldAplicacao1.text != ""{
-            check1.setBackgroundImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
-        }
-        if fieldAplicacao2.text != ""{
-            check2.setBackgroundImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
-        }
-        if fieldAplicacao3.text != "" {
-            check3.setBackgroundImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
-        }
+        self.confereMark(textField: fieldAplicacao1, button: check1)
+        self.confereMark(textField: fieldAplicacao2, button: check2)
+        self.confereMark(textField: fieldAplicacao3, button: check3)
         
         ///verificacao da anotacao pessoal
         ///define o tipo de texto que sera mostrado ao usuário na reflexao (se é o armazenado ou o default)
@@ -121,12 +120,14 @@ class DevocionalDiarioEstudoViewController: UIViewController {
             anotacoesPessoais.textColor = UIColor.lightGray
         }
         
+        // MARK: Delegates
         fieldAplicacao1.delegate = self
         fieldAplicacao2.delegate = self
         fieldAplicacao3.delegate = self
         anotacoesPessoais.delegate = self
     }
     
+    // MARK: Buttons
     @IBAction func saveButton(_ sender: Any) {
         aplicacao1[estudo] = fieldAplicacao1.text!
         aplicacao2[estudo] = fieldAplicacao2.text!
@@ -151,6 +152,7 @@ class DevocionalDiarioEstudoViewController: UIViewController {
         
         hideKeyboard()
     }
+    
     @IBAction func playMusicButton(_ sender: Any) {
         if let vc = storyboard?.instantiateViewController(identifier: "music") as?
                     DevocionalMusicViewController {
@@ -158,6 +160,8 @@ class DevocionalDiarioEstudoViewController: UIViewController {
             navigationController?.pushViewController(vc, animated: true)
             }
     }
+    
+    // MARK: Selecao de conteudos do user default de acordo com a celula
     func selecionaBaseDados(){
         if cell == 1{
             keySelected1 = "baseAplicacaoCotidiano1"
@@ -178,6 +182,8 @@ class DevocionalDiarioEstudoViewController: UIViewController {
             keySelected4 = "estudosAnotacao"
         }
     }
+    
+    // MARK: User defaults inicialização
     func selecionaVetores(){
         if cell == 1{
             if aplicacao1.count == 0{
@@ -216,7 +222,11 @@ class DevocionalDiarioEstudoViewController: UIViewController {
 
             }
         }
+        
+        
     }
+    
+    // MARK: Edicao e conferencia
     override func touchesBegan(_: Set<UITouch>, with: UIEvent?) {
         //anotacoesPessoais.resignFirstResponder()
         hideKeyboard()
@@ -227,17 +237,24 @@ class DevocionalDiarioEstudoViewController: UIViewController {
     func editButton(button:UIButton){
         button.layer.backgroundColor = nil
         button.layer.cornerRadius = 1
-        //button.layer.borderWidth = 2
-        // button.layer.borderColor = verde.cgColor
-        button.layer.shadowOffset = CGSize(width: 0, height: 1)
+        button.layer.shadowOffset = CGSize(width: 1, height: 1)
         button.layer.shadowColor = UIColor.darkGray.cgColor
-        button.layer.shadowOpacity = 1
+        button.layer.shadowOpacity = 1.5
         button.layer.shadowRadius = 3
         button.layer.masksToBounds = false
     }
   
+    func confereMark(textField: UITextField, button: UIButton){
+        if textField.text != ""{
+            button.setBackgroundImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
+        }
+        else{
+            button.setBackgroundImage(UIImage(systemName: "checkmark.circle"), for: .normal)
+        }
+    }
 }
 
+// MARK: Extension Text Field
 extension DevocionalDiarioEstudoViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         ///essa funcao faz com que a tecla return do teclado faca o app aceitar a entrada e o teclado abaixe
