@@ -45,17 +45,10 @@ extension MyTableViewCell: UITextFieldDelegate{
         if textFieldCell.placeholder == "Palavra chave 1" || textFieldCell.placeholder == "Palavra chave 2" || textFieldCell.placeholder == "Palavra chave 3"{
             guard let text = textField.text else { return true }
             let length = text.count + string.count - range.length
-               // create an Integer of 15 - the length of your TextField.text to count down
-               //let count = 15 - length
-                let count = length
-               // set the .text property of your UILabel to the live created String
-               label.text =  String(count) + "/15"
-
-               // if you want to limit to 15 charakters
-               // you need to return true and <= 15
-
-               return length < 15
-           }
-        return true
+            let count = length
+            label.text =  String(count) + "/15"
+            return length < 15
         }
+        return true
+    }
 }

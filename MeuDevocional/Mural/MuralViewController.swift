@@ -27,6 +27,8 @@ class MuralViewController: UIViewController {
     }
     
     
+    // MARK: Buttons
+    
     @IBAction func addButton(_ sender: Any) {
     }
     
@@ -38,6 +40,7 @@ class MuralViewController: UIViewController {
             }
     }
     
+    // MARK: Prepare
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //adiciona o card que sera apenas editado na proxima view...
         let _ = try? CoreDataStackPost.createPost(nota: " ", backgroundImage: "novopost", data: "")
@@ -46,6 +49,7 @@ class MuralViewController: UIViewController {
         vc.delegate = self
    }
     
+    // MARK: Long press
     @objc private func handleLongPress(sender: UILongPressGestureRecognizer) {
         let dataMural = try! CoreDataStackPost.getPost()
         if sender.state == .began {
@@ -76,6 +80,7 @@ class MuralViewController: UIViewController {
 
 
 
+// MARK: Collection View
 extension MuralViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //retorna a quantidade de PostIts presentes no meu CoreData
@@ -148,6 +153,7 @@ extension MuralViewController: UICollectionViewDelegate {
     }
 }
 
+// MARK: Delegate
 extension MuralViewController: MuralViewController2Delegate{
     func didRegister(){
         muralCollection.reloadData()

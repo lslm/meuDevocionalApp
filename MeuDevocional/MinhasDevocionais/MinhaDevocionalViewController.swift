@@ -27,6 +27,7 @@ class MinhaDevocionalViewController: UICollectionViewController {
         
     }
     
+    // MARK: Info view
     ///tela de informacao
     @IBAction func infoView(_ sender: Any) {
         if let vc = storyboard?.instantiateViewController(identifier: "info") as?
@@ -35,6 +36,8 @@ class MinhaDevocionalViewController: UICollectionViewController {
             navigationController?.present(vc, animated: true, completion: nil)
             }
     }
+    
+    // MARK: Prepare (edicao e devocional)
     ///funcao que ira gerar o modal para a criacao da nova colecction
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         ///adiciona o card que sera apenas editado na proxima view...
@@ -61,7 +64,7 @@ class MinhaDevocionalViewController: UICollectionViewController {
         return dataDevocional.count
     }
     
-    
+    // MARK: Edicao da celula
     ///Funcao que retorna a celula editada
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -104,6 +107,7 @@ class MinhaDevocionalViewController: UICollectionViewController {
     
     }
     
+    // MARK: Clique na celula
     ///clique na celula leva para a visualizacao do conteudo
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         /// se nao houver nenhuma criada, começa a criar uma
@@ -131,6 +135,7 @@ class MinhaDevocionalViewController: UICollectionViewController {
     
     }
     
+    // MARK: Auxiliares de edicao
     /// --------- Funcoes auxiliares -----------
     func editaCelula(cell: MyCollectionViewCell,index: Int){
         ///seleciona o que tem no banco de dados para exibir
@@ -202,6 +207,7 @@ class MinhaDevocionalViewController: UICollectionViewController {
         }
     }
     
+    // MARK: Long Press function
     ///funcao que gera a exclusao do item se for pressionado
     @objc private func handleLongPress(sender: UILongPressGestureRecognizer) {
         let dataDevocional = try! CoreDataStack.getDevocional()
@@ -233,6 +239,7 @@ class MinhaDevocionalViewController: UICollectionViewController {
     }
 }
 
+// MARK: Delegate
 ///funcoes delegate utilizadas para atualizar o conteudo da view
 extension MinhaDevocionalViewController: MinhaDevocional3ViewControllerDelegate{
     func didRegister(){

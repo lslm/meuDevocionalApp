@@ -39,9 +39,9 @@ class MuralViewController2: UIViewController {
         minhaNotaInput.delegate = self
         dataPost = try! CoreDataStackPost.getPost()
         okButton.layer.cornerRadius = 8
-        // Do any additional setup after loading the view.
     }
     
+    // MARK: Buttons
     @IBAction func onTap(_ sender: Any) {
         if isEdit == true{
             indice = dataPost.count-1
@@ -77,6 +77,8 @@ class MuralViewController2: UIViewController {
                 present(ac, animated: true)
     }
     
+    
+    // MARK: Colors Button
     
     //funcoes de selecao de cores
     @IBAction func clickColor1(_ sender: Any) {
@@ -141,6 +143,8 @@ class MuralViewController2: UIViewController {
     }
     
 }
+
+// MARK: Extension TextField
 extension MuralViewController2: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     //essa funcao faz com que a tecla return do teclado faca o app aceitar a entrada e o teclado abaixe
