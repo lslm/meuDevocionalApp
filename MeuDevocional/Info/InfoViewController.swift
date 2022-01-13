@@ -16,7 +16,6 @@ class InfoViewController: UIViewController {
         super.viewDidLoad()
         //imagem muda de acordo com a tela
         imagemBase.image = UIImage(named: imagem)
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func close(_ sender: Any) {

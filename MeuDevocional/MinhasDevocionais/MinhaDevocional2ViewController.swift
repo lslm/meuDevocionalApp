@@ -62,6 +62,7 @@ class MinhaDevocional2ViewController: UIViewController {
         }
     }
     
+    // MARK: Buttons 
     ///carrega o formulario de edicao
     @IBAction func editTrue(_ sender: Any) {
         if let vc = storyboard?.instantiateViewController(identifier: "minhadevocionalForms") as?
@@ -106,14 +107,13 @@ class MinhaDevocional2ViewController: UIViewController {
         else{titulo.textColor = amarelo3}
     }
     
+    /// altera o visual do botao de play
     func editButton(button:UIButton){
         button.layer.backgroundColor = nil
         button.layer.cornerRadius = 1
-        //button.layer.borderWidth = 2
-        // button.layer.borderColor = verde.cgColor
-        button.layer.shadowOffset = CGSize(width: 0, height: 1)
+        button.layer.shadowOffset = CGSize(width: 1, height: 1)
         button.layer.shadowColor = UIColor.darkGray.cgColor
-        button.layer.shadowOpacity = 1
+        button.layer.shadowOpacity = 1.5
         button.layer.shadowRadius = 3
         button.layer.masksToBounds = false
     }
@@ -122,6 +122,6 @@ class MinhaDevocional2ViewController: UIViewController {
 
 extension MinhaDevocional2ViewController: MinhaDevocional3ViewControllerDelegate{
     func didRegister(){
-        atualizaDevocional()
+        self.atualizaDevocional()
     }
 }

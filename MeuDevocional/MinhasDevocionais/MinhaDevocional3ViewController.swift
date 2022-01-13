@@ -54,6 +54,7 @@ class MinhaDevocional3ViewController: UIViewController {
         dataDevocional = try! CoreDataStack.getDevocional()
         
         
+        // MARK: Edicao ou criacao
         ///define se está atualizando uma devocional ou apenas criando uma nova
         if edit == false {
             indice = dataDevocional.count-1
@@ -84,7 +85,7 @@ class MinhaDevocional3ViewController: UIViewController {
         
     }
     
-    
+    // MARK: Save button
     ///funcao criada para adicionar a nova celula criada
     @IBAction func addAndSave(_ sender: Any) {
         //titulo
@@ -157,12 +158,14 @@ class MinhaDevocional3ViewController: UIViewController {
         
         ///salvando o progresso
         try? CoreDataStack.saveContext()
+        ///registra as aleracoes para visualizacao futura
         delegate?.didRegister()
         tableView.reloadData()
         tableView.reloadInputViews()
         self.dismiss(animated: true, completion: nil)
     }
     
+    // MARK: Cancel button
     ///botao de cancelar
     @IBAction func cancelButton(_ sender: Any) {
         /// se for apenas uma edicao, apenas cancela a tela
@@ -185,6 +188,7 @@ class MinhaDevocional3ViewController: UIViewController {
             present(ac, animated: true)
     }
     
+    // MARK: Funcoes de cores
     ///funcoes que selecionam as cores
     @IBAction func changeColor1(_ sender: Any) {
         ///desativa as outras cores
@@ -228,6 +232,7 @@ class MinhaDevocional3ViewController: UIViewController {
         button.setBackgroundImage(UIImage(named: cor), for: .normal)
     }
     
+    // MARK: Link button
     ///guarda o link disponibilizado pela pessoa
     @IBAction func okayLink(_ sender: Any) {
         
@@ -258,6 +263,7 @@ class MinhaDevocional3ViewController: UIViewController {
     }
 }
 
+// MARK: Extensions table view
 extension MinhaDevocional3ViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         ///clique na celula
@@ -320,6 +326,7 @@ extension MinhaDevocional3ViewController: UITableViewDataSource{
     }
 }
 
+// MARK: Extensions Text view
 ///extensao criada para a configuracao da textField que apresentara um texto default para o usuario
 extension MinhaDevocional3ViewController: UITextViewDelegate{
     func textViewDidBeginEditing(_ textView: UITextView) {
