@@ -10,6 +10,7 @@ import UserNotifications
 
 class DevocionalDiarioViewController: UIViewController {
     
+    let reuseIdentifier0 = "cellRapidas"
     let reuseIdentifier = "cell"
     let reuseIdentifier2 = "cell2"
     let reuseIdentifier3 = "cell3"
@@ -21,6 +22,8 @@ class DevocionalDiarioViewController: UIViewController {
 
     // MARK: Declaracao de variaveis
     /// colections
+    @IBOutlet weak var rapidas: UICollectionView!
+    
     @IBOutlet weak var cotidiano: UICollectionView!
     
     @IBOutlet weak var vida: UICollectionView!
@@ -36,6 +39,9 @@ class DevocionalDiarioViewController: UIViewController {
     @IBOutlet weak var tituloVida: UILabel?
     @IBOutlet weak var tituloEstudos: UILabel?
     
+    /// variavel de conexao com o Banco de dados
+    var isConect = false
+    
     // MARK: View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +50,10 @@ class DevocionalDiarioViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: verde]
         //chama a solicitacao de notificacao
         self.criaNotif()
+        
+        ///delegate e dataSource das devocionais rapidas
+        self.rapidas.delegate = self
+        self.rapidas.dataSource = self
         
     }
     
@@ -125,6 +135,10 @@ extension DevocionalDiarioViewController: UICollectionViewDataSource{
         else if collectionView == vida {
             return self.capaVida.count
         }
+        else if collectionView == rapidas{
+            return 1
+        }
+        
         return self.capaEstudos.count
     }
     
@@ -138,6 +152,11 @@ extension DevocionalDiarioViewController: UICollectionViewDataSource{
         else if collectionView == vida{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier2, for: indexPath as IndexPath) as! MyCollectionViewCell
             self.editaCelulaDev(cell: cell, array: capaVida, index: indexPath.row,tit: titVida,referencia: refVida)
+            return cell
+        }
+        else if collectionView == rapidas{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier0, for: indexPath as IndexPath) as! MyCollectionViewCell
+            cell.editaRapidas(titulo: "", status: self.isConect)
             return cell
         }
         else{
