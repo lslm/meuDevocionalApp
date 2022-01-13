@@ -157,6 +157,7 @@ extension DevocionalDiarioViewController: UICollectionViewDataSource{
         else if collectionView == rapidas{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier0, for: indexPath as IndexPath) as! MyCollectionViewCell
             cell.editaRapidas(titulo: "", status: self.isConect)
+            cell.stylize()
             return cell
         }
         else{

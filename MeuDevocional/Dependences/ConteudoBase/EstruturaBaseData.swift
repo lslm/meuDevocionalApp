@@ -23,6 +23,9 @@ let amarelo2 = UIColor( red: 0.97, green: 0.85, blue:0.63, alpha: 1.0 )
 let amarelo3 = UIColor( red: 0.99, green: 0.93, blue:0.8, alpha: 1.0 )
 
 
+let colors = ["Verde1","Verde2","Amarelo1","Amarelo2","Amarelo3"]
+
+
 ///base de dados das devocionais em "Minhas devocionais"
 var cotidiano: [CollectionItem] = []
 var vidaComDeus: [CollectionItem] = []

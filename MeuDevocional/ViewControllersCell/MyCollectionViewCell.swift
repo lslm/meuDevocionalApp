@@ -58,7 +58,8 @@ class MyCollectionViewCell: UICollectionViewCell {
     }
     
     public func stylize(){
-        self.backgroundColor = .systemYellow.withAlphaComponent(0.3)
+        self.backgroundColor = UIColor(named: colors[Int.random(in: 0..<colors.count)])?.withAlphaComponent(0.3)
+        self.layer.cornerRadius = 10
     }
 }
 
