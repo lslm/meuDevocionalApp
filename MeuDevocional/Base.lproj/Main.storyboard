@@ -494,7 +494,7 @@
                                                         <constraint firstAttribute="height" constant="20" id="zJr-XV-fqk"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" name="Accent"/>
+                                                    <color key="textColor" name="BackgroundColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="palavrachave3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUz-3N-wdD">
@@ -505,7 +505,7 @@
                                                         <constraint firstAttribute="width" constant="97" id="mxE-OL-5A8"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" name="Accent"/>
+                                                    <color key="textColor" name="BackgroundColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMc-5k-Tgh">
@@ -534,7 +534,7 @@
                                                         <constraint firstAttribute="width" constant="97" id="RR9-aZ-wGk"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" name="Accent"/>
+                                                    <color key="textColor" name="BackgroundColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -2110,7 +2110,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="374" id="4Y1-tf-9BR"/>
                                                 </constraints>
-                                                <mutableString key="text">Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tPois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.enha vida eterna.Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.</mutableString>
+                                                <string key="text">Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tPois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.enha vida eterna.Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>

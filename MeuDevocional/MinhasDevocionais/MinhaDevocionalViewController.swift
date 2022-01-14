@@ -174,6 +174,7 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
         }
         else if dataDevocional[index].backgroundColor == "3"{
             cell.backgroundColor = amarelo2
+            cell.myImage.image = UIImage(named: "criev3")
             self.editPC(aplicacao: dataDevocional[index], cell: cell, color: UIColor(named: "Verde1") ?? verde3)
         }
         else{
