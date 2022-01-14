@@ -7,18 +7,23 @@
 
 
 import UIKit
-//rgba 0.93, 0.73, 0.49, 1.0
-let amarelo = UIColor( red: 0.93, green: 0.73, blue:0.49, alpha: 1.0 )
+
 //rgba 0.55, 0.64, 0.58, 1.0
 let verde = UIColor( red: 0.55, green: 0.64, blue: 0.58, alpha: 1.0 )
-//rgba 0.97, 0.85, 0.63, 1.0
-let amarelo2 = UIColor( red: 0.97, green: 0.85, blue:0.63, alpha: 1.0 )
-//rgba 0.99, 0.93, 0.8, 1.0
-let amarelo3 = UIColor( red: 0.99, green: 0.93, blue:0.8, alpha: 1.0 )
 //rgba 0.18, 0.62, 0.63, 1.0
 let verde2 = UIColor(red: 0.18, green: 0.62, blue:0.63, alpha: 1.0)
 //rgba 0.35, 0.46, 0.39, 1.0
 let verde3 = UIColor(red: 0.35, green: 0.46, blue:0.39, alpha: 1.0)
+
+//rgba 0.93, 0.73, 0.49, 1.0
+let amarelo = UIColor( red: 0.93, green: 0.73, blue:0.49, alpha: 1.0 )
+//rgba 0.97, 0.85, 0.63, 1.0
+let amarelo2 = UIColor( red: 0.97, green: 0.85, blue:0.63, alpha: 1.0 )
+//rgba 0.99, 0.93, 0.8, 1.0
+let amarelo3 = UIColor( red: 0.99, green: 0.93, blue:0.8, alpha: 1.0 )
+
+
+let colors = ["Verde1","Verde2","Amarelo1","Amarelo2","Amarelo3"]
 
 
 ///base de dados das devocionais em "Minhas devocionais"

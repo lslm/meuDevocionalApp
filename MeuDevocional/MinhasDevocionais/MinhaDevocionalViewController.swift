@@ -12,15 +12,17 @@ private let reuseIdentifier = "Cell"
 var minhasDevocionais: [CollectionItem] = []
 let reuseIdentifier4 = "cell4"
 
-class MinhaDevocionalViewController: UICollectionViewController {
+class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource {
 
+    @IBOutlet var collectionView: UICollectionView!
     override func viewDidLoad() {
         
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: verde]
         
         super.viewDidLoad()
-        
+        collectionView.delegate = self
+        collectionView.dataSource = self
         ///gesto para excluir a celula se for pressionada
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(sender:)))
                 collectionView.addGestureRecognizer(longPress)
@@ -50,13 +52,13 @@ class MinhaDevocionalViewController: UICollectionViewController {
 
     
     ///Funcoes da collectionView
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     ///Retorna a quantidade de itens da collection. Se nao forem os dados do usuario, retorna um item default
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let dataDevocional = try! CoreDataStack.getDevocional()
         if dataDevocional.count == 0 {
             return meuDevocional.count
@@ -66,7 +68,7 @@ class MinhaDevocionalViewController: UICollectionViewController {
     
     // MARK: Edicao da celula
     ///Funcao que retorna a celula editada
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         var cellBase = UICollectionViewCell()
     
@@ -109,7 +111,7 @@ class MinhaDevocionalViewController: UICollectionViewController {
     
     // MARK: Clique na celula
     ///clique na celula leva para a visualizacao do conteudo
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         /// se nao houver nenhuma criada, começa a criar uma
         let dataDevocional = try! CoreDataStack.getDevocional()
         if dataDevocional.count == 0 {
@@ -146,15 +148,11 @@ class MinhaDevocionalViewController: UICollectionViewController {
         cell.myReference.text = dataDevocional[index].baseBiblica
         cell.myImage.image = UIImage(named: dataDevocional[index].backgroundImage!)
         
+    
         cell.pc1.text = dataDevocional[index].aplicacao1
         cell.pc2.text = dataDevocional[index].aplicacao2
         cell.pc3.text = dataDevocional[index].aplicacao3
-        
-        ///adiciona background nas palavras - chave apenas se houver algo adicionado
-        if dataDevocional[index].aplicacao1 != "" {cell.pc1.backgroundColor = verde3}
-        if dataDevocional[index].aplicacao2 != "" {cell.pc2.backgroundColor = verde3}
-        if dataDevocional[index].aplicacao3 != "" {cell.pc3.backgroundColor = verde3}
-        
+                
         cell.pc1.clipsToBounds = true
         cell.pc2.clipsToBounds = true
         cell.pc3.clipsToBounds = true
@@ -162,27 +160,37 @@ class MinhaDevocionalViewController: UICollectionViewController {
         cell.pc1.layer.cornerRadius = 3
         cell.pc2.layer.cornerRadius = 3
         cell.pc3.layer.cornerRadius = 3
-        
-        cell.pc1.textColor = .white
-        cell.pc2.textColor = .white
-        cell.pc3.textColor = .white
                 
         ///define o background de acordo com o codigo armazenado
         if dataDevocional[index].backgroundColor == "1"{
             cell.backgroundColor = verde
+            cell.myImage.image = UIImage(named: "criev1")
+            self.editPC(aplicacao: dataDevocional[index], cell: cell, color: UIColor(named: "Amarelo1") ?? verde3)
         }
         else if dataDevocional[index].backgroundColor == "2" {
             cell.backgroundColor = amarelo
+            cell.myImage.image = UIImage(named: "criev2")
+            self.editPC(aplicacao: dataDevocional[index], cell: cell, color: UIColor(named: "Amarelo3") ?? verde3)
         }
         else if dataDevocional[index].backgroundColor == "3"{
             cell.backgroundColor = amarelo2
-
+            self.editPC(aplicacao: dataDevocional[index], cell: cell, color: UIColor(named: "Verde1") ?? verde3)
         }
         else{
             cell.backgroundColor = amarelo3
+            cell.myImage.image = UIImage(named: "criev4")
+            self.editPC(aplicacao: dataDevocional[index], cell: cell, color: UIColor(named: "Verde2") ?? verde3)
         }
         
     }
+    
+    func editPC(aplicacao: Devocionais, cell: MyCollectionViewCell, color: UIColor){
+        ///adiciona background nas palavras - chave apenas se houver algo adicionado
+        if aplicacao.aplicacao1 != "" {cell.pc1.backgroundColor = color.withAlphaComponent(0.3)}
+        if aplicacao.aplicacao2 != "" {cell.pc2.backgroundColor = color.withAlphaComponent(0.3)}
+        if aplicacao.aplicacao3 != "" {cell.pc3.backgroundColor = color.withAlphaComponent(0.3)}
+    }
+    
     ///define a cor do texto de acordo com o backgrund
     func defineTextColor(cell: MyCollectionViewCell){
         if cell.backgroundColor == verde {
@@ -206,6 +214,7 @@ class MinhaDevocionalViewController: UICollectionViewController {
             cell.myReference.textColor = amarelo
         }
     }
+    
     
     // MARK: Long Press function
     ///funcao que gera a exclusao do item se for pressionado
