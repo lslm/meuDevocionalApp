@@ -187,9 +187,9 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
     
     func editPC(aplicacao: Devocionais, cell: MyCollectionViewCell, color: UIColor){
         ///adiciona background nas palavras - chave apenas se houver algo adicionado
-        if aplicacao.aplicacao1 != "" {cell.pc1.backgroundColor = color.withAlphaComponent(0.3)}
-        if aplicacao.aplicacao2 != "" {cell.pc2.backgroundColor = color.withAlphaComponent(0.3)}
-        if aplicacao.aplicacao3 != "" {cell.pc3.backgroundColor = color.withAlphaComponent(0.3)}
+        if aplicacao.aplicacao1 != "" {cell.pc1.backgroundColor = color.withAlphaComponent(0.4)}
+        if aplicacao.aplicacao2 != "" {cell.pc2.backgroundColor = color.withAlphaComponent(0.4)}
+        if aplicacao.aplicacao3 != "" {cell.pc3.backgroundColor = color.withAlphaComponent(0.4)}
     }
     
     ///define a cor do texto de acordo com o backgrund
