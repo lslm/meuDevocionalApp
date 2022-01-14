@@ -35,7 +35,7 @@ class MyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var emptyImage: UIImageView!
     
     
-    public func editaRapidas(titulo: String,status: Bool){
+    public func editaRapidas(devocional: Devocional,status: Bool){
         if status == false{
             self.buttonEmpty.layer.cornerRadius = 5
             self.buttonEmpty.isHidden = false
@@ -52,13 +52,21 @@ class MyCollectionViewCell: UICollectionViewCell {
             
             self.titleCard.isHidden = false
             self.textCard.isHidden = false
+            
+            ///editando a celula
+            titleCard.text = devocional.titulo
+            textCard.text = devocional.refBiblica
 
         }
     }
     
     public func stylize(){
-        self.backgroundColor = UIColor(named: colors[Int.random(in: 0..<colors.count)])?.withAlphaComponent(0.3)
+        let newColor = UIColor(named: colors[Int.random(in: 0..<colors.count)])
+        self.backgroundColor = newColor?.withAlphaComponent(0.3)
         self.layer.cornerRadius = 10
+        self.titleCard.textColor = UIColor(named: "Accent")
+        self.textCard.textColor = UIColor(named: "Accent")?.withAlphaComponent(0.7)
+
     }
 }
 

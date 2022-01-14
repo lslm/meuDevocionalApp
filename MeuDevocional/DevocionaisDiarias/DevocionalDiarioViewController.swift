@@ -41,23 +41,42 @@ class DevocionalDiarioViewController: UIViewController {
     
     /// variavel de conexao com o Banco de dados
     var isConect = false
+    var devocionaisRapidas: [Devocional]?
+    
+    @IBOutlet weak var loadActivity: UIActivityIndicatorView!
+    
+
     
     // MARK: View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        DataManager.shared.loadData{
+            self.devocionaisRapidas = DataManager.shared.devocionaisRapidas
+            self.isConect = DataManager.shared.isConect
+            self.rapidas.reloadData()
+        }
+        
         //transformando o titulo
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: verde]
         //chama a solicitacao de notificacao
         self.criaNotif()
-        
         ///delegate e dataSource das devocionais rapidas
         self.rapidas.delegate = self
         self.rapidas.dataSource = self
         
     }
     
-
+    // MARK: Reload Button
+    @IBAction func reloadButton(_ sender: Any) {
+        DataManager.shared.loadData{
+            self.devocionaisRapidas = DataManager.shared.devocionaisRapidas
+            self.isConect = DataManager.shared.isConect
+            self.rapidas.reloadData()
+        }
+    }
+    
     // MARK: Notificacao
     func criaNotif(){
         /// pedindo permissão
@@ -113,6 +132,12 @@ extension DevocionalDiarioViewController: UICollectionViewDelegate{
                 vc.estudo = indexPath.row
                 navigationController?.pushViewController(vc, animated: true)
             }
+        }else if collectionView == rapidas{
+            if let vc = storyboard?.instantiateViewController(identifier: "leituraRapida") as?
+                DevocionalDiarioRapidoViewController {
+                vc.devocional = devocionaisRapidas?[indexPath.row]
+                navigationController?.pushViewController(vc, animated: true)
+            }
         }
         else{
             if let vc = storyboard?.instantiateViewController(identifier: "devocional") as?
@@ -136,7 +161,7 @@ extension DevocionalDiarioViewController: UICollectionViewDataSource{
             return self.capaVida.count
         }
         else if collectionView == rapidas{
-            return 1
+            return devocionaisRapidas?.count ?? 0
         }
         
         return self.capaEstudos.count
@@ -156,7 +181,7 @@ extension DevocionalDiarioViewController: UICollectionViewDataSource{
         }
         else if collectionView == rapidas{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier0, for: indexPath as IndexPath) as! MyCollectionViewCell
-            cell.editaRapidas(titulo: "", status: self.isConect)
+            cell.editaRapidas(devocional: (self.devocionaisRapidas?[indexPath.row])!,status: self.isConect)
             cell.stylize()
             return cell
         }
