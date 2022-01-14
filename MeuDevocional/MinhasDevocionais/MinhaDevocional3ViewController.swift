@@ -22,6 +22,8 @@ class MinhaDevocional3ViewController: UIViewController {
     var selectedColor = "1"
     var meuTitulo = ""
     var minhaBase = ""
+    var selectedColorName = "crie1"
+    
     let inputLista: [String] = ["Título", "Livro","Capítulo","Versículo","Palavra chave 1", "Palavra chave 2", "Palavra chave 3"]
     
     @IBOutlet weak var tableView: UITableView!
@@ -144,7 +146,7 @@ class MinhaDevocional3ViewController: UIViewController {
         
         ///cor
         dataDevocional[indice].backgroundColor = selectedColor
-        dataDevocional[indice].backgroundImage = "crie1"
+        dataDevocional[indice].backgroundImage = selectedColorName
         
         ///reflexao
         dataDevocional[indice].reflexao = reflexaoView.text!
@@ -198,6 +200,7 @@ class MinhaDevocional3ViewController: UIViewController {
         ///ativa cor selecionada
         changeColor(button: color1!, cor: "color1s")
         selectedColor = "1"
+        selectedColorName = "criev1"
     }
     @IBAction func changeColor2(_ sender: Any) {
         ///desativa as outras cores
@@ -207,6 +210,7 @@ class MinhaDevocional3ViewController: UIViewController {
         ///ativa cor atual
         changeColor(button: color2!, cor: "color2s")
         selectedColor = "2"
+        selectedColorName = "criev2"
     }
     @IBAction func changeColor3(_ sender: Any) {
         ///desativa as outras cores
@@ -216,6 +220,8 @@ class MinhaDevocional3ViewController: UIViewController {
         //ativa cor atual
         changeColor(button: color3!, cor: "color3s")
         selectedColor = "3"
+        selectedColorName = "criev3"
+
     }
     @IBAction func changeColor4(_ sender: Any) {
         ///desativa as outras cores
@@ -225,6 +231,7 @@ class MinhaDevocional3ViewController: UIViewController {
         ///ativa cor atual
         changeColor(button: color4!, cor: "color4s")
         selectedColor = "4"
+        selectedColorName = "criev4"
     }
     
     ///funcao para mudar a cor selecionada

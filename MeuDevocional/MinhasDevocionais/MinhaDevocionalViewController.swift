@@ -146,15 +146,11 @@ class MinhaDevocionalViewController: UICollectionViewController {
         cell.myReference.text = dataDevocional[index].baseBiblica
         cell.myImage.image = UIImage(named: dataDevocional[index].backgroundImage!)
         
+    
         cell.pc1.text = dataDevocional[index].aplicacao1
         cell.pc2.text = dataDevocional[index].aplicacao2
         cell.pc3.text = dataDevocional[index].aplicacao3
-        
-        ///adiciona background nas palavras - chave apenas se houver algo adicionado
-        if dataDevocional[index].aplicacao1 != "" {cell.pc1.backgroundColor = verde3}
-        if dataDevocional[index].aplicacao2 != "" {cell.pc2.backgroundColor = verde3}
-        if dataDevocional[index].aplicacao3 != "" {cell.pc3.backgroundColor = verde3}
-        
+                
         cell.pc1.clipsToBounds = true
         cell.pc2.clipsToBounds = true
         cell.pc3.clipsToBounds = true
@@ -162,27 +158,37 @@ class MinhaDevocionalViewController: UICollectionViewController {
         cell.pc1.layer.cornerRadius = 3
         cell.pc2.layer.cornerRadius = 3
         cell.pc3.layer.cornerRadius = 3
-        
-        cell.pc1.textColor = .white
-        cell.pc2.textColor = .white
-        cell.pc3.textColor = .white
                 
         ///define o background de acordo com o codigo armazenado
         if dataDevocional[index].backgroundColor == "1"{
             cell.backgroundColor = verde
+            cell.myImage.image = UIImage(named: "criev1")
+            self.editPC(aplicacao: dataDevocional[index], cell: cell, color: UIColor(named: "Amarelo1") ?? verde3)
         }
         else if dataDevocional[index].backgroundColor == "2" {
             cell.backgroundColor = amarelo
+            cell.myImage.image = UIImage(named: "criev2")
+            self.editPC(aplicacao: dataDevocional[index], cell: cell, color: UIColor(named: "Amarelo3") ?? verde3)
         }
         else if dataDevocional[index].backgroundColor == "3"{
             cell.backgroundColor = amarelo2
-
+            self.editPC(aplicacao: dataDevocional[index], cell: cell, color: UIColor(named: "Verde1") ?? verde3)
         }
         else{
             cell.backgroundColor = amarelo3
+            cell.myImage.image = UIImage(named: "criev4")
+            self.editPC(aplicacao: dataDevocional[index], cell: cell, color: UIColor(named: "Verde2") ?? verde3)
         }
         
     }
+    
+    func editPC(aplicacao: Devocionais, cell: MyCollectionViewCell, color: UIColor){
+        ///adiciona background nas palavras - chave apenas se houver algo adicionado
+        if aplicacao.aplicacao1 != "" {cell.pc1.backgroundColor = color.withAlphaComponent(0.3)}
+        if aplicacao.aplicacao2 != "" {cell.pc2.backgroundColor = color.withAlphaComponent(0.3)}
+        if aplicacao.aplicacao3 != "" {cell.pc3.backgroundColor = color.withAlphaComponent(0.3)}
+    }
+    
     ///define a cor do texto de acordo com o backgrund
     func defineTextColor(cell: MyCollectionViewCell){
         if cell.backgroundColor == verde {
@@ -206,6 +212,7 @@ class MinhaDevocionalViewController: UICollectionViewController {
             cell.myReference.textColor = amarelo
         }
     }
+    
     
     // MARK: Long Press function
     ///funcao que gera a exclusao do item se for pressionado
