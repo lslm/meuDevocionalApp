@@ -12,15 +12,17 @@ private let reuseIdentifier = "Cell"
 var minhasDevocionais: [CollectionItem] = []
 let reuseIdentifier4 = "cell4"
 
-class MinhaDevocionalViewController: UICollectionViewController {
+class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource {
 
+    @IBOutlet var collectionView: UICollectionView!
     override func viewDidLoad() {
         
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: verde]
         
         super.viewDidLoad()
-        
+        collectionView.delegate = self
+        collectionView.dataSource = self
         ///gesto para excluir a celula se for pressionada
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(sender:)))
                 collectionView.addGestureRecognizer(longPress)
@@ -50,13 +52,13 @@ class MinhaDevocionalViewController: UICollectionViewController {
 
     
     ///Funcoes da collectionView
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     ///Retorna a quantidade de itens da collection. Se nao forem os dados do usuario, retorna um item default
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let dataDevocional = try! CoreDataStack.getDevocional()
         if dataDevocional.count == 0 {
             return meuDevocional.count
@@ -66,7 +68,7 @@ class MinhaDevocionalViewController: UICollectionViewController {
     
     // MARK: Edicao da celula
     ///Funcao que retorna a celula editada
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         var cellBase = UICollectionViewCell()
     
@@ -109,7 +111,7 @@ class MinhaDevocionalViewController: UICollectionViewController {
     
     // MARK: Clique na celula
     ///clique na celula leva para a visualizacao do conteudo
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         /// se nao houver nenhuma criada, começa a criar uma
         let dataDevocional = try! CoreDataStack.getDevocional()
         if dataDevocional.count == 0 {

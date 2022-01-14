@@ -21,7 +21,6 @@ class MyCollectionViewCell: UICollectionViewCell {
     
     
     //palavras-chave
-    
     @IBOutlet weak var pc1: UILabel!
     @IBOutlet weak var pc2: UILabel!
     @IBOutlet weak var pc3: UILabel!
