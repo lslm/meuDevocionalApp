@@ -575,7 +575,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Minhas Devocionais" largeTitleDisplayMode="always" id="Z47-nO-iSK">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="94M-bt-Etz">
+                        <barButtonItem key="leftBarButtonItem" image="info.circle" catalog="system" style="done" id="Haz-zf-Y4m">
+                            <color key="tintColor" name="Accent"/>
+                            <connections>
+                                <action selector="infoView:" destination="Ouj-Oq-BED" id="uam-mh-E3R"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="94M-bt-Etz">
                             <color key="tintColor" name="Accent"/>
                             <connections>
                                 <segue destination="8BQ-eE-MAx" kind="presentation" id="QYf-oL-mLQ"/>
