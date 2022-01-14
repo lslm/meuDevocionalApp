@@ -161,7 +161,7 @@ extension DevocionalDiarioViewController: UICollectionViewDataSource{
             return self.capaVida.count
         }
         else if collectionView == rapidas{
-            return devocionaisRapidas?.count ?? 0
+            return devocionaisRapidas?.count ?? 1
         }
         
         return self.capaEstudos.count
@@ -181,7 +181,12 @@ extension DevocionalDiarioViewController: UICollectionViewDataSource{
         }
         else if collectionView == rapidas{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier0, for: indexPath as IndexPath) as! MyCollectionViewCell
-            cell.editaRapidas(devocional: (self.devocionaisRapidas?[indexPath.row])!,status: self.isConect)
+            if (self.devocionaisRapidas != nil){
+                cell.editaRapidas(devocional: (self.devocionaisRapidas?[indexPath.row])!,status: self.isConect)
+            }
+            else{
+                cell.editaEmpty(status: self.isConect)
+            }
             cell.stylize()
             return cell
         }

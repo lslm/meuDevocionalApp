@@ -36,15 +36,6 @@ class MyCollectionViewCell: UICollectionViewCell {
     
     
     public func editaRapidas(devocional: Devocional,status: Bool){
-        if status == false{
-            self.buttonEmpty.layer.cornerRadius = 5
-            self.buttonEmpty.isHidden = false
-            self.textEmpty.isHidden = false
-            self.emptyImage.isHidden = false
-            self.titleCard.isHidden = true
-            self.textCard.isHidden = true
-        }
-        else{
             ///quando consegue carregar o conteúdo, esconte as empty states
             self.buttonEmpty.isHidden = true
             self.textEmpty.isHidden = true
@@ -57,6 +48,15 @@ class MyCollectionViewCell: UICollectionViewCell {
             titleCard.text = devocional.titulo
             textCard.text = devocional.refBiblica
 
+    }
+    public func editaEmpty(status: Bool){
+        if status == false{
+            self.buttonEmpty.layer.cornerRadius = 5
+            self.buttonEmpty.isHidden = false
+            self.textEmpty.isHidden = false
+            self.emptyImage.isHidden = false
+            self.titleCard.isHidden = true
+            self.textCard.isHidden = true
         }
     }
     
