@@ -33,6 +33,7 @@ class MyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var buttonEmpty: UIButton!
     @IBOutlet weak var textEmpty: UILabel!
     @IBOutlet weak var emptyImage: UIImageView!
+    @IBOutlet weak var versicleLabel: UILabel!
     
     
     public func editaRapidas(devocional: Devocional,status: Bool){
@@ -43,6 +44,7 @@ class MyCollectionViewCell: UICollectionViewCell {
             
             self.titleCard.isHidden = false
             self.textCard.isHidden = false
+            self.versicleLabel.isHidden = false
             
             ///editando a celula
             titleCard.text = devocional.titulo
@@ -57,6 +59,7 @@ class MyCollectionViewCell: UICollectionViewCell {
             self.emptyImage.isHidden = false
             self.titleCard.isHidden = true
             self.textCard.isHidden = true
+            self.versicleLabel.isHidden = true
         }
     }
     
@@ -66,7 +69,7 @@ class MyCollectionViewCell: UICollectionViewCell {
         self.layer.cornerRadius = 10
         self.titleCard.textColor = UIColor(named: "Accent")
         self.textCard.textColor = UIColor(named: "Accent")?.withAlphaComponent(0.7)
-
+        self.versicleLabel.textColor = UIColor(named: "Accent")?.withAlphaComponent(0.7)
     }
 }
 

@@ -11,11 +11,11 @@ import Foundation
 struct Devocional: Codable{
     var id: Int
     var titulo: String
-    var refBiblica: String
-    var introducao: String
-    var desenvolvimento: String
-    var conclusao: String
-    var musica: String
+    var refBiblica: String //livro: capitulo-versiculo
+    var introducao: String //trecho da biblia
+    var desenvolvimento: String //contextualizacao
+    var conclusao: String //reflexao
+    var musica: String //link da musica
     
     enum CodingKeys: String, CodingKey{
         case id = "id"
