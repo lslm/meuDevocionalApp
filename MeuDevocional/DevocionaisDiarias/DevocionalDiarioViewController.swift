@@ -75,6 +75,7 @@ class DevocionalDiarioViewController: UIViewController {
             self.isConect = DataManager.shared.isConect
             self.rapidas.reloadData()
         }
+        print("clicou")
     }
     
     // MARK: Notificacao
