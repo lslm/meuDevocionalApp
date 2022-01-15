@@ -134,10 +134,12 @@ extension DevocionalDiarioViewController: UICollectionViewDelegate{
                 navigationController?.pushViewController(vc, animated: true)
             }
         }else if collectionView == rapidas{
-            if let vc = storyboard?.instantiateViewController(identifier: "leituraRapida") as?
-                DevocionalDiarioRapidoViewController {
-                vc.devocional = devocionaisRapidas?[indexPath.row]
-                navigationController?.pushViewController(vc, animated: true)
+            if self.isConect == true{
+                if let vc = storyboard?.instantiateViewController(identifier: "leituraRapida") as?
+                    DevocionalDiarioRapidoViewController {
+                    vc.devocional = devocionaisRapidas?[indexPath.row]
+                    navigationController?.pushViewController(vc, animated: true)
+                }
             }
         }
         else{
