@@ -34,10 +34,12 @@ class MyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var textEmpty: UILabel!
     @IBOutlet weak var emptyImage: UIImageView!
     @IBOutlet weak var versicleLabel: UILabel!
+    @IBOutlet weak var waitView: UIActivityIndicatorView!
     
     
     public func editaRapidas(devocional: Devocional,status: Bool){
             ///quando consegue carregar o conteúdo, esconte as empty states
+            self.waitView.isHidden = true
             self.buttonEmpty.isHidden = true
             self.textEmpty.isHidden = true
             self.emptyImage.isHidden = true
@@ -53,10 +55,15 @@ class MyCollectionViewCell: UICollectionViewCell {
     }
     public func editaEmpty(status: Bool){
         if status == false{
-            self.buttonEmpty.layer.cornerRadius = 5
+            self.buttonEmpty.layer.cornerRadius = 3
             self.buttonEmpty.isHidden = false
             self.textEmpty.isHidden = false
             self.emptyImage.isHidden = false
+            self.waitView.isHidden = false
+            
+            self.waitView.startAnimating()
+
+            
             self.titleCard.isHidden = true
             self.textCard.isHidden = true
             self.versicleLabel.isHidden = true
