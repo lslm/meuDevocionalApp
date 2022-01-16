@@ -43,13 +43,14 @@ class DevocionalDiarioViewController: UIViewController {
     var isConect = false
     var devocionaisRapidas: [Devocional]?
     
-    @IBOutlet weak var loadActivity: UIActivityIndicatorView!
-    
 
     
     // MARK: View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+      
+        self.openOnboardFirstRun()
         
         DataManager.shared.loadData{
             self.devocionaisRapidas = DataManager.shared.devocionaisRapidas
@@ -68,7 +69,7 @@ class DevocionalDiarioViewController: UIViewController {
         
     }
     
-    // MARK: Reload Button
+    // MARK: Reload Button and Onboard
     @IBAction func reloadButton(_ sender: Any) {
         DataManager.shared.loadData{
             self.devocionaisRapidas = DataManager.shared.devocionaisRapidas
@@ -76,6 +77,22 @@ class DevocionalDiarioViewController: UIViewController {
             self.rapidas.reloadData()
         }
         print("clicou")
+    }
+    
+    @IBAction func openOnboard(_ sender: Any) {
+        print("clicou")
+        let vc = OnboardViewController(isOnboarding: true)
+        present(vc, animated: true, completion: nil)
+    }
+    
+    func openOnboardFirstRun(){
+        let isFirstRun = defaults.bool(forKey: "isMyFirstRun")
+        ///colocado como false pq o user default ja inicia como false
+        if isFirstRun == false{
+            let vc = OnboardViewController(isOnboarding: true)
+            present(vc, animated: true, completion: nil)
+            defaults.set(true,forKey: "isMyFirstRun")
+        }
     }
     
     // MARK: Notificacao

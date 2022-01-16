@@ -466,7 +466,14 @@
                             <constraint firstItem="L36-Gm-JdG" firstAttribute="bottom" secondItem="sdZ-ep-7v8" secondAttribute="bottom" id="vCU-tL-rnH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Devocionais diárias" largeTitleDisplayMode="always" id="5XW-Bq-wvj"/>
+                    <navigationItem key="navigationItem" title="Devocionais diárias" largeTitleDisplayMode="always" id="5XW-Bq-wvj">
+                        <barButtonItem key="leftBarButtonItem" image="info.circle" catalog="system" style="done" id="TvX-bg-OT2">
+                            <color key="tintColor" name="Accent"/>
+                            <connections>
+                                <action selector="openOnboard:" destination="bRY-OV-K8v" id="OfI-dE-b5w"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <size key="freeformSize" width="414" height="1348"/>
                     <connections>
                         <outlet property="cotidiano" destination="YX4-GZ-YtX" id="1VJ-Lh-EDY"/>
@@ -798,7 +805,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gvd-MQ-bht" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1049.2753623188407" y="1699.5535714285713"/>
+            <point key="canvasLocation" x="1959.4202898550727" y="1699.5535714285713"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="BPB-2S-ux0">
@@ -1580,7 +1587,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dJt-3z-6Ut" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1957.9710144927537" y="2214.5089285714284"/>
+            <point key="canvasLocation" x="-1047.8260869565217" y="2214.5089285714284"/>
         </scene>
         <!--Worship time!-->
         <scene sceneID="B8O-QT-60Y">
@@ -2003,7 +2010,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zDu-WN-cud" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-686.95652173913049" y="1801.3392857142856"/>
+            <point key="canvasLocation" x="223.18840579710147" y="1801.3392857142856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hET-7r-agx">
@@ -2021,7 +2028,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ahv-Ee-Cay" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="171.01449275362319" y="1699.5535714285713"/>
+            <point key="canvasLocation" x="1079.7101449275362" y="1699.5535714285713"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="g5F-7K-5aX">
@@ -2062,6 +2069,22 @@
             </objects>
             <point key="canvasLocation" x="-2268" y="837"/>
         </scene>
+        <!--Onboard View Controller-->
+        <scene sceneID="iBV-cL-09L">
+            <objects>
+                <viewController storyboardIdentifier="onboard" id="S3f-BP-X3R" customClass="OnboardViewController" customModule="MeuDevocional" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6UF-LB-MeP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="lmU-hu-fuJ"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7Ym-oo-IfM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pwe-KD-gVS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4654" y="1807"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="mX2-vQ-Wuu">
             <objects>
@@ -2078,7 +2101,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NTn-sG-PeG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3701.449275362319" y="1807.3660714285713"/>
+            <point key="canvasLocation" x="-4655" y="2682"/>
         </scene>
         <!--Devocionais diários-->
         <scene sceneID="FpO-xm-q8M">

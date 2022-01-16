@@ -40,6 +40,8 @@
 		139B6FCB26A9DA5500C50E06 /* Post+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B6FC926A9DA5500C50E06 /* Post+CoreDataClass.swift */; };
 		139B6FCC26A9DA5500C50E06 /* Post+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B6FCA26A9DA5500C50E06 /* Post+CoreDataProperties.swift */; };
 		139B6FCF26A9DA9900C50E06 /* CoreDataPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B6FCE26A9DA9900C50E06 /* CoreDataPost.swift */; };
+		13C07590279488950051F316 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C0758F279488950051F316 /* OnboardViewController.swift */; };
+		13C07592279488CB0051F316 /* ViewOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C07591279488CB0051F316 /* ViewOnboarding.swift */; };
 		13F476142791E56D00C12113 /* DevocionaisRapidas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F476132791E56D00C12113 /* DevocionaisRapidas.swift */; };
 		13F476162791EED700C12113 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F476152791EED700C12113 /* DataManager.swift */; };
 		13F476182791FFE900C12113 /* DevocionalDiarioRapidoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F476172791FFE900C12113 /* DevocionalDiarioRapidoViewController.swift */; };
@@ -81,6 +83,8 @@
 		139B6FC926A9DA5500C50E06 /* Post+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataClass.swift"; sourceTree = "<group>"; };
 		139B6FCA26A9DA5500C50E06 /* Post+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		139B6FCE26A9DA9900C50E06 /* CoreDataPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPost.swift; sourceTree = "<group>"; };
+		13C0758F279488950051F316 /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
+		13C07591279488CB0051F316 /* ViewOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOnboarding.swift; sourceTree = "<group>"; };
 		13F476132791E56D00C12113 /* DevocionaisRapidas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevocionaisRapidas.swift; sourceTree = "<group>"; };
 		13F476152791EED700C12113 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		13F476172791FFE900C12113 /* DevocionalDiarioRapidoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevocionalDiarioRapidoViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 		13026C3726A0A1FE00D683B0 /* MeuDevocional */ = {
 			isa = PBXGroup;
 			children = (
+				13C0758E279487410051F316 /* Onboard */,
 				13F476122791E55D00C12113 /* Model */,
 				139B6FC626A8CF8400C50E06 /* CoreData */,
 				139B6FA826A8A1E200C50E06 /* DevocionaisDiarias */,
@@ -244,6 +249,15 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		13C0758E279487410051F316 /* Onboard */ = {
+			isa = PBXGroup;
+			children = (
+				13C0758F279488950051F316 /* OnboardViewController.swift */,
+				13C07591279488CB0051F316 /* ViewOnboarding.swift */,
+			);
+			path = Onboard;
+			sourceTree = "<group>";
+		};
 		13F476122791E55D00C12113 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13C07592279488CB0051F316 /* ViewOnboarding.swift in Sources */,
 				139B6FCF26A9DA9900C50E06 /* CoreDataPost.swift in Sources */,
 				13F476162791EED700C12113 /* DataManager.swift in Sources */,
 				1391571C278616F40056A439 /* MinhasDevocionais+UITextField.swift in Sources */,
@@ -343,6 +358,7 @@
 				139B6F7326A2766400C50E06 /* MuralViewController2.swift in Sources */,
 				13915724278618950056A439 /* EmptyView.swift in Sources */,
 				139B6FA226A7456A00C50E06 /* MyTableViewCell.swift in Sources */,
+				13C07590279488950051F316 /* OnboardViewController.swift in Sources */,
 				13026C6126A211BA00D683B0 /* MinhaDevocional2ViewController.swift in Sources */,
 				13026C5526A0C2D300D683B0 /* MyCollectionViewCell.swift in Sources */,
 				139B6FCC26A9DA5500C50E06 /* Post+CoreDataProperties.swift in Sources */,
