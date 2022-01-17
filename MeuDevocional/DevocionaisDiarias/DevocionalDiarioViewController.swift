@@ -41,23 +41,60 @@ class DevocionalDiarioViewController: UIViewController {
     
     /// variavel de conexao com o Banco de dados
     var isConect = false
+    var devocionaisRapidas: [Devocional]?
+    
+
     
     // MARK: View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+      
+        self.openOnboardFirstRun()
+        
+        DataManager.shared.loadData{
+            self.devocionaisRapidas = DataManager.shared.devocionaisRapidas
+            self.isConect = DataManager.shared.isConect
+            self.rapidas.reloadData()
+        }
+        
         //transformando o titulo
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: verde]
         //chama a solicitacao de notificacao
         self.criaNotif()
-        
         ///delegate e dataSource das devocionais rapidas
         self.rapidas.delegate = self
         self.rapidas.dataSource = self
         
     }
     
-
+    // MARK: Reload Button and Onboard
+    @IBAction func reloadButton(_ sender: Any) {
+        DataManager.shared.loadData{
+            self.devocionaisRapidas = DataManager.shared.devocionaisRapidas
+            self.isConect = DataManager.shared.isConect
+            self.rapidas.reloadData()
+        }
+        print("clicou")
+    }
+    
+    @IBAction func openOnboard(_ sender: Any) {
+        print("clicou")
+        let vc = OnboardViewController(isOnboarding: true)
+        present(vc, animated: true, completion: nil)
+    }
+    
+    func openOnboardFirstRun(){
+        let isFirstRun = defaults.bool(forKey: "isMyFirstRun")
+        ///colocado como false pq o user default ja inicia como false
+        if isFirstRun == false{
+            let vc = OnboardViewController(isOnboarding: true)
+            present(vc, animated: true, completion: nil)
+            defaults.set(true,forKey: "isMyFirstRun")
+        }
+    }
+    
     // MARK: Notificacao
     func criaNotif(){
         /// pedindo permissão
@@ -113,6 +150,14 @@ extension DevocionalDiarioViewController: UICollectionViewDelegate{
                 vc.estudo = indexPath.row
                 navigationController?.pushViewController(vc, animated: true)
             }
+        }else if collectionView == rapidas{
+            if self.isConect == true{
+                if let vc = storyboard?.instantiateViewController(identifier: "leituraRapida") as?
+                    DevocionalDiarioRapidoViewController {
+                    vc.devocional = devocionaisRapidas?[indexPath.row]
+                    navigationController?.pushViewController(vc, animated: true)
+                }
+            }
         }
         else{
             if let vc = storyboard?.instantiateViewController(identifier: "devocional") as?
@@ -136,7 +181,7 @@ extension DevocionalDiarioViewController: UICollectionViewDataSource{
             return self.capaVida.count
         }
         else if collectionView == rapidas{
-            return 1
+            return devocionaisRapidas?.count ?? 1
         }
         
         return self.capaEstudos.count
@@ -156,7 +201,12 @@ extension DevocionalDiarioViewController: UICollectionViewDataSource{
         }
         else if collectionView == rapidas{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier0, for: indexPath as IndexPath) as! MyCollectionViewCell
-            cell.editaRapidas(titulo: "", status: self.isConect)
+            if (self.devocionaisRapidas != nil){
+                cell.editaRapidas(devocional: (self.devocionaisRapidas?[indexPath.row])!,status: self.isConect)
+            }
+            else{
+                cell.editaEmpty(status: self.isConect)
+            }
             cell.stylize()
             return cell
         }

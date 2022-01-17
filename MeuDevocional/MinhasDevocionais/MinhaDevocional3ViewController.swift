@@ -320,9 +320,6 @@ extension MinhaDevocional3ViewController: UITableViewDataSource{
             cell.textFieldCell.maxLength = 15
         }
         
-        if cell.textFieldCell.placeholder == "Capítulo"{
-            cell.textFieldCell.keyboardType = .numberPad
-        }
         cell.textFieldCell.resignFirstResponder()
         cell.textFieldCell.returnKeyType = .done
         

@@ -33,32 +33,50 @@ class MyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var buttonEmpty: UIButton!
     @IBOutlet weak var textEmpty: UILabel!
     @IBOutlet weak var emptyImage: UIImageView!
+    @IBOutlet weak var versicleLabel: UILabel!
+    @IBOutlet weak var waitView: UIActivityIndicatorView!
     
     
-    public func editaRapidas(titulo: String,status: Bool){
-        if status == false{
-            self.buttonEmpty.layer.cornerRadius = 5
-            self.buttonEmpty.isHidden = false
-            self.textEmpty.isHidden = false
-            self.emptyImage.isHidden = false
-            self.titleCard.isHidden = true
-            self.textCard.isHidden = true
-        }
-        else{
+    public func editaRapidas(devocional: Devocional,status: Bool){
             ///quando consegue carregar o conteúdo, esconte as empty states
+            self.waitView.isHidden = true
             self.buttonEmpty.isHidden = true
             self.textEmpty.isHidden = true
             self.emptyImage.isHidden = true
             
             self.titleCard.isHidden = false
             self.textCard.isHidden = false
+            self.versicleLabel.isHidden = false
+            
+            ///editando a celula
+            titleCard.text = devocional.titulo
+            textCard.text = devocional.refBiblica
 
+    }
+    public func editaEmpty(status: Bool){
+        if status == false{
+            self.buttonEmpty.layer.cornerRadius = 3
+            self.buttonEmpty.isHidden = false
+            self.textEmpty.isHidden = false
+            self.emptyImage.isHidden = false
+            self.waitView.isHidden = false
+            
+            self.waitView.startAnimating()
+
+            
+            self.titleCard.isHidden = true
+            self.textCard.isHidden = true
+            self.versicleLabel.isHidden = true
         }
     }
     
     public func stylize(){
-        self.backgroundColor = UIColor(named: colors[Int.random(in: 0..<colors.count)])?.withAlphaComponent(0.3)
+        let newColor = UIColor(named: colors[Int.random(in: 0..<colors.count)])
+        self.backgroundColor = newColor?.withAlphaComponent(0.3)
         self.layer.cornerRadius = 10
+        self.titleCard.textColor = UIColor(named: "Accent")
+        self.textCard.textColor = UIColor(named: "Accent")?.withAlphaComponent(0.7)
+        self.versicleLabel.textColor = UIColor(named: "Accent")?.withAlphaComponent(0.7)
     }
 }
 

@@ -8,6 +8,10 @@
 import CoreData
 
 class CoreDataStack{
+    
+    public static var shared: CoreDataStack = CoreDataStack()
+
+    
     static var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Model")
         container.loadPersistentStores { _, error in
