@@ -18,7 +18,7 @@ class OnboardViewController: UIViewController {
     
     //MARK: -View
     lazy var view0:ViewOnboarding =  {
-        let view = ViewOnboarding(titulo: "Welcome!",
+        let view = ViewOnboarding(titulo: "Meu Devocional",
                    text: "This is Coverless: your book discovery app. Find out everything you can discover and remember: never judge a book by its cover!",
                    imageName: "Onboard1")
         return view
@@ -26,21 +26,21 @@ class OnboardViewController: UIViewController {
     
     
     lazy var view1:ViewOnboarding =  {
-        let view = ViewOnboarding(titulo: "Discover",
+        let view = ViewOnboarding(titulo: "Devocionais Diárias",
                    text: "The first available screen is the discovery one. Select the book category you want and then have at hand several books selected through its synopsis. You can view more information of the book through the 'Learn more button or add the book to your bookshelf of discoveries.",
                    imageName: "Onboard2")
         return view
     }()
     
     lazy var view2:ViewOnboarding =  {
-        let view = ViewOnboarding(titulo: "Shelf",
+        let view = ViewOnboarding(titulo: "Devocionais pessoais",
                    text: "Your bookshelf is divided in two parts: Favorites and discoveries. You can add to favorites a book of your collection by clicking the heart shaped button.",
                    imageName: "Onboard3")
         return view
     }()
     
     lazy var view3:ViewOnboarding =  {
-        let view = ViewOnboarding(titulo: "Favorite Books",
+        let view = ViewOnboarding(titulo: "Mural",
                    text: "When viewing a book from your bookshelf, select whether you have already read, are reading or have abandoned that reading. Also, don't forget to share the synopsis of the book with other fellow readers.",
                    imageName: "Onboard4")
         return view
@@ -59,7 +59,7 @@ class OnboardViewController: UIViewController {
         for i in 0..<arrayViews.count {
             scrollView.addSubview(arrayViews[i])
             
-            pageControl.accessibilityLabel = "Page \(i+1) of four"
+            pageControl.accessibilityLabel = "Página \(i+1) de quatro"
             
             arrayViews[i].frame = CGRect(x: view.frame.width * CGFloat(i), y: 0, width: view.frame.width, height: view.frame.height)
         }
@@ -83,7 +83,7 @@ class OnboardViewController: UIViewController {
     //MARK: -butão
     lazy var nextButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Next", for: .normal)
+        button.setTitle("Próximo", for: .normal)
         button.backgroundColor = UIColor(named: "BackgroundColor")
         button.layer.cornerRadius = 10
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
@@ -96,12 +96,13 @@ class OnboardViewController: UIViewController {
     
     lazy var previousButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Back", for: .normal)
+        button.setTitle("Anterior", for: .normal)
         button.backgroundColor = UIColor(named: "BackgroundColor")
         button.layer.cornerRadius = 10
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         button.setTitleColor(UIColor(named: "Accent"), for: .normal)
         button.addTarget(self, action: #selector(subPageContol), for: .touchUpInside)
+        button.isHidden = true
         return button
     }()
     
@@ -137,9 +138,6 @@ class OnboardViewController: UIViewController {
     
     //MARK: -viewDidLoad
     override func viewDidLoad() {
-        //navigationController?.navigationBar.isHidden = true
-        navigationItem.rightBarButtonItem = closeButtonBar
-        
         super.viewDidLoad()
         
         //acessibilidade
@@ -221,8 +219,9 @@ class OnboardViewController: UIViewController {
             scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x+view.frame.width, y: 0), animated: false)
             
             if (scrollView.contentOffset.x+view.frame.width == view.frame.width*CGFloat(arrayViews.count)) {
-                nextButton.setTitle("End", for: .normal)
+                nextButton.setTitle("OK", for: .normal)
             }
+            
         } else {
             //dismiss
             self.dismiss(animated: true, completion: nil)
@@ -233,7 +232,7 @@ class OnboardViewController: UIViewController {
     
     @objc
     func subPageContol(){
-        nextButton.setTitle("Next", for: .normal)
+        nextButton.setTitle("Próximo", for: .normal)
         if (scrollView.contentOffset.x-view.frame.width>=0){
             scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x-view.frame.width, y: 0), animated: false)
         }
@@ -253,15 +252,15 @@ class OnboardViewController: UIViewController {
     
     func setAccessibility(){
         closeButtonBar.isAccessibilityElement = true
-        closeButtonBar.accessibilityLabel = "Close presentation"
-        closeButtonBar.accessibilityHint = "Click to close onboard page"
+        closeButtonBar.accessibilityLabel = "Fechar apresentação"
+        closeButtonBar.accessibilityHint = "Clique para fechar a página de apresentação"
         
         nextButton.isAccessibilityElement = true
-        nextButton.accessibilityHint = "Click to next onboard page"
+        nextButton.accessibilityHint = "Clique para passar para a próxima página"
         previousButton.isAccessibilityElement = true
-        previousButton.accessibilityHint = "Click to previous onboard page"
+        previousButton.accessibilityHint = "Clique para voltar uma página"
         pageControl.isAccessibilityElement = true
-        pageControl.accessibilityLabel = "Page control"
+        pageControl.accessibilityLabel = "Controle de página"
 
     }
 }
@@ -270,8 +269,13 @@ class OnboardViewController: UIViewController {
 extension OnboardViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pageIndex = round(scrollView.contentOffset.x / view.frame.width)
-        pageControl.currentPage = Int(pageIndex)
         
+        if (pageIndex != 0) {
+            previousButton.isHidden = false
+        }
+       
+        
+        pageControl.currentPage = Int(pageIndex)
     }
 }
 
