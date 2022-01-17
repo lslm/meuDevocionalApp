@@ -30,6 +30,16 @@ class MinhaDevocional2ViewController: UIViewController {
    
     
     override func viewDidLoad() {
+        pc1.layer.cornerRadius = 5
+        pc2.layer.cornerRadius = 5
+        pc3.layer.cornerRadius = 5
+        pc1.isHidden = true
+        pc2.isHidden = true
+        pc3.isHidden = true
+        pc1.clipsToBounds = true
+        pc2.clipsToBounds = true
+        pc3.clipsToBounds = true
+        
         super.viewDidLoad()
         //navigationController?.navigationBar.prefersLargeTitles = true
         dataDevocional = try! CoreDataStack.getDevocional()
@@ -44,13 +54,8 @@ class MinhaDevocional2ViewController: UIViewController {
         }
         
         editButton(button: link)
-        
-        pc1.layer.cornerRadius = 5
-        pc2.layer.cornerRadius = 5
-        pc3.layer.cornerRadius = 5
-        pc1.clipsToBounds = true
-        pc2.clipsToBounds = true
-        pc3.clipsToBounds = true
+
+      
     }
     
     
@@ -91,6 +96,40 @@ class MinhaDevocional2ViewController: UIViewController {
             }
     }
     
+    // MARK: Funcoes de cores
+    func editaCores(){
+        var selectedColor = UIColor()
+        if dataDevocional[devocional].backgroundColor == "1"{
+            selectedColor = UIColor(named: "Verde1") ?? verde
+        }
+        else if dataDevocional[devocional].backgroundColor == "2"{
+            selectedColor =  UIColor(named: "Amarelo1") ?? verde
+            
+        }
+        else if dataDevocional[devocional].backgroundColor == "3"{
+            selectedColor = UIColor(named: "Amarelo2") ?? verde
+            
+        }
+        else{
+            selectedColor = UIColor(named: "Amarelo2") ?? verde
+            
+        }
+        
+        titulo.textColor = selectedColor
+        self.editPalavraChave(pc: pc1, color: selectedColor)
+        self.editPalavraChave(pc: pc2, color: selectedColor)
+        self.editPalavraChave(pc: pc3, color: selectedColor)
+
+    }
+    
+    ///funcao auxiliar
+    func editPalavraChave(pc: UILabel, color: UIColor){
+        if pc.text != ""{
+            pc.isHidden = false
+            pc.backgroundColor = color.withAlphaComponent(0.5)
+        }
+    }
+    
     ///funcao que atualiza a devocional depois de passar pela tela do edit
     func atualizaDevocional(){
         baseBiblica.text = dataDevocional[devocional].baseBiblica
@@ -100,11 +139,8 @@ class MinhaDevocional2ViewController: UIViewController {
         pc2.text = dataDevocional[devocional].aplicacao2
         pc3.text = dataDevocional[devocional].aplicacao3
         
-        //editando cor do titulo
-        if dataDevocional[devocional].backgroundColor == "1"{titulo.textColor = verde}
-        else if dataDevocional[devocional].backgroundColor == "2"{titulo.textColor = amarelo}
-        else if dataDevocional[devocional].backgroundColor == "3"{titulo.textColor = amarelo2}
-        else{titulo.textColor = amarelo3}
+        //editando cores da devocional
+        self.editaCores()
     }
     
     /// altera o visual do botao de play
@@ -113,11 +149,10 @@ class MinhaDevocional2ViewController: UIViewController {
         button.layer.cornerRadius = 1
         button.layer.shadowOffset = CGSize(width: 1, height: 1)
         button.layer.shadowColor = UIColor.darkGray.cgColor
-        button.layer.shadowOpacity = 1.5
+        button.layer.shadowOpacity = 2
         button.layer.shadowRadius = 3
         button.layer.masksToBounds = false
     }
-    
 }
 
 extension MinhaDevocional2ViewController: MinhaDevocional3ViewControllerDelegate{

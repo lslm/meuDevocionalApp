@@ -37,7 +37,7 @@ class ViewOnboarding:UIView{
         
         super.init(frame: .zero)
         self.addSubview(scrollView)
-        self.backgroundColor = UIColor(named: "BackgroundColor")
+        self.backgroundColor = UIColor(named: "BackgroundOnboard")
 
         labelTitulo.text = titulo
         labelTitulo.numberOfLines = 0

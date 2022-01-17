@@ -84,7 +84,7 @@ class OnboardViewController: UIViewController {
     lazy var nextButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Próximo", for: .normal)
-        button.backgroundColor = UIColor(named: "BackgroundColor")
+        button.backgroundColor = UIColor(named: "BackgroundOnboard")
         button.layer.cornerRadius = 10
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         button.setTitleColor(UIColor(named: "Accent"), for: .normal)
@@ -97,7 +97,7 @@ class OnboardViewController: UIViewController {
     lazy var previousButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Anterior", for: .normal)
-        button.backgroundColor = UIColor(named: "BackgroundColor")
+        button.backgroundColor = UIColor(named: "BackgroundOnboard")
         button.layer.cornerRadius = 10
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         button.setTitleColor(UIColor(named: "Accent"), for: .normal)
@@ -109,7 +109,7 @@ class OnboardViewController: UIViewController {
     lazy var closeButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("OK", for: .normal)
-        button.backgroundColor = UIColor(named: "BackgroundColor")
+        button.backgroundColor = UIColor(named: "BackgroundOnboard")
         button.layer.cornerRadius = 10
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         button.setTitleColor(UIColor(named: "Accent"), for: .normal)
@@ -144,7 +144,7 @@ class OnboardViewController: UIViewController {
         view.accessibilityViewIsModal = true
         
         // Do any additional setup after loading the view.
-        view.backgroundColor = UIColor(named: "BackgroundColor")
+        view.backgroundColor = UIColor(named: "BackgroundOnboard")
         view.addSubview(closeButton)
         view.addSubview(scrollView)
         view.addSubview(pageControl)

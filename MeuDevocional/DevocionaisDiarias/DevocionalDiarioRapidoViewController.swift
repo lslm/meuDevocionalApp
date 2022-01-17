@@ -12,9 +12,11 @@ class DevocionalDiarioRapidoViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel?
     @IBOutlet weak var refBiblicaLabel: UILabel?
+    @IBOutlet weak var musicButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        editButton(button: musicButton)
         content()
     }
     
@@ -47,8 +49,29 @@ class DevocionalDiarioRapidoViewController: UIViewController {
         vc.indice = (index ?? 1) - 1
    }
     
+    @IBAction func openMusic(_ sender: Any) {
+        if let vc = storyboard?.instantiateViewController(identifier: "music") as?
+                    DevocionalMusicViewController {
+            vc.recebe  = ""
+            navigationController?.pushViewController(vc, animated: true)
+            }
+    }
+    
+    
     func content(){
         self.titleLabel?.text = devocional?.titulo
         self.refBiblicaLabel?.text = devocional?.refBiblica
     }
+    
+    /// altera o visual do botao de play
+    func editButton(button:UIButton){
+        button.layer.backgroundColor = nil
+        button.layer.cornerRadius = 1
+        button.layer.shadowOffset = CGSize(width: 1, height: 1)
+        button.layer.shadowColor = UIColor.darkGray.cgColor
+        button.layer.shadowOpacity = 2
+        button.layer.shadowRadius = 3
+        button.layer.masksToBounds = false
+    }
+    
 }

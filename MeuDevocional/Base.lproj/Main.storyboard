@@ -668,7 +668,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="144" id="OxE-er-zPY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" name="BackgroundColor"/>
+                                <color key="textColor" name="Accent"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inspire" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Gg-do-6vZ">
@@ -679,7 +679,7 @@
                                     <constraint firstAttribute="height" constant="21" id="XAq-cw-mxR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" name="BackgroundColor"/>
+                                <color key="textColor" name="Accent"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEB-Bc-A4O">
@@ -690,7 +690,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="110" id="RsY-AW-167"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" name="BackgroundColor"/>
+                                <color key="textColor" name="Accent"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fW9-wX-W1O">
@@ -705,16 +705,23 @@
                                     <action selector="playButton:" destination="4bv-El-r56" eventType="touchUpInside" id="BbK-xd-Zv2"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Tv0-CX-PCr">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tv0-CX-PCr">
                                 <rect key="frame" x="20" y="167" width="374" height="524"/>
                                 <color key="backgroundColor" name="BackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="524" id="D9a-h5-AEn"/>
                                     <constraint firstAttribute="width" constant="374" id="MPb-PC-bcl"/>
                                 </constraints>
-                                <string key="text">Crie suas devocionais na tela anterior ao clicar no botão "+". Utilize essa ferramenta para guardar anotações dos seus momentos com Deus e de estudos bíblicos. Não esqueça de adicionar uma música e de compartilhar com seus amigos!</string>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Crie suas devocionais na tela anterior ao clicar no botão "+". Utilize essa ferramenta para guardar anotações dos seus momentos com Deus e de estudos bíblicos. Não esqueça de adicionar uma música e de compartilhar com seus amigos!</string>
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="15" name="SFProRounded-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="5" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Devocional exemplo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdB-PV-yFV">
@@ -1851,7 +1858,7 @@
                                                     <constraint firstAttribute="width" constant="374" id="md4-gb-9Zc"/>
                                                 </constraints>
                                                 <color key="textColor" systemColor="labelColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8MO-ZP-Ooq">
@@ -2184,6 +2191,9 @@
                                                 <state key="normal">
                                                     <imageReference key="backgroundImage" image="play.circle.fill" catalog="system" symbolScale="default"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="openMusic:" destination="Gwa-D3-0lK" eventType="touchUpInside" id="hwy-a8-JfT"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Worship Time!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78z-qy-RiT">
                                                 <rect key="frame" x="22" y="710" width="376" height="24"/>
@@ -2262,6 +2272,7 @@
                     </navigationItem>
                     <size key="freeformSize" width="414" height="1056"/>
                     <connections>
+                        <outlet property="musicButton" destination="59L-bZ-q3O" id="PVU-hK-d3v"/>
                         <outlet property="refBiblicaLabel" destination="civ-7i-gaP" id="WEN-LS-4yM"/>
                         <outlet property="titleLabel" destination="mSo-jI-oDz" id="LEc-i1-Aqf"/>
                     </connections>
