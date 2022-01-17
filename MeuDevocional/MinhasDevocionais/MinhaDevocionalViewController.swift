@@ -15,14 +15,24 @@ let reuseIdentifier4 = "cell4"
 class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource {
 
     @IBOutlet var collectionView: UICollectionView!
+    let searchController = UISearchController(searchResultsController: nil)
+    @IBOutlet weak var notFound: UIImageView!
+    
+    var searching = false
+    var dataDevocional: [Devocionais] = []
+    var dataFiltred: [Devocionais] = []
+    
     override func viewDidLoad() {
         
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: verde]
         
         super.viewDidLoad()
+        self.dataDevocional = try! CoreDataStack.getDevocional()
+        self.notFound.isHidden = false
         collectionView.delegate = self
         collectionView.dataSource = self
+        self.configureSearchController()
         ///gesto para excluir a celula se for pressionada
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(sender:)))
                 collectionView.addGestureRecognizer(longPress)
@@ -49,7 +59,18 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
         vc.edit = false
         vc.delegate = self
    }
-
+    private func configureSearchController(){
+        searchController.loadViewIfNeeded()
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.enablesReturnKeyAutomatically = false
+        searchController.searchBar.returnKeyType = UIReturnKeyType.search
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+        self.navigationItem.searchController = searchController
+        definesPresentationContext = true
+        searchController.searchBar.placeholder = "Busque sua devocional..."
+    }
     
     ///Funcoes da collectionView
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -59,11 +80,24 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
     
     ///Retorna a quantidade de itens da collection. Se nao forem os dados do usuario, retorna um item default
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let dataDevocional = try! CoreDataStack.getDevocional()
-        if dataDevocional.count == 0 {
+        if dataDevocional.count == 0 && searching == true {
+            self.notFound.isHidden = false
+            return 0
+        }
+        
+        self.notFound.isHidden = true
+        
+        if dataDevocional.count == 0 && searching == false {
             return meuDevocional.count
         }
-        return dataDevocional.count
+        if searching{
+            return dataFiltred.count
+        }
+        else{
+            dataDevocional = try! CoreDataStack.getDevocional()
+            return dataDevocional.count
+
+        }
     }
     
     // MARK: Edicao da celula
@@ -77,10 +111,10 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
         cell.layer.cornerRadius = 15
         
         ///editando o visual dos elementos da celula
-        let dataDevocional = try! CoreDataStack.getDevocional()
+        //let dataDevocional = try! CoreDataStack.getDevocional()
         
         ///se nao houver adicoes no banco de dados, pega a devocional disponibilizada como base
-        if dataDevocional.count == 0 {
+        if dataDevocional.count == 0 && searching == false{
             cell.data.text = ""
             cell.myTitle.text = meuDevocional[indexPath.row].titulo
             cell.myImage.image = meuDevocional[indexPath.row].backgroundImage
@@ -113,7 +147,6 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
     ///clique na celula leva para a visualizacao do conteudo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         /// se nao houver nenhuma criada, começa a criar uma
-        let dataDevocional = try! CoreDataStack.getDevocional()
         if dataDevocional.count == 0 {
             if let vc = storyboard?.instantiateViewController(identifier: "minhadevocionalForms") as?
                         MinhaDevocional3ViewController {
@@ -128,7 +161,8 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
         else{
             if let vc = storyboard?.instantiateViewController(identifier: "minhadevocional") as?
                         MinhaDevocional2ViewController {
-                vc.devocional = indexPath.row
+                let index = self.searchDevocional(Titulo: dataDevocional[indexPath.row].titulo!)
+                vc.devocional = index
                 vc.delegate2 = self
                 //self.collectionView?.reloadData()
                 navigationController?.pushViewController(vc, animated: true)
@@ -137,11 +171,22 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
     
     }
     
+    func searchDevocional(Titulo: String) -> Int{
+        let devocionaisAtuais = try! CoreDataStack.getDevocional()
+        var index = 0
+        for i in 0..<devocionaisAtuais.count{
+            if (devocionaisAtuais[i].titulo!.lowercased()) == (Titulo.lowercased()){
+                index = i
+            }
+        }
+        return index
+    }
+    
+    
     // MARK: Auxiliares de edicao
     /// --------- Funcoes auxiliares -----------
     func editaCelula(cell: MyCollectionViewCell,index: Int){
         ///seleciona o que tem no banco de dados para exibir
-        let dataDevocional = try! CoreDataStack.getDevocional()
         
         cell.data.text = dataDevocional[index].data
         cell.myTitle.text = dataDevocional[index].titulo
@@ -220,30 +265,33 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
     // MARK: Long Press function
     ///funcao que gera a exclusao do item se for pressionado
     @objc private func handleLongPress(sender: UILongPressGestureRecognizer) {
-        let dataDevocional = try! CoreDataStack.getDevocional()
-        if sender.state == .began {
-            let touchPoint = sender.location(in: collectionView)
-            if let indexPath = collectionView.indexPathForItem(at: touchPoint) {
-                if dataDevocional.count == 0{
-                    let ac = UIAlertController(title: "Não é possível deletar", message: nil, preferredStyle: .actionSheet)
-                    ac.addAction(UIAlertAction(title: "OK", style: .cancel, handler: {
+        if searching == false{
+        //let dataDevocional = try! CoreDataStack.getDevocional()
+            if sender.state == .began {
+                let touchPoint = sender.location(in: collectionView)
+                if let indexPath = collectionView.indexPathForItem(at: touchPoint) {
+                    if dataDevocional.count == 0{
+                        let ac = UIAlertController(title: "Não é possível deletar", message: nil, preferredStyle: .actionSheet)
+                        ac.addAction(UIAlertAction(title: "OK", style: .cancel, handler: {
+                                [weak self] action in
+                                self?.collectionView.reloadData()
+                        }))
+                        present(ac, animated: true)
+                    }
+                    else{
+                    let ac = UIAlertController(title: "Deletar todo o conteúdo de '\(dataDevocional[indexPath.item].titulo ?? "NONE")'", message: "O conteúdo não poderá ser recuperado.", preferredStyle: .actionSheet)
+                        ac.addAction(UIAlertAction(title: "Deletar", style: .destructive, handler: {
                             [weak self] action in
-                            self?.collectionView.reloadData()
-                    }))
-                    present(ac, animated: true)
+                            let index = self?.searchDevocional(Titulo: self!.dataDevocional[indexPath.row].titulo!)
+                            try! CoreDataStack.deleteDevocional(devocionais: self!.dataDevocional[index!])
+                        self?.collectionView.reloadData()
+                        }))
+                        ac.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+                        present(ac, animated: true)
+                    
+                    }
+                    navigationController?.navigationBar.prefersLargeTitles = true
                 }
-                else{
-                let ac = UIAlertController(title: "Deletar todo o conteúdo de '\(dataDevocional[indexPath.item].titulo ?? "NONE")'", message: "O conteúdo não poderá ser recuperado.", preferredStyle: .actionSheet)
-                    ac.addAction(UIAlertAction(title: "Deletar", style: .destructive, handler: {
-                        [weak self] action in
-                    try! CoreDataStack.deleteDevocional(devocionais: dataDevocional[indexPath.row])
-                    self?.collectionView.reloadData()
-                    }))
-                    ac.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
-                    present(ac, animated: true)
-                
-                }
-                navigationController?.navigationBar.prefersLargeTitles = true
             }
         }
     }
@@ -264,5 +312,29 @@ extension MinhaDevocionalViewController: MinhaDevocional2ViewControllerDelegate{
     func didRegister2(){
         collectionView.reloadData()
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
+}
+
+extension MinhaDevocionalViewController: UISearchBarDelegate, UISearchResultsUpdating{
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchText = searchController.searchBar.text!
+        if !searchText.isEmpty{
+            searching = true
+            self.dataFiltred.removeAll() //limpando o filtro
+            ///atualizar collection
+            for devocional in self.dataDevocional{
+                if (devocional.titulo!.lowercased().contains(searchText.lowercased())){
+                    self.dataFiltred.append(devocional)
+                }
+            }
+            self.dataDevocional = self.dataFiltred
+        }
+        else {
+            searching = false
+            self.dataFiltred.removeAll()
+            self.dataDevocional = try! CoreDataStack.getDevocional()
+        }
+        
+        self.collectionView.reloadData()
     }
 }
