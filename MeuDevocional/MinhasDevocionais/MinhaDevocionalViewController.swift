@@ -171,6 +171,7 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
     
     }
     
+    ///funcao auxiliar que busca a devocional atraves do titulo
     func searchDevocional(Titulo: String) -> Int{
         let devocionaisAtuais = try! CoreDataStack.getDevocional()
         var index = 0

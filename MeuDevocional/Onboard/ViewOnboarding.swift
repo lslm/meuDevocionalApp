@@ -25,7 +25,7 @@ class ViewOnboarding:UIView{
     }()
     
     var fontBody: UIFont = {
-        let descriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .subheadline)
+        let descriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body)
         if let rounded = descriptor.withDesign(.default){
             return UIFontMetrics(forTextStyle: .body).scaledFont(for: UIFont(descriptor: rounded, size: 0))
         }
