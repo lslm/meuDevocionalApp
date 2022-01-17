@@ -52,7 +52,7 @@ class DevocionalDiarioRapidoViewController: UIViewController {
     @IBAction func openMusic(_ sender: Any) {
         if let vc = storyboard?.instantiateViewController(identifier: "music") as?
                     DevocionalMusicViewController {
-            vc.recebe  = ""
+            vc.recebe  = devocional!.musica
             navigationController?.pushViewController(vc, animated: true)
             }
     }
@@ -60,7 +60,9 @@ class DevocionalDiarioRapidoViewController: UIViewController {
     
     func content(){
         self.titleLabel?.text = devocional?.titulo
-        self.refBiblicaLabel?.text = devocional?.refBiblica
+        let parte1 =  devocional!.introducao
+        let parte2 = devocional!.refBiblica
+        self.refBiblicaLabel?.text =  "\(parte1) - \(parte2)"
     }
     
     /// altera o visual do botao de play

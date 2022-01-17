@@ -51,6 +51,7 @@ class MyCollectionViewCell: UICollectionViewCell {
             ///editando a celula
             titleCard.text = devocional.titulo
             textCard.text = devocional.refBiblica
+            versicleLabel.text = devocional.introducao
 
     }
     public func editaEmpty(status: Bool){

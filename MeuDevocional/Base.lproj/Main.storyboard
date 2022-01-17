@@ -277,11 +277,11 @@
                                                 </connections>
                                             </collectionView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KGd-OK-KkX">
-                                                <rect key="frame" x="8" y="40" width="414" height="245"/>
+                                                <rect key="frame" x="8" y="40" width="386" height="245"/>
                                                 <color key="backgroundColor" name="BackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="245" id="afe-bG-mpL"/>
-                                                    <constraint firstAttribute="width" constant="414" id="nLg-wM-VbO"/>
+                                                    <constraint firstAttribute="width" constant="386" id="nLg-wM-VbO"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="5" minimumInteritemSpacing="15" id="Muw-uE-wV5">
                                                     <size key="itemSize" width="343" height="230"/>
