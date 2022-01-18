@@ -12,7 +12,14 @@ class DevocionalDiarioRapidoViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel?
     @IBOutlet weak var refBiblicaLabel: UILabel?
+    @IBOutlet weak var contextualizacaoLabel: UILabel?
+    @IBOutlet weak var reflexaoLabel: UILabel?
+    
     @IBOutlet weak var musicButton: UIButton!
+    
+    var versiculo = ""
+    var musica = ""
+    var introducao = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,16 +36,17 @@ class DevocionalDiarioRapidoViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         ///adiciona o card que sera apenas editado na proxima view...
         let _ = try? CoreDataStack.createDevocional(titulo: self.titleLabel?.text ?? "",
-                                                    baseBiblica: "",
+                                                    baseBiblica: self.versiculo,
                                                     contextualizacao: "",
-                                                    reflexao: "",
+                                                    reflexao: self.introducao,
                                                     conclusao: "",
                                                     aplicacao1: "",
                                                     aplicacao2: "",
                                                     aplicacao3: "",
                                                     backgroundColor: "1",
                                                     backgroundImage: "crie2",
-                                                    link: "",livro: "",
+                                                    link: self.musica,
+                                                    livro: self.versiculo,
                                                     capitulo: "",
                                                     versiculo: "",
                                                     data: "")
@@ -46,13 +54,14 @@ class DevocionalDiarioRapidoViewController: UIViewController {
         let vc = segue.destination as! MinhaDevocional3ViewController
         let index = try? CoreDataStack.getDevocional().count
         vc.edit = true
+        vc.rapida = true 
         vc.indice = (index ?? 1) - 1
    }
     
     @IBAction func openMusic(_ sender: Any) {
         if let vc = storyboard?.instantiateViewController(identifier: "music") as?
                     DevocionalMusicViewController {
-            vc.recebe  = ""
+            vc.recebe  = devocional!.musica
             navigationController?.pushViewController(vc, animated: true)
             }
     }
@@ -60,7 +69,16 @@ class DevocionalDiarioRapidoViewController: UIViewController {
     
     func content(){
         self.titleLabel?.text = devocional?.titulo
-        self.refBiblicaLabel?.text = devocional?.refBiblica
+        let parte1 =  devocional!.introducao
+        let parte2 = devocional!.refBiblica
+        self.refBiblicaLabel?.text =  "\(parte1) - \(parte2)"
+        self.contextualizacaoLabel?.text = devocional?.desenvolvimento
+        self.reflexaoLabel?.text = devocional?.conclusao
+        
+        self.versiculo = devocional!.refBiblica
+        self.introducao = devocional!.desenvolvimento
+        self.musica = devocional!.musica
+        
     }
     
     /// altera o visual do botao de play

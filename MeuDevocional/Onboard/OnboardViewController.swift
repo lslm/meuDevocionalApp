@@ -19,7 +19,7 @@ class OnboardViewController: UIViewController {
     //MARK: -View
     lazy var view0:ViewOnboarding =  {
         let view = ViewOnboarding(titulo: "Meu Devocional",
-                   text: "This is Coverless: your book discovery app. Find out everything you can discover and remember: never judge a book by its cover!",
+                   text: "Bem-vindo ao Meu Devocional, o seu espaço pessoal de leitura, reflexão e gratidão por sua Fé!",
                    imageName: "Onboard1")
         return view
     }()
@@ -27,21 +27,21 @@ class OnboardViewController: UIViewController {
     
     lazy var view1:ViewOnboarding =  {
         let view = ViewOnboarding(titulo: "Devocionais Diárias",
-                   text: "The first available screen is the discovery one. Select the book category you want and then have at hand several books selected through its synopsis. You can view more information of the book through the 'Learn more button or add the book to your bookshelf of discoveries.",
+                   text: "Navegue pelas devocionais rápidas, leia devocionais diárias e anote suas reflexões em cada uma delas.",
                    imageName: "Onboard2")
         return view
     }()
     
     lazy var view2:ViewOnboarding =  {
         let view = ViewOnboarding(titulo: "Devocionais pessoais",
-                   text: "Your bookshelf is divided in two parts: Favorites and discoveries. You can add to favorites a book of your collection by clicking the heart shaped button.",
+                   text: "Crie suas próprias devocionais, adicione a referência bíblica, músicas e compartilhe com seus amigos.",
                    imageName: "Onboard3")
         return view
     }()
     
     lazy var view3:ViewOnboarding =  {
         let view = ViewOnboarding(titulo: "Mural",
-                   text: "When viewing a book from your bookshelf, select whether you have already read, are reading or have abandoned that reading. Also, don't forget to share the synopsis of the book with other fellow readers.",
+                   text: "Adicione motivos de gratidão em seu mural e transforme em widgets para o seu iPhone.",
                    imageName: "Onboard4")
         return view
     }()
