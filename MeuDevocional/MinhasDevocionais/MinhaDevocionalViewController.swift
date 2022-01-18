@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import CoreData
 
 private let reuseIdentifier = "Cell"
 
 var minhasDevocionais: [CollectionItem] = []
 let reuseIdentifier4 = "cell4"
 
-class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource {
+class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource,NSFetchedResultsControllerDelegate {
 
     @IBOutlet var collectionView: UICollectionView!
     let searchController = UISearchController(searchResultsController: nil)
@@ -21,6 +22,19 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
     var searching = false
     var dataDevocional: [Devocionais] = []
     var dataFiltred: [Devocionais] = []
+    
+    // MARK: Fetch Data
+    private lazy var fetchResultController: NSFetchedResultsController<Devocionais> = {
+        let request: NSFetchRequest<Devocionais> = Devocionais.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \Devocionais.titulo, ascending: false)]
+        let frc = NSFetchedResultsController(fetchRequest: request,
+                                             managedObjectContext: CoreDataStack.context,
+                                             sectionNameKeyPath: nil,
+                                             cacheName: nil)
+        frc.delegate = self
+        return frc
+    }()
+    
     
     override func viewDidLoad() {
         
@@ -37,6 +51,13 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(sender:)))
                 collectionView.addGestureRecognizer(longPress)
         
+        ///fetch results
+        do {
+            try fetchResultController.performFetch()
+            self.dataDevocional = fetchResultController.fetchedObjects ?? []
+        } catch {
+            fatalError("Nao foi possivel atualizar conteudo")
+        }
     }
     
     // MARK: Info view
@@ -87,18 +108,24 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
         
         self.notFound.isHidden = true
         
+        dataDevocional = try! CoreDataStack.getDevocional()
+        
         if dataDevocional.count == 0 && searching == false {
+            searchController.searchBar.isHidden = true
             return meuDevocional.count
         }
-        if searching{
-            return dataFiltred.count
-        }
-        else{
-            dataDevocional = try! CoreDataStack.getDevocional()
-            return dataDevocional.count
-
-        }
+        searchController.searchBar.isHidden = false
+        if searching{return dataFiltred.count}
+        else{return dataDevocional.count}
     }
+    
+    // MARK: Coleta de dados
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        guard let devocionais = controller.fetchedObjects as? [Devocionais] else { return }
+        self.dataDevocional = devocionais
+        self.collectionView.reloadData()
+    }
+    
     
     // MARK: Edicao da celula
     ///Funcao que retorna a celula editada
@@ -111,8 +138,6 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
         cell.layer.cornerRadius = 15
         
         ///editando o visual dos elementos da celula
-        //let dataDevocional = try! CoreDataStack.getDevocional()
-        
         ///se nao houver adicoes no banco de dados, pega a devocional disponibilizada como base
         if dataDevocional.count == 0 && searching == false{
             cell.data.text = ""

@@ -120,7 +120,7 @@ class MinhaDevocional3ViewController: UIViewController {
             minhaBase = dataDevocional[indice].baseBiblica ?? ""
             
         }
-        else if rapida == false{
+        else if rapida == false && cell2.textFieldCell.text != ""{
             minhaBase += " "
             minhaBase += String(cell2.textFieldCell.text!)
             dataDevocional[indice].capitulo = cell2.textFieldCell.text!

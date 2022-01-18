@@ -100,11 +100,13 @@ class MyCollectionViewCell2: UICollectionViewCell{
             self.background.layer.cornerRadius = 10
             self.background.contentMode = .scaleAspectFill
             self.nota.backgroundColor = UIColor(named: color)
+            self.data.backgroundColor = UIColor(named: color)
         }
         else{
             self.background.image = UIImage(named: image)
             self.background.alpha = 1
             self.nota.backgroundColor = .clear
+            self.data.backgroundColor = .clear
         }
     }
 }

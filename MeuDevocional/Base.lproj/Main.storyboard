@@ -457,7 +457,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="L36-Gm-JdG"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="sdZ-ep-7v8" firstAttribute="trailing" secondItem="L36-Gm-JdG" secondAttribute="trailing" id="7Dv-lo-k8m"/>
                             <constraint firstItem="sdZ-ep-7v8" firstAttribute="top" secondItem="ouy-fx-RHl" secondAttribute="top" id="7d0-VY-FSG"/>
@@ -965,7 +965,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1k-Tl-B01">
-                                                    <rect key="frame" x="8" y="220" width="154" height="12"/>
+                                                    <rect key="frame" x="72" y="220" width="26.5" height="12"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" name="BackgroundColor"/>
                                                     <nil key="highlightedColor"/>
@@ -973,19 +973,18 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJ8-sF-Fk7">
                                                     <rect key="frame" x="64.5" y="112.5" width="41.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="textColor" name="BackgroundColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="G1k-Tl-B01" secondAttribute="trailing" constant="8" id="8Sb-B5-JNE"/>
                                                 <constraint firstAttribute="bottom" secondItem="DmA-H1-fHi" secondAttribute="bottom" id="TzD-Nv-b3F"/>
-                                                <constraint firstItem="G1k-Tl-B01" firstAttribute="leading" secondItem="d45-EL-QLa" secondAttribute="leading" constant="8" id="ZFa-7Z-c0j"/>
+                                                <constraint firstAttribute="bottom" secondItem="G1k-Tl-B01" secondAttribute="bottom" constant="13" id="aX7-DK-Crg"/>
                                                 <constraint firstItem="AJ8-sF-Fk7" firstAttribute="centerX" secondItem="d45-EL-QLa" secondAttribute="centerX" id="b88-Yv-83k"/>
+                                                <constraint firstItem="G1k-Tl-B01" firstAttribute="centerX" secondItem="d45-EL-QLa" secondAttribute="centerX" id="eum-ku-Kio"/>
                                                 <constraint firstItem="DmA-H1-fHi" firstAttribute="leading" secondItem="d45-EL-QLa" secondAttribute="leading" id="gE7-hz-REK"/>
                                                 <constraint firstItem="DmA-H1-fHi" firstAttribute="top" secondItem="d45-EL-QLa" secondAttribute="top" id="gmJ-i1-Suy"/>
                                                 <constraint firstItem="AJ8-sF-Fk7" firstAttribute="centerY" secondItem="d45-EL-QLa" secondAttribute="centerY" id="vFB-4w-t9i"/>
-                                                <constraint firstAttribute="bottom" secondItem="G1k-Tl-B01" secondAttribute="bottom" constant="13" id="w9e-5N-Bdh"/>
                                                 <constraint firstAttribute="trailing" secondItem="DmA-H1-fHi" secondAttribute="trailing" id="xHT-u7-3xF"/>
                                             </constraints>
                                         </collectionViewCellContentView>
@@ -2259,7 +2258,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lHr-ZD-fZ3"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="BxI-pq-uA3" firstAttribute="leading" secondItem="lHr-ZD-fZ3" secondAttribute="leading" id="ESj-BP-Vf1"/>
                             <constraint firstItem="lHr-ZD-fZ3" firstAttribute="bottom" secondItem="BxI-pq-uA3" secondAttribute="bottom" id="Gcx-IF-1uH"/>
