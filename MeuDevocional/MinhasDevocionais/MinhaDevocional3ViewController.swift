@@ -19,6 +19,7 @@ class MinhaDevocional3ViewController: UIViewController {
     var dataDevocional: [Devocionais] = []
     var indice = 0
     var edit = false
+    var rapida = false
     var selectedColor = "1"
     var meuTitulo = ""
     var minhaBase = ""
@@ -115,7 +116,11 @@ class MinhaDevocional3ViewController: UIViewController {
         if minhaBase == ""{
             dataDevocional[indice].baseBiblica = minhaBase
         }
-        else{
+        else if rapida == true{
+            minhaBase = dataDevocional[indice].baseBiblica ?? ""
+            
+        }
+        else if rapida == false{
             minhaBase += " "
             minhaBase += String(cell2.textFieldCell.text!)
             dataDevocional[indice].capitulo = cell2.textFieldCell.text!
