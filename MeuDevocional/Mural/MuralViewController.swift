@@ -43,7 +43,7 @@ class MuralViewController: UIViewController {
     // MARK: Prepare
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //adiciona o card que sera apenas editado na proxima view...
-        let _ = try? CoreDataStackPost.createPost(nota: " ", backgroundImage: "novopost", data: "")
+        let _ = try? CoreDataStackPost.createPost(nota: " ", backgroundImage: "novopost", data: "",color: "postit1")
         muralCollection.reloadData()
         let vc = segue.destination as! MuralViewController2
         vc.delegate = self
@@ -105,7 +105,7 @@ extension MuralViewController: UICollectionViewDataSource{
         //caso haja valores no banco de dados, mostra os dados do Banco de dados
         cell.nota.text = post[indexPath.row].nota
         cell.data.text = post[indexPath.row].data
-        cell.background.image = UIImage(named: post[indexPath.row].backgroundImage!)
+        cell.setImage(image: post[indexPath.row].backgroundImage ?? "postit1",color:  post[indexPath.row].color ?? "Verde1")
         changeTextColor(cell: cell)
         cell.layer.cornerRadius = 15
         
