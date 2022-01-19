@@ -25,6 +25,7 @@
 		136F9E1026AE0D590064F06F /* vidaBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F9E0F26AE0D590064F06F /* vidaBase.swift */; };
 		136F9E1226AE17C30064F06F /* estudosBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F9E1126AE17C30064F06F /* estudosBase.swift */; };
 		139044212798A24100EFAAAB /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 139B6FBF26A8CEE800C50E06 /* Model.xcdatamodeld */; };
+		139044222798AB1100EFAAAB /* NotificacoesConteudo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1391571D278617790056A439 /* NotificacoesConteudo.swift */; };
 		1391571C278616F40056A439 /* MinhasDevocionais+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1391571B278616F40056A439 /* MinhasDevocionais+UITextField.swift */; };
 		1391571E278617790056A439 /* NotificacoesConteudo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1391571D278617790056A439 /* NotificacoesConteudo.swift */; };
 		139157222786182E0056A439 /* UserDevocionais.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139157212786182E0056A439 /* UserDevocionais.swift */; };
@@ -505,6 +506,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				139044222798AB1100EFAAAB /* NotificacoesConteudo.swift in Sources */,
 				13949BD127988AE400650144 /* SalvarImagem.swift in Sources */,
 				13949BCF2798834400650144 /* UserDefaultManager.swift in Sources */,
 				13949BC02798797300650144 /* MeuDevocionalWidget.swift in Sources */,
