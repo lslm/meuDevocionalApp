@@ -25,7 +25,8 @@
 		136F9E1026AE0D590064F06F /* vidaBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F9E0F26AE0D590064F06F /* vidaBase.swift */; };
 		136F9E1226AE17C30064F06F /* estudosBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F9E1126AE17C30064F06F /* estudosBase.swift */; };
 		139044212798A24100EFAAAB /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 139B6FBF26A8CEE800C50E06 /* Model.xcdatamodeld */; };
-		139044222798AB1100EFAAAB /* NotificacoesConteudo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1391571D278617790056A439 /* NotificacoesConteudo.swift */; };
+		139044252798AC0200EFAAAB /* WidgetContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139044232798ABF800EFAAAB /* WidgetContent.swift */; };
+		139044262798AC0400EFAAAB /* WidgetContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139044232798ABF800EFAAAB /* WidgetContent.swift */; };
 		1391571C278616F40056A439 /* MinhasDevocionais+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1391571B278616F40056A439 /* MinhasDevocionais+UITextField.swift */; };
 		1391571E278617790056A439 /* NotificacoesConteudo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1391571D278617790056A439 /* NotificacoesConteudo.swift */; };
 		139157222786182E0056A439 /* UserDevocionais.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139157212786182E0056A439 /* UserDevocionais.swift */; };
@@ -104,6 +105,7 @@
 		136CEA0E26B24FF2007BDC49 /* MinhaDevocionalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinhaDevocionalViewController.swift; sourceTree = "<group>"; };
 		136F9E0F26AE0D590064F06F /* vidaBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vidaBase.swift; sourceTree = "<group>"; };
 		136F9E1126AE17C30064F06F /* estudosBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = estudosBase.swift; sourceTree = "<group>"; };
+		139044232798ABF800EFAAAB /* WidgetContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetContent.swift; sourceTree = "<group>"; };
 		1391571B278616F40056A439 /* MinhasDevocionais+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MinhasDevocionais+UITextField.swift"; sourceTree = "<group>"; };
 		1391571D278617790056A439 /* NotificacoesConteudo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificacoesConteudo.swift; sourceTree = "<group>"; };
 		139157212786182E0056A439 /* UserDevocionais.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDevocionais.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				13949BBF2798797300650144 /* MeuDevocionalWidget.swift */,
+				139044232798ABF800EFAAAB /* WidgetContent.swift */,
 				13949BC12798797400650144 /* Assets.xcassets */,
 				13949BC32798797400650144 /* Info.plist */,
 			);
@@ -497,6 +500,7 @@
 				13026C4D26A0A3E300D683B0 /* CollectionItem.swift in Sources */,
 				13026C3B26A0A1FE00D683B0 /* SceneDelegate.swift in Sources */,
 				136CEA0D26B0ABA4007BDC49 /* InfoViewController.swift in Sources */,
+				139044262798AC0400EFAAAB /* WidgetContent.swift in Sources */,
 				13C0759727973C1B0051F316 /* SalvarImagem.swift in Sources */,
 				139157222786182E0056A439 /* UserDevocionais.swift in Sources */,
 			);
@@ -506,9 +510,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				139044222798AB1100EFAAAB /* NotificacoesConteudo.swift in Sources */,
 				13949BD127988AE400650144 /* SalvarImagem.swift in Sources */,
 				13949BCF2798834400650144 /* UserDefaultManager.swift in Sources */,
+				139044252798AC0200EFAAAB /* WidgetContent.swift in Sources */,
 				13949BC02798797300650144 /* MeuDevocionalWidget.swift in Sources */,
 				139044212798A24100EFAAAB /* Model.xcdatamodeld in Sources */,
 			);
