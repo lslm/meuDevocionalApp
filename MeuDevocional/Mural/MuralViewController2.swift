@@ -49,9 +49,7 @@ class MuralViewController2: UIViewController {
         ///photo picker
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         self.visualizacao.layer.cornerRadius = 10
-        self.visualizacao.contentMode = .scaleToFill
-        
-       
+        self.visualizacao.contentMode = .scaleAspectFill
         
 
     }
@@ -124,25 +122,31 @@ class MuralViewController2: UIViewController {
     
     //funcoes de selecao de cores
     @IBAction func clickColor1(_ sender: Any) {
+        visualizacaoLabel.textColor = .white
         if isImage == false{
-            visualizacaoLabel.textColor = .white
-            //desativa as outras cores
-            changeColor(button: color2!, cor: "color2")
-            changeColor(button: color3!, cor: "color3")
-            changeColor(button: color4!, cor: "color4")
-            //ativa cor selecionada
-            changeColor(button: color1!, cor: "color1s")
             visualizacao.image = UIImage(named: "postitView1")
             selectedColor = "postit1"
-            colorText = "Verde2"
         }
+        else{
+            visualizacaoLabel.backgroundColor = UIColor(named: "Verde2")
+        }
+        //desativa as outras cores
+        changeColor(button: color2!, cor: "color2")
+        changeColor(button: color3!, cor: "color3")
+        changeColor(button: color4!, cor: "color4")
+        //ativa cor selecionada
+        changeColor(button: color1!, cor: "color1s")
+        colorText = "Verde2"
     }
     
     @IBAction func clickColor2(_ sender: Any) {
+        visualizacaoLabel.textColor = .white
         if isImage == false{
-            visualizacaoLabel.textColor = .white
             visualizacao.image = UIImage(named: "postitView2")
             selectedColor = "postit2"
+        }
+        else{
+            visualizacaoLabel.backgroundColor = UIColor(named: "Amarelo1")
         }
         //desativa as outras cores
         changeColor(button: color1!, cor: "color1")
@@ -154,12 +158,13 @@ class MuralViewController2: UIViewController {
 
     }
     @IBAction func clickColor3(_ sender: Any) {
+        visualizacaoLabel.textColor = verde
         if isImage == false{
-            visualizacaoLabel.textColor = verde
             visualizacao.image = UIImage(named: "postitView3")
             selectedColor = "postit3"
-            
-
+        }
+        else{
+            visualizacaoLabel.backgroundColor = UIColor(named: "Amarelo2")
         }
         //desativa as outras cores
         changeColor(button: color1!, cor: "color1")
@@ -171,10 +176,13 @@ class MuralViewController2: UIViewController {
 
     }
     @IBAction func clickColor4(_ sender: Any) {
+        visualizacaoLabel.textColor = amarelo
         if isImage == false {
-            visualizacaoLabel.textColor = amarelo
             visualizacao.image = UIImage(named: "postitView4")
             selectedColor = "postit4"
+        }
+        else{
+            visualizacaoLabel.backgroundColor = UIColor(named: "Amarelo3")
         }
         //desativa as outras cores
         changeColor(button: color1!, cor: "color1")
@@ -187,9 +195,7 @@ class MuralViewController2: UIViewController {
     
     //funcao para mudar a cor selecionada
     func changeColor(button:UIButton, cor:String){
-        if isImage == false{
-            button.setBackgroundImage(UIImage(named: cor), for: .normal)
-        }
+        button.setBackgroundImage(UIImage(named: cor), for: .normal)
     }
     
     //funcao para adicionar o texto
@@ -233,6 +239,7 @@ extension MuralViewController2: ImagePickerDelegate {
 
     func didSelect(image: UIImage?) {
         self.visualizacao.image = image
+        self.visualizacao.alpha = 0.6
         dataPost.last?.backgroundImage = SalvarImagem.saveToFiles(image: self.visualizacao.image)
     }
 }

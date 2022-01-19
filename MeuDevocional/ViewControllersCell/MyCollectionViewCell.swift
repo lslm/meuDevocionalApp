@@ -91,7 +91,8 @@ class MyCollectionViewCell2: UICollectionViewCell{
         if image != "postit1" &&
             image != "postit2" &&
             image != "postit3" &&
-            image != "postit4"{
+            image != "postit4" &&
+            image != "novopost" {
             
             let path = image
             let imageNew = UIImage(contentsOfFile: SalvarImagem.getFilePath(fileName: path))
