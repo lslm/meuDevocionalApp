@@ -76,6 +76,11 @@ class MuralViewController2: UIViewController {
         
         //atualiza a collectionView
         delegate?.didRegister()
+        
+        //salva no userDefault
+        UserDefaultsManager.shared.gratidao = minhaNotaInput.text!
+        UserDefaultsManager.shared.background = selectedColor
+        
         self.dismiss(animated: true, completion: nil)
     }
     

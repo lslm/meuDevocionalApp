@@ -78,7 +78,7 @@ func changeText(string: String) -> String{
     }
     else{
         let path = string
-        return path
+        return "Amarelo3"
     }
 }
 

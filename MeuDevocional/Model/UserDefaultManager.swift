@@ -12,16 +12,16 @@ class UserDefaultsManager{
     static let shared = UserDefaultsManager()
     var gratidao: String?{
         didSet{
-            UserDefaults(suiteName: "group.MeuDevocional")?.set(gratidao, forKey: "gratidao")
+            UserDefaults(suiteName: "group.com.biaduque.MeuDevocional")?.set(gratidao, forKey: "gratidao")
         }
     }
     var background: String?{
         didSet{
-            UserDefaults(suiteName: "group.MeuDevocional")?.set(background, forKey: "background")
+            UserDefaults(suiteName: "group.com.biaduque.MeuDevocional")?.set(background, forKey: "background")
         }
     }
     private init(){
-        self.gratidao = UserDefaults(suiteName: "group.MeuDevocional")?.object(forKey: "gratidao") as? String
-        self.background = UserDefaults(suiteName: "group.MeuDevocional")?.object(forKey: "background") as? String
+        self.gratidao = UserDefaults(suiteName: "group.com.biaduque.MeuDevocional")?.object(forKey: "gratidao") as? String
+        self.background = UserDefaults(suiteName: "group.com.biaduque.MeuDevocional")?.object(forKey: "background") as? String
     }
 }

@@ -35,10 +35,6 @@ class CoreDataStackPost{
         post.data = data
         post.color = color 
         
-        
-        UserDefaultsManager.shared.gratidao = nota
-        UserDefaultsManager.shared.background = backgroundImage
-        
         try saveContext()
         return post
     }
