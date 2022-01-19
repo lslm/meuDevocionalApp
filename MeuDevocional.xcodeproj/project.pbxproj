@@ -42,6 +42,8 @@
 		139B6FCF26A9DA9900C50E06 /* CoreDataPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B6FCE26A9DA9900C50E06 /* CoreDataPost.swift */; };
 		13C07590279488950051F316 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C0758F279488950051F316 /* OnboardViewController.swift */; };
 		13C07592279488CB0051F316 /* ViewOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C07591279488CB0051F316 /* ViewOnboarding.swift */; };
+		13C07595279731480051F316 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C07594279731480051F316 /* ImagePicker.swift */; };
+		13C0759727973C1B0051F316 /* SalvarImagem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C0759627973C1B0051F316 /* SalvarImagem.swift */; };
 		13F476142791E56D00C12113 /* DevocionaisRapidas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F476132791E56D00C12113 /* DevocionaisRapidas.swift */; };
 		13F476162791EED700C12113 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F476152791EED700C12113 /* DataManager.swift */; };
 		13F476182791FFE900C12113 /* DevocionalDiarioRapidoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F476172791FFE900C12113 /* DevocionalDiarioRapidoViewController.swift */; };
@@ -85,6 +87,8 @@
 		139B6FCE26A9DA9900C50E06 /* CoreDataPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPost.swift; sourceTree = "<group>"; };
 		13C0758F279488950051F316 /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
 		13C07591279488CB0051F316 /* ViewOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOnboarding.swift; sourceTree = "<group>"; };
+		13C07594279731480051F316 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		13C0759627973C1B0051F316 /* SalvarImagem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalvarImagem.swift; sourceTree = "<group>"; };
 		13F476132791E56D00C12113 /* DevocionaisRapidas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevocionaisRapidas.swift; sourceTree = "<group>"; };
 		13F476152791EED700C12113 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		13F476172791FFE900C12113 /* DevocionalDiarioRapidoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevocionalDiarioRapidoViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +128,7 @@
 		13026C3726A0A1FE00D683B0 /* MeuDevocional */ = {
 			isa = PBXGroup;
 			children = (
+				13C075932797312F0051F316 /* Image */,
 				13C0758E279487410051F316 /* Onboard */,
 				13F476122791E55D00C12113 /* Model */,
 				139B6FC626A8CF8400C50E06 /* CoreData */,
@@ -258,6 +263,15 @@
 			path = Onboard;
 			sourceTree = "<group>";
 		};
+		13C075932797312F0051F316 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				13C07594279731480051F316 /* ImagePicker.swift */,
+				13C0759627973C1B0051F316 /* SalvarImagem.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 		13F476122791E55D00C12113 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -358,6 +372,7 @@
 				139B6F7326A2766400C50E06 /* MuralViewController2.swift in Sources */,
 				13915724278618950056A439 /* EmptyView.swift in Sources */,
 				139B6FA226A7456A00C50E06 /* MyTableViewCell.swift in Sources */,
+				13C07595279731480051F316 /* ImagePicker.swift in Sources */,
 				13C07590279488950051F316 /* OnboardViewController.swift in Sources */,
 				13026C6126A211BA00D683B0 /* MinhaDevocional2ViewController.swift in Sources */,
 				13026C5526A0C2D300D683B0 /* MyCollectionViewCell.swift in Sources */,
@@ -371,6 +386,7 @@
 				13026C4D26A0A3E300D683B0 /* CollectionItem.swift in Sources */,
 				13026C3B26A0A1FE00D683B0 /* SceneDelegate.swift in Sources */,
 				136CEA0D26B0ABA4007BDC49 /* InfoViewController.swift in Sources */,
+				13C0759727973C1B0051F316 /* SalvarImagem.swift in Sources */,
 				139157222786182E0056A439 /* UserDevocionais.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -519,7 +535,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.3;
+				CURRENT_PROJECT_VERSION = 1.5;
 				DEVELOPMENT_TEAM = V8V28A4DX2;
 				INFOPLIST_FILE = MeuDevocional/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -540,7 +556,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.3;
+				CURRENT_PROJECT_VERSION = 1.5;
 				DEVELOPMENT_TEAM = V8V28A4DX2;
 				INFOPLIST_FILE = MeuDevocional/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

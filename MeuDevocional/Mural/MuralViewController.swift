@@ -43,7 +43,7 @@ class MuralViewController: UIViewController {
     // MARK: Prepare
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //adiciona o card que sera apenas editado na proxima view...
-        let _ = try? CoreDataStackPost.createPost(nota: " ", backgroundImage: "novopost", data: "")
+        let _ = try? CoreDataStackPost.createPost(nota: " ", backgroundImage: "novopost", data: "",color: "Amarelo1")
         muralCollection.reloadData()
         let vc = segue.destination as! MuralViewController2
         vc.delegate = self
@@ -105,28 +105,28 @@ extension MuralViewController: UICollectionViewDataSource{
         //caso haja valores no banco de dados, mostra os dados do Banco de dados
         cell.nota.text = post[indexPath.row].nota
         cell.data.text = post[indexPath.row].data
-        cell.background.image = UIImage(named: post[indexPath.row].backgroundImage!)
-        changeTextColor(cell: cell)
+        cell.setImage(image: post[indexPath.row].backgroundImage ?? "postit1",color:  post[indexPath.row].color ?? "Verde2")
+        changeTextColor(cell: cell, color:  post[indexPath.row].color ?? "semCor")
         cell.layer.cornerRadius = 15
         
         return cell
     }
-    func changeTextColor(cell: MyCollectionViewCell2){
+    func changeTextColor(cell: MyCollectionViewCell2, color: String){
         cell.nota.font = UIFont(name:"Helvetica-Bold",size:17)
         
-        if cell.background.image == UIImage(named: "postit1"){
+        if cell.background.image == UIImage(named: "postit1") || color == "Verde2"{
             cell.nota.textColor = .white
             cell.data.textColor = .white
         }
-        else if cell.background.image == UIImage(named: "postit2"){
+        else if cell.background.image == UIImage(named: "postit2") || color == "Amarelo1"{
             cell.nota.textColor = .white
             cell.data.textColor = .white
         }
-        else if cell.background.image == UIImage(named: "postit3"){
+        else if cell.background.image == UIImage(named: "postit3") || color == "Amarelo2"{
             cell.nota.textColor = verde
             cell.data.textColor = verde
         }
-        else if cell.background.image == UIImage(named: "postit4"){
+        else if cell.background.image == UIImage(named: "postit4") || color == "Amarelo3"{
             cell.nota.textColor = amarelo
             cell.data.textColor = amarelo
         }

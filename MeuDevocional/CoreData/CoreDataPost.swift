@@ -28,11 +28,12 @@ class CoreDataStackPost{
         }
     }
     
-    static func createPost(nota: String, backgroundImage: String, data: String) throws -> Post{
+    static func createPost(nota: String, backgroundImage: String, data: String, color: String) throws -> Post{
         guard let post = NSEntityDescription.insertNewObject(forEntityName: "Post", into: context) as? Post else {preconditionFailure()}
         post.nota = nota
         post.backgroundImage = backgroundImage
         post.data = data
+        post.color = color 
         
         try saveContext()
         return post

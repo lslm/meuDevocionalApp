@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21C52" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Devocionais" representedClassName="Devocionais" syncable="YES">
         <attribute name="aplicacao1" optional="YES" attributeType="String"/>
         <attribute name="aplicacao2" optional="YES" attributeType="String"/>
@@ -19,11 +19,12 @@
     </entity>
     <entity name="Post" representedClassName="Post" syncable="YES">
         <attribute name="backgroundImage" optional="YES" attributeType="String"/>
+        <attribute name="color" optional="YES" attributeType="String"/>
         <attribute name="data" optional="YES" attributeType="String"/>
         <attribute name="nota" optional="YES" attributeType="String"/>
     </entity>
     <elements>
         <element name="Devocionais" positionX="-45" positionY="0" width="128" height="254"/>
-        <element name="Post" positionX="-18" positionY="99" width="128" height="74"/>
+        <element name="Post" positionX="-18" positionY="99" width="128" height="89"/>
     </elements>
 </model>
