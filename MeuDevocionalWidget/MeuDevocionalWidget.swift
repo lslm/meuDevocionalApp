@@ -88,9 +88,9 @@ func setVersisculo(gratidao: String) -> String{
     }
     ///array com as notificações do app
     let notfTitles: [String] = ["Meu Devocional","Gratidão","Worship Time!","Salmo 37:5","Mateus 6:34","João 3:16","Colossenses 3:4","Momento de oração","Mateus 11:21","Mateus 22:37", "Romanos 8:38"]
-    let notfContents: [String] = ["Não esqueça de anotar e compartilhar a devocional de hoje!","Já adicionou um motivo para ser grato no Mural hoje?","Que tal escolher uma devocional para leitura e louvor hoje?","'Entrega o teu caminho ao Senhor; confia nele, e ele tudo fará.'","...Portanto, não vos inquieteis com o dia de amanhã, pois o amanhã trará os seus cuidados; basta ao dia o seu próprio mal.","'Porque Deus tanto amou o mundo que deu o seu Filho Unigênito, para que todo o que nele crer não pereça, mas tenha a vida eterna.'","'Acima de tudo, porém, revistam-se do amor, que é o elo perfeito.'","Conta pra Ele, conte com Ele!","'Vinde a mim todos os que estais cansados e oprimidos, e eu vos aliviarei.'","'E Jesus disse-lhe: Amarás o Senhor, teu Deus, de todo o teu coração, e de toda a tua alma, e de todo o teu pensamento.'","'Nem a altura, nem a profundidade, nem alguma outra criatura nos poderá separar do amor de Deus, que está em Cristo Jesus, nosso Senhor!'"]
+    let notfContents: [String] = ["Não esqueça de anotar e compartilhar a devocional de hoje!","Já adicionou um motivo para ser grato no Mural hoje?","Que tal escolher uma devocional para leitura e louvor hoje?","'Entrega o teu caminho ao Senhor; confia nele, e ele tudo fará.'","Portanto, não vos inquieteis com o dia de amanhã, pois o amanhã trará os seus cuidados...","'Porque Deus tanto amou o mundo que deu o seu Filho Unigênito, para que todo o que nele crer não pereça, mas tenha a vida eterna.'","'Acima de tudo, porém, revistam-se do amor, que é o elo perfeito.'","Conta pra Ele, conte com Ele!","'Vinde a mim todos os que estais cansados e oprimidos, e eu vos aliviarei.'","'E Jesus disse-lhe: Amarás o Senhor, teu Deus, de todo o teu coração, e de toda a tua alma, e de todo o teu pensamento.'","'Nem a altura, nem a profundidade, nem alguma outra criatura nos poderá separar do amor de Deus, que está em Cristo Jesus, nosso Senhor!'"]
     let index = Int.random(in: 0..<notfTitles.count)
-    let content = notfTitles[index] + notfContents[index]
+    let content = "\(notfTitles[index])\n\(notfContents[index])"
     return content
 }
 
@@ -103,28 +103,32 @@ struct MeuDevocionalWidgetEntryView : View {
         let color = entry.background
         let newColor = changeColor(string: color)
         let textColor = changeText(string: newColor)
-        let imageNew = (UIImage(contentsOfFile: SalvarImagem.getFilePath(fileName: newColor)))
-        let sub = UIImage(named: "VarianteEmpty")
-        ZStack{
-            Color(uiColor: UIColor(named: newColor) ?? .systemYellow)
-            //Image(uiImage: (imageNew) ?? sub!)
-               //.resizable().scaledToFit()
-               // .luminanceToAlpha()
-               // .foregroundColor(.red)
-            VStack{
-                Text(motivo)
-                    .foregroundColor(Color(uiColor: UIColor(named: textColor) ?? .systemYellow))
-                    .frame(maxWidth: .infinity,maxHeight: .infinity,alignment: .center)
-                    .multilineTextAlignment(.center)
-                    .font(Font.system(.body).bold())
-                    .padding()
-                Spacer()
-                Text(entry.date, style: .time).padding()
-                    .font(.system(size: 12))
-                    .foregroundColor(Color(uiColor: UIColor(named: textColor) ?? .systemYellow))
+        //let imageNew = (UIImage(contentsOfFile: SalvarImagem.getFilePath(fileName: newColor)))
+        //let sub = UIImage(named: "VarianteEmpty")
+        GeometryReader{ geometry in
+            ZStack{
+                Color(uiColor: UIColor(named: newColor) ?? .systemYellow)
+                //Image(uiImage: (imageNew) ?? sub!)
+                   //.resizable().scaledToFit()
+                   // .luminanceToAlpha()
+                   // .foregroundColor(.red)
+                VStack{
+                    Text(motivo)
+                        .foregroundColor(Color(uiColor: UIColor(named: textColor) ?? .systemYellow))
+                        .frame(maxWidth: .infinity ,maxHeight: .infinity,alignment: .center)
+                        .font(Font.system(size: 11, weight: .regular, design: .monospaced))
+                        .multilineTextAlignment(.center)
+                        .font(Font.system(.body))
+                        .padding()
+                    Spacer()
+                    Text(entry.date, style: .time).padding()
+                        .font(Font.system(size: 11, weight: .regular, design: .monospaced))
+                        .frame(maxWidth: .infinity ,maxHeight: geometry.size.height/5,alignment: .center)
+                        .foregroundColor(Color(uiColor: UIColor(named: textColor) ?? .systemYellow))
+                }
             }
-           
         }
+        
     }
 }
 
@@ -146,7 +150,7 @@ struct MeuDevocionalWidget_Previews: PreviewProvider {
         let gratidao = UserDefaultsManager.shared.gratidao
         let background = UserDefaultsManager.shared.background
         
-        MeuDevocionalWidgetEntryView(entry: SimpleEntry(date: Date(),gratidao: gratidao ?? "Crie um novo motivo", background: background ?? "postit1"))
+        MeuDevocionalWidgetEntryView(entry: SimpleEntry(date: Date(),gratidao: gratidao ?? "Crie um novo motivo", background: background ?? "novaCor"))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
