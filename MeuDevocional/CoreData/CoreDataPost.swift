@@ -64,7 +64,7 @@ class CoreDataStackPost{
             ///atualiza o vetor do user defaults
              UserDefaultsManager.shared.gratidao = vetaux
              UserDefaultsManager.shared.background = vetaux2
-        print("gratidao2",UserDefaultsManager.shared.gratidao)
+        //print("gratidao2",UserDefaultsManager.shared.gratidao)
     }
     
 }
