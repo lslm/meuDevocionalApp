@@ -44,19 +44,24 @@ struct SimpleEntry: TimelineEntry {
     let background: String
 }
 
-func changeColor(string: String) -> String{
+func changeColor(string: String, isPersonal: Bool) -> String{
     let colors  = ["Verde2","Amarelo1","Amarelo2","Amarelo3"]
-    if string == "postit1"{
-        return colors[0]
-    }
-    else if string == "postit2"{
-        return colors[1]
-    }
-    else if string == "postit3"{
-        return colors[2]
-    }
-    else if string == "postit4"{
-        return colors[3]
+    if isPersonal == true{
+        if string == "postit1"{
+            return colors[0]
+        }
+        else if string == "postit2"{
+            return colors[1]
+        }
+        else if string == "postit3"{
+            return colors[2]
+        }
+        else if string == "postit4"{
+            return colors[3]
+        }
+        else{
+            return colors[Int.random(in: 0..<colors.count)]
+        }
     }
     else{
         return colors[Int.random(in: 0..<colors.count)]
@@ -71,13 +76,13 @@ func changeText(string: String) -> String{
         return "Amarelo3"
     }
     else if string == "Amarelo2"{
-        return "Verde2"
+        return "Verde1"
     }
     else if string == "Amarelo3"{
         return "Amarelo1"
     }
     else{
-        let path = string
+        //let path = string
         return "Amarelo3"
     }
 }
@@ -97,6 +102,14 @@ func setVersisculo(gratidao: String) -> String{
     let content = "\(titulo[index])\n\(corpo[index])"
     return content
 }
+///funcao auxiliar que checa se o conteudo é diretamente do mural
+func isPersonal(gratidao: String, nota: String) -> Bool{
+    if gratidao == nota{
+        return true
+    }
+    return false
+}
+
 
 struct MeuDevocionalWidgetEntryView : View {
     var entry: Provider.Entry
@@ -105,10 +118,13 @@ struct MeuDevocionalWidgetEntryView : View {
     var body: some View {
         let motivo = setVersisculo(gratidao: entry.gratidao)
         let color = entry.background
-        let newColor = changeColor(string: color)
+        let isPersonal = isPersonal(gratidao: motivo, nota: entry.gratidao)
+        let newColor = changeColor(string: color, isPersonal: isPersonal)
         let textColor = changeText(string: newColor)
+        
         //let imageNew = (UIImage(contentsOfFile: SalvarImagem.getFilePath(fileName: newColor)))
         //let sub = UIImage(named: "VarianteEmpty")
+        
         GeometryReader{ geometry in
             ZStack{
                 Color(uiColor: UIColor(named: newColor) ?? .systemYellow)

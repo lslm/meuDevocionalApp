@@ -10,18 +10,18 @@ import Foundation
 ///classe utilizada para guardar o motivo de gratidao utilizado
 class UserDefaultsManager{
     static let shared = UserDefaultsManager()
-    var gratidao: String?{
+    var gratidao: [String]?{
         didSet{
             UserDefaults(suiteName: "group.com.biaduque.MeuDevocional")?.set(gratidao, forKey: "gratidao")
         }
     }
-    var background: String?{
+    var background: [String]?{
         didSet{
             UserDefaults(suiteName: "group.com.biaduque.MeuDevocional")?.set(background, forKey: "background")
         }
     }
     private init(){
-        self.gratidao = UserDefaults(suiteName: "group.com.biaduque.MeuDevocional")?.object(forKey: "gratidao") as? String
-        self.background = UserDefaults(suiteName: "group.com.biaduque.MeuDevocional")?.object(forKey: "background") as? String
+        self.gratidao = UserDefaults(suiteName: "group.com.biaduque.MeuDevocional")?.object(forKey: "gratidao") as? [String]
+        self.background = UserDefaults(suiteName: "group.com.biaduque.MeuDevocional")?.object(forKey: "background") as? [String]
     }
 }

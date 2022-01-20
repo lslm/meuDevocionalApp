@@ -49,6 +49,17 @@ class MuralViewController: UIViewController {
         vc.delegate = self
    }
     
+    // MARK: Funcao que verifica o userDefaults no mural para os widgets
+    func verifWidgets(){
+        let post = try! CoreDataStackPost.getPost()
+        if post.count != UserDefaultsManager.shared.gratidao?.count{
+            for i in 0..<post.count{
+                UserDefaultsManager.shared.gratidao[i] = post[i].nota
+                UserDefaultsManager.shared.background[i] = post[i].
+            }
+        }
+    }
+    
     // MARK: Long press
     @objc private func handleLongPress(sender: UILongPressGestureRecognizer) {
         let dataMural = try! CoreDataStackPost.getPost()
