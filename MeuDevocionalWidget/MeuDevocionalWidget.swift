@@ -10,11 +10,11 @@ import SwiftUI
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(),gratidao: [""],background: [""])
+        SimpleEntry(date: Date(),gratidao: "",background: "")
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(),gratidao: [""],background: [""])
+        let entry = SimpleEntry(date: Date(),gratidao: "",background: "")
         completion(entry)
     }
 
@@ -23,13 +23,17 @@ struct Provider: TimelineProvider {
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
+        for hourOffset in 0 ..< 60 {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
+            
             let gratidao = UserDefaultsManager.shared.gratidao
             let background = UserDefaultsManager.shared.background
+            
+            let index = Int.random(in: 0..<gratidao!.count) ?? 0
+
             let entry = SimpleEntry(date: entryDate,
-                                    gratidao: gratidao ?? ["Crie um novo motivo"],
-                                    background: background ?? ["postit1"])
+                                    gratidao: gratidao?[index] ?? "",
+                                    background: background?[index] ?? "")
             entries.append(entry)
         }
 
@@ -40,8 +44,8 @@ struct Provider: TimelineProvider {
 
 struct SimpleEntry: TimelineEntry {
     let date: Date
-    let gratidao: [String]
-    let background: [String]
+    let gratidao: String
+    let background: String
 }
 
 func changeColor(string: String, isPersonal: Bool) -> String{
@@ -116,12 +120,17 @@ struct MeuDevocionalWidgetEntryView : View {
 
     
     var body: some View {
-        let index = Int.random(in: 0..<entry.gratidao.count)
-        let motivo = setVersisculo(gratidao: entry.gratidao[index])
-        let color = entry.background[index]
-        let isPersonal = isPersonal(gratidao: motivo, nota: entry.gratidao[index])
+        let gratidoes = entry.gratidao
+        let cores = entry.background
+        
+        ///seta um motivo aleatorio do que esta no userDefaults
+        let motivo = setVersisculo(gratidao: gratidoes)
+        let color = cores
+        let isPersonal = isPersonal(gratidao: motivo, nota: entry.gratidao)
         let newColor = changeColor(string: color, isPersonal: isPersonal)
         let textColor = changeText(string: newColor)
+        
+        ///tirar o comentario caso queira adicionar imagem de fundo
         //let imageNew = (UIImage(contentsOfFile: SalvarImagem.getFilePath(fileName: newColor)))
         //let sub = UIImage(named: "VarianteEmpty")
         
@@ -170,7 +179,7 @@ struct MeuDevocionalWidget_Previews: PreviewProvider {
         let gratidao = UserDefaultsManager.shared.gratidao
         let background = UserDefaultsManager.shared.background
         
-        MeuDevocionalWidgetEntryView(entry: SimpleEntry(date: Date(),gratidao: gratidao ?? ["Crie um novo motivo"], background: background ?? ["novaCor"]))
+        MeuDevocionalWidgetEntryView(entry: SimpleEntry(date: Date(),gratidao: gratidao?[1] ?? "Crie um novo motivo", background: background?[1] ?? "novaCor"))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

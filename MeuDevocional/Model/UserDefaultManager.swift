@@ -21,7 +21,7 @@ class UserDefaultsManager{
         }
     }
     private init(){
-        self.gratidao = UserDefaults(suiteName: "group.com.biaduque.MeuDevocional")?.object(forKey: "gratidao") as? [String]
-        self.background = UserDefaults(suiteName: "group.com.biaduque.MeuDevocional")?.object(forKey: "background") as? [String]
+        self.gratidao = UserDefaults(suiteName: "group.com.biaduque.MeuDevocional")?.stringArray(forKey: "gratidao")
+        self.background = UserDefaults(suiteName: "group.com.biaduque.MeuDevocional")?.stringArray(forKey: "background")
     }
 }
