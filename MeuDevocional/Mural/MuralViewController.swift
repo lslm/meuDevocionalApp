@@ -17,9 +17,9 @@ class MuralViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.verifWidgets()
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: verde]
-        
         muralCollection.dataSource = self
         muralCollection.delegate = self
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(sender:)))
@@ -52,10 +52,11 @@ class MuralViewController: UIViewController {
     // MARK: Funcao que verifica o userDefaults no mural para os widgets
     func verifWidgets(){
         let post = try! CoreDataStackPost.getPost()
+        //vai preencher o vetor de user Defaults com os postits de gratidao armazenados no coredata
         if post.count != UserDefaultsManager.shared.gratidao?.count{
             for i in 0..<post.count{
-                UserDefaultsManager.shared.gratidao[i] = post[i].nota
-                UserDefaultsManager.shared.background[i] = post[i].
+                UserDefaultsManager.shared.gratidao?[i] = post[i].nota ?? "Pelo o que você é grato hoje?"
+                UserDefaultsManager.shared.background?[i] = post[i].backgroundImage ?? "postit1"
             }
         }
     }
