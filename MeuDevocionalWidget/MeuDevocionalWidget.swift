@@ -94,7 +94,7 @@ func setVersisculo(gratidao: String) -> String{
     var titulo = widgetsTitle
     var corpo = widgetsContent
     
-    for _ in 0..<8{
+    for _ in 0..<15{
         ///adicionando novos conteúdos ao corpo do widget
         titulo.append("")
         corpo.append(gratidao)
