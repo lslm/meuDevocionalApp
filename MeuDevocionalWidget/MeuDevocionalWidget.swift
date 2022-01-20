@@ -45,28 +45,9 @@ struct SimpleEntry: TimelineEntry {
     let background: [String]
 }
 
-func changeColor(string: String, isPersonal: Bool) -> String{
+func changeColor() -> String{
     let colors  = ["Verde2","Amarelo1","Amarelo2","Amarelo3"]
-    if isPersonal == true{
-        if string == "postit1"{
-            return colors[0]
-        }
-        else if string == "postit2"{
-            return colors[1]
-        }
-        else if string == "postit3"{
-            return colors[2]
-        }
-        else if string == "postit4"{
-            return colors[3]
-        }
-        else{
-            return colors[Int.random(in: 0..<colors.count)]
-        }
-    }
-    else{
-        return colors[Int.random(in: 0..<colors.count)]
-    }
+    return colors[Int.random(in: 0..<colors.count)]
 }
 
 func changeText(string: String) -> String{
@@ -88,33 +69,26 @@ func changeText(string: String) -> String{
     }
 }
 
-func setVersisculo(gratidao: String) -> String{
+func setVersisculo(gratidao: [String]) -> String{
     ///array com as notificações do app
 
     var titulo = widgetsTitle
     var corpo = widgetsContent
     
-    for _ in 0..<15{
+    for i in 1..<gratidao.count{
         ///adicionando novos conteúdos ao corpo do widget
         titulo.append("")
-        corpo.append(gratidao)
+        corpo.append(gratidao[i])
     }
     
     let index = Int.random(in: 0..<titulo.count)
     var content = "\(titulo[index])\n\(corpo[index])"
     
     if content == ""{
-        content = "Adicione um novo motivo no mural!"
+        content = "Lembre dos seus motivos de gratidão"
     }
     
     return content
-}
-///funcao auxiliar que checa se o conteudo é diretamente do mural
-func isPersonal(gratidao: String, nota: String) -> Bool{
-    if gratidao == nota{
-        return true
-    }
-    return false
 }
 
 
@@ -124,15 +98,12 @@ struct MeuDevocionalWidgetEntryView : View {
     
     var body: some View {
         let gratidoes = entry.gratidao
-        let cores = entry.background
+        //let cores = entry.background
         
-        let index = Int.random(in: 1..<gratidoes.count)
 
         ///seta um motivo aleatorio do que esta no userDefaults
-        let motivo = setVersisculo(gratidao: gratidoes[index])
-        let color = cores[index]
-        let isPersonal = isPersonal(gratidao: motivo, nota: gratidoes[index])
-        let newColor = changeColor(string: color, isPersonal: isPersonal)
+        let motivo = setVersisculo(gratidao: gratidoes)
+        let newColor = changeColor()
         let textColor = changeText(string: newColor)
         
         ///tirar o comentario caso queira adicionar imagem de fundo
@@ -184,7 +155,7 @@ struct MeuDevocionalWidget_Previews: PreviewProvider {
         let gratidao = UserDefaultsManager.shared.gratidao
         let background = UserDefaultsManager.shared.background
         
-        MeuDevocionalWidgetEntryView(entry: SimpleEntry(date: Date(),gratidao: gratidao ?? ["Crie um novo motivo"], background: background ?? ["novaCor"]))
+        MeuDevocionalWidgetEntryView(entry: SimpleEntry(date: Date(),gratidao: gratidao ?? ["Lembre dos seus motivos de gratidão"], background: background ?? ["novaCor"]))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
