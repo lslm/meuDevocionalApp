@@ -2129,14 +2129,14 @@
             <objects>
                 <viewController storyboardIdentifier="leituraRapida" id="Gwa-D3-0lK" customClass="DevocionalDiarioRapidoViewController" customModule="MeuDevocional" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZkD-Zq-QOD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1056"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1168"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BxI-pq-uA3">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="1022"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1134"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHN-us-Hgn">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1022"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1134"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tomando decisões" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSo-jI-oDz">
                                                 <rect key="frame" x="22" y="8" width="374" height="24"/>
@@ -2246,7 +2246,7 @@
                                             <constraint firstAttribute="trailing" secondItem="mSo-jI-oDz" secondAttribute="trailing" constant="18" id="Tdn-xS-56z"/>
                                             <constraint firstItem="78z-qy-RiT" firstAttribute="top" secondItem="mlE-g6-cwS" secondAttribute="bottom" constant="30.5" id="deE-hI-Vr0"/>
                                             <constraint firstItem="Dq3-Tw-J9E" firstAttribute="top" secondItem="EVJ-dN-wsQ" secondAttribute="bottom" constant="8" symbolic="YES" id="egT-nb-dyA"/>
-                                            <constraint firstAttribute="height" constant="1022" id="gDh-Li-UdO"/>
+                                            <constraint firstAttribute="height" constant="1134" id="gDh-Li-UdO"/>
                                             <constraint firstItem="civ-7i-gaP" firstAttribute="leading" secondItem="aHN-us-Hgn" secondAttribute="leading" constant="22" id="iKz-wI-sz9"/>
                                             <constraint firstItem="mlE-g6-cwS" firstAttribute="top" secondItem="auB-qT-os4" secondAttribute="bottom" constant="8" symbolic="YES" id="mdu-7F-ZTy"/>
                                             <constraint firstItem="Zsm-SK-F5w" firstAttribute="leading" secondItem="aHN-us-Hgn" secondAttribute="leading" constant="20" symbolic="YES" id="oT7-y0-KJg"/>
@@ -2294,7 +2294,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <size key="freeformSize" width="414" height="1056"/>
+                    <size key="freeformSize" width="414" height="1168"/>
                     <connections>
                         <outlet property="contextualizacaoLabel" destination="Dq3-Tw-J9E" id="2V3-Ng-q3Y"/>
                         <outlet property="musicButton" destination="59L-bZ-q3O" id="PVU-hK-d3v"/>
@@ -2305,7 +2305,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U4Y-mZ-N8k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3704.347826086957" y="2681.9196428571427"/>
+            <point key="canvasLocation" x="-3704.347826086957" y="2719.4196428571427"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
