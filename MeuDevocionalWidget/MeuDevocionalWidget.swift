@@ -105,7 +105,7 @@ struct MeuDevocionalWidgetEntryView : View {
         let motivo = setVersisculo(gratidao: gratidoes)
         let newColor = changeColor()
         let textColor = changeText(string: newColor)
-        
+                
         ///tirar o comentario caso queira adicionar imagem de fundo
         //let imageNew = (UIImage(contentsOfFile: SalvarImagem.getFilePath(fileName: newColor)))
         //let sub = UIImage(named: "VarianteEmpty")
@@ -126,7 +126,7 @@ struct MeuDevocionalWidgetEntryView : View {
                         .font(Font.system(.body))
                         .padding()
                     Spacer()
-                    Text(entry.date, style: .time).padding()
+                    Text(entry.date, style: .date).padding()
                         .font(Font.system(size: 11, weight: .regular, design: .monospaced))
                         .frame(maxWidth: .infinity ,maxHeight: geometry.size.height/6,alignment: .center)
                         .foregroundColor(Color(uiColor: UIColor(named: textColor) ?? .systemYellow))
