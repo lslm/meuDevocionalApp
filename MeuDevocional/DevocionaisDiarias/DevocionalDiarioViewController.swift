@@ -48,8 +48,6 @@ class DevocionalDiarioViewController: UIViewController {
     // MARK: View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-      
         self.openOnboardFirstRun()
         
         DataManager.shared.loadData{

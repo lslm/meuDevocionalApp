@@ -76,6 +76,10 @@ class MuralViewController2: UIViewController {
         
         //atualiza a collectionView
         delegate?.didRegister()
+        
+        //salva no userDefault
+        verifWidgets()
+        
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -116,6 +120,27 @@ class MuralViewController2: UIViewController {
                 print("Nao permitido")
             }
         }
+    }
+    
+    // MARK: Funcao que verifica o userDefaults no mural para os widgets
+    func verifWidgets(){
+        let post = try! CoreDataStackPost.getPost()
+        ///vai preencher o vetor de user Defaults com os postits de gratidao armazenados no coredata
+        if post.count-1 != (UserDefaultsManager.shared.gratidao?.count){
+            ///reseta o vetor do user defaults
+            UserDefaultsManager.shared.background = [""]
+            UserDefaultsManager.shared.gratidao = [""]
+            var vetaux: [String] = [""]
+            var vetaux2: [String] = [""]
+            for i in 0..<post.count{
+                vetaux.append(post[i].nota ?? "Pelo o que você é grato hoje?")
+                vetaux2.append(post[i].backgroundImage ?? "postit1")
+            }
+            ///atualiza o vetor do user defaults
+             UserDefaultsManager.shared.gratidao = vetaux
+             UserDefaultsManager.shared.background = vetaux2
+        }
+        //print("gratidao",UserDefaultsManager.shared.gratidao)
     }
     
     // MARK: Colors Button

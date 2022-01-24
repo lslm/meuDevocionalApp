@@ -20,14 +20,27 @@
 		13026C6126A211BA00D683B0 /* MinhaDevocional2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13026C6026A211BA00D683B0 /* MinhaDevocional2ViewController.swift */; };
 		1331FFD026AB2B11003BDFAC /* DevocionalMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1331FFCF26AB2B11003BDFAC /* DevocionalMusicViewController.swift */; };
 		1331FFD226AB6605003BDFAC /* cotidianoBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1331FFD126AB6605003BDFAC /* cotidianoBase.swift */; };
+		134ADBF9279F11F400AD4370 /* MyCollectionViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ADBF8279F11F400AD4370 /* MyCollectionViewCell2.swift */; };
 		136CEA0D26B0ABA4007BDC49 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136CEA0C26B0ABA4007BDC49 /* InfoViewController.swift */; };
 		136CEA0F26B24FF2007BDC49 /* MinhaDevocionalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136CEA0E26B24FF2007BDC49 /* MinhaDevocionalViewController.swift */; };
 		136F9E1026AE0D590064F06F /* vidaBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F9E0F26AE0D590064F06F /* vidaBase.swift */; };
 		136F9E1226AE17C30064F06F /* estudosBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F9E1126AE17C30064F06F /* estudosBase.swift */; };
+		139044212798A24100EFAAAB /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 139B6FBF26A8CEE800C50E06 /* Model.xcdatamodeld */; };
+		139044252798AC0200EFAAAB /* WidgetContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139044232798ABF800EFAAAB /* WidgetContent.swift */; };
+		139044262798AC0400EFAAAB /* WidgetContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139044232798ABF800EFAAAB /* WidgetContent.swift */; };
 		1391571C278616F40056A439 /* MinhasDevocionais+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1391571B278616F40056A439 /* MinhasDevocionais+UITextField.swift */; };
 		1391571E278617790056A439 /* NotificacoesConteudo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1391571D278617790056A439 /* NotificacoesConteudo.swift */; };
 		139157222786182E0056A439 /* UserDevocionais.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139157212786182E0056A439 /* UserDevocionais.swift */; };
 		13915724278618950056A439 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13915723278618950056A439 /* EmptyView.swift */; };
+		13949BBB2798797300650144 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13949BBA2798797300650144 /* WidgetKit.framework */; };
+		13949BBD2798797300650144 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13949BBC2798797300650144 /* SwiftUI.framework */; };
+		13949BC02798797300650144 /* MeuDevocionalWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13949BBF2798797300650144 /* MeuDevocionalWidget.swift */; };
+		13949BC22798797400650144 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13949BC12798797400650144 /* Assets.xcassets */; };
+		13949BC62798797400650144 /* MeuDevocionalWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 13949BB82798797300650144 /* MeuDevocionalWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		13949BCC27987DF800650144 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13949BCB27987DF800650144 /* UserDefaultManager.swift */; };
+		13949BCF2798834400650144 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13949BCB27987DF800650144 /* UserDefaultManager.swift */; };
+		13949BD0279883CF00650144 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13026C4126A0A20300D683B0 /* Assets.xcassets */; };
+		13949BD127988AE400650144 /* SalvarImagem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C0759627973C1B0051F316 /* SalvarImagem.swift */; };
 		139B6F6D26A2724C00C50E06 /* DevocionalDiarioEstudoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B6F6C26A2724C00C50E06 /* DevocionalDiarioEstudoViewController.swift */; };
 		139B6F7126A2730F00C50E06 /* MuralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B6F7026A2730F00C50E06 /* MuralViewController.swift */; };
 		139B6F7326A2766400C50E06 /* MuralViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B6F7226A2766400C50E06 /* MuralViewController2.swift */; };
@@ -49,6 +62,30 @@
 		13F476182791FFE900C12113 /* DevocionalDiarioRapidoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F476172791FFE900C12113 /* DevocionalDiarioRapidoViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		13949BC42798797400650144 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 13026C2D26A0A1FE00D683B0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 13949BB72798797300650144;
+			remoteInfo = MeuDevocionalWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		13949BC72798797400650144 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				13949BC62798797400650144 /* MeuDevocionalWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		13026C3526A0A1FE00D683B0 /* MeuDevocional.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeuDevocional.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13026C3826A0A1FE00D683B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,14 +102,25 @@
 		13026C6026A211BA00D683B0 /* MinhaDevocional2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinhaDevocional2ViewController.swift; sourceTree = "<group>"; };
 		1331FFCF26AB2B11003BDFAC /* DevocionalMusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevocionalMusicViewController.swift; sourceTree = "<group>"; };
 		1331FFD126AB6605003BDFAC /* cotidianoBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cotidianoBase.swift; sourceTree = "<group>"; };
+		134ADBF8279F11F400AD4370 /* MyCollectionViewCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell2.swift; sourceTree = "<group>"; };
 		136CEA0C26B0ABA4007BDC49 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		136CEA0E26B24FF2007BDC49 /* MinhaDevocionalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinhaDevocionalViewController.swift; sourceTree = "<group>"; };
 		136F9E0F26AE0D590064F06F /* vidaBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vidaBase.swift; sourceTree = "<group>"; };
 		136F9E1126AE17C30064F06F /* estudosBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = estudosBase.swift; sourceTree = "<group>"; };
+		139044232798ABF800EFAAAB /* WidgetContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetContent.swift; sourceTree = "<group>"; };
 		1391571B278616F40056A439 /* MinhasDevocionais+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MinhasDevocionais+UITextField.swift"; sourceTree = "<group>"; };
 		1391571D278617790056A439 /* NotificacoesConteudo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificacoesConteudo.swift; sourceTree = "<group>"; };
 		139157212786182E0056A439 /* UserDevocionais.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDevocionais.swift; sourceTree = "<group>"; };
 		13915723278618950056A439 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		13949BB82798797300650144 /* MeuDevocionalWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MeuDevocionalWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		13949BBA2798797300650144 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		13949BBC2798797300650144 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		13949BBF2798797300650144 /* MeuDevocionalWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeuDevocionalWidget.swift; sourceTree = "<group>"; };
+		13949BC12798797400650144 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		13949BC32798797400650144 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13949BCB27987DF800650144 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
+		13949BCD2798807D00650144 /* MeuDevocional.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MeuDevocional.entitlements; sourceTree = "<group>"; };
+		13949BCE2798809700650144 /* MeuDevocionalWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MeuDevocionalWidgetExtension.entitlements; sourceTree = "<group>"; };
 		139B6F6C26A2724C00C50E06 /* DevocionalDiarioEstudoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevocionalDiarioEstudoViewController.swift; sourceTree = "<group>"; };
 		139B6F7026A2730F00C50E06 /* MuralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuralViewController.swift; sourceTree = "<group>"; };
 		139B6F7226A2766400C50E06 /* MuralViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuralViewController2.swift; sourceTree = "<group>"; };
@@ -102,17 +150,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		13949BB52798797300650144 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13949BBD2798797300650144 /* SwiftUI.framework in Frameworks */,
+				13949BBB2798797300650144 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		13026C2C26A0A1FE00D683B0 = {
 			isa = PBXGroup;
 			children = (
+				13949BCE2798809700650144 /* MeuDevocionalWidgetExtension.entitlements */,
 				139B6FC926A9DA5500C50E06 /* Post+CoreDataClass.swift */,
 				139B6FCA26A9DA5500C50E06 /* Post+CoreDataProperties.swift */,
 				139B6FC226A8CF7600C50E06 /* Devocionais+CoreDataClass.swift */,
 				139B6FC326A8CF7600C50E06 /* Devocionais+CoreDataProperties.swift */,
 				13026C3726A0A1FE00D683B0 /* MeuDevocional */,
+				13949BBE2798797300650144 /* MeuDevocionalWidget */,
+				13949BB92798797300650144 /* Frameworks */,
 				13026C3626A0A1FE00D683B0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -121,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				13026C3526A0A1FE00D683B0 /* MeuDevocional.app */,
+				13949BB82798797300650144 /* MeuDevocionalWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,6 +189,7 @@
 		13026C3726A0A1FE00D683B0 /* MeuDevocional */ = {
 			isa = PBXGroup;
 			children = (
+				13949BCD2798807D00650144 /* MeuDevocional.entitlements */,
 				13C075932797312F0051F316 /* Image */,
 				13C0758E279487410051F316 /* Onboard */,
 				13F476122791E55D00C12113 /* Model */,
@@ -192,6 +254,26 @@
 			path = "UserDefaults+Devocionais";
 			sourceTree = "<group>";
 		};
+		13949BB92798797300650144 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				13949BBA2798797300650144 /* WidgetKit.framework */,
+				13949BBC2798797300650144 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		13949BBE2798797300650144 /* MeuDevocionalWidget */ = {
+			isa = PBXGroup;
+			children = (
+				13949BBF2798797300650144 /* MeuDevocionalWidget.swift */,
+				139044232798ABF800EFAAAB /* WidgetContent.swift */,
+				13949BC12798797400650144 /* Assets.xcassets */,
+				13949BC32798797400650144 /* Info.plist */,
+			);
+			path = MeuDevocionalWidget;
+			sourceTree = "<group>";
+		};
 		139B6FA826A8A1E200C50E06 /* DevocionaisDiarias */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				13026C5426A0C2D300D683B0 /* MyCollectionViewCell.swift */,
+				134ADBF8279F11F400AD4370 /* MyCollectionViewCell2.swift */,
 				139B6FA126A7456A00C50E06 /* MyTableViewCell.swift */,
 			);
 			path = ViewControllersCell;
@@ -277,6 +360,7 @@
 			children = (
 				13F476132791E56D00C12113 /* DevocionaisRapidas.swift */,
 				13F476152791EED700C12113 /* DataManager.swift */,
+				13949BCB27987DF800650144 /* UserDefaultManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -291,15 +375,34 @@
 				13026C3126A0A1FE00D683B0 /* Sources */,
 				13026C3226A0A1FE00D683B0 /* Frameworks */,
 				13026C3326A0A1FE00D683B0 /* Resources */,
+				13949BC72798797400650144 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				13949BC52798797400650144 /* PBXTargetDependency */,
 			);
 			name = MeuDevocional;
 			productName = MeuDevocional;
 			productReference = 13026C3526A0A1FE00D683B0 /* MeuDevocional.app */;
 			productType = "com.apple.product-type.application";
+		};
+		13949BB72798797300650144 /* MeuDevocionalWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13949BCA2798797400650144 /* Build configuration list for PBXNativeTarget "MeuDevocionalWidgetExtension" */;
+			buildPhases = (
+				13949BB42798797300650144 /* Sources */,
+				13949BB52798797300650144 /* Frameworks */,
+				13949BB62798797300650144 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MeuDevocionalWidgetExtension;
+			productName = MeuDevocionalWidgetExtension;
+			productReference = 13949BB82798797300650144 /* MeuDevocionalWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -307,11 +410,14 @@
 		13026C2D26A0A1FE00D683B0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1250;
+				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					13026C3426A0A1FE00D683B0 = {
 						CreatedOnToolsVersion = 12.5.1;
+					};
+					13949BB72798797300650144 = {
+						CreatedOnToolsVersion = 13.2.1;
 					};
 				};
 			};
@@ -329,6 +435,7 @@
 			projectRoot = "";
 			targets = (
 				13026C3426A0A1FE00D683B0 /* MeuDevocional */,
+				13949BB72798797300650144 /* MeuDevocionalWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -344,6 +451,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		13949BB62798797300650144 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13949BD0279883CF00650144 /* Assets.xcassets in Resources */,
+				13949BC22798797400650144 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -356,6 +472,7 @@
 				13F476162791EED700C12113 /* DataManager.swift in Sources */,
 				1391571C278616F40056A439 /* MinhasDevocionais+UITextField.swift in Sources */,
 				139B6F7126A2730F00C50E06 /* MuralViewController.swift in Sources */,
+				134ADBF9279F11F400AD4370 /* MyCollectionViewCell2.swift in Sources */,
 				136F9E1026AE0D590064F06F /* vidaBase.swift in Sources */,
 				139B6F6D26A2724C00C50E06 /* DevocionalDiarioEstudoViewController.swift in Sources */,
 				139B6FC426A8CF7600C50E06 /* Devocionais+CoreDataClass.swift in Sources */,
@@ -365,6 +482,7 @@
 				1391571E278617790056A439 /* NotificacoesConteudo.swift in Sources */,
 				13026C5926A0CDC000D683B0 /* ConstraintsAndDesign.swift in Sources */,
 				139B6FC526A8CF7600C50E06 /* Devocionais+CoreDataProperties.swift in Sources */,
+				13949BCC27987DF800650144 /* UserDefaultManager.swift in Sources */,
 				1331FFD026AB2B11003BDFAC /* DevocionalMusicViewController.swift in Sources */,
 				13026C5726A0CC7400D683B0 /* EstruturaBaseData.swift in Sources */,
 				136F9E1226AE17C30064F06F /* estudosBase.swift in Sources */,
@@ -386,12 +504,33 @@
 				13026C4D26A0A3E300D683B0 /* CollectionItem.swift in Sources */,
 				13026C3B26A0A1FE00D683B0 /* SceneDelegate.swift in Sources */,
 				136CEA0D26B0ABA4007BDC49 /* InfoViewController.swift in Sources */,
+				139044262798AC0400EFAAAB /* WidgetContent.swift in Sources */,
 				13C0759727973C1B0051F316 /* SalvarImagem.swift in Sources */,
 				139157222786182E0056A439 /* UserDevocionais.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		13949BB42798797300650144 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13949BD127988AE400650144 /* SalvarImagem.swift in Sources */,
+				13949BCF2798834400650144 /* UserDefaultManager.swift in Sources */,
+				139044252798AC0200EFAAAB /* WidgetContent.swift in Sources */,
+				13949BC02798797300650144 /* MeuDevocionalWidget.swift in Sources */,
+				139044212798A24100EFAAAB /* Model.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		13949BC52798797400650144 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 13949BB72798797300650144 /* MeuDevocionalWidgetExtension */;
+			targetProxy = 13949BC42798797400650144 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		13026C3E26A0A1FE00D683B0 /* Main.storyboard */ = {
@@ -532,10 +671,12 @@
 		13026C4A26A0A20300D683B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MeuDevocional/MeuDevocional.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.5;
+				CURRENT_PROJECT_VERSION = 1.8;
 				DEVELOPMENT_TEAM = V8V28A4DX2;
 				INFOPLIST_FILE = MeuDevocional/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -553,10 +694,12 @@
 		13026C4B26A0A20300D683B0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MeuDevocional/MeuDevocional.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.5;
+				CURRENT_PROJECT_VERSION = 1.8;
 				DEVELOPMENT_TEAM = V8V28A4DX2;
 				INFOPLIST_FILE = MeuDevocional/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -568,6 +711,66 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		13949BC82798797400650144 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_ENTITLEMENTS = MeuDevocionalWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V8V28A4DX2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MeuDevocionalWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MeuDevocionalWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = biaduque.MeuDevocional.MeuDevocionalWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		13949BC92798797400650144 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_ENTITLEMENTS = MeuDevocionalWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V8V28A4DX2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MeuDevocionalWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MeuDevocionalWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = biaduque.MeuDevocional.MeuDevocionalWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -588,6 +791,15 @@
 			buildConfigurations = (
 				13026C4A26A0A20300D683B0 /* Debug */,
 				13026C4B26A0A20300D683B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		13949BCA2798797400650144 /* Build configuration list for PBXNativeTarget "MeuDevocionalWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13949BC82798797400650144 /* Debug */,
+				13949BC92798797400650144 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

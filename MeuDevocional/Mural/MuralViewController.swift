@@ -17,9 +17,10 @@ class MuralViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("gratidao",UserDefaultsManager.shared.gratidao)
+
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: verde]
-        
         muralCollection.dataSource = self
         muralCollection.delegate = self
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(sender:)))
@@ -76,6 +77,7 @@ class MuralViewController: UIViewController {
             }
         }
     }
+    
 }
 
 

@@ -2129,14 +2129,14 @@
             <objects>
                 <viewController storyboardIdentifier="leituraRapida" id="Gwa-D3-0lK" customClass="DevocionalDiarioRapidoViewController" customModule="MeuDevocional" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZkD-Zq-QOD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1056"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1168"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BxI-pq-uA3">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="1022"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1134"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHN-us-Hgn">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1022"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1134"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tomando decisões" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSo-jI-oDz">
                                                 <rect key="frame" x="22" y="8" width="374" height="24"/>
@@ -2157,7 +2157,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reflexão" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auB-qT-os4">
-                                                <rect key="frame" x="20" y="330" width="372" height="24"/>
+                                                <rect key="frame" x="20" y="366" width="372" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="372" id="SHW-as-DMb"/>
                                                 </constraints>
@@ -2175,29 +2175,42 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dq3-Tw-J9E">
-                                                <rect key="frame" x="20" y="141" width="374" height="167.5"/>
-                                                <string key="text">Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.</string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <nil key="textColor"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dq3-Tw-J9E">
+                                                <rect key="frame" x="20" y="141" width="374" height="203.5"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment>
+                                                        <string key="content">Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.</string>
+                                                        <attributes>
+                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                            <font key="NSFont" metaFont="menu" size="14"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="4" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mlE-g6-cwS">
-                                                <rect key="frame" x="20" y="362" width="374" height="317.5"/>
-                                                <string key="text">Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tPois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.enha vida eterna.Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.</string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <nil key="textColor"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mlE-g6-cwS">
+                                                <rect key="frame" x="20" y="398" width="374" height="407.5"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment>
+                                                        <string key="content">Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tPois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.enha vida eterna.Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.Pois Deus amou tanto o mundo, que entregou o seu Filho único, para que todo o que nele crê não pereça, mas tenha vida eterna.</string>
+                                                        <attributes>
+                                                            <font key="NSFont" metaFont="menu" size="14"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="5" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whorshipTime" translatesAutoresizingMaskIntoConstraints="NO" id="Zsm-SK-F5w">
-                                                <rect key="frame" x="20" y="742" width="374" height="80"/>
+                                                <rect key="frame" x="20" y="868" width="374" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="374" id="4wl-Ga-fZq"/>
                                                     <constraint firstAttribute="height" constant="80" id="wr9-OV-Pua"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59L-bZ-q3O">
-                                                <rect key="frame" x="311" y="757" width="50" height="50"/>
+                                                <rect key="frame" x="311" y="883" width="50" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="2n0-EP-OMY"/>
                                                     <constraint firstAttribute="height" constant="51" id="NWQ-hL-wda"/>
@@ -2211,7 +2224,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Worship Time!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78z-qy-RiT">
-                                                <rect key="frame" x="22" y="710" width="376" height="24"/>
+                                                <rect key="frame" x="22" y="836" width="376" height="24"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <color key="textColor" red="0.5450980392" green="0.63529411759999999" blue="0.57647058819999997" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -2233,7 +2246,7 @@
                                             <constraint firstAttribute="trailing" secondItem="mSo-jI-oDz" secondAttribute="trailing" constant="18" id="Tdn-xS-56z"/>
                                             <constraint firstItem="78z-qy-RiT" firstAttribute="top" secondItem="mlE-g6-cwS" secondAttribute="bottom" constant="30.5" id="deE-hI-Vr0"/>
                                             <constraint firstItem="Dq3-Tw-J9E" firstAttribute="top" secondItem="EVJ-dN-wsQ" secondAttribute="bottom" constant="8" symbolic="YES" id="egT-nb-dyA"/>
-                                            <constraint firstAttribute="height" constant="1022" id="gDh-Li-UdO"/>
+                                            <constraint firstAttribute="height" constant="1134" id="gDh-Li-UdO"/>
                                             <constraint firstItem="civ-7i-gaP" firstAttribute="leading" secondItem="aHN-us-Hgn" secondAttribute="leading" constant="22" id="iKz-wI-sz9"/>
                                             <constraint firstItem="mlE-g6-cwS" firstAttribute="top" secondItem="auB-qT-os4" secondAttribute="bottom" constant="8" symbolic="YES" id="mdu-7F-ZTy"/>
                                             <constraint firstItem="Zsm-SK-F5w" firstAttribute="leading" secondItem="aHN-us-Hgn" secondAttribute="leading" constant="20" symbolic="YES" id="oT7-y0-KJg"/>
@@ -2281,7 +2294,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <size key="freeformSize" width="414" height="1056"/>
+                    <size key="freeformSize" width="414" height="1168"/>
                     <connections>
                         <outlet property="contextualizacaoLabel" destination="Dq3-Tw-J9E" id="2V3-Ng-q3Y"/>
                         <outlet property="musicButton" destination="59L-bZ-q3O" id="PVU-hK-d3v"/>
@@ -2292,7 +2305,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U4Y-mZ-N8k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3704.347826086957" y="2681.9196428571427"/>
+            <point key="canvasLocation" x="-3704.347826086957" y="2719.4196428571427"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
