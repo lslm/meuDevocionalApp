@@ -20,6 +20,7 @@
 		13026C6126A211BA00D683B0 /* MinhaDevocional2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13026C6026A211BA00D683B0 /* MinhaDevocional2ViewController.swift */; };
 		1331FFD026AB2B11003BDFAC /* DevocionalMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1331FFCF26AB2B11003BDFAC /* DevocionalMusicViewController.swift */; };
 		1331FFD226AB6605003BDFAC /* cotidianoBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1331FFD126AB6605003BDFAC /* cotidianoBase.swift */; };
+		134ADBF9279F11F400AD4370 /* MyCollectionViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134ADBF8279F11F400AD4370 /* MyCollectionViewCell2.swift */; };
 		136CEA0D26B0ABA4007BDC49 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136CEA0C26B0ABA4007BDC49 /* InfoViewController.swift */; };
 		136CEA0F26B24FF2007BDC49 /* MinhaDevocionalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136CEA0E26B24FF2007BDC49 /* MinhaDevocionalViewController.swift */; };
 		136F9E1026AE0D590064F06F /* vidaBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F9E0F26AE0D590064F06F /* vidaBase.swift */; };
@@ -101,6 +102,7 @@
 		13026C6026A211BA00D683B0 /* MinhaDevocional2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinhaDevocional2ViewController.swift; sourceTree = "<group>"; };
 		1331FFCF26AB2B11003BDFAC /* DevocionalMusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevocionalMusicViewController.swift; sourceTree = "<group>"; };
 		1331FFD126AB6605003BDFAC /* cotidianoBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cotidianoBase.swift; sourceTree = "<group>"; };
+		134ADBF8279F11F400AD4370 /* MyCollectionViewCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell2.swift; sourceTree = "<group>"; };
 		136CEA0C26B0ABA4007BDC49 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		136CEA0E26B24FF2007BDC49 /* MinhaDevocionalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinhaDevocionalViewController.swift; sourceTree = "<group>"; };
 		136F9E0F26AE0D590064F06F /* vidaBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vidaBase.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				13026C5426A0C2D300D683B0 /* MyCollectionViewCell.swift */,
+				134ADBF8279F11F400AD4370 /* MyCollectionViewCell2.swift */,
 				139B6FA126A7456A00C50E06 /* MyTableViewCell.swift */,
 			);
 			path = ViewControllersCell;
@@ -469,6 +472,7 @@
 				13F476162791EED700C12113 /* DataManager.swift in Sources */,
 				1391571C278616F40056A439 /* MinhasDevocionais+UITextField.swift in Sources */,
 				139B6F7126A2730F00C50E06 /* MuralViewController.swift in Sources */,
+				134ADBF9279F11F400AD4370 /* MyCollectionViewCell2.swift in Sources */,
 				136F9E1026AE0D590064F06F /* vidaBase.swift in Sources */,
 				139B6F6D26A2724C00C50E06 /* DevocionalDiarioEstudoViewController.swift in Sources */,
 				139B6FC426A8CF7600C50E06 /* Devocionais+CoreDataClass.swift in Sources */,

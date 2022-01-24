@@ -25,8 +25,8 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
     
     // MARK: Fetch Data
     private lazy var fetchResultController: NSFetchedResultsController<Devocionais> = {
-        let request: NSFetchRequest<Devocionais> = Devocionais.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(keyPath: \Devocionais.titulo, ascending: false)]
+        let request: NSFetchRequest<Devocionais> = Devocionais.fetchRequest() 
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \Devocionais.data, ascending: true)]
         let frc = NSFetchedResultsController(fetchRequest: request,
                                              managedObjectContext: CoreDataStack.context,
                                              sectionNameKeyPath: nil,
@@ -80,6 +80,7 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
         vc.edit = false
         vc.delegate = self
    }
+    
     private func configureSearchController(){
         searchController.loadViewIfNeeded()
         searchController.searchResultsUpdater = self
@@ -101,27 +102,35 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
     
     ///Retorna a quantidade de itens da collection. Se nao forem os dados do usuario, retorna um item default
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        ///nao encontrou nenhum resultado e habilita a empty view
+        self.dataDevocional = try! CoreDataStack.getDevocional()
+
         if dataDevocional.count == 0 && searching == true {
             self.notFound.isHidden = false
             return 0
         }
-        
+        /// caso de mostrar a collection inteira
         self.notFound.isHidden = true
-        
-        dataDevocional = try! CoreDataStack.getDevocional()
-        
         if dataDevocional.count == 0 && searching == false {
             searchController.searchBar.isHidden = true
-            return meuDevocional.count
+            return dataDevocional.count
         }
+        ///caso de mostrar a colection filtrada
         searchController.searchBar.isHidden = false
-        if searching{return dataFiltred.count}
-        else{return dataDevocional.count}
+        if searching{
+            self.dataDevocional = dataFiltred
+            return dataFiltred.count
+        }
+        else{
+            return dataDevocional.count
+            
+        }
     }
     
     // MARK: Coleta de dados
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        guard let devocionais = controller.fetchedObjects as? [Devocionais] else { return }
+        //guard let devocionais = controller.fetchedObjects as? [Devocionais] else { return }
+        let devocionais = try! CoreDataStack.getDevocional()
         self.dataDevocional = devocionais
         self.collectionView.reloadData()
     }
@@ -151,8 +160,8 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
         }
         else{
             ///caso ja houverem dados no Banco de dados, mostra eles aos usuarios
-            editaCelula(cell: cell, index: indexPath.row)
-            defineTextColor(cell: cell)
+            cell.editaCelula(index: indexPath.row, dataDevocional: dataDevocional)
+            cell.defineTextColor()
         }
         
         ///deixa o background da palavra chave vazio caso nao exista nada adicionado
@@ -161,7 +170,6 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
         if cell.pc3.text == "" {cell.pc3.backgroundColor = nil}
         
         cellBase = cell
-            
         }
         
         return cellBase
@@ -186,7 +194,7 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
         else{
             if let vc = storyboard?.instantiateViewController(identifier: "minhadevocional") as?
                         MinhaDevocional2ViewController {
-                let index = self.searchDevocional(Titulo: dataDevocional[indexPath.row].titulo!)
+                let index = self.searchDevocional(Titulo: dataDevocional[indexPath.row].titulo!,isSearching: true)
                 vc.devocional = index
                 vc.delegate2 = self
                 //self.collectionView?.reloadData()
@@ -197,8 +205,11 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
     }
     
     ///funcao auxiliar que busca a devocional atraves do titulo
-    func searchDevocional(Titulo: String) -> Int{
-        let devocionaisAtuais = try! CoreDataStack.getDevocional()
+    func searchDevocional(Titulo: String, isSearching: Bool) -> Int{
+        var devocionaisAtuais = self.dataDevocional
+        if isSearching{
+            devocionaisAtuais = try! CoreDataStack.getDevocional()
+        }
         var index = 0
         for i in 0..<devocionaisAtuais.count{
             if (devocionaisAtuais[i].titulo!.lowercased()) == (Titulo.lowercased()){
@@ -208,85 +219,7 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
         return index
     }
     
-    
-    // MARK: Auxiliares de edicao
-    /// --------- Funcoes auxiliares -----------
-    func editaCelula(cell: MyCollectionViewCell,index: Int){
-        ///seleciona o que tem no banco de dados para exibir
-        
-        cell.data.text = dataDevocional[index].data
-        cell.myTitle.text = dataDevocional[index].titulo
-        cell.myReference.text = dataDevocional[index].baseBiblica
-        cell.myImage.image = UIImage(named: dataDevocional[index].backgroundImage!)
-        
-    
-        cell.pc1.text = dataDevocional[index].aplicacao1
-        cell.pc2.text = dataDevocional[index].aplicacao2
-        cell.pc3.text = dataDevocional[index].aplicacao3
-                
-        cell.pc1.clipsToBounds = true
-        cell.pc2.clipsToBounds = true
-        cell.pc3.clipsToBounds = true
 
-        cell.pc1.layer.cornerRadius = 3
-        cell.pc2.layer.cornerRadius = 3
-        cell.pc3.layer.cornerRadius = 3
-                
-        ///define o background de acordo com o codigo armazenado
-        if dataDevocional[index].backgroundColor == "1"{
-            cell.backgroundColor = verde
-            cell.myImage.image = UIImage(named: "criev1")
-            self.editPC(aplicacao: dataDevocional[index], cell: cell, color: UIColor(named: "Amarelo1") ?? verde3)
-        }
-        else if dataDevocional[index].backgroundColor == "2" {
-            cell.backgroundColor = amarelo
-            cell.myImage.image = UIImage(named: "criev2")
-            self.editPC(aplicacao: dataDevocional[index], cell: cell, color: UIColor(named: "Amarelo3") ?? verde3)
-        }
-        else if dataDevocional[index].backgroundColor == "3"{
-            cell.backgroundColor = amarelo2
-            cell.myImage.image = UIImage(named: "criev3")
-            self.editPC(aplicacao: dataDevocional[index], cell: cell, color: UIColor(named: "Verde1") ?? verde3)
-        }
-        else{
-            cell.backgroundColor = amarelo3
-            cell.myImage.image = UIImage(named: "criev4")
-            self.editPC(aplicacao: dataDevocional[index], cell: cell, color: UIColor(named: "Verde2") ?? verde3)
-        }
-        
-    }
-    
-    func editPC(aplicacao: Devocionais, cell: MyCollectionViewCell, color: UIColor){
-        ///adiciona background nas palavras - chave apenas se houver algo adicionado
-        if aplicacao.aplicacao1 != "" {cell.pc1.backgroundColor = color.withAlphaComponent(0.4)}
-        if aplicacao.aplicacao2 != "" {cell.pc2.backgroundColor = color.withAlphaComponent(0.4)}
-        if aplicacao.aplicacao3 != "" {cell.pc3.backgroundColor = color.withAlphaComponent(0.4)}
-    }
-    
-    ///define a cor do texto de acordo com o backgrund
-    func defineTextColor(cell: MyCollectionViewCell){
-        if cell.backgroundColor == verde {
-            cell.data.textColor = .white
-            cell.myTitle.textColor = .white
-            cell.myReference.textColor = .white
-        }
-        else if cell.backgroundColor == amarelo{
-            cell.data.textColor = .white
-            cell.myTitle.textColor = .white
-            cell.myReference.textColor = .white
-        }
-        else if cell.backgroundColor == amarelo2{
-            cell.data.textColor = verde
-            cell.myTitle.textColor = verde
-            cell.myReference.textColor = verde
-        }
-        else {
-            cell.data.textColor = amarelo
-            cell.myTitle.textColor = amarelo
-            cell.myReference.textColor = amarelo
-        }
-    }
-    
     
     // MARK: Long Press function
     ///funcao que gera a exclusao do item se for pressionado
@@ -306,10 +239,10 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
                     }
                     else{
                     let ac = UIAlertController(title: "Deletar todo o conteúdo de '\(dataDevocional[indexPath.item].titulo ?? "NONE")'", message: "O conteúdo não poderá ser recuperado.", preferredStyle: .actionSheet)
+                        let index = self.searchDevocional(Titulo: self.dataDevocional[indexPath.item].titulo ?? "", isSearching: false)
                         ac.addAction(UIAlertAction(title: "Deletar", style: .destructive, handler: {
                             [weak self] action in
-                            let index = self?.searchDevocional(Titulo: self!.dataDevocional[indexPath.row].titulo!)
-                            try! CoreDataStack.deleteDevocional(devocionais: self!.dataDevocional[index!])
+                            try! CoreDataStack.deleteDevocional(devocionais: self!.dataDevocional[index])
                         self?.collectionView.reloadData()
                         }))
                         ac.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))

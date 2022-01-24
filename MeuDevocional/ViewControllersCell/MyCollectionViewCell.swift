@@ -36,7 +36,7 @@ class MyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var versicleLabel: UILabel!
     @IBOutlet weak var waitView: UIActivityIndicatorView!
     
-    
+    // MARK: Devocionais rápidas
     public func editaRapidas(devocional: Devocional,status: Bool){
             ///quando consegue carregar o conteúdo, esconte as empty states
             self.waitView.isHidden = true
@@ -79,35 +79,85 @@ class MyCollectionViewCell: UICollectionViewCell {
         self.textCard.textColor = UIColor(named: "Accent")?.withAlphaComponent(0.7)
         self.versicleLabel.textColor = UIColor(named: "Accent")?.withAlphaComponent(0.7)
     }
-}
-
-//classe das celulas dos post its (em Mural)
-class MyCollectionViewCell2: UICollectionViewCell{
-    @IBOutlet weak var background: UIImageView!
-    @IBOutlet weak var nota: UILabel!
-    @IBOutlet weak var data: UILabel!
     
-    func setImage(image: String,color: String){
-        if image != "postit1" &&
-            image != "postit2" &&
-            image != "postit3" &&
-            image != "postit4" &&
-            image != "novopost" {
-            
-            let path = image
-            let imageNew = UIImage(contentsOfFile: SalvarImagem.getFilePath(fileName: path))
-            self.background.image = imageNew
-            self.background.alpha = 0.6
-            self.background.layer.cornerRadius = 10
-            self.background.contentMode = .scaleAspectFill
-            self.nota.backgroundColor = UIColor(named: color)
-            self.data.backgroundColor = UIColor(named: color)
+    
+    
+    // MARK: Minhas devocionais
+    /// --------- Funcoes auxiliares -----------
+    func editaCelula(index: Int, dataDevocional: [Devocionais]){
+        ///seleciona o que tem no banco de dados para exibir
+        
+        self.data.text = dataDevocional[index].data
+        self.myTitle.text = dataDevocional[index].titulo
+        self.myReference.text = dataDevocional[index].baseBiblica
+        self.myImage.image = UIImage(named: dataDevocional[index].backgroundImage!)
+        
+    
+        self.pc1.text = dataDevocional[index].aplicacao1
+        self.pc2.text = dataDevocional[index].aplicacao2
+        self.pc3.text = dataDevocional[index].aplicacao3
+                
+        self.pc1.clipsToBounds = true
+        self.pc2.clipsToBounds = true
+        self.pc3.clipsToBounds = true
+
+        self.pc1.layer.cornerRadius = 3
+        self.pc2.layer.cornerRadius = 3
+        self.pc3.layer.cornerRadius = 3
+                
+        ///define o background de acordo com o codigo armazenado
+        if dataDevocional[index].backgroundColor == "1"{
+            self.backgroundColor = verde
+            self.myImage.image = UIImage(named: "criev1")
+            self.editPC(aplicacao: dataDevocional[index], color: UIColor(named: "Amarelo1") ?? verde3)
+        }
+        else if dataDevocional[index].backgroundColor == "2" {
+            self.backgroundColor = amarelo
+            self.myImage.image = UIImage(named: "criev2")
+            self.editPC(aplicacao: dataDevocional[index], color: UIColor(named: "Amarelo3") ?? verde3)
+        }
+        else if dataDevocional[index].backgroundColor == "3"{
+            self.backgroundColor = amarelo2
+            self.myImage.image = UIImage(named: "criev3")
+            self.editPC(aplicacao: dataDevocional[index], color: UIColor(named: "Verde1") ?? verde3)
         }
         else{
-            self.background.image = UIImage(named: image)
-            self.background.alpha = 1
-            self.nota.backgroundColor = .clear
-            self.data.backgroundColor = .clear
+            self.backgroundColor = amarelo3
+            self.myImage.image = UIImage(named: "criev4")
+            self.editPC(aplicacao: dataDevocional[index], color: UIColor(named: "Verde2") ?? verde3)
+        }
+        
+    }
+    
+    func editPC(aplicacao: Devocionais, color: UIColor){
+        ///adiciona background nas palavras - chave apenas se houver algo adicionado
+        if aplicacao.aplicacao1 != "" {self.pc1.backgroundColor = color.withAlphaComponent(0.4)}
+        if aplicacao.aplicacao2 != "" {self.pc2.backgroundColor = color.withAlphaComponent(0.4)}
+        if aplicacao.aplicacao3 != "" {self.pc3.backgroundColor = color.withAlphaComponent(0.4)}
+    }
+    
+    ///define a cor do texto de acordo com o backgrund
+    func defineTextColor(){
+        if self.backgroundColor == verde {
+            self.data.textColor = .white
+            self.myTitle.textColor = .white
+            self.myReference.textColor = .white
+        }
+        else if self.backgroundColor == amarelo{
+            self.data.textColor = .white
+            self.myTitle.textColor = .white
+            self.myReference.textColor = .white
+        }
+        else if self.backgroundColor == amarelo2{
+            self.data.textColor = verde
+            self.myTitle.textColor = verde
+            self.myReference.textColor = verde
+        }
+        else {
+            self.data.textColor = amarelo
+            self.myTitle.textColor = amarelo
+            self.myReference.textColor = amarelo
         }
     }
+    
 }
