@@ -40,6 +40,9 @@ class MinhaDevocional2ViewController: UIViewController {
         pc2.clipsToBounds = true
         pc3.clipsToBounds = true
         
+        reflexao.textColor = .label
+
+        
         super.viewDidLoad()
         //navigationController?.navigationBar.prefersLargeTitles = true
         dataDevocional = try! CoreDataStack.getDevocional()
