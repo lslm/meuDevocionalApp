@@ -103,12 +103,13 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
     ///Retorna a quantidade de itens da collection. Se nao forem os dados do usuario, retorna um item default
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         ///nao encontrou nenhum resultado e habilita a empty view
-        self.dataDevocional = try! CoreDataStack.getDevocional()
-
         if dataDevocional.count == 0 && searching == true {
             self.notFound.isHidden = false
             return 0
         }
+        
+        self.dataDevocional = try! CoreDataStack.getDevocional()
+        
         /// caso de mostrar a collection inteira
         self.notFound.isHidden = true
         if dataDevocional.count == 0 && searching == false {
