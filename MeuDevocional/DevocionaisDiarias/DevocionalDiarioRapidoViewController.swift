@@ -23,6 +23,8 @@ class DevocionalDiarioRapidoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.contextualizacaoLabel?.textColor = .label
+        self.reflexaoLabel?.textColor = .label
         editButton(button: musicButton)
         content()
     }
