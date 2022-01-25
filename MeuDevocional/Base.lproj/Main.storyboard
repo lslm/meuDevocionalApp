@@ -2288,9 +2288,6 @@
                             <color key="tintColor" name="Accent"/>
                             <connections>
                                 <action selector="newDevocionalButton:" destination="Gwa-D3-0lK" id="oDn-da-RFK"/>
-                                <segue destination="8BQ-eE-MAx" kind="popoverPresentation" popoverAnchorBarButtonItem="iNv-kM-dOn" id="ch4-ch-1Tl">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -2308,9 +2305,6 @@
             <point key="canvasLocation" x="-3704.347826086957" y="2719.4196428571427"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="ch4-ch-1Tl"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" name="Accent"/>
     <resources>
         <image name="book" catalog="system" width="128" height="99"/>
