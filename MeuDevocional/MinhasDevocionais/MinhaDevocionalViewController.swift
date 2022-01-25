@@ -282,12 +282,6 @@ extension MinhaDevocionalViewController: UISearchBarDelegate, UISearchResultsUpd
         definesPresentationContext = true
     }
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searching = true
-        self.dataFiltred.removeAll() //limpando o filtro
-        self.collectionView.reloadData()
-    }
-    
     func updateSearchResults(for searchController: UISearchController) {
         let searchText = searchController.searchBar.text!
         if !searchText.isEmpty{
