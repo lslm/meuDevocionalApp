@@ -81,18 +81,7 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
         vc.delegate = self
    }
     
-    private func configureSearchController(){
-        searchController.loadViewIfNeeded()
-        searchController.searchResultsUpdater = self
-        searchController.searchBar.delegate = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.enablesReturnKeyAutomatically = false
-        searchController.searchBar.returnKeyType = UIReturnKeyType.search
-        self.navigationItem.hidesSearchBarWhenScrolling = false
-        self.navigationItem.searchController = searchController
-        definesPresentationContext = true
-        searchController.searchBar.placeholder = "Busque sua devocional..."
-    }
+
     
     ///Funcoes da collectionView
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -275,7 +264,30 @@ extension MinhaDevocionalViewController: MinhaDevocional2ViewControllerDelegate{
     }
 }
 
+// MARK: Search bar functions
 extension MinhaDevocionalViewController: UISearchBarDelegate, UISearchResultsUpdating{
+    
+    
+    private func configureSearchController(){
+        searchController.loadViewIfNeeded()
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.enablesReturnKeyAutomatically = false
+        searchController.searchBar.returnKeyType = UIReturnKeyType.search
+        searchController.searchBar.placeholder = "Busque sua devocional..."
+
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+        self.navigationItem.searchController = searchController
+        definesPresentationContext = true
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searching = true
+        self.dataFiltred.removeAll() //limpando o filtro
+        self.collectionView.reloadData()
+    }
+    
     func updateSearchResults(for searchController: UISearchController) {
         let searchText = searchController.searchBar.text!
         if !searchText.isEmpty{
@@ -294,7 +306,6 @@ extension MinhaDevocionalViewController: UISearchBarDelegate, UISearchResultsUpd
             self.dataFiltred.removeAll()
             self.dataDevocional = try! CoreDataStack.getDevocional()
         }
-        
         self.collectionView.reloadData()
     }
 }
