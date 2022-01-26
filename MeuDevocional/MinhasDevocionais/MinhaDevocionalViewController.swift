@@ -39,7 +39,10 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
     override func viewDidLoad() {
         
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: verde]
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(named: "Accent")]
+        //navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor(named: "Accent")]
+
+        
         
         super.viewDidLoad()
         self.dataDevocional = try! CoreDataStack.getDevocional()
