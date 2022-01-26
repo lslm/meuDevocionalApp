@@ -17,23 +17,35 @@ class MyCollectionViewCell2: UICollectionViewCell{
     func setImage(image: String,color: String){
         if image == "postit1"{
             self.backgroundColor = UIColor(named: "Verde2")
+            self.background.image = nil
             self.background.alpha = 1
+            self.nota.backgroundColor = .clear
             self.data.backgroundColor = .clear
         }
         else if image == "postit2"{
             self.backgroundColor = UIColor(named: "Amarelo1")
+            self.background.image = nil
             self.background.alpha = 1
+            self.nota.backgroundColor = .clear
             self.data.backgroundColor = .clear
         }
         else if image == "postit3"{
             self.backgroundColor = UIColor(named: "Amarelo2")
+            self.background.image = nil
             self.background.alpha = 1
+            self.nota.backgroundColor = .clear
             self.data.backgroundColor = .clear
         }
         else if image == "postit4"{
             self.backgroundColor = UIColor(named: "Amarelo3")
+            self.background.image = nil
             self.background.alpha = 1
+            self.nota.backgroundColor = .clear
             self.data.backgroundColor = .clear
+        }
+        else if image == "novopost" || image == "base1" || image == "base2"{
+            self.background.image = UIImage(named: image)
+            self.backgroundColor = .clear
         }
         else{
             let path = image
@@ -44,6 +56,7 @@ class MyCollectionViewCell2: UICollectionViewCell{
             self.background.contentMode = .scaleAspectFill
             self.nota.backgroundColor = UIColor(named: color)
             self.data.backgroundColor = UIColor(named: color)
+            self.backgroundColor = .clear
         }
     }
 }
