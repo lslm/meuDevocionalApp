@@ -41,8 +41,6 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(named: "Accent")]
         //navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor(named: "Accent")]
-
-        
         
         super.viewDidLoad()
         self.dataDevocional = try! CoreDataStack.getDevocional()
@@ -50,6 +48,7 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
         collectionView.delegate = self
         collectionView.dataSource = self
         self.configureSearchController()
+        
         ///gesto para excluir a celula se for pressionada
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(sender:)))
                 collectionView.addGestureRecognizer(longPress)

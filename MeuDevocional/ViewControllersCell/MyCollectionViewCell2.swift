@@ -34,6 +34,7 @@ class MyCollectionViewCell2: UICollectionViewCell{
         else if image == "novopost" || image == "base1" || image == "base2"{
             self.background.image = UIImage(named: image)
             self.backgroundColor = .clear
+            self.background.alpha = 1
         }
         else{
             let path = image
