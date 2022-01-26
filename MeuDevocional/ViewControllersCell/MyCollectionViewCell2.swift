@@ -17,31 +17,19 @@ class MyCollectionViewCell2: UICollectionViewCell{
     func setImage(image: String,color: String){
         if image == "postit1"{
             self.backgroundColor = UIColor(named: "Verde2")
-            self.background.image = nil
-            self.background.alpha = 1
-            self.nota.backgroundColor = .clear
-            self.data.backgroundColor = .clear
+            self.setDefault()
         }
         else if image == "postit2"{
             self.backgroundColor = UIColor(named: "Amarelo1")
-            self.background.image = nil
-            self.background.alpha = 1
-            self.nota.backgroundColor = .clear
-            self.data.backgroundColor = .clear
+            self.setDefault()
         }
         else if image == "postit3"{
             self.backgroundColor = UIColor(named: "Amarelo2")
-            self.background.image = nil
-            self.background.alpha = 1
-            self.nota.backgroundColor = .clear
-            self.data.backgroundColor = .clear
+            self.setDefault()
         }
         else if image == "postit4"{
             self.backgroundColor = UIColor(named: "Amarelo3")
-            self.background.image = nil
-            self.background.alpha = 1
-            self.nota.backgroundColor = .clear
-            self.data.backgroundColor = .clear
+            self.setDefault()
         }
         else if image == "novopost" || image == "base1" || image == "base2"{
             self.background.image = UIImage(named: image)
@@ -58,5 +46,12 @@ class MyCollectionViewCell2: UICollectionViewCell{
             self.data.backgroundColor = UIColor(named: color)
             self.backgroundColor = .clear
         }
+    }
+    
+    func setDefault(){
+        self.background.image = nil
+        self.background.alpha = 1
+        self.nota.backgroundColor = .clear
+        self.data.backgroundColor = .clear
     }
 }
