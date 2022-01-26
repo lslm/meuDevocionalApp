@@ -52,6 +52,7 @@ class DevocionalDiarioViewController: UIViewController {
         
         DataManager.shared.loadData{
             self.devocionaisRapidas = DataManager.shared.devocionaisRapidas
+            self.devocionaisRapidas = self.devocionaisRapidas?.reversed() //reverte o vetor pra mais nova sempre ficar no começo
             self.isConect = DataManager.shared.isConect
             self.rapidas.reloadData()
         }
