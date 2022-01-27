@@ -74,27 +74,39 @@ class DevocionalDiarioRapidoViewController: UIViewController {
 //        vc.indice = (index ?? 1) - 1
 //   }
     
+    func checkDevocional(titulo: String) -> Int {
+        let dataDevocional = try! CoreDataStack.getDevocional()
+        for i in 0..<dataDevocional.count{
+            ///se a devocional existir, ela sera editada
+            if dataDevocional[i].titulo == titulo{
+                return i
+            }
+        }
+        ///se a devocional nao existir, ela sera criada e colocada por ultimo
+        let _ = try? CoreDataStack.createDevocional(titulo: self.titleLabel?.text ?? "",
+                                                    baseBiblica: self.versiculo,
+                                                    contextualizacao: "",
+                                                    reflexao: self.introducao,
+                                                    conclusao: "",
+                                                    aplicacao1: "",
+                                                    aplicacao2: "",
+                                                    aplicacao3: "",
+                                                    backgroundColor: "1",
+                                                    backgroundImage: "crie2",
+                                                    link: self.musica,
+                                                    livro: self.versiculo,
+                                                    capitulo: "",
+                                                    versiculo: "",
+                                                    data: "")
+        return dataDevocional.count
+    }
+    
     func createDevocional() -> UIViewController? {
         if let vc = storyboard?.instantiateViewController(identifier: "minhadevocionalForms") as? MinhaDevocional3ViewController {
-            let _ = try? CoreDataStack.createDevocional(titulo: self.titleLabel?.text ?? "",
-                                                        baseBiblica: self.versiculo,
-                                                        contextualizacao: "",
-                                                        reflexao: self.introducao,
-                                                        conclusao: "",
-                                                        aplicacao1: "",
-                                                        aplicacao2: "",
-                                                        aplicacao3: "",
-                                                        backgroundColor: "1",
-                                                        backgroundImage: "crie2",
-                                                        link: self.musica,
-                                                        livro: self.versiculo,
-                                                        capitulo: "",
-                                                        versiculo: "",
-                                                        data: "")
-            let index = try? CoreDataStack.getDevocional().count
+            let index = checkDevocional(titulo: self.titleLabel?.text ?? "Nova devocional")
             vc.edit = true
             vc.rapida = true
-            vc.indice = (index ?? 1) - 1
+            vc.indice = index
             return vc
         }
         return nil
