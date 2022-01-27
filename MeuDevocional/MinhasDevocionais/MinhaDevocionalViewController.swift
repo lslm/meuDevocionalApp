@@ -98,6 +98,8 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
             return 0
         }
         self.notFound.isHidden = true
+        
+        self.dataDevocional = try! CoreDataStack.getDevocional() //get para corrigir problema de sincronismo
         ///empty view
         if dataDevocional.count == 0 && searching == false {
             searchController.searchBar.isHidden = true
@@ -189,10 +191,10 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
                         MinhaDevocional2ViewController {
                 var index = 0
                 if searching{
-                    index = self.searchDevocional(Titulo: dataFiltred[indexPath.item].titulo!,isSearching: true)
+                    index = self.searchDevocional(Titulo: dataFiltred[indexPath.row].titulo!,isSearching: true)
                 }
                 else{
-                    index = self.searchDevocional(Titulo: dataDevocional[indexPath.item].titulo!,isSearching: true)
+                    index = self.searchDevocional(Titulo: dataDevocional[indexPath.row].titulo!,isSearching: true)
                 }
                 vc.devocional = index
                 vc.delegate2 = self
