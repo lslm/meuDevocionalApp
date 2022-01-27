@@ -39,7 +39,8 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
     override func viewDidLoad() {
         
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: verde]
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(named: "Accent")]
+        //navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor(named: "Accent")]
         
         super.viewDidLoad()
         self.dataDevocional = try! CoreDataStack.getDevocional()
@@ -47,6 +48,7 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
         collectionView.delegate = self
         collectionView.dataSource = self
         self.configureSearchController()
+        
         ///gesto para excluir a celula se for pressionada
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(sender:)))
                 collectionView.addGestureRecognizer(longPress)
@@ -81,49 +83,36 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
         vc.delegate = self
    }
     
-    private func configureSearchController(){
-        searchController.loadViewIfNeeded()
-        searchController.searchResultsUpdater = self
-        searchController.searchBar.delegate = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.enablesReturnKeyAutomatically = false
-        searchController.searchBar.returnKeyType = UIReturnKeyType.search
-        self.navigationItem.hidesSearchBarWhenScrolling = false
-        self.navigationItem.searchController = searchController
-        definesPresentationContext = true
-        searchController.searchBar.placeholder = "Busque sua devocional..."
-    }
+
     
     ///Funcoes da collectionView
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     ///Retorna a quantidade de itens da collection. Se nao forem os dados do usuario, retorna um item default
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         ///nao encontrou nenhum resultado e habilita a empty view
-        self.dataDevocional = try! CoreDataStack.getDevocional()
-
-        if dataDevocional.count == 0 && searching == true {
+        if dataFiltred.count == 0 && searching == true {
             self.notFound.isHidden = false
             return 0
         }
-        /// caso de mostrar a collection inteira
         self.notFound.isHidden = true
+        
+        self.dataDevocional = try! CoreDataStack.getDevocional() //get para corrigir problema de sincronismo
+        ///empty view
         if dataDevocional.count == 0 && searching == false {
             searchController.searchBar.isHidden = true
-            return dataDevocional.count
+            return meuDevocional.count
         }
         ///caso de mostrar a colection filtrada
         searchController.searchBar.isHidden = false
         if searching{
-            self.dataDevocional = dataFiltred
+            //self.dataDevocional = dataFiltred
             return dataFiltred.count
         }
         else{
             return dataDevocional.count
-            
         }
     }
     
@@ -160,8 +149,14 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
         }
         else{
             ///caso ja houverem dados no Banco de dados, mostra eles aos usuarios
-            cell.editaCelula(index: indexPath.row, dataDevocional: dataDevocional)
-            cell.defineTextColor()
+            if searching{
+                cell.editaCelula(index: indexPath.row, dataDevocional: dataFiltred)
+                cell.defineTextColor()
+            }
+            else{
+                cell.editaCelula(index: indexPath.row, dataDevocional: dataDevocional)
+                cell.defineTextColor()
+            }
         }
         
         ///deixa o background da palavra chave vazio caso nao exista nada adicionado
@@ -194,7 +189,13 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
         else{
             if let vc = storyboard?.instantiateViewController(identifier: "minhadevocional") as?
                         MinhaDevocional2ViewController {
-                let index = self.searchDevocional(Titulo: dataDevocional[indexPath.row].titulo!,isSearching: true)
+                var index = 0
+                if searching{
+                    index = self.searchDevocional(Titulo: dataFiltred[indexPath.row].titulo!,isSearching: true)
+                }
+                else{
+                    index = self.searchDevocional(Titulo: dataDevocional[indexPath.row].titulo!,isSearching: true)
+                }
                 vc.devocional = index
                 vc.delegate2 = self
                 //self.collectionView?.reloadData()
@@ -206,10 +207,7 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
     
     ///funcao auxiliar que busca a devocional atraves do titulo
     func searchDevocional(Titulo: String, isSearching: Bool) -> Int{
-        var devocionaisAtuais = self.dataDevocional
-        if isSearching{
-            devocionaisAtuais = try! CoreDataStack.getDevocional()
-        }
+        let devocionaisAtuais = self.dataDevocional
         var index = 0
         for i in 0..<devocionaisAtuais.count{
             if (devocionaisAtuais[i].titulo!.lowercased()) == (Titulo.lowercased()){
@@ -274,7 +272,24 @@ extension MinhaDevocionalViewController: MinhaDevocional2ViewControllerDelegate{
     }
 }
 
+// MARK: Search bar functions
 extension MinhaDevocionalViewController: UISearchBarDelegate, UISearchResultsUpdating{
+    
+    
+    private func configureSearchController(){
+        searchController.loadViewIfNeeded()
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.enablesReturnKeyAutomatically = false
+        searchController.searchBar.returnKeyType = UIReturnKeyType.search
+        searchController.searchBar.placeholder = "Busque sua devocional..."
+
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+        self.navigationItem.searchController = searchController
+        definesPresentationContext = true
+    }
+    
     func updateSearchResults(for searchController: UISearchController) {
         let searchText = searchController.searchBar.text!
         if !searchText.isEmpty{
@@ -286,14 +301,13 @@ extension MinhaDevocionalViewController: UISearchBarDelegate, UISearchResultsUpd
                     self.dataFiltred.append(devocional)
                 }
             }
-            self.dataDevocional = self.dataFiltred
+            //self.dataDevocional = self.dataFiltred
         }
         else {
             searching = false
             self.dataFiltred.removeAll()
             self.dataDevocional = try! CoreDataStack.getDevocional()
         }
-        
         self.collectionView.reloadData()
     }
 }

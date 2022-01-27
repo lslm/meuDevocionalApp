@@ -52,13 +52,14 @@ class DevocionalDiarioViewController: UIViewController {
         
         DataManager.shared.loadData{
             self.devocionaisRapidas = DataManager.shared.devocionaisRapidas
+            self.devocionaisRapidas = self.devocionaisRapidas?.reversed() //reverte o vetor pra mais nova sempre ficar no começo
             self.isConect = DataManager.shared.isConect
             self.rapidas.reloadData()
         }
         
         //transformando o titulo
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: verde]
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(named: "Accent")]
         //chama a solicitacao de notificacao
         self.criaNotif()
         ///delegate e dataSource das devocionais rapidas

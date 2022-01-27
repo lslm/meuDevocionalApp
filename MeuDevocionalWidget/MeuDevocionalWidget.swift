@@ -90,22 +90,25 @@ func setVersisculo(gratidao: [String]) -> String{
     
     return content
 }
-
+func changeDate() -> DateFormatter{
+    let dateFormatter = DateFormatter()
+    dateFormatter.locale = Locale(identifier: "pt-br")
+    dateFormatter.dateStyle = .short
+    return dateFormatter
+}
 
 struct MeuDevocionalWidgetEntryView : View {
     var entry: Provider.Entry
-
     
     var body: some View {
+        
         let gratidoes = entry.gratidao
         //let cores = entry.background
-        
-
         ///seta um motivo aleatorio do que esta no userDefaults
         let motivo = setVersisculo(gratidao: gratidoes)
         let newColor = changeColor()
         let textColor = changeText(string: newColor)
-        
+        let df = changeDate()
         ///tirar o comentario caso queira adicionar imagem de fundo
         //let imageNew = (UIImage(contentsOfFile: SalvarImagem.getFilePath(fileName: newColor)))
         //let sub = UIImage(named: "VarianteEmpty")
@@ -126,8 +129,9 @@ struct MeuDevocionalWidgetEntryView : View {
                         .font(Font.system(.body))
                         .padding()
                     Spacer()
-                    Text(entry.date, style: .time).padding()
-                        .font(Font.system(size: 11, weight: .regular, design: .monospaced))
+                    let strDate = df.string(from: entry.date)
+                    Text(strDate).padding()
+                        .font(Font.system(size: 10, weight: .regular, design: .monospaced))
                         .frame(maxWidth: .infinity ,maxHeight: geometry.size.height/6,alignment: .center)
                         .foregroundColor(Color(uiColor: UIColor(named: textColor) ?? .systemYellow))
                 }
@@ -157,5 +161,7 @@ struct MeuDevocionalWidget_Previews: PreviewProvider {
         
         MeuDevocionalWidgetEntryView(entry: SimpleEntry(date: Date(),gratidao: gratidao ?? ["Lembre dos seus motivos de gratidão"], background: background ?? ["novaCor"]))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
+            .environment(\.locale, Locale(identifier: "pt-br"))
+
     }
 }

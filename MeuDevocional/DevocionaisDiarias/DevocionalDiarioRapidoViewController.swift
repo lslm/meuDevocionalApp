@@ -31,12 +31,58 @@ class DevocionalDiarioRapidoViewController: UIViewController {
     
     
     @IBAction func newDevocionalButton(_ sender: Any) {
+        ///alerta de cancelar
+        let ac = UIAlertController(title: "Criar nova devovional", message: "Deseja criar uma nova devocional através dessa devocional rápida?", preferredStyle: .actionSheet)
+            ac.addAction(UIAlertAction(title: "Criar devocional", style: .cancel, handler: {
+                ///abre a view controller de nova devocional
+                [self] action in
+                if let vc = self.createDevocional(){
+                    present(vc, animated: true, completion: nil)
+                }
+            }))
+            ac.addAction(UIAlertAction(title: "Cancelar", style: .destructive, handler: {
+                [self] action in
+                    self.dismiss(animated: true, completion: nil)
+            }))
+            present(ac, animated: true)
     }
     
     // MARK: Prepare (edicao e devocional)
     ///funcao que ira gerar o modal para a criacao da nova colecction
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        ///adiciona o card que sera apenas editado na proxima view...
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        ///adiciona o card que sera apenas editado na proxima view...
+//        let _ = try? CoreDataStack.createDevocional(titulo: self.titleLabel?.text ?? "",
+//                                                    baseBiblica: self.versiculo,
+//                                                    contextualizacao: "",
+//                                                    reflexao: self.introducao,
+//                                                    conclusao: "",
+//                                                    aplicacao1: "",
+//                                                    aplicacao2: "",
+//                                                    aplicacao3: "",
+//                                                    backgroundColor: "1",
+//                                                    backgroundImage: "crie2",
+//                                                    link: self.musica,
+//                                                    livro: self.versiculo,
+//                                                    capitulo: "",
+//                                                    versiculo: "",
+//                                                    data: "")
+//
+//        let vc = segue.destination as! MinhaDevocional3ViewController
+//        let index = try? CoreDataStack.getDevocional().count
+//        vc.edit = true
+//        vc.rapida = true
+//        vc.indice = (index ?? 1) - 1
+//   }
+    
+    func checkDevocional(titulo: String) -> Int {
+        let dataDevocional = try! CoreDataStack.getDevocional()
+        for i in 0..<dataDevocional.count{
+            ///se a devocional existir, ela sera editada
+            if dataDevocional[i].titulo == titulo{
+                return i
+            }
+        }
+        ///se a devocional nao existir, ela sera criada e colocada por ultimo
         let _ = try? CoreDataStack.createDevocional(titulo: self.titleLabel?.text ?? "",
                                                     baseBiblica: self.versiculo,
                                                     contextualizacao: "",
@@ -52,13 +98,19 @@ class DevocionalDiarioRapidoViewController: UIViewController {
                                                     capitulo: "",
                                                     versiculo: "",
                                                     data: "")
-        
-        let vc = segue.destination as! MinhaDevocional3ViewController
-        let index = try? CoreDataStack.getDevocional().count
-        vc.edit = true
-        vc.rapida = true 
-        vc.indice = (index ?? 1) - 1
-   }
+        return dataDevocional.count
+    }
+    
+    func createDevocional() -> UIViewController? {
+        if let vc = storyboard?.instantiateViewController(identifier: "minhadevocionalForms") as? MinhaDevocional3ViewController {
+            let index = checkDevocional(titulo: self.titleLabel?.text ?? "Nova devocional")
+            vc.edit = true
+            vc.rapida = true
+            vc.indice = index
+            return vc
+        }
+        return nil
+    }
     
     @IBAction func openMusic(_ sender: Any) {
         if let vc = storyboard?.instantiateViewController(identifier: "music") as?
