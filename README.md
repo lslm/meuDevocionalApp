@@ -15,7 +15,4 @@ Principais Features:
 ### Link da Appstore
 https://apps.apple.com/br/app/meu-devocional/id1578318653
 
-![Apple iPhone 11 Pro Max Screenshot 0](https://user-images.githubusercontent.com/53840501/141657809-f5b635bc-df38-4321-85a0-ce4263875b2e.png)
-![Apple iPhone 11 Pro Max Screenshot 1](https://user-images.githubusercontent.com/53840501/141657810-831d7425-56d8-4c32-9c69-2e1a435bfd1e.png)
-![Apple iPhone 11 Pro Max Screenshot 2](https://user-images.githubusercontent.com/53840501/141657815-6335f4d6-8157-41d4-9159-f2ea96852bed.png)
-![Apple iPhone 11 Pro Max Screenshot 3](https://user-images.githubusercontent.com/53840501/141657821-588f64b9-6b1d-4ca5-814b-cfb727db7d46.png)
+![forGit](https://user-images.githubusercontent.com/53840501/151466176-dd559d7b-55ab-40e9-a088-75c4350bec58.png)
