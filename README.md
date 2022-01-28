@@ -10,6 +10,7 @@ O aplicativo meu devocional tem como o intuito criar um espaço individual para 
 
 Principais Features: 
 
+
 - Leia devocionais separadas por categorias
 - Adicione anotações à essas devocionais
 - Crie e compartilhe suas próprias devocionais
