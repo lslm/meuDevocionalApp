@@ -15,4 +15,5 @@ Principais Features:
 ### Link da Appstore
 https://apps.apple.com/br/app/meu-devocional/id1578318653
 
-![forGit](https://user-images.githubusercontent.com/53840501/151466176-dd559d7b-55ab-40e9-a088-75c4350bec58.png)
+![forGit](https://user-images.githubusercontent.com/53840501/151466421-6249ac90-6f26-45d4-9f37-fdc4ae5ff921.png)
+
