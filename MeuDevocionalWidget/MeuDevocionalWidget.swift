@@ -124,7 +124,7 @@ struct MeuDevocionalWidgetEntryView : View {
                     Text(motivo)
                         .foregroundColor(Color(uiColor: UIColor(named: textColor) ?? .systemYellow))
                         .frame(maxWidth: .infinity ,maxHeight: .infinity,alignment: .center)
-                        .font(Font.system(size: 11, weight: .regular, design: .monospaced))
+                        .font(Font.system(size: 11, weight: .bold, design: .monospaced))
                         .multilineTextAlignment(.center)
                         .font(Font.system(.body))
                         .padding()
