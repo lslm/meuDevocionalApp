@@ -1,0 +1,44 @@
+{
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "grid-size" : "large"
+  },
+  "stickers" : [
+    {
+      "filename" : "sticker-regar.sticker"
+    },
+    {
+      "filename" : "sticker-falar.sticker"
+    },
+    {
+      "filename" : "sticker-presente.sticker"
+    },
+    {
+      "filename" : "sticker-ideia.sticker"
+    },
+    {
+      "filename" : "sticker-duvida.sticker"
+    },
+    {
+      "filename" : "sticker-girl-power.sticker"
+    },
+    {
+      "filename" : "sticker-bom-dia.sticker"
+    },
+    {
+      "filename" : "sticker-gratidao.sticker"
+    },
+    {
+      "filename" : "sticker-worship.sticker"
+    },
+    {
+      "filename" : "sticker-heart.sticker"
+    },
+    {
+      "filename" : "sticker-MeuDevocional.sticker"
+    }
+  ]
+}

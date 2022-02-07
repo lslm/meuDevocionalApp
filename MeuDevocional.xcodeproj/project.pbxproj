@@ -32,6 +32,8 @@
 		1391571E278617790056A439 /* NotificacoesConteudo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1391571D278617790056A439 /* NotificacoesConteudo.swift */; };
 		139157222786182E0056A439 /* UserDevocionais.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139157212786182E0056A439 /* UserDevocionais.swift */; };
 		13915724278618950056A439 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13915723278618950056A439 /* EmptyView.swift */; };
+		139272AC27B07395002C4F09 /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 139272AB27B07395002C4F09 /* Stickers.xcassets */; };
+		139272B027B07395002C4F09 /* MeuDevocionalSticker.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 139272A927B07394002C4F09 /* MeuDevocionalSticker.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		13949BBB2798797300650144 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13949BBA2798797300650144 /* WidgetKit.framework */; };
 		13949BBD2798797300650144 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13949BBC2798797300650144 /* SwiftUI.framework */; };
 		13949BC02798797300650144 /* MeuDevocionalWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13949BBF2798797300650144 /* MeuDevocionalWidget.swift */; };
@@ -63,6 +65,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		139272AE27B07395002C4F09 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 13026C2D26A0A1FE00D683B0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 139272A827B07394002C4F09;
+			remoteInfo = MeuDevocionalSticker;
+		};
 		13949BC42798797400650144 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 13026C2D26A0A1FE00D683B0 /* Project object */;
@@ -79,6 +88,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				139272B027B07395002C4F09 /* MeuDevocionalSticker.appex in Embed App Extensions */,
 				13949BC62798797400650144 /* MeuDevocionalWidgetExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -112,6 +122,9 @@
 		1391571D278617790056A439 /* NotificacoesConteudo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificacoesConteudo.swift; sourceTree = "<group>"; };
 		139157212786182E0056A439 /* UserDevocionais.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDevocionais.swift; sourceTree = "<group>"; };
 		13915723278618950056A439 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		139272A927B07394002C4F09 /* MeuDevocionalSticker.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MeuDevocionalSticker.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		139272AB27B07395002C4F09 /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
+		139272AD27B07395002C4F09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13949BB82798797300650144 /* MeuDevocionalWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MeuDevocionalWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		13949BBA2798797300650144 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		13949BBC2798797300650144 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -172,6 +185,7 @@
 				139B6FC326A8CF7600C50E06 /* Devocionais+CoreDataProperties.swift */,
 				13026C3726A0A1FE00D683B0 /* MeuDevocional */,
 				13949BBE2798797300650144 /* MeuDevocionalWidget */,
+				139272AA27B07394002C4F09 /* MeuDevocionalSticker */,
 				13949BB92798797300650144 /* Frameworks */,
 				13026C3626A0A1FE00D683B0 /* Products */,
 			);
@@ -182,6 +196,7 @@
 			children = (
 				13026C3526A0A1FE00D683B0 /* MeuDevocional.app */,
 				13949BB82798797300650144 /* MeuDevocionalWidgetExtension.appex */,
+				139272A927B07394002C4F09 /* MeuDevocionalSticker.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -252,6 +267,15 @@
 				139157212786182E0056A439 /* UserDevocionais.swift */,
 			);
 			path = "UserDefaults+Devocionais";
+			sourceTree = "<group>";
+		};
+		139272AA27B07394002C4F09 /* MeuDevocionalSticker */ = {
+			isa = PBXGroup;
+			children = (
+				139272AB27B07395002C4F09 /* Stickers.xcassets */,
+				139272AD27B07395002C4F09 /* Info.plist */,
+			);
+			path = MeuDevocionalSticker;
 			sourceTree = "<group>";
 		};
 		13949BB92798797300650144 /* Frameworks */ = {
@@ -381,11 +405,27 @@
 			);
 			dependencies = (
 				13949BC52798797400650144 /* PBXTargetDependency */,
+				139272AF27B07395002C4F09 /* PBXTargetDependency */,
 			);
 			name = MeuDevocional;
 			productName = MeuDevocional;
 			productReference = 13026C3526A0A1FE00D683B0 /* MeuDevocional.app */;
 			productType = "com.apple.product-type.application";
+		};
+		139272A827B07394002C4F09 /* MeuDevocionalSticker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 139272B327B07395002C4F09 /* Build configuration list for PBXNativeTarget "MeuDevocionalSticker" */;
+			buildPhases = (
+				139272A727B07394002C4F09 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MeuDevocionalSticker;
+			productName = MeuDevocionalSticker;
+			productReference = 139272A927B07394002C4F09 /* MeuDevocionalSticker.appex */;
+			productType = "com.apple.product-type.app-extension.messages-sticker-pack";
 		};
 		13949BB72798797300650144 /* MeuDevocionalWidgetExtension */ = {
 			isa = PBXNativeTarget;
@@ -416,6 +456,9 @@
 					13026C3426A0A1FE00D683B0 = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
+					139272A827B07394002C4F09 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
 					13949BB72798797300650144 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
@@ -436,6 +479,7 @@
 			targets = (
 				13026C3426A0A1FE00D683B0 /* MeuDevocional */,
 				13949BB72798797300650144 /* MeuDevocionalWidgetExtension */,
+				139272A827B07394002C4F09 /* MeuDevocionalSticker */,
 			);
 		};
 /* End PBXProject section */
@@ -448,6 +492,14 @@
 				13026C4526A0A20300D683B0 /* LaunchScreen.storyboard in Resources */,
 				13026C4226A0A20300D683B0 /* Assets.xcassets in Resources */,
 				13026C4026A0A1FE00D683B0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		139272A727B07394002C4F09 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				139272AC27B07395002C4F09 /* Stickers.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +577,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		139272AF27B07395002C4F09 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 139272A827B07394002C4F09 /* MeuDevocionalSticker */;
+			targetProxy = 139272AE27B07395002C4F09 /* PBXContainerItemProxy */;
+		};
 		13949BC52798797400650144 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 13949BB72798797300650144 /* MeuDevocionalWidgetExtension */;
@@ -676,14 +733,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MeuDevocional/MeuDevocional.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = V8V28A4DX2;
 				INFOPLIST_FILE = MeuDevocional/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = biaduque.MeuDevocional;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -699,18 +756,58 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MeuDevocional/MeuDevocional.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = V8V28A4DX2;
 				INFOPLIST_FILE = MeuDevocional/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = biaduque.MeuDevocional;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		139272B127B07395002C4F09 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V8V28A4DX2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MeuDevocionalSticker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = biaduque.MeuDevocional.MeuDevocionalSticker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		139272B227B07395002C4F09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V8V28A4DX2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MeuDevocionalSticker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = biaduque.MeuDevocional.MeuDevocionalSticker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -791,6 +888,15 @@
 			buildConfigurations = (
 				13026C4A26A0A20300D683B0 /* Debug */,
 				13026C4B26A0A20300D683B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		139272B327B07395002C4F09 /* Build configuration list for PBXNativeTarget "MeuDevocionalSticker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				139272B127B07395002C4F09 /* Debug */,
+				139272B227B07395002C4F09 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
