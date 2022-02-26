@@ -26,8 +26,8 @@ class OnboardViewController: UIViewController {
     
     
     lazy var view1:ViewOnboarding =  {
-        let view = ViewOnboarding(titulo: "Devocionais Diárias",
-                   text: "Navegue pelas devocionais rápidas e crie suas próprias devocionais através delas. Leia devocionais diárias e anote suas reflexões em cada uma delas.",
+        let view = ViewOnboarding(titulo: "Leituras",
+                   text: "Navegue pelas leituras rápidas e crie suas próprias devocionais através delas. Leia e anote suas reflexões em cada uma delas.",
                    imageName: "Onboard2")
         return view
     }()
