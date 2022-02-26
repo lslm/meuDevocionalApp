@@ -12,7 +12,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Devocionais diárias-->
+        <!--Leituras-->
         <scene sceneID="Tka-6P-FqW">
             <objects>
                 <viewController id="bRY-OV-K8v" customClass="DevocionalDiarioViewController" customModule="MeuDevocional" customModuleProvider="target" sceneMemberID="viewController">
@@ -466,7 +466,7 @@
                             <constraint firstItem="L36-Gm-JdG" firstAttribute="bottom" secondItem="sdZ-ep-7v8" secondAttribute="bottom" id="vCU-tL-rnH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Devocionais diárias" largeTitleDisplayMode="always" id="5XW-Bq-wvj">
+                    <navigationItem key="navigationItem" title="Leituras" largeTitleDisplayMode="always" id="5XW-Bq-wvj">
                         <barButtonItem key="leftBarButtonItem" image="info.circle" catalog="system" style="done" id="TvX-bg-OT2">
                             <color key="tintColor" name="Accent"/>
                             <connections>
@@ -490,7 +490,7 @@
             </objects>
             <point key="canvasLocation" x="-3678.2608695652175" y="925.44642857142856"/>
         </scene>
-        <!--Minhas Devocionais-->
+        <!--Meus Devocionais-->
         <scene sceneID="nxY-dj-7Qx">
             <objects>
                 <viewController id="Ouj-Oq-BED" customClass="MinhaDevocionalViewController" customModule="MeuDevocional" customModuleProvider="target" sceneMemberID="viewController">
@@ -626,7 +626,7 @@
                             <constraint firstItem="sv1-KU-N6J" firstAttribute="top" secondItem="mPz-FB-hJq" secondAttribute="top" id="pct-zg-tQF"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Minhas Devocionais" largeTitleDisplayMode="always" id="Z47-nO-iSK">
+                    <navigationItem key="navigationItem" title="Meus Devocionais" largeTitleDisplayMode="always" id="Z47-nO-iSK">
                         <barButtonItem key="leftBarButtonItem" image="info.circle" catalog="system" style="done" id="Haz-zf-Y4m">
                             <color key="tintColor" name="Accent"/>
                             <connections>
@@ -649,7 +649,7 @@
             </objects>
             <point key="canvasLocation" x="-1449.2753623188407" y="835.71428571428567"/>
         </scene>
-        <!-- Minha devocional-->
+        <!-- Meu devocional-->
         <scene sceneID="14H-6s-iIZ">
             <objects>
                 <viewController storyboardIdentifier="minhadevocional" id="4bv-El-r56" customClass="MinhaDevocional2ViewController" customModule="MeuDevocional" customModuleProvider="target" sceneMemberID="viewController">
@@ -778,7 +778,7 @@
                             <constraint firstItem="cdB-PV-yFV" firstAttribute="leading" secondItem="qKz-te-EU9" secondAttribute="leading" constant="20" id="zxt-5A-uaS"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title=" Minha devocional" largeTitleDisplayMode="never" id="8df-PM-d3f">
+                    <navigationItem key="navigationItem" title=" Meu devocional" largeTitleDisplayMode="never" id="8df-PM-d3f">
                         <rightBarButtonItems>
                             <barButtonItem id="Qjl-Q3-KZp">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="PhD-K1-swS">
@@ -1260,11 +1260,11 @@
             </objects>
             <point key="canvasLocation" x="2769.5652173913045" y="835.71428571428567"/>
         </scene>
-        <!--Devocionais diárias-->
+        <!--Leituras-->
         <scene sceneID="QYU-TJ-N6S">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6yg-of-Nkp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Devocionais diárias" image="book" catalog="system" selectedImage="book.fill" id="NXY-Sw-PvV">
+                    <tabBarItem key="tabBarItem" title="Leituras" image="book" catalog="system" selectedImage="book.fill" id="NXY-Sw-PvV">
                         <color key="badgeColor" red="0.31764705879999999" green="0.3921568627" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -1281,7 +1281,7 @@
             </objects>
             <point key="canvasLocation" x="-4588.4057971014499" y="837.05357142857144"/>
         </scene>
-        <!--Devocional diário-->
+        <!--Devocional Diario Estudo View Controller-->
         <scene sceneID="1jc-0w-U45">
             <objects>
                 <viewController storyboardIdentifier="devocional" id="sIP-je-v79" customClass="DevocionalDiarioEstudoViewController" customModule="MeuDevocional" customModuleProvider="target" sceneMemberID="viewController">
@@ -1578,7 +1578,7 @@
                             <constraint firstItem="dr0-kn-zHD" firstAttribute="top" secondItem="r60-cS-v7m" secondAttribute="topMargin" constant="-88" id="xV0-MZ-mjr"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Devocional diário" largeTitleDisplayMode="never" id="Q9X-Eq-gCx">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Q9X-Eq-gCx">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="2Dt-WN-xey">
                             <color key="tintColor" name="Accent"/>
                             <connections>
@@ -2069,11 +2069,11 @@
             </objects>
             <point key="canvasLocation" x="-2590" y="3334"/>
         </scene>
-        <!--Minhas Devocionais-->
+        <!--Meus Devocionais-->
         <scene sceneID="PWF-mP-3Yj">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fgA-sd-ol9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Minhas Devocionais" image="note" catalog="system" selectedImage="note.text" id="Of3-tS-LAi">
+                    <tabBarItem key="tabBarItem" title="Meus Devocionais" image="note" catalog="system" selectedImage="note.text" id="Of3-tS-LAi">
                         <color key="badgeColor" red="0.31764705879999999" green="0.3921568627" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -2124,7 +2124,7 @@
             </objects>
             <point key="canvasLocation" x="-4655" y="2682"/>
         </scene>
-        <!--Devocionais diários-->
+        <!--Leitura rápida-->
         <scene sceneID="FpO-xm-q8M">
             <objects>
                 <viewController storyboardIdentifier="leituraRapida" id="Gwa-D3-0lK" customClass="DevocionalDiarioRapidoViewController" customModule="MeuDevocional" customModuleProvider="target" sceneMemberID="viewController">
@@ -2283,7 +2283,7 @@
                             <constraint firstItem="BxI-pq-uA3" firstAttribute="top" secondItem="ZkD-Zq-QOD" secondAttribute="top" id="ovi-Iw-Sbr"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Devocionais diários" largeTitleDisplayMode="never" id="4hc-xn-zWd">
+                    <navigationItem key="navigationItem" title="Leitura rápida" largeTitleDisplayMode="never" id="4hc-xn-zWd">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="compose" id="iNv-kM-dOn">
                             <color key="tintColor" name="Accent"/>
                             <connections>
@@ -2321,7 +2321,7 @@
         <image name="hand.tap.fill" catalog="system" width="115" height="128"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="logotipo" width="1024" height="1024"/>
-        <image name="naoEncontrado" width="1002" height="498"/>
+        <image name="naoEncontrado" width="1002" height="1407"/>
         <image name="note" catalog="system" width="128" height="106"/>
         <image name="note.text" catalog="system" width="128" height="106"/>
         <image name="play.circle.fill" catalog="system" width="128" height="121"/>
