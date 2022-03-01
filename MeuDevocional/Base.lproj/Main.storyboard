@@ -816,7 +816,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gvd-MQ-bht" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1959.4202898550727" y="1699.5535714285713"/>
+            <point key="canvasLocation" x="-536" y="2665"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="BPB-2S-ux0">
@@ -1579,12 +1579,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Q9X-Eq-gCx">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="2Dt-WN-xey">
-                            <color key="tintColor" name="Accent"/>
-                            <connections>
-                                <action selector="saveButton:" destination="sIP-je-v79" id="me0-f9-ldM"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem style="plain" systemItem="action" id="drs-3b-hJV">
+                                <color key="tintColor" name="Accent"/>
+                                <connections>
+                                    <action selector="shareButton:" destination="sIP-je-v79" id="6Cg-UG-NrO"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="save" id="2Dt-WN-xey">
+                                <color key="tintColor" name="Accent"/>
+                                <connections>
+                                    <action selector="saveButton:" destination="sIP-je-v79" id="me0-f9-ldM"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <size key="freeformSize" width="414" height="2200"/>
@@ -1608,7 +1616,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dJt-3z-6Ut" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1047.8260869565217" y="2214.5089285714284"/>
+            <point key="canvasLocation" x="-2823" y="2200"/>
         </scene>
         <!--Worship time!-->
         <scene sceneID="B8O-QT-60Y">
@@ -1625,7 +1633,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YOU-YD-Rrj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1846" y="3333"/>
+            <point key="canvasLocation" x="-2077" y="3401"/>
         </scene>
         <!--Devocionais diários-->
         <scene sceneID="iYm-G6-50O">
@@ -2031,7 +2039,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zDu-WN-cud" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="223.18840579710147" y="1801.3392857142856"/>
+            <point key="canvasLocation" x="-1448" y="1843"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hET-7r-agx">
@@ -2049,7 +2057,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ahv-Ee-Cay" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1079.7101449275362" y="1699.5535714285713"/>
+            <point key="canvasLocation" x="-1448" y="2665"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="g5F-7K-5aX">
@@ -2067,7 +2075,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v9S-QL-Pl1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2590" y="3334"/>
+            <point key="canvasLocation" x="-2822" y="3402"/>
         </scene>
         <!--Meus Devocionais-->
         <scene sceneID="PWF-mP-3Yj">
@@ -2104,7 +2112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pwe-KD-gVS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4654" y="1807"/>
+            <point key="canvasLocation" x="-5754" y="1764"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mX2-vQ-Wuu">
@@ -2122,7 +2130,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NTn-sG-PeG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4655" y="2682"/>
+            <point key="canvasLocation" x="-4638" y="1854"/>
         </scene>
         <!--Leitura rápida-->
         <scene sceneID="FpO-xm-q8M">
@@ -2284,12 +2292,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Leitura rápida" largeTitleDisplayMode="never" id="4hc-xn-zWd">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="compose" id="iNv-kM-dOn">
-                            <color key="tintColor" name="Accent"/>
-                            <connections>
-                                <action selector="newDevocionalButton:" destination="Gwa-D3-0lK" id="oDn-da-RFK"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem style="plain" systemItem="action" id="2vu-yq-KDe">
+                                <color key="tintColor" name="Accent"/>
+                                <connections>
+                                    <action selector="shareButton:" destination="Gwa-D3-0lK" id="n8E-dT-0sT"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem style="plain" systemItem="compose" id="iNv-kM-dOn">
+                                <color key="tintColor" name="Accent"/>
+                                <connections>
+                                    <action selector="newDevocionalButton:" destination="Gwa-D3-0lK" id="oDn-da-RFK"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <size key="freeformSize" width="414" height="1168"/>
                     <connections>
@@ -2302,7 +2318,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U4Y-mZ-N8k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3704.347826086957" y="2719.4196428571427"/>
+            <point key="canvasLocation" x="-3678" y="1854"/>
         </scene>
     </scenes>
     <color key="tintColor" name="Accent"/>

@@ -22,7 +22,8 @@ func criaVida(indice: Int){
                                    aplicacao3: "",
                                    backgroundColor: verde,
                                    backgroundImage: UIImage(named: "vidaBase1")!,
-                                   link: "https://www.youtube.com/watch?v=ENCCAYD8kpc")
+                                   link: "https://www.youtube.com/watch?v=ENCCAYD8kpc",
+                                   storyImage: "vidaStory1")
         vidaBase[indice] = vida1
     }
     else if indice == 1{
@@ -36,7 +37,8 @@ func criaVida(indice: Int){
                                aplicacao3: "",
                                backgroundColor: verde,
                                backgroundImage: UIImage(named: "vidaBase2")!,
-                               link: "https://www.youtube.com/watch?v=wSKKEAnLTDw")
+                                   link: "https://www.youtube.com/watch?v=wSKKEAnLTDw",
+                                   storyImage: "vidaStory2")
         vidaBase[indice] = vida2
     }
     else if indice == 2{
@@ -50,7 +52,8 @@ func criaVida(indice: Int){
                                aplicacao3: "",
                                backgroundColor: verde,
                                backgroundImage: UIImage(named: "vidaBase3")!,
-                               link: "https://www.youtube.com/watch?v=_qDKrvstS9c")
+                                   link: "https://www.youtube.com/watch?v=_qDKrvstS9c",
+                                   storyImage: "vidaStory3")
         
         vidaBase[indice] = vida3
     }
@@ -65,7 +68,8 @@ func criaVida(indice: Int){
                                aplicacao3: "",
                                backgroundColor: verde,
                                backgroundImage: UIImage(named: "vidaBase5")!,
-                               link: "https://www.youtube.com/watch?v=3upP3B-By_E")
+                                   link: "https://www.youtube.com/watch?v=3upP3B-By_E",
+                                   storyImage: "vidaStory5")
         
         vidaBase[indice] = vida4
     }
@@ -80,7 +84,8 @@ func criaVida(indice: Int){
                                aplicacao3: "",
                                backgroundColor: verde,
                                backgroundImage: UIImage(named: "vidaBase4")!,
-                               link: "https://www.youtube.com/watch?v=KClZAZC2vyY")
+                                   link: "https://www.youtube.com/watch?v=KClZAZC2vyY",
+                                   storyImage: "vidaStory4")
         
         vidaBase[indice] = vida5
     }
@@ -95,7 +100,8 @@ func criaVida(indice: Int){
                                aplicacao3: "",
                                backgroundColor: verde,
                                backgroundImage: UIImage(named: "vidaBase6")!,
-                               link: "https://www.youtube.com/watch?v=3UyhjqMVMfg")
+                                   link: "https://www.youtube.com/watch?v=3UyhjqMVMfg",
+                                   storyImage: "vidaStory6")
         
         vidaBase[indice] = vida6
         

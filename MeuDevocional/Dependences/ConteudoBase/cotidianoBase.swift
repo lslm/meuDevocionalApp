@@ -23,7 +23,8 @@ func criaCotidiano(indice: Int){
                                         aplicacao3: "",
                                         backgroundColor: verde,
                                         backgroundImage: UIImage(named:"cotidianoBase1")!,
-                                        link: "https://www.youtube.com/watch?v=OXBCV5WixCU")
+                                        link: "https://www.youtube.com/watch?v=OXBCV5WixCU",
+                                        storyImage: "cotidianoStory1")
         cotidianoBase[indice] = cotidiano1
     }
     ///Tomando decisões
@@ -38,7 +39,8 @@ func criaCotidiano(indice: Int){
                                         aplicacao3: "",
                                         backgroundColor: verde,
                                         backgroundImage: UIImage(named:"cotidianoBase2")!,
-                                        link: "https://www.youtube.com/watch?v=ePdRgBWhvog")
+                                        link: "https://www.youtube.com/watch?v=ePdRgBWhvog",
+                                        storyImage: "cotidianoStory2")
         cotidianoBase[indice] = cotidiano2
     }
     ///Por que estou passando por isso?
@@ -53,7 +55,8 @@ func criaCotidiano(indice: Int){
                                         aplicacao3: "",
                                         backgroundColor: verde,
                                         backgroundImage: UIImage(named:"cotidianoBase3")!,
-                                        link: "https://www.youtube.com/watch?v=V5ixXXGYdPE")
+                                        link: "https://www.youtube.com/watch?v=V5ixXXGYdPE",
+                                        storyImage: "cotidianoStory3")
         cotidianoBase[indice] = cotidiano3
     }
     ///Faça o que eles dizem?
@@ -68,7 +71,8 @@ func criaCotidiano(indice: Int){
                                         aplicacao3: "",
                                         backgroundColor: verde,
                                         backgroundImage: UIImage(named:"cotidianoBase4")!,
-                                        link: "https://www.youtube.com/watch?v=2CeP-CutFiM")
+                                        link: "https://www.youtube.com/watch?v=2CeP-CutFiM",
+                                        storyImage: "cotidianoStory4")
         cotidianoBase[indice] = cotidiano4
     }
     ///Minha vocação
@@ -83,7 +87,8 @@ func criaCotidiano(indice: Int){
                                         aplicacao3: "",
                                         backgroundColor: verde,
                                         backgroundImage: UIImage(named:"cotidianoBase5")!,
-                                        link: "https://www.youtube.com/watch?v=0RjojWKqsFY")
+                                        link: "https://www.youtube.com/watch?v=0RjojWKqsFY",
+                                        storyImage: "cotidianoStory5")
         cotidianoBase[indice] = cotidiano5
     }
 }
