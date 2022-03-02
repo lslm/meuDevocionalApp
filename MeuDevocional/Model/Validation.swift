@@ -1,19 +1,12 @@
 //
-//  ConstraintsAndDesign.swift
+//  Validation.swift
 //  MeuDevocional
-//  Arquivo utilizado para criar funcoes de personalizacao
-//  Created by Beatriz Duque on 15/07/21.
 //
+//  Created by Beatriz Duque on 01/03/22.
+//
+
+import Foundation
 import UIKit
-
-////configurando titulos
-public func editaTituloAmarelo(titulo: UILabel){
-    titulo.textColor = amarelo
-}
-
-public func editaTituloVerde(titulo: UILabel){
-    titulo.textColor = verde
-}
 
 ///classe para validar os inputs do YouTube, Deezer, Spotify e Apple Music
 class Validation {

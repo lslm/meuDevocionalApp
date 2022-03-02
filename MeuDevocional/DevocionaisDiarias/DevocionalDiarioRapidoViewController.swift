@@ -76,7 +76,7 @@ class DevocionalDiarioRapidoViewController: UIViewController {
     }
     
     func createDevocional() -> UIViewController? {
-        if let vc = storyboard?.instantiateViewController(identifier: "minhadevocionalForms") as? MinhaDevocional3ViewController {
+        if let vc = storyboard?.instantiateViewController(identifier: "minhadevocionalForms") as? MinhaDevocionalEditaViewController {
             let index = checkDevocional(titulo: self.titleLabel?.text ?? "Nova devocional")
             vc.edit = true
             vc.rapida = true

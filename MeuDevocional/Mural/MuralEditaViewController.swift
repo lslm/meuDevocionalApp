@@ -9,13 +9,10 @@ import UIKit
 import Foundation
 import PhotosUI
 
-protocol MuralViewController2Delegate: AnyObject {
-    func didRegister()
-}
 
-class MuralViewController2: UIViewController {
+class MuralEditaViewController: UIViewController {
     
-    weak var delegate: MuralViewController2Delegate? //para atualizacao da collectionView
+    weak var delegate: MuralEditaViewControllerDelegate? //para atualizacao da collectionView
 
     var dataPost: [Post] = []
     var indice = 0
@@ -235,7 +232,7 @@ class MuralViewController2: UIViewController {
 }
 
 // MARK: Extension TextField
-extension MuralViewController2: UITextFieldDelegate{
+extension MuralEditaViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     //essa funcao faz com que a tecla return do teclado faca o app aceitar a entrada e o teclado abaixe
     visualizacaoLabel.text = minhaNotaInput.text
@@ -260,7 +257,7 @@ extension MuralViewController2: UITextFieldDelegate{
        }
 }
 
-extension MuralViewController2: ImagePickerDelegate {
+extension MuralEditaViewController: ImagePickerDelegate {
 
     func didSelect(image: UIImage?) {
         self.visualizacao.image = image

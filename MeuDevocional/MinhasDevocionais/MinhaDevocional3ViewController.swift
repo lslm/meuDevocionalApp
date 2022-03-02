@@ -7,14 +7,12 @@
 
 import UIKit
 
-protocol MinhaDevocional3ViewControllerDelegate: AnyObject {
-    func didRegister()
-}
 
-class MinhaDevocional3ViewController: UIViewController {
+
+class MinhaDevocionalEditaViewController: UIViewController {
     
     var validation = Validation() //para validar links
-    weak var delegate: MinhaDevocional3ViewControllerDelegate?
+    weak var delegate: MinhaDevocionalEditaViewControllerDelegate?
     
     var dataDevocional: [Devocionais] = []
     var indice = 0
@@ -276,7 +274,7 @@ class MinhaDevocional3ViewController: UIViewController {
 }
 
 // MARK: Extensions table view
-extension MinhaDevocional3ViewController: UITableViewDelegate{
+extension MinhaDevocionalEditaViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         ///clique na celula
         tableView.deselectRow(at: indexPath, animated: true)
@@ -284,7 +282,7 @@ extension MinhaDevocional3ViewController: UITableViewDelegate{
     }
 }
 
-extension MinhaDevocional3ViewController: UITableViewDataSource{
+extension MinhaDevocionalEditaViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath) as! MyTableViewCell
         cell.textFieldCell.placeholder = inputLista[indexPath.row]
@@ -337,7 +335,7 @@ extension MinhaDevocional3ViewController: UITableViewDataSource{
 
 // MARK: Extensions Text view
 ///extensao criada para a configuracao da textField que apresentara um texto default para o usuario
-extension MinhaDevocional3ViewController: UITextViewDelegate{
+extension MinhaDevocionalEditaViewController: UITextViewDelegate{
     func textViewDidBeginEditing(_ textView: UITextView) {
         
         if reflexaoView.textColor == UIColor.lightGray {
@@ -353,7 +351,7 @@ extension MinhaDevocional3ViewController: UITextViewDelegate{
     }
 }
 
-extension MinhaDevocional3ViewController: UITextFieldDelegate{
+extension MinhaDevocionalEditaViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     ///essa funcao faz com que a tecla return do teclado faca o app aceitar a entrada e o teclado abaixe
         textField.autocapitalizationType = .words

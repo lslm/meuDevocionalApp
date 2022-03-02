@@ -652,7 +652,7 @@
         <!-- Meu devocional-->
         <scene sceneID="14H-6s-iIZ">
             <objects>
-                <viewController storyboardIdentifier="minhadevocional" id="4bv-El-r56" customClass="MinhaDevocional2ViewController" customModule="MeuDevocional" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="minhadevocional" id="4bv-El-r56" customClass="MinhaDevocionalVisualizaViewController" customModule="MeuDevocional" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zj0-KT-tpx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1036,10 +1036,10 @@
             </objects>
             <point key="canvasLocation" x="1844.9275362318842" y="836.38392857142856"/>
         </scene>
-        <!--Mural View Controller2-->
+        <!--Mural Edita View Controller-->
         <scene sceneID="hCX-92-dUo">
             <objects>
-                <viewController storyboardIdentifier="addmural" id="csv-ad-38C" customClass="MuralViewController2" customModule="MeuDevocional" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addmural" id="csv-ad-38C" customClass="MuralEditaViewController" customModule="MeuDevocional" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="toe-0c-Uqf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1753,7 +1753,7 @@
         <!--Meu Devocional-->
         <scene sceneID="voN-GV-Dob">
             <objects>
-                <viewController storyboardIdentifier="minhadevocionalForms" id="8BQ-eE-MAx" userLabel="Meu Devocional" customClass="MinhaDevocional3ViewController" customModule="MeuDevocional" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="minhadevocionalForms" id="8BQ-eE-MAx" userLabel="Meu Devocional" customClass="MinhaDevocionalEditaViewController" customModule="MeuDevocional" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pav-xg-iGa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1146"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

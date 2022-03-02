@@ -47,7 +47,7 @@ class MuralViewController: UIViewController {
         //adiciona o card que sera apenas editado na proxima view...
         let _ = try? CoreDataStackPost.createPost(nota: " ", backgroundImage: "novopost", data: "",color: "Amarelo1")
         muralCollection.reloadData()
-        let vc = segue.destination as! MuralViewController2
+        let vc = segue.destination as! MuralEditaViewController
         vc.delegate = self
    }
     
@@ -157,7 +157,7 @@ extension MuralViewController: UICollectionViewDelegate {
 }
 
 // MARK: Delegate
-extension MuralViewController: MuralViewController2Delegate{
+extension MuralViewController: MuralEditaViewControllerDelegate{
     func didRegister(){
         muralCollection.reloadData()
     }

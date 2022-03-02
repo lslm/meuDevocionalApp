@@ -6,13 +6,12 @@
 //
 
 import UIKit
-protocol MinhaDevocional2ViewControllerDelegate: AnyObject {
-    func didRegister2()
-}
 
-class MinhaDevocional2ViewController: UIViewController {
+
+
+class MinhaDevocionalVisualizaViewController: UIViewController {
     
-    weak var delegate2: MinhaDevocional2ViewControllerDelegate?
+    weak var delegate2: MinhaDevocionalVisualizaViewControllerDelegate?
     var tituloShare = "𝑀𝑒𝓊 𝒟𝑒𝓋𝑜𝒸𝒾𝑜𝓃𝒶𝓁"
     var devocional = 0
     var dataDevocional: [Devocionais] = []
@@ -66,7 +65,7 @@ class MinhaDevocional2ViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         //super.viewWillDisappear(animated)
         if self.isMovingFromParent {
-            delegate2?.didRegister2()
+            delegate2?.didRegisterEdicoes()
         }
     }
     
@@ -74,7 +73,7 @@ class MinhaDevocional2ViewController: UIViewController {
     ///carrega o formulario de edicao
     @IBAction func editTrue(_ sender: Any) {
         if let vc = storyboard?.instantiateViewController(identifier: "minhadevocionalForms") as?
-                    MinhaDevocional3ViewController {
+                    MinhaDevocionalEditaViewController {
             vc.edit = true
             vc.indice = devocional
             vc.delegate = self
@@ -158,7 +157,7 @@ class MinhaDevocional2ViewController: UIViewController {
     }
 }
 
-extension MinhaDevocional2ViewController: MinhaDevocional3ViewControllerDelegate{
+extension MinhaDevocionalVisualizaViewController: MinhaDevocionalEditaViewControllerDelegate{
     func didRegister(){
         self.atualizaDevocional()
     }

@@ -162,43 +162,20 @@ class DevocionalDiarioEstudoViewController: UIViewController {
     }
     
     @IBAction func shareButton(_ sender: Any) {
-        
-        ///alerta de escolha
-        let ac = UIAlertController(title: "Selecionar ação", message: "Compartilhar Devocional", preferredStyle: .actionSheet)
-        ac.addAction(UIAlertAction(title: "Instagram", style: .default, handler: {
-                ///abre a view controller de nova devocional
-                [self] action in
-                    self.shareInstagram()
-                }
-            ))
-            ac.addAction(UIAlertAction(title: "Outros", style: .default, handler: {
-            ///abre a view controller de nova devocional
-            [self] action in
-                let vc = UIActivityViewController(activityItems: ["Olha a Devocional que eu encontrei no Meu Devocional app!",
-                                                                  UIImage(named: base[estudo].storyImage),
-                                                                  self.titulo.text,
-                                                                  self.baseBiblica.text,
-                                                                  self.contextualizacaoConteudo.text,
-                                                                  self.reflexaoConteudo.text,
-                                                                  self.conclusaoConteudo.text,
-                                                                  self.base[estudo].link],
-                                                  applicationActivities: [])
-                vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
-                present(vc, animated: true)
-            }))
-            ac.addAction(UIAlertAction(title: "Cancelar", style: .destructive, handler: {
-                [self] action in
-                    self.dismiss(animated: true, completion: nil)
-            }))
-            present(ac, animated: true)
-    }
-    
-    func shareInstagram(){
-        let vc = UIActivityViewController(activityItems: [UIImage(named: base[estudo].storyImage)],
+        let vc = UIActivityViewController(activityItems: [UIImage(named: base[estudo].storyImage),
+                                                          "Olha a Devocional que eu encontrei no Meu Devocional app!",
+                                                          self.titulo.text,
+                                                          self.baseBiblica.text,
+                                                          self.contextualizacaoConteudo.text,
+                                                          self.reflexaoConteudo.text,
+                                                          self.conclusaoConteudo.text,
+                                                          self.base[estudo].link],
                                           applicationActivities: [])
+        vc.excludedActivityTypes = [UIActivity.ActivityType.postToWeibo, UIActivity.ActivityType.copyToPasteboard, UIActivity.ActivityType.addToReadingList, UIActivity.ActivityType.postToVimeo]
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(vc, animated: true)
     }
+    
     
     // MARK: Selecao de conteudos do user default de acordo com a celula
     func selecionaBaseDados(){
