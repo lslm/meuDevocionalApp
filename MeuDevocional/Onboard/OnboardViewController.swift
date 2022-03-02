@@ -19,7 +19,7 @@ class OnboardViewController: UIViewController {
     //MARK: -View
     lazy var view0:ViewOnboarding =  {
         let view = ViewOnboarding(titulo: "Meu Devocional",
-                   text: "Bem-vindo ao Meu Devocional, o seu espaço pessoal de leitura, reflexão e gratidão por sua Fé!",
+                   text: "Bem-vindo ao Meu Devocional, o app para reflexão e gratidão por sua Fé! Aqui você encontra um lugar para organizar as anotações dos seus momentos devocionais, além de possuir algumas indicações de leituras e estudos bíblicos.",
                    imageName: "Onboard1")
         return view
     }()
@@ -27,7 +27,7 @@ class OnboardViewController: UIViewController {
     
     lazy var view1:ViewOnboarding =  {
         let view = ViewOnboarding(titulo: "Leituras",
-                   text: "Navegue pelas leituras rápidas e crie suas próprias devocionais através delas. Leia e anote suas reflexões em cada uma delas.",
+                   text: "Essa é a estante de conteúdos do app. Você pode navegar pelas leituras rápidas e criar suas próprias devocionais através delas. Além disso, pode conhecer um pouco dos estudos que estão disponibilizados e anotar suas reflexões em cada um deles.",
                    imageName: "Onboard2")
         return view
     }()

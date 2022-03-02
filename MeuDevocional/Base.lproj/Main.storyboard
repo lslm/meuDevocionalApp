@@ -374,6 +374,12 @@
                                                                         <action selector="reloadButton:" destination="bRY-OV-K8v" eventType="touchUpInside" id="846-Jd-8wq"/>
                                                                     </connections>
                                                                 </button>
+                                                                <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ews-w3-uau">
+                                                                    <rect key="frame" x="316" y="180" width="13" height="18"/>
+                                                                    <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system" subtitle="">
+                                                                        <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
+                                                                    </buttonConfiguration>
+                                                                </button>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="kuG-bQ-Mb6" firstAttribute="leading" secondItem="GRF-dV-Yp4" secondAttribute="leading" id="1kV-Hk-gP4"/>
@@ -391,12 +397,14 @@
                                                                 <constraint firstItem="HSB-Sl-Nqh" firstAttribute="top" secondItem="FJU-0R-zaX" secondAttribute="bottom" constant="20" id="RdX-ir-2tl"/>
                                                                 <constraint firstItem="UIX-rf-3R6" firstAttribute="leading" secondItem="GRF-dV-Yp4" secondAttribute="leading" constant="14" id="SiH-y5-Piy"/>
                                                                 <constraint firstItem="FJU-0R-zaX" firstAttribute="top" secondItem="L2n-R4-PBJ" secondAttribute="bottom" constant="12.5" id="Vrt-tt-bFC"/>
+                                                                <constraint firstAttribute="trailing" secondItem="ews-w3-uau" secondAttribute="trailing" constant="14" id="cjX-qA-euH"/>
                                                                 <constraint firstItem="D1c-di-j6T" firstAttribute="leading" secondItem="GRF-dV-Yp4" secondAttribute="leading" constant="14" id="fhG-Um-Rkb"/>
                                                                 <constraint firstItem="GBb-HG-pD7" firstAttribute="leading" secondItem="GRF-dV-Yp4" secondAttribute="leading" constant="16" id="kfC-6b-w7O"/>
                                                                 <constraint firstAttribute="trailing" secondItem="kuG-bQ-Mb6" secondAttribute="trailing" id="q4R-B6-2lz"/>
                                                                 <constraint firstItem="fQn-g4-IIX" firstAttribute="leading" secondItem="GRF-dV-Yp4" secondAttribute="leading" constant="8" id="qNk-bs-Swh"/>
                                                                 <constraint firstItem="L2n-R4-PBJ" firstAttribute="top" secondItem="GRF-dV-Yp4" secondAttribute="top" constant="71" id="rqh-oB-hcB"/>
                                                                 <constraint firstAttribute="trailing" secondItem="GBb-HG-pD7" secondAttribute="trailing" constant="27" id="vZu-Ux-072"/>
+                                                                <constraint firstItem="ews-w3-uau" firstAttribute="top" secondItem="GBb-HG-pD7" secondAttribute="bottom" constant="11" id="x6Y-5t-ns2"/>
                                                                 <constraint firstItem="D1c-di-j6T" firstAttribute="top" secondItem="UIX-rf-3R6" secondAttribute="bottom" constant="3" id="zCK-r7-l6o"/>
                                                             </constraints>
                                                         </collectionViewCellContentView>
@@ -405,6 +413,7 @@
                                                             <outlet property="buttonEmpty" destination="HSB-Sl-Nqh" id="eIg-sX-wjp"/>
                                                             <outlet property="emptyImage" destination="fQn-g4-IIX" id="D6T-5K-hWM"/>
                                                             <outlet property="image" destination="kuG-bQ-Mb6" id="SvU-1U-G9y"/>
+                                                            <outlet property="rightArrow" destination="ews-w3-uau" id="eCd-m3-Qv8"/>
                                                             <outlet property="textCard" destination="D1c-di-j6T" id="00x-bd-T4j"/>
                                                             <outlet property="textEmpty" destination="L2n-R4-PBJ" id="pm1-8L-IIi"/>
                                                             <outlet property="titleCard" destination="UIX-rf-3R6" id="zgW-OT-b8z"/>
@@ -2327,6 +2336,7 @@
         <image name="book.fill" catalog="system" width="128" height="95"/>
         <image name="camera" catalog="system" width="128" height="94"/>
         <image name="checkmark.circle" catalog="system" width="128" height="121"/>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="color1" width="150" height="150"/>
         <image name="color2" width="150" height="150"/>
         <image name="color3" width="150" height="150"/>
