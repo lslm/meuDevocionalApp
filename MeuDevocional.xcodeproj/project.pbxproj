@@ -45,7 +45,7 @@
 		139B6F6D26A2724C00C50E06 /* DevocionalDiarioEstudoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B6F6C26A2724C00C50E06 /* DevocionalDiarioEstudoViewController.swift */; };
 		139B6F7126A2730F00C50E06 /* MuralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B6F7026A2730F00C50E06 /* MuralViewController.swift */; };
 		139B6F7326A2766400C50E06 /* MuralEditaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B6F7226A2766400C50E06 /* MuralEditaViewController.swift */; };
-		139B6FA026A72FA800C50E06 /* MinhaDevocional3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B6F9F26A72FA800C50E06 /* MinhaDevocional3ViewController.swift */; };
+		139B6FA026A72FA800C50E06 /* MinhaDevocionalEditaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B6F9F26A72FA800C50E06 /* MinhaDevocionalEditaViewController.swift */; };
 		139B6FA226A7456A00C50E06 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B6FA126A7456A00C50E06 /* MyTableViewCell.swift */; };
 		139B6FC126A8CEE800C50E06 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 139B6FBF26A8CEE800C50E06 /* Model.xcdatamodeld */; };
 		139B6FC426A8CF7600C50E06 /* Devocionais+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B6FC226A8CF7600C50E06 /* Devocionais+CoreDataClass.swift */; };
@@ -139,7 +139,7 @@
 		139B6F6C26A2724C00C50E06 /* DevocionalDiarioEstudoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevocionalDiarioEstudoViewController.swift; sourceTree = "<group>"; };
 		139B6F7026A2730F00C50E06 /* MuralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuralViewController.swift; sourceTree = "<group>"; };
 		139B6F7226A2766400C50E06 /* MuralEditaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuralEditaViewController.swift; sourceTree = "<group>"; };
-		139B6F9F26A72FA800C50E06 /* MinhaDevocional3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinhaDevocional3ViewController.swift; sourceTree = "<group>"; };
+		139B6F9F26A72FA800C50E06 /* MinhaDevocionalEditaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinhaDevocionalEditaViewController.swift; sourceTree = "<group>"; };
 		139B6FA126A7456A00C50E06 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		139B6FC026A8CEE800C50E06 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		139B6FC226A8CF7600C50E06 /* Devocionais+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Devocionais+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -351,7 +351,7 @@
 			isa = PBXGroup;
 			children = (
 				13026C6026A211BA00D683B0 /* MinhaDevocionalVisualizaViewController.swift */,
-				139B6F9F26A72FA800C50E06 /* MinhaDevocional3ViewController.swift */,
+				139B6F9F26A72FA800C50E06 /* MinhaDevocionalEditaViewController.swift */,
 				136CEA0E26B24FF2007BDC49 /* MinhaDevocionalViewController.swift */,
 			);
 			path = MinhasDevocionais;
@@ -555,7 +555,7 @@
 				1331FFD026AB2B11003BDFAC /* DevocionalMusicViewController.swift in Sources */,
 				13026C5726A0CC7400D683B0 /* EstruturaBaseData.swift in Sources */,
 				136F9E1226AE17C30064F06F /* estudosBase.swift in Sources */,
-				139B6FA026A72FA800C50E06 /* MinhaDevocional3ViewController.swift in Sources */,
+				139B6FA026A72FA800C50E06 /* MinhaDevocionalEditaViewController.swift in Sources */,
 				13AFD51227CEEE84005CA710 /* MuralEdita.swift in Sources */,
 				139B6F7326A2766400C50E06 /* MuralEditaViewController.swift in Sources */,
 				13915724278618950056A439 /* EmptyView.swift in Sources */,
@@ -753,7 +753,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MeuDevocional/MeuDevocional.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = V8V28A4DX2;
 				INFOPLIST_FILE = MeuDevocional/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -776,7 +776,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MeuDevocional/MeuDevocional.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = V8V28A4DX2;
 				INFOPLIST_FILE = MeuDevocional/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

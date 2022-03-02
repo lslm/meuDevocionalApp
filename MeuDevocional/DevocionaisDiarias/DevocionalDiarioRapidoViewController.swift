@@ -97,11 +97,11 @@ class DevocionalDiarioRapidoViewController: UIViewController {
     
     @IBAction func shareButton(_ sender: Any) {
         let vc = UIActivityViewController(activityItems: ["Olha a Devocional que eu encontrei no Meu Devocional app!",
-                                                          self.titleLabel?.text,
-                                                          self.refBiblicaLabel?.text,
-                                                          self.contextualizacaoLabel?.text,
-                                                          self.reflexaoLabel?.text,
-                                                          self.musica],
+                                                          "\n✨" + (self.titleLabel?.text)!,
+                                                          "\n✨" + (self.refBiblicaLabel?.text)!,
+                                                          "\n✨" + (self.contextualizacaoLabel?.text)!,
+                                                          "\n✨" + (self.reflexaoLabel?.text)!,
+                                                          "\n✨" + self.musica],
                                           applicationActivities: [])
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(vc, animated: true)
