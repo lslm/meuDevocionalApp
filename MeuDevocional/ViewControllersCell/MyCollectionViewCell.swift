@@ -36,6 +36,8 @@ class MyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var versicleLabel: UILabel!
     @IBOutlet weak var waitView: UIActivityIndicatorView!
     
+    @IBOutlet weak var rightArrow: UIButton!
+    
     // MARK: Devocionais rápidas
     public func editaRapidas(devocional: Devocional,status: Bool){
             ///quando consegue carregar o conteúdo, esconte as empty states
@@ -44,6 +46,7 @@ class MyCollectionViewCell: UICollectionViewCell {
             self.textEmpty.isHidden = true
             self.emptyImage.isHidden = true
             
+            self.rightArrow.isHidden = false
             self.titleCard.isHidden = false
             self.textCard.isHidden = false
             self.versicleLabel.isHidden = false
@@ -68,6 +71,7 @@ class MyCollectionViewCell: UICollectionViewCell {
             self.titleCard.isHidden = true
             self.textCard.isHidden = true
             self.versicleLabel.isHidden = true
+            self.rightArrow.isHidden = true
         }
     }
     

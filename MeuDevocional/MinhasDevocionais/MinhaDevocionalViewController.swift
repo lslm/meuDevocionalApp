@@ -78,7 +78,7 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
         ///adiciona o card que sera apenas editado na proxima view...
         let _ = try? CoreDataStack.createDevocional(titulo: "", baseBiblica: "", contextualizacao: "", reflexao: "", conclusao: "", aplicacao1: "", aplicacao2: "", aplicacao3: "", backgroundColor: "1", backgroundImage: "crie2", link: "",livro: "",capitulo: "",versiculo: "",data: "")
         self.collectionView?.reloadData()
-        let vc = segue.destination as! MinhaDevocional3ViewController
+        let vc = segue.destination as! MinhaDevocionalEditaViewController
         vc.edit = false
         vc.delegate = self
    }
@@ -177,7 +177,7 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
         /// se nao houver nenhuma criada, começa a criar uma
         if dataDevocional.count == 0 {
             if let vc = storyboard?.instantiateViewController(identifier: "minhadevocionalForms") as?
-                        MinhaDevocional3ViewController {
+                        MinhaDevocionalEditaViewController {
                 ///adiciona o card que sera apenas editado na proxima view...
                 let _ = try? CoreDataStack.createDevocional(titulo: "", baseBiblica: "", contextualizacao: "", reflexao: "", conclusao: "", aplicacao1: "", aplicacao2: "", aplicacao3: "", backgroundColor: "1", backgroundImage: "crie2", link: "",livro: "",capitulo: "",versiculo: "",data: "")
                 self.collectionView?.reloadData()
@@ -188,7 +188,7 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
         }
         else{
             if let vc = storyboard?.instantiateViewController(identifier: "minhadevocional") as?
-                        MinhaDevocional2ViewController {
+                        MinhaDevocionalVisualizaViewController {
                 var index = 0
                 if searching{
                     index = self.searchDevocional(Titulo: dataFiltred[indexPath.row].titulo!,isSearching: true)
@@ -256,7 +256,7 @@ class MinhaDevocionalViewController: UIViewController, UICollectionViewDelegate,
 
 // MARK: Delegate
 ///funcoes delegate utilizadas para atualizar o conteudo da view
-extension MinhaDevocionalViewController: MinhaDevocional3ViewControllerDelegate{
+extension MinhaDevocionalViewController: MinhaDevocionalEditaViewControllerDelegate{
     func didRegister(){
         ///para a adicao
         collectionView.reloadData()
@@ -264,9 +264,9 @@ extension MinhaDevocionalViewController: MinhaDevocional3ViewControllerDelegate{
     }
 }
 
-extension MinhaDevocionalViewController: MinhaDevocional2ViewControllerDelegate{
+extension MinhaDevocionalViewController: MinhaDevocionalVisualizaViewControllerDelegate {
     ///para a edicao
-    func didRegister2(){
+    func didRegisterEdicoes(){
         collectionView.reloadData()
         navigationController?.navigationBar.prefersLargeTitles = true
     }

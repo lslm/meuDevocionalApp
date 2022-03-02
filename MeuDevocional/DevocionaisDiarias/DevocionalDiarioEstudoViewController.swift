@@ -161,6 +161,22 @@ class DevocionalDiarioEstudoViewController: UIViewController {
             }
     }
     
+    @IBAction func shareButton(_ sender: Any) {
+        let vc = UIActivityViewController(activityItems: [UIImage(named: base[estudo].storyImage),
+                                                          "Olha a Devocional que eu encontrei no Meu Devocional app!",
+                                                          "\n✨" + (self.titulo.text)!,
+                                                          "\n✨" + (self.baseBiblica.text)!,
+                                                          "\n✨" + (self.contextualizacaoConteudo.text)!,
+                                                          "\n✨" + (self.reflexaoConteudo.text)!,
+                                                          "\n✨" + (self.conclusaoConteudo.text)!,
+                                                          "\n✨" + (self.base[estudo].link)],
+                                          applicationActivities: [])
+        vc.excludedActivityTypes = [UIActivity.ActivityType.postToWeibo, UIActivity.ActivityType.copyToPasteboard, UIActivity.ActivityType.addToReadingList, UIActivity.ActivityType.postToVimeo]
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(vc, animated: true)
+    }
+    
+    
     // MARK: Selecao de conteudos do user default de acordo com a celula
     func selecionaBaseDados(){
         if cell == 1{

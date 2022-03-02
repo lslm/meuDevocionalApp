@@ -16,6 +16,7 @@ open class CollectionItem{
     open var backgroundColor: UIColor
     open var backgroundImage: UIImage
     open var link: String
+    open var storyImage: String
     
     public init(){
         titulo = " "
@@ -29,8 +30,9 @@ open class CollectionItem{
         backgroundColor = verde
         backgroundImage = UIImage(named: "crie2")!
         link = "https://www.youtube.com/watch?v=7SO3ObU99e4&list=RD7SO3ObU99e4&start_radio=1"
+        storyImage = "storyCotidiano1"
     }
-    public init(titulo: String, baseBiblica: String, contextualizacao: String, reflexao: String, conclusao: String, aplicacao1: String, aplicacao2: String, aplicacao3: String, backgroundColor: UIColor, backgroundImage: UIImage, link: String) {
+    public init(titulo: String, baseBiblica: String, contextualizacao: String, reflexao: String, conclusao: String, aplicacao1: String, aplicacao2: String, aplicacao3: String, backgroundColor: UIColor, backgroundImage: UIImage, link: String, storyImage: String) {
         self.titulo = titulo
         self.baseBiblica = baseBiblica
         self.contextualizacao = contextualizacao
@@ -42,6 +44,7 @@ open class CollectionItem{
         self.backgroundColor = backgroundColor
         self.backgroundImage = backgroundImage
         self.link = link
+        self.storyImage = storyImage
     }
 }
 

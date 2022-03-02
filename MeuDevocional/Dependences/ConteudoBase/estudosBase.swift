@@ -22,7 +22,8 @@ func criaEstudos(indice:Int){
                                       aplicacao3: "",
                                       backgroundColor: verde,
                                       backgroundImage: UIImage(named: "estudosBase1")!,
-                                      link:"https://www.youtube.com/watch?v=BlOtVv6h1rY")
+                                      link:"https://www.youtube.com/watch?v=BlOtVv6h1rY",
+                                      storyImage: "estudosStory1")
         estudosBase[indice] = estudos1
     }
     else if indice == 1{
@@ -36,7 +37,8 @@ func criaEstudos(indice:Int){
                                       aplicacao3: "",
                                       backgroundColor: verde,
                                       backgroundImage: UIImage(named: "estudosBase2")!,
-                                      link: "https://www.youtube.com/watch?v=_qDKrvstS9c")
+                                      link: "https://www.youtube.com/watch?v=_qDKrvstS9c",
+                                      storyImage: "estudosStory2")
         estudosBase[indice] = estudos2
 
     }
@@ -51,7 +53,8 @@ func criaEstudos(indice:Int){
                                       aplicacao3: "",
                                       backgroundColor: verde,
                                       backgroundImage: UIImage(named: "estudosBase3")!,
-                                      link: "https://www.youtube.com/watch?v=afI7c26HHEk")
+                                      link: "https://www.youtube.com/watch?v=afI7c26HHEk",
+                                      storyImage: "estudosStory3")
         estudosBase[indice] = estudos3
 
     }
@@ -66,7 +69,8 @@ func criaEstudos(indice:Int){
                                       aplicacao3: "",
                                       backgroundColor: verde,
                                       backgroundImage: UIImage(named: "estudosBase4")!,
-                                      link: "https://www.youtube.com/watch?v=v11UtxKcXTc")
+                                      link: "https://www.youtube.com/watch?v=v11UtxKcXTc",
+                                      storyImage: "estudosStory4")
         
         estudosBase[indice] = estudos4
     }
@@ -81,7 +85,8 @@ func criaEstudos(indice:Int){
                                       aplicacao3: "",
                                       backgroundColor: verde,
                                       backgroundImage: UIImage(named: "estudosBase5")!,
-                                      link: "https://www.youtube.com/watch?v=v_iwCyjpN9o")
+                                      link: "https://www.youtube.com/watch?v=v_iwCyjpN9o",
+                                      storyImage: "estudosStory5")
         estudosBase[indice] = estudos5
     }
 }

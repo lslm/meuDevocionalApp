@@ -374,6 +374,12 @@
                                                                         <action selector="reloadButton:" destination="bRY-OV-K8v" eventType="touchUpInside" id="846-Jd-8wq"/>
                                                                     </connections>
                                                                 </button>
+                                                                <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ews-w3-uau">
+                                                                    <rect key="frame" x="316" y="180" width="13" height="18"/>
+                                                                    <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system" subtitle="">
+                                                                        <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
+                                                                    </buttonConfiguration>
+                                                                </button>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="kuG-bQ-Mb6" firstAttribute="leading" secondItem="GRF-dV-Yp4" secondAttribute="leading" id="1kV-Hk-gP4"/>
@@ -391,12 +397,14 @@
                                                                 <constraint firstItem="HSB-Sl-Nqh" firstAttribute="top" secondItem="FJU-0R-zaX" secondAttribute="bottom" constant="20" id="RdX-ir-2tl"/>
                                                                 <constraint firstItem="UIX-rf-3R6" firstAttribute="leading" secondItem="GRF-dV-Yp4" secondAttribute="leading" constant="14" id="SiH-y5-Piy"/>
                                                                 <constraint firstItem="FJU-0R-zaX" firstAttribute="top" secondItem="L2n-R4-PBJ" secondAttribute="bottom" constant="12.5" id="Vrt-tt-bFC"/>
+                                                                <constraint firstAttribute="trailing" secondItem="ews-w3-uau" secondAttribute="trailing" constant="14" id="cjX-qA-euH"/>
                                                                 <constraint firstItem="D1c-di-j6T" firstAttribute="leading" secondItem="GRF-dV-Yp4" secondAttribute="leading" constant="14" id="fhG-Um-Rkb"/>
                                                                 <constraint firstItem="GBb-HG-pD7" firstAttribute="leading" secondItem="GRF-dV-Yp4" secondAttribute="leading" constant="16" id="kfC-6b-w7O"/>
                                                                 <constraint firstAttribute="trailing" secondItem="kuG-bQ-Mb6" secondAttribute="trailing" id="q4R-B6-2lz"/>
                                                                 <constraint firstItem="fQn-g4-IIX" firstAttribute="leading" secondItem="GRF-dV-Yp4" secondAttribute="leading" constant="8" id="qNk-bs-Swh"/>
                                                                 <constraint firstItem="L2n-R4-PBJ" firstAttribute="top" secondItem="GRF-dV-Yp4" secondAttribute="top" constant="71" id="rqh-oB-hcB"/>
                                                                 <constraint firstAttribute="trailing" secondItem="GBb-HG-pD7" secondAttribute="trailing" constant="27" id="vZu-Ux-072"/>
+                                                                <constraint firstItem="ews-w3-uau" firstAttribute="top" secondItem="GBb-HG-pD7" secondAttribute="bottom" constant="11" id="x6Y-5t-ns2"/>
                                                                 <constraint firstItem="D1c-di-j6T" firstAttribute="top" secondItem="UIX-rf-3R6" secondAttribute="bottom" constant="3" id="zCK-r7-l6o"/>
                                                             </constraints>
                                                         </collectionViewCellContentView>
@@ -405,6 +413,7 @@
                                                             <outlet property="buttonEmpty" destination="HSB-Sl-Nqh" id="eIg-sX-wjp"/>
                                                             <outlet property="emptyImage" destination="fQn-g4-IIX" id="D6T-5K-hWM"/>
                                                             <outlet property="image" destination="kuG-bQ-Mb6" id="SvU-1U-G9y"/>
+                                                            <outlet property="rightArrow" destination="ews-w3-uau" id="eCd-m3-Qv8"/>
                                                             <outlet property="textCard" destination="D1c-di-j6T" id="00x-bd-T4j"/>
                                                             <outlet property="textEmpty" destination="L2n-R4-PBJ" id="pm1-8L-IIi"/>
                                                             <outlet property="titleCard" destination="UIX-rf-3R6" id="zgW-OT-b8z"/>
@@ -652,7 +661,7 @@
         <!-- Meu devocional-->
         <scene sceneID="14H-6s-iIZ">
             <objects>
-                <viewController storyboardIdentifier="minhadevocional" id="4bv-El-r56" customClass="MinhaDevocional2ViewController" customModule="MeuDevocional" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="minhadevocional" id="4bv-El-r56" customClass="MinhaDevocionalVisualizaViewController" customModule="MeuDevocional" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zj0-KT-tpx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -816,7 +825,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gvd-MQ-bht" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1959.4202898550727" y="1699.5535714285713"/>
+            <point key="canvasLocation" x="-536" y="2665"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="BPB-2S-ux0">
@@ -1036,10 +1045,10 @@
             </objects>
             <point key="canvasLocation" x="1844.9275362318842" y="836.38392857142856"/>
         </scene>
-        <!--Mural View Controller2-->
+        <!--Mural Edita View Controller-->
         <scene sceneID="hCX-92-dUo">
             <objects>
-                <viewController storyboardIdentifier="addmural" id="csv-ad-38C" customClass="MuralViewController2" customModule="MeuDevocional" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addmural" id="csv-ad-38C" customClass="MuralEditaViewController" customModule="MeuDevocional" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="toe-0c-Uqf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1579,12 +1588,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Q9X-Eq-gCx">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="2Dt-WN-xey">
-                            <color key="tintColor" name="Accent"/>
-                            <connections>
-                                <action selector="saveButton:" destination="sIP-je-v79" id="me0-f9-ldM"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem style="plain" systemItem="action" id="drs-3b-hJV">
+                                <color key="tintColor" name="Accent"/>
+                                <connections>
+                                    <action selector="shareButton:" destination="sIP-je-v79" id="6Cg-UG-NrO"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="save" id="2Dt-WN-xey">
+                                <color key="tintColor" name="Accent"/>
+                                <connections>
+                                    <action selector="saveButton:" destination="sIP-je-v79" id="me0-f9-ldM"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <size key="freeformSize" width="414" height="2200"/>
@@ -1608,7 +1625,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dJt-3z-6Ut" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1047.8260869565217" y="2214.5089285714284"/>
+            <point key="canvasLocation" x="-2823" y="2200"/>
         </scene>
         <!--Worship time!-->
         <scene sceneID="B8O-QT-60Y">
@@ -1625,7 +1642,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YOU-YD-Rrj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1846" y="3333"/>
+            <point key="canvasLocation" x="-2077" y="3401"/>
         </scene>
         <!--Devocionais diários-->
         <scene sceneID="iYm-G6-50O">
@@ -1745,7 +1762,7 @@
         <!--Meu Devocional-->
         <scene sceneID="voN-GV-Dob">
             <objects>
-                <viewController storyboardIdentifier="minhadevocionalForms" id="8BQ-eE-MAx" userLabel="Meu Devocional" customClass="MinhaDevocional3ViewController" customModule="MeuDevocional" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="minhadevocionalForms" id="8BQ-eE-MAx" userLabel="Meu Devocional" customClass="MinhaDevocionalEditaViewController" customModule="MeuDevocional" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pav-xg-iGa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1146"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2031,7 +2048,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zDu-WN-cud" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="223.18840579710147" y="1801.3392857142856"/>
+            <point key="canvasLocation" x="-1448" y="1843"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hET-7r-agx">
@@ -2049,7 +2066,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ahv-Ee-Cay" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1079.7101449275362" y="1699.5535714285713"/>
+            <point key="canvasLocation" x="-1448" y="2665"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="g5F-7K-5aX">
@@ -2067,7 +2084,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v9S-QL-Pl1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2590" y="3334"/>
+            <point key="canvasLocation" x="-2822" y="3402"/>
         </scene>
         <!--Meus Devocionais-->
         <scene sceneID="PWF-mP-3Yj">
@@ -2104,7 +2121,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pwe-KD-gVS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4654" y="1807"/>
+            <point key="canvasLocation" x="-5754" y="1764"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mX2-vQ-Wuu">
@@ -2122,7 +2139,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NTn-sG-PeG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4655" y="2682"/>
+            <point key="canvasLocation" x="-4638" y="1854"/>
         </scene>
         <!--Leitura rápida-->
         <scene sceneID="FpO-xm-q8M">
@@ -2284,12 +2301,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Leitura rápida" largeTitleDisplayMode="never" id="4hc-xn-zWd">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="compose" id="iNv-kM-dOn">
-                            <color key="tintColor" name="Accent"/>
-                            <connections>
-                                <action selector="newDevocionalButton:" destination="Gwa-D3-0lK" id="oDn-da-RFK"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem style="plain" systemItem="action" id="2vu-yq-KDe">
+                                <color key="tintColor" name="Accent"/>
+                                <connections>
+                                    <action selector="shareButton:" destination="Gwa-D3-0lK" id="n8E-dT-0sT"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem style="plain" systemItem="compose" id="iNv-kM-dOn">
+                                <color key="tintColor" name="Accent"/>
+                                <connections>
+                                    <action selector="newDevocionalButton:" destination="Gwa-D3-0lK" id="oDn-da-RFK"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <size key="freeformSize" width="414" height="1168"/>
                     <connections>
@@ -2302,7 +2327,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U4Y-mZ-N8k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3704.347826086957" y="2719.4196428571427"/>
+            <point key="canvasLocation" x="-3678" y="1854"/>
         </scene>
     </scenes>
     <color key="tintColor" name="Accent"/>
@@ -2311,6 +2336,7 @@
         <image name="book.fill" catalog="system" width="128" height="95"/>
         <image name="camera" catalog="system" width="128" height="94"/>
         <image name="checkmark.circle" catalog="system" width="128" height="121"/>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="color1" width="150" height="150"/>
         <image name="color2" width="150" height="150"/>
         <image name="color3" width="150" height="150"/>
