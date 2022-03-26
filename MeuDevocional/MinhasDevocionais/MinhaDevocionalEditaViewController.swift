@@ -23,6 +23,8 @@ class MinhaDevocionalEditaViewController: UIViewController {
     var minhaBase = ""
     var selectedColorName = "crie1"
     
+    var isSave = false
+    
     let inputLista: [String] = ["Título", "Livro","Capítulo","Versículo","Palavra chave 1", "Palavra chave 2", "Palavra chave 3"]
     
     @IBOutlet weak var tableView: UITableView!
@@ -86,12 +88,16 @@ class MinhaDevocionalEditaViewController: UIViewController {
         
     }
     override func viewWillDisappear(_ animated: Bool) {
-        self.saveContent()
+        if self.isSave == false{
+            self.saveContent()
+        }
+        
     }
     
     // MARK: Save button
     ///funcao criada para adicionar a nova celula criada
     @IBAction func addAndSave(_ sender: Any) {
+        self.isSave = true
         self.saveContent()
         self.dismiss(animated: true, completion: nil)
     }
@@ -187,6 +193,7 @@ class MinhaDevocionalEditaViewController: UIViewController {
             ac.addAction(UIAlertAction(title: "Ignorar alterações", style: .destructive, handler: {
                 [self] action in
                     ///opcoes de cancelamento
+                    self.isSave = true
                     if edit == true {
                         self.dismiss(animated: true, completion: nil)
                     }
@@ -282,22 +289,3 @@ class MinhaDevocionalEditaViewController: UIViewController {
 }
 
 
-
-extension MinhaDevocionalEditaViewController: UITextFieldDelegate{
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    ///essa funcao faz com que a tecla return do teclado faca o app aceitar a entrada e o teclado abaixe
-        textField.autocapitalizationType = .words
-        textField.resignFirstResponder()
-        
-        ///confere se o link está correto
-        let isValidateLink = self.validation.validateYoutube(name: linkTextField.text!)
-        let isValidateLink2 = self.validation.validateSpotify(name: linkTextField.text!)
-        if (isValidateLink == false) && (isValidateLink2 == false){
-          alertLink()
-        }
-        //armazena o link certo ou vazio. Se estiver vazio irá mostrar uma playlist Default
-        dataDevocional[indice].link = linkTextField.text!
-        
-        return true
-    }
-}
