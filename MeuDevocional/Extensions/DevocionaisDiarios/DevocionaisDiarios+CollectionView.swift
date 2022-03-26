@@ -8,6 +8,46 @@
 import Foundation
 import UIKit
 
+
+// MARK: Collection View
+extension DevocionalDiarioViewController: UICollectionViewDelegate{
+    /// funcao que faz passar para dentro do estudo devocional (ao clicar na cell)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if collectionView == cotidiano {
+                if let vc = storyboard?.instantiateViewController(identifier: "devocional") as? DevocionalDiarioEstudoViewController {
+                    vc.cell = 1
+                    vc.estudo = indexPath.row
+                    navigationController?.pushViewController(vc, animated: true)
+                }
+        }else if collectionView == vida{
+            if let vc = storyboard?.instantiateViewController(identifier: "devocional") as?
+                DevocionalDiarioEstudoViewController {
+                vc.cell = 2
+                vc.estudo = indexPath.row
+                navigationController?.pushViewController(vc, animated: true)
+            }
+        }else if collectionView == rapidas{
+            if self.isConect == true{
+                if let vc = storyboard?.instantiateViewController(identifier: "leituraRapida") as?
+                    DevocionalDiarioRapidoViewController {
+                    vc.devocional = devocionaisRapidas?[indexPath.row]
+                    navigationController?.pushViewController(vc, animated: true)
+                }
+            }
+        }
+        else{
+            if let vc = storyboard?.instantiateViewController(identifier: "devocional") as?
+                DevocionalDiarioEstudoViewController {
+                vc.cell = 3
+                vc.estudo = indexPath.row
+                navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+    }
+}
+
+
 extension DevocionalDiarioViewController: UICollectionViewDataSource{
     /// configuracao da collectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
