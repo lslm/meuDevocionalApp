@@ -85,10 +85,18 @@ class MinhaDevocionalEditaViewController: UIViewController {
         try? CoreDataStack.saveContext()
         
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        self.saveContent()
+    }
     
     // MARK: Save button
     ///funcao criada para adicionar a nova celula criada
     @IBAction func addAndSave(_ sender: Any) {
+        self.saveContent()
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func saveContent(){
         //titulo
         let index = IndexPath(row: 0, section: 0)
         let cell: MyTableViewCell = self.tableView.cellForRow(at: index) as! MyTableViewCell
@@ -167,7 +175,7 @@ class MinhaDevocionalEditaViewController: UIViewController {
         delegate?.didRegister()
         tableView.reloadData()
         tableView.reloadInputViews()
-        self.dismiss(animated: true, completion: nil)
+        
     }
     
     // MARK: Cancel button
@@ -273,83 +281,7 @@ class MinhaDevocionalEditaViewController: UIViewController {
     }
 }
 
-// MARK: Extensions table view
-extension MinhaDevocionalEditaViewController: UITableViewDelegate{
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        ///clique na celula
-        tableView.deselectRow(at: indexPath, animated: true)
-        tableView.reloadInputViews()
-    }
-}
 
-extension MinhaDevocionalEditaViewController: UITableViewDataSource{
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath) as! MyTableViewCell
-        cell.textFieldCell.placeholder = inputLista[indexPath.row]
-        ///Se for a edicao de uma devocional ja criada, as celulas vao mostrar o que ja esta armazenado no banco de dados
-        if inputLista[indexPath.row] == "Título"{
-            cell.textFieldCell.text = dataDevocional[indice].titulo!
-            cell.label.isHidden = true
-            cell.textFieldCell.maxLength = 40
-        }
-        else if inputLista[indexPath.row] == "Livro"{
-            cell.textFieldCell.text = dataDevocional[indice].livro!
-            cell.textFieldCell.maxLength = 20
-            cell.label.isHidden = true
-        }
-        else if inputLista[indexPath.row] == "Capítulo"{
-            cell.textFieldCell.text = dataDevocional[indice].capitulo!
-            cell.textFieldCell.maxLength = 20
-            cell.label.isHidden = true
-        }
-        else if inputLista[indexPath.row] == "Versículo"{
-            cell.textFieldCell.text = dataDevocional[indice].versiculo!
-            cell.textFieldCell.maxLength = 30
-            cell.label.isHidden = true
-        }
-        else if inputLista[indexPath.row] == "Palavra chave 1"{
-            cell.textFieldCell.text = dataDevocional[indice].aplicacao1!
-            ///definindo uma quanrtidade máxima de letras
-            cell.textFieldCell.maxLength = 15
-        }
-        else if inputLista[indexPath.row] == "Palavra chave 2"{
-            cell.textFieldCell.text = dataDevocional[indice].aplicacao2!
-            ///definindo uma quanrtidade máxima de letras
-            cell.textFieldCell.maxLength = 15
-        }
-        else if inputLista[indexPath.row] == "Palavra chave 3"{
-            cell.textFieldCell.text = dataDevocional[indice].aplicacao3!
-            ///definindo uma quanrtidade máxima de letras
-            cell.textFieldCell.maxLength = 15
-        }
-        
-        cell.textFieldCell.resignFirstResponder()
-        cell.textFieldCell.returnKeyType = .done
-        
-        return cell
-    }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
-    }
-}
-
-// MARK: Extensions Text view
-///extensao criada para a configuracao da textField que apresentara um texto default para o usuario
-extension MinhaDevocionalEditaViewController: UITextViewDelegate{
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        
-        if reflexaoView.textColor == UIColor.lightGray {
-            reflexaoView.text = ""
-            reflexaoView.textColor = .label
-        }
-    }
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if reflexaoView.text == "" {
-            reflexaoView.text = "Comece a escrever ..."
-            reflexaoView.textColor = UIColor.lightGray
-        }
-    }
-}
 
 extension MinhaDevocionalEditaViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

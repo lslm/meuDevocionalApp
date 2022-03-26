@@ -68,15 +68,7 @@ class DevocionalDiarioViewController: UIViewController {
         
     }
     
-    // MARK: Reload Button and Onboard
-    @IBAction func reloadButton(_ sender: Any) {
-        DataManager.shared.loadData{
-            self.devocionaisRapidas = DataManager.shared.devocionaisRapidas
-            self.isConect = DataManager.shared.isConect
-            self.rapidas.reloadData()
-        }
-        print("clicou")
-    }
+    // MARK: Onboard
     
     @IBAction func openOnboard(_ sender: Any) {
         print("clicou")

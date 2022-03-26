@@ -62,6 +62,8 @@
 		13C07592279488CB0051F316 /* ViewOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C07591279488CB0051F316 /* ViewOnboarding.swift */; };
 		13C07595279731480051F316 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C07594279731480051F316 /* ImagePicker.swift */; };
 		13C0759727973C1B0051F316 /* SalvarImagem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C0759627973C1B0051F316 /* SalvarImagem.swift */; };
+		13DAD86827EF77EF0060C558 /* MinhaDevocional+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DAD86727EF77EF0060C558 /* MinhaDevocional+TableView.swift */; };
+		13DAD86A27EF78130060C558 /* MinhaDevocional+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DAD86927EF78130060C558 /* MinhaDevocional+TextField.swift */; };
 		13F476142791E56D00C12113 /* DevocionaisRapidas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F476132791E56D00C12113 /* DevocionaisRapidas.swift */; };
 		13F476162791EED700C12113 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F476152791EED700C12113 /* DataManager.swift */; };
 		13F476182791FFE900C12113 /* DevocionalDiarioRapidoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F476172791FFE900C12113 /* DevocionalDiarioRapidoViewController.swift */; };
@@ -156,6 +158,8 @@
 		13C07591279488CB0051F316 /* ViewOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOnboarding.swift; sourceTree = "<group>"; };
 		13C07594279731480051F316 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		13C0759627973C1B0051F316 /* SalvarImagem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalvarImagem.swift; sourceTree = "<group>"; };
+		13DAD86727EF77EF0060C558 /* MinhaDevocional+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MinhaDevocional+TableView.swift"; sourceTree = "<group>"; };
+		13DAD86927EF78130060C558 /* MinhaDevocional+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MinhaDevocional+TextField.swift"; sourceTree = "<group>"; };
 		13F476132791E56D00C12113 /* DevocionaisRapidas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevocionaisRapidas.swift; sourceTree = "<group>"; };
 		13F476152791EED700C12113 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		13F476172791FFE900C12113 /* DevocionalDiarioRapidoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevocionalDiarioRapidoViewController.swift; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				13949BCD2798807D00650144 /* MeuDevocional.entitlements */,
+				13DAD86627EF77B10060C558 /* Extensions */,
 				13AFD50C27CEEBF8005CA710 /* Protocol */,
 				13C075932797312F0051F316 /* Image */,
 				13C0758E279487410051F316 /* Onboard */,
@@ -394,6 +399,15 @@
 			path = Image;
 			sourceTree = "<group>";
 		};
+		13DAD86627EF77B10060C558 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				13DAD86727EF77EF0060C558 /* MinhaDevocional+TableView.swift */,
+				13DAD86927EF78130060C558 /* MinhaDevocional+TextField.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		13F476122791E55D00C12113 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -550,6 +564,7 @@
 				1331FFD226AB6605003BDFAC /* cotidianoBase.swift in Sources */,
 				139B6FC126A8CEE800C50E06 /* Model.xcdatamodeld in Sources */,
 				1391571E278617790056A439 /* NotificacoesConteudo.swift in Sources */,
+				13DAD86A27EF78130060C558 /* MinhaDevocional+TextField.swift in Sources */,
 				139B6FC526A8CF7600C50E06 /* Devocionais+CoreDataProperties.swift in Sources */,
 				13949BCC27987DF800650144 /* UserDefaultManager.swift in Sources */,
 				1331FFD026AB2B11003BDFAC /* DevocionalMusicViewController.swift in Sources */,
@@ -561,6 +576,7 @@
 				13915724278618950056A439 /* EmptyView.swift in Sources */,
 				139B6FA226A7456A00C50E06 /* MyTableViewCell.swift in Sources */,
 				13C07595279731480051F316 /* ImagePicker.swift in Sources */,
+				13DAD86827EF77EF0060C558 /* MinhaDevocional+TableView.swift in Sources */,
 				13AFD50B27CEEB99005CA710 /* Validation.swift in Sources */,
 				13C07590279488950051F316 /* OnboardViewController.swift in Sources */,
 				13026C6126A211BA00D683B0 /* MinhaDevocionalVisualizaViewController.swift in Sources */,
