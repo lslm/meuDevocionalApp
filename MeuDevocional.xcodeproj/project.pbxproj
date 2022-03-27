@@ -114,7 +114,6 @@
 		13026C3526A0A1FE00D683B0 /* MeuDevocional.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeuDevocional.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13026C3826A0A1FE00D683B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13026C3A26A0A1FE00D683B0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		13026C3F26A0A1FE00D683B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		13026C4126A0A20300D683B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13026C4426A0A20300D683B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13026C4626A0A20300D683B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -178,6 +177,7 @@
 		13DAD87A27EF97F10060C558 /* DevocionaisDiarios+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DevocionaisDiarios+CollectionView.swift"; sourceTree = "<group>"; };
 		13DAD87C27EF986A0060C558 /* MinhaDevocional+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MinhaDevocional+SearchBar.swift"; sourceTree = "<group>"; };
 		13DAD87E27EF9A330060C558 /* MinhasDevocionais+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MinhasDevocionais+CollectionView.swift"; sourceTree = "<group>"; };
+		13DAD88627EFFB760060C558 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/Main.storyboard"; sourceTree = "<group>"; };
 		13F476132791E56D00C12113 /* DevocionaisRapidas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevocionaisRapidas.swift; sourceTree = "<group>"; };
 		13F476152791EED700C12113 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		13F476172791FFE900C12113 /* DevocionalDiarioRapidoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevocionalDiarioRapidoViewController.swift; sourceTree = "<group>"; };
@@ -540,10 +540,10 @@
 			};
 			buildConfigurationList = 13026C3026A0A1FE00D683B0 /* Build configuration list for PBXProject "MeuDevocional" */;
 			compatibilityVersion = "Xcode 9.3";
-			developmentRegion = en;
+			developmentRegion = "pt-BR";
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
+				"pt-BR",
 				Base,
 			);
 			mainGroup = 13026C2C26A0A1FE00D683B0;
@@ -681,7 +681,7 @@
 		13026C3E26A0A1FE00D683B0 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				13026C3F26A0A1FE00D683B0 /* Base */,
+				13DAD88627EFFB760060C558 /* pt-BR */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

@@ -1037,11 +1037,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IUS-gu-2tv">
-                                <rect key="frame" x="354" y="20" width="34" height="30"/>
+                                <rect key="frame" x="345" y="20" width="43" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="52W-jr-Zzn"/>
                                 </constraints>
-                                <state key="normal" title="Save"/>
+                                <state key="normal" title="Salvar"/>
                                 <connections>
                                     <action selector="onTap:" destination="csv-ad-38C" eventType="touchUpInside" id="qGj-c0-823"/>
                                 </connections>
@@ -1091,12 +1091,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mwq-kW-Bps">
-                                <rect key="frame" x="13" y="20" width="48" height="30"/>
+                                <rect key="frame" x="13" y="20" width="61" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="48" id="kY9-Q8-sxQ"/>
                                     <constraint firstAttribute="height" constant="30" id="vq9-Tm-cCE"/>
                                 </constraints>
-                                <state key="normal" title="Cancel">
+                                <state key="normal" title="Cancelar">
                                     <color key="titleColor" systemColor="systemRedColor"/>
                                 </state>
                                 <connections>
@@ -1578,7 +1578,7 @@
                                     <action selector="shareButton:" destination="sIP-je-v79" id="6Cg-UG-NrO"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="save" id="2Dt-WN-xey">
+                            <barButtonItem title="Salvar" id="2Dt-WN-xey">
                                 <color key="tintColor" name="Accent"/>
                                 <connections>
                                     <action selector="saveButton:" destination="sIP-je-v79" id="me0-f9-ldM"/>
@@ -1757,12 +1757,12 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyF-bP-Ure">
-                                                <rect key="frame" x="360" y="8" width="34" height="40"/>
+                                                <rect key="frame" x="351" y="8" width="43" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="Xnd-50-2IE"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="34" id="nVD-uL-TVx"/>
                                                 </constraints>
-                                                <state key="normal" title="Save"/>
+                                                <state key="normal" title="Salvar"/>
                                                 <connections>
                                                     <action selector="addAndSave:" destination="8BQ-eE-MAx" eventType="touchUpInside" id="fHo-ae-7F8"/>
                                                 </connections>
@@ -1876,12 +1876,12 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8MO-ZP-Ooq">
-                                                <rect key="frame" x="20" y="13" width="54" height="30"/>
+                                                <rect key="frame" x="20" y="13" width="61" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="3OX-1N-ttQ"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="54" id="MsX-VV-4EG"/>
                                                 </constraints>
-                                                <state key="normal" title="Cancel">
+                                                <state key="normal" title="Cancelar">
                                                     <color key="titleColor" systemColor="systemRedColor"/>
                                                 </state>
                                                 <connections>
