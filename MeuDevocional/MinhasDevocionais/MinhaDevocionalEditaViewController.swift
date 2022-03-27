@@ -76,6 +76,10 @@ class MinhaDevocionalEditaViewController: UIViewController {
         linkTextField.text = dataDevocional[indice].link
         selectedColor = dataDevocional[indice].backgroundColor!
         
+        
+        ///mostra a cor caso estiver armazenada
+        getColor(color: dataDevocional[indice].backgroundColor ?? "1")
+        
         ///salvando data
         let date = Date()
         let formatter =  DateFormatter()
@@ -103,43 +107,44 @@ class MinhaDevocionalEditaViewController: UIViewController {
     }
     
     func saveContent(){
-        //titulo
+        ///titulo
         let index = IndexPath(row: 0, section: 0)
         let cell: MyTableViewCell = self.tableView.cellForRow(at: index) as! MyTableViewCell
         meuTitulo = cell.textFieldCell.text!
         dataDevocional[indice].titulo = meuTitulo
         
-        //livro
+        ///livro
         let index1 = IndexPath(row: 1, section: 0)
         let cell1: MyTableViewCell = self.tableView.cellForRow(at: index1) as! MyTableViewCell
         
-        //capitulo
+        ///capitulo
         let index2 = IndexPath(row: 2, section: 0)
         let cell2: MyTableViewCell = self.tableView.cellForRow(at: index2) as! MyTableViewCell
         
-        //versiculo
+        ///versiculo
         let index3 = IndexPath(row: 3, section: 0)
         let cell3: MyTableViewCell = self.tableView.cellForRow(at: index3) as! MyTableViewCell
         
-        //minha base é a base Biblica concatenada (composto de livro, capitulo e versiculo)
-        minhaBase += cell1.textFieldCell.text!
-        dataDevocional[indice].livro = cell1.textFieldCell.text!
         
-        if minhaBase == ""{
-            dataDevocional[indice].baseBiblica = minhaBase
-        }
-        else if rapida == true{
+        ///base biblica (livro+capitulo+versiculo)
+        if rapida == true{
             minhaBase = dataDevocional[indice].baseBiblica ?? ""
-            
         }
-        else if rapida == false && cell2.textFieldCell.text != ""{
-            minhaBase += " "
-            minhaBase += String(cell2.textFieldCell.text!)
+        else if rapida == false && minhaBase == ""{
+            //minha base é a base Biblica concatenada (composto de livro, capitulo e versiculo)
+            dataDevocional[indice].livro = cell1.textFieldCell.text!
             dataDevocional[indice].capitulo = cell2.textFieldCell.text!
-            minhaBase += ":"
-            minhaBase += cell3.textFieldCell.text!
             dataDevocional[indice].versiculo = cell3.textFieldCell.text!
             
+            if cell2.textFieldCell.text! != "" && cell3.textFieldCell.text! == ""{
+                minhaBase = "\(cell1.textFieldCell.text!) \(cell2.textFieldCell.text!)"
+            }
+            else if cell2.textFieldCell.text! != "" && cell3.textFieldCell.text! != ""{
+                minhaBase = "\(cell1.textFieldCell.text!) \(cell2.textFieldCell.text!): \(cell3.textFieldCell.text!)"
+            }
+            else{
+                minhaBase = cell1.textFieldCell.text!
+            }
             ///juncao Livro + Capitulo + Versiculo
             dataDevocional[indice].baseBiblica = minhaBase
         }
@@ -257,6 +262,23 @@ class MinhaDevocionalEditaViewController: UIViewController {
         button.setBackgroundImage(UIImage(named: cor), for: .normal)
     }
     
+    ///funcao para mostrar qual cor ja esta selecionada de acordo com o coreData
+    func getColor(color: String){
+        if color == "1" {
+            changeColor(button: color1!, cor: "color1s")
+        }
+        else if color == "2"{
+            changeColor(button: color2!, cor: "color2s")
+        }
+        else if color == "3"{
+            changeColor(button: color3!, cor: "color3s")
+
+        }
+        else{
+            changeColor(button: color4!, cor: "color4s")
+
+        }
+    }
     // MARK: Link button
     ///guarda o link disponibilizado pela pessoa
     @IBAction func okayLink(_ sender: Any) {
