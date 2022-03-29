@@ -28,7 +28,7 @@ class MinhaDevocionalViewController: UIViewController,NSFetchedResultsController
         let request: NSFetchRequest<Devocionais> = Devocionais.fetchRequest() 
         request.sortDescriptors = [NSSortDescriptor(keyPath: \Devocionais.data, ascending: true)]
         let frc = NSFetchedResultsController(fetchRequest: request,
-                                             managedObjectContext: CoreDataStack.context,
+                                             managedObjectContext: CoreDataStack.shared.context,
                                              sectionNameKeyPath: nil,
                                              cacheName: nil)
         frc.delegate = self
@@ -40,10 +40,10 @@ class MinhaDevocionalViewController: UIViewController,NSFetchedResultsController
         
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(named: "Accent")]
+
         //navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor(named: "Accent")]
         
         super.viewDidLoad()
-        self.dataDevocional = try! CoreDataStack.getDevocional()
         self.notFound.isHidden = false
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -76,7 +76,7 @@ class MinhaDevocionalViewController: UIViewController,NSFetchedResultsController
     ///funcao que ira gerar o modal para a criacao da nova colecction
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         ///adiciona o card que sera apenas editado na proxima view...
-        let _ = try? CoreDataStack.createDevocional(titulo: "", baseBiblica: "", contextualizacao: "", reflexao: "", conclusao: "", aplicacao1: "", aplicacao2: "", aplicacao3: "", backgroundColor: "1", backgroundImage: "crie2", link: "",livro: "",capitulo: "",versiculo: "",data: "")
+        let _ = CoreDataStack.shared.createDevocional(titulo: "", baseBiblica: "", contextualizacao: "", reflexao: "", conclusao: "", aplicacao1: "", aplicacao2: "", aplicacao3: "", backgroundColor: "1", backgroundImage: "crie2", link: "",livro: "",capitulo: "",versiculo: "",data: "")
         self.collectionView?.reloadData()
         let vc = segue.destination as! MinhaDevocionalEditaViewController
         vc.edit = false
@@ -87,7 +87,7 @@ class MinhaDevocionalViewController: UIViewController,NSFetchedResultsController
     // MARK: Coleta de dados
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         //guard let devocionais = controller.fetchedObjects as? [Devocionais] else { return }
-        let devocionais = try! CoreDataStack.getDevocional()
+        let devocionais = CoreDataStack.shared.getDevocional()
         self.dataDevocional = devocionais
         self.collectionView.reloadData()
     }
@@ -126,7 +126,11 @@ class MinhaDevocionalViewController: UIViewController,NSFetchedResultsController
                         let index = self.searchDevocional(Titulo: self.dataDevocional[indexPath.item].titulo ?? "", isSearching: false)
                         ac.addAction(UIAlertAction(title: "Deletar", style: .destructive, handler: {
                             [weak self] action in
-                            try! CoreDataStack.deleteDevocional(devocionais: self!.dataDevocional[index])
+                            do{
+                                try CoreDataStack.shared.deleteDevocional(devocionais: self!.dataDevocional[index])
+                            }catch{
+                                print(error)
+                            }
                         self?.collectionView.reloadData()
                         }))
                         ac.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))

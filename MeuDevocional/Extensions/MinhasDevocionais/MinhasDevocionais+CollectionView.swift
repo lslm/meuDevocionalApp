@@ -19,7 +19,7 @@ extension MinhaDevocionalViewController: UICollectionViewDelegate{
             if let vc = storyboard?.instantiateViewController(identifier: "minhadevocionalForms") as?
                         MinhaDevocionalEditaViewController {
                 ///adiciona o card que sera apenas editado na proxima view...
-                let _ = try? CoreDataStack.createDevocional(titulo: "", baseBiblica: "", contextualizacao: "", reflexao: "", conclusao: "", aplicacao1: "", aplicacao2: "", aplicacao3: "", backgroundColor: "1", backgroundImage: "crie2", link: "",livro: "",capitulo: "",versiculo: "",data: "")
+                let _ = CoreDataStack.shared.createDevocional(titulo: "", baseBiblica: "", contextualizacao: "", reflexao: "", conclusao: "", aplicacao1: "", aplicacao2: "", aplicacao3: "", backgroundColor: "1", backgroundImage: "crie2", link: "",livro: "",capitulo: "",versiculo: "",data: "")
                 self.collectionView?.reloadData()
                 vc.edit = false
                 vc.delegate = self
@@ -56,7 +56,8 @@ extension MinhaDevocionalViewController:UICollectionViewDataSource{
         }
         self.notFound.isHidden = true
         
-        self.dataDevocional = try! CoreDataStack.getDevocional() //get para corrigir problema de sincronismo
+        self.dataDevocional = CoreDataStack.shared.getDevocional()
+        
         ///empty view
         if dataDevocional.count == 0 && searching == false {
             searchController.searchBar.isHidden = true

@@ -49,7 +49,7 @@ class DevocionalDiarioRapidoViewController: UIViewController {
     
     // MARK: Prepare (edicao e devocional)
     func checkDevocional(titulo: String) -> Int {
-        let dataDevocional = try! CoreDataStack.getDevocional()
+        let dataDevocional = CoreDataStack.shared.getDevocional()
         for i in 0..<dataDevocional.count{
             ///se a devocional existir, ela sera editada
             if dataDevocional[i].titulo == titulo{
@@ -57,7 +57,7 @@ class DevocionalDiarioRapidoViewController: UIViewController {
             }
         }
         ///se a devocional nao existir, ela sera criada e colocada por ultimo
-        let _ = try? CoreDataStack.createDevocional(titulo: self.titleLabel?.text ?? "",
+        let _ = CoreDataStack.shared.createDevocional(titulo: self.titleLabel?.text ?? "",
                                                     baseBiblica: self.versiculo,
                                                     contextualizacao: "",
                                                     reflexao: self.introducao,

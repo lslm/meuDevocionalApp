@@ -42,7 +42,8 @@ extension MinhaDevocionalViewController: UISearchBarDelegate, UISearchResultsUpd
         else {
             searching = false
             self.dataFiltred.removeAll()
-            self.dataDevocional = try! CoreDataStack.getDevocional()
+        
+            self.dataDevocional = CoreDataStack.shared.getDevocional()
         }
         self.collectionView.reloadData()
     }

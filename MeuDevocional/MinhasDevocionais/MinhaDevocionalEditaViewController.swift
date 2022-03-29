@@ -44,7 +44,7 @@ class MinhaDevocionalEditaViewController: UIViewController {
     private var datePicker: UIDatePicker?
     
     override func viewDidLoad() {
-        
+        dataDevocional = CoreDataStack.shared.getDevocional()
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
@@ -53,9 +53,6 @@ class MinhaDevocionalEditaViewController: UIViewController {
         
         ///funcao que faz o clique na tela ocultar o teclado
         view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
-        
-        dataDevocional = try! CoreDataStack.getDevocional()
-        
         
         // MARK: Edicao ou criacao
         ///define se está atualizando uma devocional ou apenas criando uma nova
@@ -88,7 +85,7 @@ class MinhaDevocionalEditaViewController: UIViewController {
         okayLinkButton.layer.cornerRadius = 8
         
         ///salvando o progresso
-        try? CoreDataStack.saveContext()
+        CoreDataStack.shared.saveContext()
         
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -181,7 +178,7 @@ class MinhaDevocionalEditaViewController: UIViewController {
         dataDevocional[indice].link = linkTextField.text!
         
         ///salvando o progresso
-        try? CoreDataStack.saveContext()
+        CoreDataStack.shared.saveContext()
         ///registra as aleracoes para visualizacao futura
         delegate?.didRegister()
         tableView.reloadData()
@@ -204,7 +201,11 @@ class MinhaDevocionalEditaViewController: UIViewController {
                     }
                     else{
                         ///se for uma adicao, exclui o item que tinha adicionado anteriormente
-                        try! CoreDataStack.deleteDevocional(devocionais: dataDevocional[indice])
+                        do{
+                            try  CoreDataStack.shared.deleteDevocional(devocionais: dataDevocional[indice])
+                        }catch{
+                            print(error)
+                        }
                         delegate?.didRegister()
                         self.dismiss(animated: true, completion: nil)
                     }

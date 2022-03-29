@@ -40,11 +40,15 @@ class MinhaDevocionalVisualizaViewController: UIViewController {
         pc3.clipsToBounds = true
         
         reflexao.textColor = .label
-
         
+        do{
+            dataDevocional = CoreDataStack.shared.getDevocional()
+        } catch{
+            print(error)
+        }
+
         super.viewDidLoad()
         //navigationController?.navigationBar.prefersLargeTitles = true
-        dataDevocional = try! CoreDataStack.getDevocional()
         
         if dataDevocional.count != 0 {
             atualizaDevocional()
