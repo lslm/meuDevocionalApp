@@ -76,9 +76,10 @@ class MinhaDevocionalViewController: UIViewController,NSFetchedResultsController
     ///funcao que ira gerar o modal para a criacao da nova colecction
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         ///adiciona o card que sera apenas editado na proxima view...
-        let _ = CoreDataStack.shared.createDevocional(titulo: "", baseBiblica: "", contextualizacao: "", reflexao: "", conclusao: "", aplicacao1: "", aplicacao2: "", aplicacao3: "", backgroundColor: "1", backgroundImage: "crie2", link: "",livro: "",capitulo: "",versiculo: "",data: "")
+        let novaDevocional = CoreDataStack.shared.createDevocional(titulo: "", baseBiblica: "", contextualizacao: "", reflexao: "", conclusao: "", aplicacao1: "", aplicacao2: "", aplicacao3: "", backgroundColor: "1", backgroundImage: "crie2", link: "",livro: "",capitulo: "",versiculo: "",data: "")
         self.collectionView?.reloadData()
         let vc = segue.destination as! MinhaDevocionalEditaViewController
+        vc.devocional = novaDevocional
         vc.edit = false
         vc.delegate = self
    }
@@ -94,15 +95,15 @@ class MinhaDevocionalViewController: UIViewController,NSFetchedResultsController
     
     
     ///funcao auxiliar que busca a devocional atraves do titulo
-    func searchDevocional(Titulo: String, isSearching: Bool) -> Int{
+    func searchDevocional(Titulo: String, isSearching: Bool) -> Devocionais? {
         let devocionaisAtuais = self.dataDevocional
         var index = 0
         for i in 0..<devocionaisAtuais.count{
             if (devocionaisAtuais[i].titulo!.lowercased()) == (Titulo.lowercased()){
-                index = i
+               return devocionaisAtuais[i]
             }
         }
-        return index
+        return nil
     }
     
     // MARK: Long Press function
@@ -123,14 +124,17 @@ class MinhaDevocionalViewController: UIViewController,NSFetchedResultsController
                     }
                     else{
                     let ac = UIAlertController(title: "Deletar todo o conteúdo de '\(dataDevocional[indexPath.item].titulo ?? "NONE")'", message: "O conteúdo não poderá ser recuperado.", preferredStyle: .actionSheet)
-                        let index = self.searchDevocional(Titulo: self.dataDevocional[indexPath.item].titulo ?? "", isSearching: false)
+                        
                         ac.addAction(UIAlertAction(title: "Deletar", style: .destructive, handler: {
                             [weak self] action in
-                            do{
-                                try CoreDataStack.shared.deleteDevocional(devocionais: self!.dataDevocional[index])
-                            }catch{
-                                print(error)
+                            if let devocional = self?.searchDevocional(Titulo: self?.dataDevocional[indexPath.item].titulo ?? "", isSearching: false){
+                                do{
+                                    try CoreDataStack.shared.deleteDevocional(devocionais: devocional)
+                                }catch{
+                                    print(error)
+                                }
                             }
+                           
                         self?.collectionView.reloadData()
                         }))
                         ac.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))

@@ -23,37 +23,37 @@ extension MinhaDevocionalEditaViewController: UITableViewDataSource{
         cell.textFieldCell.placeholder = inputLista[indexPath.row]
         ///Se for a edicao de uma devocional ja criada, as celulas vao mostrar o que ja esta armazenado no banco de dados
         if inputLista[indexPath.row] == "Título"{
-            cell.textFieldCell.text = dataDevocional[indice].titulo!
+            cell.textFieldCell.text = devocional.titulo!
             cell.label.isHidden = true
             cell.textFieldCell.maxLength = 40
         }
         else if inputLista[indexPath.row] == "Livro"{
-            cell.textFieldCell.text = dataDevocional[indice].livro!
+            cell.textFieldCell.text = devocional.livro!
             cell.textFieldCell.maxLength = 20
             cell.label.isHidden = true
         }
         else if inputLista[indexPath.row] == "Capítulo"{
-            cell.textFieldCell.text = dataDevocional[indice].capitulo!
+            cell.textFieldCell.text = devocional.capitulo!
             cell.textFieldCell.maxLength = 20
             cell.label.isHidden = true
         }
         else if inputLista[indexPath.row] == "Versículo"{
-            cell.textFieldCell.text = dataDevocional[indice].versiculo!
+            cell.textFieldCell.text = devocional.versiculo!
             cell.textFieldCell.maxLength = 30
             cell.label.isHidden = true
         }
         else if inputLista[indexPath.row] == "Palavra chave 1"{
-            cell.textFieldCell.text = dataDevocional[indice].aplicacao1!
+            cell.textFieldCell.text = devocional.aplicacao1!
             ///definindo uma quanrtidade máxima de letras
             cell.textFieldCell.maxLength = 15
         }
         else if inputLista[indexPath.row] == "Palavra chave 2"{
-            cell.textFieldCell.text = dataDevocional[indice].aplicacao2!
+            cell.textFieldCell.text = devocional.aplicacao2!
             ///definindo uma quanrtidade máxima de letras
             cell.textFieldCell.maxLength = 15
         }
         else if inputLista[indexPath.row] == "Palavra chave 3"{
-            cell.textFieldCell.text = dataDevocional[indice].aplicacao3!
+            cell.textFieldCell.text = devocional.aplicacao3!
             ///definindo uma quanrtidade máxima de letras
             cell.textFieldCell.maxLength = 15
         }

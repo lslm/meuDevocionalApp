@@ -13,9 +13,11 @@ class MinhaDevocionalEditaViewController: UIViewController {
     
     var validation = Validation() //para validar links
     weak var delegate: MinhaDevocionalEditaViewControllerDelegate?
-    
-    var dataDevocional: [Devocionais] = []
+
+    var devocional =  Devocionais()
+    //var dataDevocional: [Devocionais] = []
     var indice = 0
+    var isSave = false
     var edit = false
     var rapida = false
     var selectedColor = "1"
@@ -23,7 +25,6 @@ class MinhaDevocionalEditaViewController: UIViewController {
     var minhaBase = ""
     var selectedColorName = "crie1"
     
-    var isSave = false
     
     let inputLista: [String] = ["Título", "Livro","Capítulo","Versículo","Palavra chave 1", "Palavra chave 2", "Palavra chave 3"]
     
@@ -42,9 +43,9 @@ class MinhaDevocionalEditaViewController: UIViewController {
     
     //para pegar a data
     private var datePicker: UIDatePicker?
-    
+
     override func viewDidLoad() {
-        dataDevocional = CoreDataStack.shared.getDevocional()
+        //dataDevocional = CoreDataStack.shared.getDevocional()
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
@@ -56,13 +57,13 @@ class MinhaDevocionalEditaViewController: UIViewController {
         
         // MARK: Edicao ou criacao
         ///define se está atualizando uma devocional ou apenas criando uma nova
-        if edit == false {
-            indice = dataDevocional.count-1
-        }
+//        if edit == false {
+//            indice = dataDevocional.count-1
+//        }
         
         ///define o tipo de texto que sera mostrado ao usuário na reflexao (se é o armazenado ou o default)
-        if dataDevocional[indice].reflexao != ""{
-            reflexaoView.text = dataDevocional[indice].reflexao
+        if devocional.reflexao != ""{
+            reflexaoView.text = devocional.reflexao
         }
         else{
             reflexaoView.text = "Comece a escrever..."
@@ -70,18 +71,18 @@ class MinhaDevocionalEditaViewController: UIViewController {
         }
         
         ///mostra o link caso tiver armazenado
-        linkTextField.text = dataDevocional[indice].link
-        selectedColor = dataDevocional[indice].backgroundColor!
+        linkTextField.text = devocional.link
+        selectedColor = devocional.backgroundColor!
         
         
         ///mostra a cor caso estiver armazenada
-        getColor(color: dataDevocional[indice].backgroundColor ?? "1")
+        getColor(color: devocional.backgroundColor ?? "1")
         
         ///salvando data
         let date = Date()
         let formatter =  DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy"
-        dataDevocional[indice].data =  formatter.string(from: date)
+        devocional.data =  formatter.string(from: date)
         okayLinkButton.layer.cornerRadius = 8
         
         ///salvando o progresso
@@ -108,7 +109,7 @@ class MinhaDevocionalEditaViewController: UIViewController {
         let index = IndexPath(row: 0, section: 0)
         let cell: MyTableViewCell = self.tableView.cellForRow(at: index) as! MyTableViewCell
         meuTitulo = cell.textFieldCell.text!
-        dataDevocional[indice].titulo = meuTitulo
+        devocional.titulo = meuTitulo
         
         ///livro
         let index1 = IndexPath(row: 1, section: 0)
@@ -125,13 +126,13 @@ class MinhaDevocionalEditaViewController: UIViewController {
         
         ///base biblica (livro+capitulo+versiculo)
         if rapida == true{
-            minhaBase = dataDevocional[indice].baseBiblica ?? ""
+            minhaBase = devocional.baseBiblica ?? ""
         }
         else if rapida == false && minhaBase == ""{
             //minha base é a base Biblica concatenada (composto de livro, capitulo e versiculo)
-            dataDevocional[indice].livro = cell1.textFieldCell.text!
-            dataDevocional[indice].capitulo = cell2.textFieldCell.text!
-            dataDevocional[indice].versiculo = cell3.textFieldCell.text!
+            devocional.livro = cell1.textFieldCell.text!
+            devocional.capitulo = cell2.textFieldCell.text!
+            devocional.versiculo = cell3.textFieldCell.text!
             
             if cell2.textFieldCell.text! != "" && cell3.textFieldCell.text! == ""{
                 minhaBase = "\(cell1.textFieldCell.text!) \(cell2.textFieldCell.text!)"
@@ -143,7 +144,7 @@ class MinhaDevocionalEditaViewController: UIViewController {
                 minhaBase = cell1.textFieldCell.text!
             }
             ///juncao Livro + Capitulo + Versiculo
-            dataDevocional[indice].baseBiblica = minhaBase
+            devocional.baseBiblica = minhaBase
         }
         
         
@@ -159,23 +160,23 @@ class MinhaDevocionalEditaViewController: UIViewController {
         let index6 = IndexPath(row: 6, section: 0)
         let cell6: MyTableViewCell = self.tableView.cellForRow(at: index6) as! MyTableViewCell
         
-        dataDevocional[indice].aplicacao1 = cell4.textFieldCell.text!
-        dataDevocional[indice].aplicacao2 = cell5.textFieldCell.text!
-        dataDevocional[indice].aplicacao3 = cell6.textFieldCell.text!
+        devocional.aplicacao1 = cell4.textFieldCell.text!
+        devocional.aplicacao2 = cell5.textFieldCell.text!
+        devocional.aplicacao3 = cell6.textFieldCell.text!
         
         ///cor
-        dataDevocional[indice].backgroundColor = selectedColor
-        dataDevocional[indice].backgroundImage = selectedColorName
+        devocional.backgroundColor = selectedColor
+        devocional.backgroundImage = selectedColorName
         
         ///reflexao
-        dataDevocional[indice].reflexao = reflexaoView.text!
+        devocional.reflexao = reflexaoView.text!
         if reflexaoView.textColor == UIColor.lightGray{
             ///caso o usuario nao tenha feito nenhuma alteracao em reflexao, é salvo no banco de dados um dado de string vazia
-            dataDevocional[indice].reflexao = ""
+            devocional.reflexao = ""
         }
         
         ///link
-        dataDevocional[indice].link = linkTextField.text!
+        devocional.link = linkTextField.text!
         
         ///salvando o progresso
         CoreDataStack.shared.saveContext()
@@ -202,7 +203,7 @@ class MinhaDevocionalEditaViewController: UIViewController {
                     else{
                         ///se for uma adicao, exclui o item que tinha adicionado anteriormente
                         do{
-                            try  CoreDataStack.shared.deleteDevocional(devocionais: dataDevocional[indice])
+                            try  CoreDataStack.shared.deleteDevocional(devocionais: devocional)
                         }catch{
                             print(error)
                         }
@@ -297,7 +298,7 @@ class MinhaDevocionalEditaViewController: UIViewController {
           return
         }
         //armazena o link certo ou vazio. Se estiver vazio irá mostrar uma playlist Default
-        dataDevocional[indice].link = linkTextField.text!
+        devocional.link = linkTextField.text!
 
     }
     

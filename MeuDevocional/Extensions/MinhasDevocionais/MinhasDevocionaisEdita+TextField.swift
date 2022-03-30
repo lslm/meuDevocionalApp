@@ -21,7 +21,7 @@ extension MinhaDevocionalEditaViewController: UITextFieldDelegate{
           alertLink()
         }
         //armazena o link certo ou vazio. Se estiver vazio irá mostrar uma playlist Default
-        dataDevocional[indice].link = linkTextField.text!
+        devocional.link = linkTextField.text!
         
         return true
     }

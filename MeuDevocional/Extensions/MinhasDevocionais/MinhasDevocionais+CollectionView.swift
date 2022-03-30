@@ -19,8 +19,9 @@ extension MinhaDevocionalViewController: UICollectionViewDelegate{
             if let vc = storyboard?.instantiateViewController(identifier: "minhadevocionalForms") as?
                         MinhaDevocionalEditaViewController {
                 ///adiciona o card que sera apenas editado na proxima view...
-                let _ = CoreDataStack.shared.createDevocional(titulo: "", baseBiblica: "", contextualizacao: "", reflexao: "", conclusao: "", aplicacao1: "", aplicacao2: "", aplicacao3: "", backgroundColor: "1", backgroundImage: "crie2", link: "",livro: "",capitulo: "",versiculo: "",data: "")
-                self.collectionView?.reloadData()
+                let novaDevocional = CoreDataStack.shared.createDevocional(titulo: "", baseBiblica: "", contextualizacao: "", reflexao: "", conclusao: "", aplicacao1: "", aplicacao2: "", aplicacao3: "", backgroundColor: "1", backgroundImage: "crie2", link: "",livro: "",capitulo: "",versiculo: "",data: "")
+                //self.collectionView?.reloadData()
+                vc.devocional = novaDevocional
                 vc.edit = false
                 vc.delegate = self
                 navigationController?.present(vc, animated: true)
@@ -29,15 +30,21 @@ extension MinhaDevocionalViewController: UICollectionViewDelegate{
         else{
             if let vc = storyboard?.instantiateViewController(identifier: "minhadevocional") as?
                         MinhaDevocionalVisualizaViewController {
-                var index = 0
                 if searching{
-                    index = self.searchDevocional(Titulo: dataFiltred[indexPath.row].titulo!,isSearching: true)
+                    //index = self.searchDevocional(Titulo: dataFiltred[indexPath.row].titulo!,isSearching: true)
+                    if let devocionalFiltrada = self.searchDevocional(Titulo: dataFiltred[indexPath.row].titulo ?? "",isSearching: true){
+                        vc.devocionalSelecionada = devocionalFiltrada
+                    }
                 }
                 else{
-                    index = self.searchDevocional(Titulo: dataDevocional[indexPath.row].titulo!,isSearching: true)
+                    //index = self.searchDevocional(Titulo: dataDevocional[indexPath.row].titulo!,isSearching: true)
+                    if let devocionalSelecionada = self.searchDevocional(Titulo: dataDevocional[indexPath.row].titulo ?? "",isSearching: true){
+                        vc.devocionalSelecionada = devocionalSelecionada
+                    }
+                    
                 }
-                vc.devocional = index
                 vc.delegate2 = self
+               
                 //self.collectionView?.reloadData()
                 navigationController?.pushViewController(vc, animated: true)
                 }
