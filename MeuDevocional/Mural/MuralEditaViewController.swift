@@ -40,7 +40,7 @@ class MuralEditaViewController: UIViewController {
         super.viewDidLoad()
         
         minhaNotaInput.delegate = self
-        dataPost = try! CoreDataStackPost.getPost()
+        dataPost = CoreDataStackPost.shared.getPost()
         okButton.layer.cornerRadius = 8
         
         ///photo picker
@@ -69,7 +69,7 @@ class MuralEditaViewController: UIViewController {
         dataPost.last?.data =  formatter.string(from: date)
         
         //salvando
-        try? CoreDataStackPost.saveContext()
+        try? CoreDataStackPost.shared.saveContext()
         
         //atualiza a collectionView
         delegate?.didRegister()
@@ -87,7 +87,12 @@ class MuralEditaViewController: UIViewController {
                     [self] action in
                     ///opcoes de cancelamento
                     ///se for uma adicao, exclui o item que tinha adicionado anteriormente
-                    try! CoreDataStackPost.deletePost(post: dataPost.last!)
+                    do{
+                        try CoreDataStackPost.shared.deletePost(post: dataPost.last!)
+                    }catch{
+                        print("nao foi possivel excluir postIt")
+                    }
+                    
                     delegate?.didRegister()
                     self.dismiss(animated: true, completion: nil)
                 }))
@@ -121,7 +126,7 @@ class MuralEditaViewController: UIViewController {
     
     // MARK: Funcao que verifica o userDefaults no mural para os widgets
     func verifWidgets(){
-        let post = try! CoreDataStackPost.getPost()
+        let post = CoreDataStackPost.shared.getPost()
         ///vai preencher o vetor de user Defaults com os postits de gratidao armazenados no coredata
         if post.count-1 != (UserDefaultsManager.shared.gratidao?.count){
             ///reseta o vetor do user defaults

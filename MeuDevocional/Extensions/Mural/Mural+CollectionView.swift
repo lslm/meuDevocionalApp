@@ -13,7 +13,7 @@ import UIKit
 extension MuralViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //retorna a quantidade de PostIts presentes no meu CoreData
-        let post = try! CoreDataStackPost.getPost()
+        let post = CoreDataStackPost.shared.getPost()
         if post.count == 0{
             //se nada foi adicionado no banco de dados, vai mostrar a dataBase disponibilizada no app
             return meuMural.count
@@ -23,7 +23,7 @@ extension MuralViewController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: MyCollectionViewCell2 = muralCollection.dequeueReusableCell(withReuseIdentifier: "cell5", for: indexPath) as! MyCollectionViewCell2
-        let post = try! CoreDataStackPost.getPost()
+        let post = CoreDataStackPost.shared.getPost()
         //se nao houver nenhuma adicao no banco de dados, mostra os dados base do App
         if post.count == 0{
             cell.nota.text = meuMural[indexPath.row].nota
@@ -66,7 +66,7 @@ extension MuralViewController: UICollectionViewDataSource{
 extension MuralViewController: UICollectionViewDelegate {
    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        dataPost1 = try! CoreDataStackPost.getPost()
+        dataPost1 = CoreDataStackPost.shared.getPost()
         if dataPost1.count != 0{
             let ac = UIAlertController(title:"Meu motivo", message: dataPost1[indexPath.row].nota, preferredStyle: .alert)
                 ac.addAction(UIAlertAction(title: "OK", style: .cancel, handler: {

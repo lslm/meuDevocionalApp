@@ -17,11 +17,11 @@ class MuralViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("gratidao",UserDefaultsManager.shared.gratidao)
-
+        dataPost1 = CoreDataStackPost.shared.getPost()
+        
+        //print("gratidao",UserDefaultsManager.shared.gratidao)
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(named: "Accent")]
-        
         muralCollection.dataSource = self
         muralCollection.delegate = self
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(sender:)))
@@ -45,7 +45,7 @@ class MuralViewController: UIViewController {
     // MARK: Prepare
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //adiciona o card que sera apenas editado na proxima view...
-        let _ = try? CoreDataStackPost.createPost(nota: " ", backgroundImage: "novopost", data: "",color: "Amarelo1")
+        let _ = CoreDataStackPost.shared.createPost(nota: " ", backgroundImage: "novopost", data: "",color: "Amarelo1")
         muralCollection.reloadData()
         let vc = segue.destination as! MuralEditaViewController
         vc.delegate = self
@@ -53,7 +53,7 @@ class MuralViewController: UIViewController {
     
     // MARK: Long press
     @objc private func handleLongPress(sender: UILongPressGestureRecognizer) {
-        let dataMural = try! CoreDataStackPost.getPost()
+        let dataMural = CoreDataStackPost.shared.getPost()
         if sender.state == .began {
             let touchPoint = sender.location(in: muralCollection)
             if let indexPath = muralCollection.indexPathForItem(at: touchPoint) {
@@ -70,7 +70,12 @@ class MuralViewController: UIViewController {
                 let ac = UIAlertController(title: "Deletar '\(dataMural[indexPath.item].nota ?? "NONE")'", message: "O conteúdo não poderá ser recuperado.", preferredStyle: .actionSheet)
                     ac.addAction(UIAlertAction(title: "Deletar", style: .destructive, handler: {
                         [weak self] action in
-                        try! CoreDataStackPost.deletePost(post: dataMural[indexPath.row])
+                        do{
+                            try CoreDataStackPost.shared.deletePost(post: dataMural[indexPath.row])
+                        }catch{
+                            print("nao foi possivel apagar")
+                        }
+                        
                     self?.muralCollection.reloadData()
                     }))
                     ac.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
