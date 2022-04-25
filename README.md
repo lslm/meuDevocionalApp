@@ -21,3 +21,4 @@ https://apps.apple.com/br/app/meu-devocional/id1578318653
 
 ![forGit](https://user-images.githubusercontent.com/53840501/151466421-6249ac90-6f26-45d4-9f37-fdc4ae5ff921.png)
 
+Meu Devocional - Todos os direitos reservados, Beatriz Duque
