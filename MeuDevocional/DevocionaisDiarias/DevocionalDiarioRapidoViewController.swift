@@ -20,6 +20,7 @@ class DevocionalDiarioRapidoViewController: UIViewController {
     var versiculo = ""
     var musica = ""
     var introducao = ""
+    var novaDevocional = Devocionais()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,16 +49,16 @@ class DevocionalDiarioRapidoViewController: UIViewController {
     }
     
     // MARK: Prepare (edicao e devocional)
-    func checkDevocional(titulo: String) -> Int {
+    func checkDevocional(titulo: String) -> Devocionais {
         let dataDevocional = CoreDataStack.shared.getDevocional()
         for i in 0..<dataDevocional.count{
             ///se a devocional existir, ela sera editada
             if dataDevocional[i].titulo == titulo{
-                return i
+                return dataDevocional[i]
             }
         }
         ///se a devocional nao existir, ela sera criada e colocada por ultimo
-        let _ = CoreDataStack.shared.createDevocional(titulo: self.titleLabel?.text ?? "",
+        self.novaDevocional = CoreDataStack.shared.createDevocional(titulo: self.titleLabel?.text ?? "",
                                                     baseBiblica: self.versiculo,
                                                     contextualizacao: "",
                                                     reflexao: self.introducao,
@@ -72,15 +73,15 @@ class DevocionalDiarioRapidoViewController: UIViewController {
                                                     capitulo: "",
                                                     versiculo: "",
                                                     data: "")
-        return dataDevocional.count
+        return self.novaDevocional
     }
     
     func createDevocional() -> UIViewController? {
         if let vc = storyboard?.instantiateViewController(identifier: "minhadevocionalForms") as? MinhaDevocionalEditaViewController {
-            let index = checkDevocional(titulo: self.titleLabel?.text ?? "Nova devocional")
+            vc.devocional = checkDevocional(titulo: self.titleLabel?.text ?? "Nova devocional")
             vc.edit = true
             vc.rapida = true
-            vc.indice = index
+            //vc.indice = index
             return vc
         }
         return nil
