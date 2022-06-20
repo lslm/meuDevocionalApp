@@ -13,6 +13,7 @@ class MinhaDevocionalVisualizaViewController: UIViewController {
     
     weak var delegate2: MinhaDevocionalVisualizaViewControllerDelegate?
     var tituloShare = "𝑀𝑒𝓊 𝒟𝑒𝓋𝑜𝒸𝒾𝑜𝓃𝒶𝓁"
+    var devocionalSelecionada = Devocionais()
     var devocional = 0
     var dataDevocional: [Devocionais] = []
     var textoDefaut = ""
@@ -40,21 +41,12 @@ class MinhaDevocionalVisualizaViewController: UIViewController {
         pc3.clipsToBounds = true
         
         reflexao.textColor = .label
-
         
+        dataDevocional = CoreDataStack.shared.getDevocional()
+
         super.viewDidLoad()
         //navigationController?.navigationBar.prefersLargeTitles = true
-        dataDevocional = try! CoreDataStack.getDevocional()
-        
-        if dataDevocional.count != 0 {
-            atualizaDevocional()
-        }
-        else{
-            ///caso nao haja nenhuma devocional, nao é possivel compartilhar nem editar
-            shareButton.isHidden = true
-            editButton.isHidden = true
-        }
-        
+        self.atualizaDevocional()
         editButton(button: link)
 
       
@@ -73,7 +65,8 @@ class MinhaDevocionalVisualizaViewController: UIViewController {
     ///carrega o formulario de edicao
     @IBAction func editTrue(_ sender: Any) {
         if let vc = storyboard?.instantiateViewController(identifier: "minhadevocionalForms") as?
-                    MinhaDevocionalEditaViewController {
+            MinhaDevocionalEditaViewController  {
+            vc.devocional = devocionalSelecionada
             vc.edit = true
             vc.indice = devocional
             vc.delegate = self
@@ -82,7 +75,11 @@ class MinhaDevocionalVisualizaViewController: UIViewController {
     }
     
     @IBAction func shareButton(_ sender: Any) {
-        let vc = UIActivityViewController(activityItems: [tituloShare,dataDevocional[devocional].titulo!,dataDevocional[devocional].baseBiblica!,dataDevocional[devocional].reflexao!,dataDevocional[devocional].link!], applicationActivities: [])
+        let vc = UIActivityViewController(activityItems: [tituloShare,
+                                                          devocionalSelecionada.titulo!,
+                                                          devocionalSelecionada.baseBiblica!,
+                                                          devocionalSelecionada.reflexao!,
+                                                          devocionalSelecionada.link!], applicationActivities: [])
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(vc, animated: true)
     }
@@ -90,25 +87,25 @@ class MinhaDevocionalVisualizaViewController: UIViewController {
         if let vc = storyboard?.instantiateViewController(identifier: "music") as?
                     DevocionalMusicViewController {
             //envia o link que está armazenado no banco de dados
-            if dataDevocional.count == 0{
-                vc.recebe = meuDevocional[0].link
-            }
-            else{vc.recebe  = dataDevocional[devocional].link!}
+//            if dataDevocional.count == 0{
+//                vc.recebe = meuDevocional[0].link
+//            }
+            vc.recebe  = devocionalSelecionada.link ?? ""
             navigationController?.pushViewController(vc, animated: true)
-            }
+        }
     }
     
     // MARK: Funcoes de cores
     func editaCores(){
         var selectedColor = UIColor()
-        if dataDevocional[devocional].backgroundColor == "1"{
+        if devocionalSelecionada.backgroundColor == "1"{
             selectedColor = UIColor(named: "Verde1") ?? verde
         }
-        else if dataDevocional[devocional].backgroundColor == "2"{
+        else if devocionalSelecionada.backgroundColor == "2"{
             selectedColor =  UIColor(named: "Amarelo1") ?? verde
             
         }
-        else if dataDevocional[devocional].backgroundColor == "3"{
+        else if devocionalSelecionada.backgroundColor == "3"{
             selectedColor = UIColor(named: "Amarelo2") ?? verde
             
         }
@@ -134,12 +131,12 @@ class MinhaDevocionalVisualizaViewController: UIViewController {
     
     ///funcao que atualiza a devocional depois de passar pela tela do edit
     func atualizaDevocional(){
-        baseBiblica.text = dataDevocional[devocional].baseBiblica
-        titulo.text = dataDevocional[devocional].titulo
-        reflexao.text = dataDevocional[devocional].reflexao
-        pc1.text = dataDevocional[devocional].aplicacao1
-        pc2.text = dataDevocional[devocional].aplicacao2
-        pc3.text = dataDevocional[devocional].aplicacao3
+        baseBiblica.text = devocionalSelecionada.baseBiblica
+        titulo.text = devocionalSelecionada.titulo
+        reflexao.text = devocionalSelecionada.reflexao
+        pc1.text = devocionalSelecionada.aplicacao1
+        pc2.text = devocionalSelecionada.aplicacao2
+        pc3.text = devocionalSelecionada.aplicacao3
         
         //editando cores da devocional
         self.editaCores()

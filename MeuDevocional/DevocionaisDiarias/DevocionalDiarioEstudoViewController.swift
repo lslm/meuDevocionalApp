@@ -270,38 +270,6 @@ class DevocionalDiarioEstudoViewController: UIViewController {
     }
 }
 
-// MARK: Extension Text Field
-extension DevocionalDiarioEstudoViewController: UITextFieldDelegate{
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        ///essa funcao faz com que a tecla return do teclado faca o app aceitar a entrada e o teclado abaixe
-        textField.resignFirstResponder()
-        return true
-    }
-}
-
-extension DevocionalDiarioEstudoViewController: UITextViewDelegate{
-    func hideKeyboard() {
-            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
-    func textFieldShouldReturn(textField: UITextField!) -> Bool{
-       textField.resignFirstResponder()
-       return true;
-    }
-    
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        
-        if anotacoesPessoais.textColor == UIColor.lightGray {
-            anotacoesPessoais.text = ""
-            anotacoesPessoais.textColor = .label
-        }
-    }
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if anotacoesPessoais.text == "" {
-            anotacoesPessoais.text = "Comece a escrever ..."
-            anotacoesPessoais.textColor = UIColor.lightGray
-        }
-    }
-}
 
 
 

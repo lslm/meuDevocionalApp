@@ -13,15 +13,18 @@ class MinhaDevocionalEditaViewController: UIViewController {
     
     var validation = Validation() //para validar links
     weak var delegate: MinhaDevocionalEditaViewControllerDelegate?
-    
-    var dataDevocional: [Devocionais] = []
+
+    var devocional =  Devocionais()
+    //var dataDevocional: [Devocionais] = []
     var indice = 0
+    var isSave = false
     var edit = false
     var rapida = false
     var selectedColor = "1"
     var meuTitulo = ""
     var minhaBase = ""
     var selectedColorName = "crie1"
+    
     
     let inputLista: [String] = ["Título", "Livro","Capítulo","Versículo","Palavra chave 1", "Palavra chave 2", "Palavra chave 3"]
     
@@ -40,9 +43,9 @@ class MinhaDevocionalEditaViewController: UIViewController {
     
     //para pegar a data
     private var datePicker: UIDatePicker?
-    
+
     override func viewDidLoad() {
-        
+        //dataDevocional = CoreDataStack.shared.getDevocional()
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
@@ -52,18 +55,15 @@ class MinhaDevocionalEditaViewController: UIViewController {
         ///funcao que faz o clique na tela ocultar o teclado
         view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
         
-        dataDevocional = try! CoreDataStack.getDevocional()
-        
-        
         // MARK: Edicao ou criacao
         ///define se está atualizando uma devocional ou apenas criando uma nova
-        if edit == false {
-            indice = dataDevocional.count-1
-        }
+//        if edit == false {
+//            indice = dataDevocional.count-1
+//        }
         
         ///define o tipo de texto que sera mostrado ao usuário na reflexao (se é o armazenado ou o default)
-        if dataDevocional[indice].reflexao != ""{
-            reflexaoView.text = dataDevocional[indice].reflexao
+        if devocional.reflexao != ""{
+            reflexaoView.text = devocional.reflexao
         }
         else{
             reflexaoView.text = "Comece a escrever..."
@@ -71,63 +71,80 @@ class MinhaDevocionalEditaViewController: UIViewController {
         }
         
         ///mostra o link caso tiver armazenado
-        linkTextField.text = dataDevocional[indice].link
-        selectedColor = dataDevocional[indice].backgroundColor!
+        linkTextField.text = devocional.link
+        selectedColor = devocional.backgroundColor!
+        
+        
+        ///mostra a cor caso estiver armazenada
+        getColor(color: devocional.backgroundColor ?? "1")
         
         ///salvando data
         let date = Date()
         let formatter =  DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy"
-        dataDevocional[indice].data =  formatter.string(from: date)
+        devocional.data =  formatter.string(from: date)
         okayLinkButton.layer.cornerRadius = 8
         
         ///salvando o progresso
-        try? CoreDataStack.saveContext()
+        CoreDataStack.shared.saveContext()
+        
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        if self.isSave == false{
+            self.saveContent()
+        }
         
     }
     
     // MARK: Save button
     ///funcao criada para adicionar a nova celula criada
     @IBAction func addAndSave(_ sender: Any) {
-        //titulo
+        self.isSave = true
+        self.saveContent()
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func saveContent(){
+        ///titulo
         let index = IndexPath(row: 0, section: 0)
         let cell: MyTableViewCell = self.tableView.cellForRow(at: index) as! MyTableViewCell
         meuTitulo = cell.textFieldCell.text!
-        dataDevocional[indice].titulo = meuTitulo
+        devocional.titulo = meuTitulo
         
-        //livro
+        ///livro
         let index1 = IndexPath(row: 1, section: 0)
         let cell1: MyTableViewCell = self.tableView.cellForRow(at: index1) as! MyTableViewCell
         
-        //capitulo
+        ///capitulo
         let index2 = IndexPath(row: 2, section: 0)
         let cell2: MyTableViewCell = self.tableView.cellForRow(at: index2) as! MyTableViewCell
         
-        //versiculo
+        ///versiculo
         let index3 = IndexPath(row: 3, section: 0)
         let cell3: MyTableViewCell = self.tableView.cellForRow(at: index3) as! MyTableViewCell
         
-        //minha base é a base Biblica concatenada (composto de livro, capitulo e versiculo)
-        minhaBase += cell1.textFieldCell.text!
-        dataDevocional[indice].livro = cell1.textFieldCell.text!
         
-        if minhaBase == ""{
-            dataDevocional[indice].baseBiblica = minhaBase
+        ///base biblica (livro+capitulo+versiculo)
+        if rapida == true{
+            minhaBase = devocional.baseBiblica ?? ""
         }
-        else if rapida == true{
-            minhaBase = dataDevocional[indice].baseBiblica ?? ""
+        else if rapida == false && minhaBase == ""{
+            //minha base é a base Biblica concatenada (composto de livro, capitulo e versiculo)
+            devocional.livro = cell1.textFieldCell.text!
+            devocional.capitulo = cell2.textFieldCell.text!
+            devocional.versiculo = cell3.textFieldCell.text!
             
-        }
-        else if rapida == false && cell2.textFieldCell.text != ""{
-            minhaBase += " "
-            minhaBase += String(cell2.textFieldCell.text!)
-            dataDevocional[indice].capitulo = cell2.textFieldCell.text!
-            minhaBase += ":"
-            minhaBase += cell3.textFieldCell.text!
-            dataDevocional[indice].versiculo = cell3.textFieldCell.text!
-            
+            if cell2.textFieldCell.text! != "" && cell3.textFieldCell.text! == ""{
+                minhaBase = "\(cell1.textFieldCell.text!) \(cell2.textFieldCell.text!)"
+            }
+            else if cell2.textFieldCell.text! != "" && cell3.textFieldCell.text! != ""{
+                minhaBase = "\(cell1.textFieldCell.text!) \(cell2.textFieldCell.text!): \(cell3.textFieldCell.text!)"
+            }
+            else{
+                minhaBase = cell1.textFieldCell.text!
+            }
             ///juncao Livro + Capitulo + Versiculo
-            dataDevocional[indice].baseBiblica = minhaBase
+            devocional.baseBiblica = minhaBase
         }
         
         
@@ -143,31 +160,31 @@ class MinhaDevocionalEditaViewController: UIViewController {
         let index6 = IndexPath(row: 6, section: 0)
         let cell6: MyTableViewCell = self.tableView.cellForRow(at: index6) as! MyTableViewCell
         
-        dataDevocional[indice].aplicacao1 = cell4.textFieldCell.text!
-        dataDevocional[indice].aplicacao2 = cell5.textFieldCell.text!
-        dataDevocional[indice].aplicacao3 = cell6.textFieldCell.text!
+        devocional.aplicacao1 = cell4.textFieldCell.text!
+        devocional.aplicacao2 = cell5.textFieldCell.text!
+        devocional.aplicacao3 = cell6.textFieldCell.text!
         
         ///cor
-        dataDevocional[indice].backgroundColor = selectedColor
-        dataDevocional[indice].backgroundImage = selectedColorName
+        devocional.backgroundColor = selectedColor
+        devocional.backgroundImage = selectedColorName
         
         ///reflexao
-        dataDevocional[indice].reflexao = reflexaoView.text!
+        devocional.reflexao = reflexaoView.text!
         if reflexaoView.textColor == UIColor.lightGray{
             ///caso o usuario nao tenha feito nenhuma alteracao em reflexao, é salvo no banco de dados um dado de string vazia
-            dataDevocional[indice].reflexao = ""
+            devocional.reflexao = ""
         }
         
         ///link
-        dataDevocional[indice].link = linkTextField.text!
+        devocional.link = linkTextField.text!
         
         ///salvando o progresso
-        try? CoreDataStack.saveContext()
+        CoreDataStack.shared.saveContext()
         ///registra as aleracoes para visualizacao futura
         delegate?.didRegister()
         tableView.reloadData()
         tableView.reloadInputViews()
-        self.dismiss(animated: true, completion: nil)
+        
     }
     
     // MARK: Cancel button
@@ -179,12 +196,17 @@ class MinhaDevocionalEditaViewController: UIViewController {
             ac.addAction(UIAlertAction(title: "Ignorar alterações", style: .destructive, handler: {
                 [self] action in
                     ///opcoes de cancelamento
+                    self.isSave = true
                     if edit == true {
                         self.dismiss(animated: true, completion: nil)
                     }
                     else{
                         ///se for uma adicao, exclui o item que tinha adicionado anteriormente
-                        try! CoreDataStack.deleteDevocional(devocionais: dataDevocional[indice])
+                        do{
+                            try  CoreDataStack.shared.deleteDevocional(devocionais: devocional)
+                        }catch{
+                            print(error)
+                        }
                         delegate?.didRegister()
                         self.dismiss(animated: true, completion: nil)
                     }
@@ -242,6 +264,23 @@ class MinhaDevocionalEditaViewController: UIViewController {
         button.setBackgroundImage(UIImage(named: cor), for: .normal)
     }
     
+    ///funcao para mostrar qual cor ja esta selecionada de acordo com o coreData
+    func getColor(color: String){
+        if color == "1" {
+            changeColor(button: color1!, cor: "color1s")
+        }
+        else if color == "2"{
+            changeColor(button: color2!, cor: "color2s")
+        }
+        else if color == "3"{
+            changeColor(button: color3!, cor: "color3s")
+
+        }
+        else{
+            changeColor(button: color4!, cor: "color4s")
+
+        }
+    }
     // MARK: Link button
     ///guarda o link disponibilizado pela pessoa
     @IBAction func okayLink(_ sender: Any) {
@@ -259,7 +298,7 @@ class MinhaDevocionalEditaViewController: UIViewController {
           return
         }
         //armazena o link certo ou vazio. Se estiver vazio irá mostrar uma playlist Default
-        dataDevocional[indice].link = linkTextField.text!
+        devocional.link = linkTextField.text!
 
     }
     
@@ -273,99 +312,4 @@ class MinhaDevocionalEditaViewController: UIViewController {
     }
 }
 
-// MARK: Extensions table view
-extension MinhaDevocionalEditaViewController: UITableViewDelegate{
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        ///clique na celula
-        tableView.deselectRow(at: indexPath, animated: true)
-        tableView.reloadInputViews()
-    }
-}
 
-extension MinhaDevocionalEditaViewController: UITableViewDataSource{
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath) as! MyTableViewCell
-        cell.textFieldCell.placeholder = inputLista[indexPath.row]
-        ///Se for a edicao de uma devocional ja criada, as celulas vao mostrar o que ja esta armazenado no banco de dados
-        if inputLista[indexPath.row] == "Título"{
-            cell.textFieldCell.text = dataDevocional[indice].titulo!
-            cell.label.isHidden = true
-            cell.textFieldCell.maxLength = 40
-        }
-        else if inputLista[indexPath.row] == "Livro"{
-            cell.textFieldCell.text = dataDevocional[indice].livro!
-            cell.textFieldCell.maxLength = 20
-            cell.label.isHidden = true
-        }
-        else if inputLista[indexPath.row] == "Capítulo"{
-            cell.textFieldCell.text = dataDevocional[indice].capitulo!
-            cell.textFieldCell.maxLength = 20
-            cell.label.isHidden = true
-        }
-        else if inputLista[indexPath.row] == "Versículo"{
-            cell.textFieldCell.text = dataDevocional[indice].versiculo!
-            cell.textFieldCell.maxLength = 30
-            cell.label.isHidden = true
-        }
-        else if inputLista[indexPath.row] == "Palavra chave 1"{
-            cell.textFieldCell.text = dataDevocional[indice].aplicacao1!
-            ///definindo uma quanrtidade máxima de letras
-            cell.textFieldCell.maxLength = 15
-        }
-        else if inputLista[indexPath.row] == "Palavra chave 2"{
-            cell.textFieldCell.text = dataDevocional[indice].aplicacao2!
-            ///definindo uma quanrtidade máxima de letras
-            cell.textFieldCell.maxLength = 15
-        }
-        else if inputLista[indexPath.row] == "Palavra chave 3"{
-            cell.textFieldCell.text = dataDevocional[indice].aplicacao3!
-            ///definindo uma quanrtidade máxima de letras
-            cell.textFieldCell.maxLength = 15
-        }
-        
-        cell.textFieldCell.resignFirstResponder()
-        cell.textFieldCell.returnKeyType = .done
-        
-        return cell
-    }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
-    }
-}
-
-// MARK: Extensions Text view
-///extensao criada para a configuracao da textField que apresentara um texto default para o usuario
-extension MinhaDevocionalEditaViewController: UITextViewDelegate{
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        
-        if reflexaoView.textColor == UIColor.lightGray {
-            reflexaoView.text = ""
-            reflexaoView.textColor = .label
-        }
-    }
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if reflexaoView.text == "" {
-            reflexaoView.text = "Comece a escrever ..."
-            reflexaoView.textColor = UIColor.lightGray
-        }
-    }
-}
-
-extension MinhaDevocionalEditaViewController: UITextFieldDelegate{
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    ///essa funcao faz com que a tecla return do teclado faca o app aceitar a entrada e o teclado abaixe
-        textField.autocapitalizationType = .words
-        textField.resignFirstResponder()
-        
-        ///confere se o link está correto
-        let isValidateLink = self.validation.validateYoutube(name: linkTextField.text!)
-        let isValidateLink2 = self.validation.validateSpotify(name: linkTextField.text!)
-        if (isValidateLink == false) && (isValidateLink2 == false){
-          alertLink()
-        }
-        //armazena o link certo ou vazio. Se estiver vazio irá mostrar uma playlist Default
-        dataDevocional[indice].link = linkTextField.text!
-        
-        return true
-    }
-}

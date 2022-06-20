@@ -328,12 +328,6 @@
                                                                         <constraint firstAttribute="width" constant="146" id="JW3-y0-mN7"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conteúdo sendo carregado." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2n-R4-PBJ">
-                                                                    <rect key="frame" x="162" y="71" width="157" height="14.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
-                                                                    <color key="textColor" name="Accent"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIX-rf-3R6">
                                                                     <rect key="frame" x="14" y="177" width="44.5" height="21"/>
                                                                     <constraints>
@@ -352,38 +346,29 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="FJU-0R-zaX">
-                                                                    <rect key="frame" x="231" y="98" width="20" height="20"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="20" id="oQk-Qh-oNA"/>
-                                                                        <constraint firstAttribute="width" constant="20" id="uHQ-vk-0nr"/>
-                                                                    </constraints>
-                                                                    <color key="color" name="Accent"/>
-                                                                </activityIndicatorView>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSB-Sl-Nqh">
-                                                                    <rect key="frame" x="187" y="138" width="108" height="31"/>
-                                                                    <color key="backgroundColor" name="Accent"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="108" id="Vwq-MD-Fd2"/>
-                                                                        <constraint firstAttribute="height" constant="31" id="uH1-6e-pKG"/>
-                                                                    </constraints>
-                                                                    <color key="tintColor" name="BackgroundColor"/>
-                                                                    <state key="normal" title="Button"/>
-                                                                    <buttonConfiguration key="configuration" style="plain" title="Recarregar"/>
-                                                                    <connections>
-                                                                        <action selector="reloadButton:" destination="bRY-OV-K8v" eventType="touchUpInside" id="846-Jd-8wq"/>
-                                                                    </connections>
-                                                                </button>
                                                                 <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ews-w3-uau">
                                                                     <rect key="frame" x="316" y="180" width="13" height="18"/>
                                                                     <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system" subtitle="">
                                                                         <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
                                                                     </buttonConfiguration>
                                                                 </button>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conteúdo sendo carregado." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2n-R4-PBJ">
+                                                                    <rect key="frame" x="162" y="91" width="157" height="14.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                                                    <color key="textColor" name="Accent"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="FJU-0R-zaX">
+                                                                    <rect key="frame" x="231" y="118" width="20" height="20"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="20" id="oQk-Qh-oNA"/>
+                                                                        <constraint firstAttribute="width" constant="20" id="uHQ-vk-0nr"/>
+                                                                    </constraints>
+                                                                    <color key="color" name="Accent"/>
+                                                                </activityIndicatorView>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="kuG-bQ-Mb6" firstAttribute="leading" secondItem="GRF-dV-Yp4" secondAttribute="leading" id="1kV-Hk-gP4"/>
-                                                                <constraint firstItem="HSB-Sl-Nqh" firstAttribute="leading" secondItem="fQn-g4-IIX" secondAttribute="trailing" constant="33" id="2hj-hg-fbV"/>
                                                                 <constraint firstAttribute="trailing" secondItem="D1c-di-j6T" secondAttribute="trailing" constant="14" id="5Y7-sB-lL4"/>
                                                                 <constraint firstItem="UIX-rf-3R6" firstAttribute="top" secondItem="GRF-dV-Yp4" secondAttribute="top" constant="177" id="7Ss-fS-D21"/>
                                                                 <constraint firstItem="kuG-bQ-Mb6" firstAttribute="top" secondItem="GRF-dV-Yp4" secondAttribute="top" id="BTh-mF-q79"/>
@@ -394,7 +379,6 @@
                                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="UIX-rf-3R6" secondAttribute="trailing" constant="20" symbolic="YES" id="O6Q-up-ESv"/>
                                                                 <constraint firstAttribute="trailing" secondItem="kuG-bQ-Mb6" secondAttribute="trailing" id="Oee-95-JL7"/>
                                                                 <constraint firstItem="FJU-0R-zaX" firstAttribute="leading" secondItem="fQn-g4-IIX" secondAttribute="trailing" constant="77" id="QmV-vk-Ynv"/>
-                                                                <constraint firstItem="HSB-Sl-Nqh" firstAttribute="top" secondItem="FJU-0R-zaX" secondAttribute="bottom" constant="20" id="RdX-ir-2tl"/>
                                                                 <constraint firstItem="UIX-rf-3R6" firstAttribute="leading" secondItem="GRF-dV-Yp4" secondAttribute="leading" constant="14" id="SiH-y5-Piy"/>
                                                                 <constraint firstItem="FJU-0R-zaX" firstAttribute="top" secondItem="L2n-R4-PBJ" secondAttribute="bottom" constant="12.5" id="Vrt-tt-bFC"/>
                                                                 <constraint firstAttribute="trailing" secondItem="ews-w3-uau" secondAttribute="trailing" constant="14" id="cjX-qA-euH"/>
@@ -402,7 +386,7 @@
                                                                 <constraint firstItem="GBb-HG-pD7" firstAttribute="leading" secondItem="GRF-dV-Yp4" secondAttribute="leading" constant="16" id="kfC-6b-w7O"/>
                                                                 <constraint firstAttribute="trailing" secondItem="kuG-bQ-Mb6" secondAttribute="trailing" id="q4R-B6-2lz"/>
                                                                 <constraint firstItem="fQn-g4-IIX" firstAttribute="leading" secondItem="GRF-dV-Yp4" secondAttribute="leading" constant="8" id="qNk-bs-Swh"/>
-                                                                <constraint firstItem="L2n-R4-PBJ" firstAttribute="top" secondItem="GRF-dV-Yp4" secondAttribute="top" constant="71" id="rqh-oB-hcB"/>
+                                                                <constraint firstItem="L2n-R4-PBJ" firstAttribute="top" secondItem="GRF-dV-Yp4" secondAttribute="top" constant="91" id="rqh-oB-hcB"/>
                                                                 <constraint firstAttribute="trailing" secondItem="GBb-HG-pD7" secondAttribute="trailing" constant="27" id="vZu-Ux-072"/>
                                                                 <constraint firstItem="ews-w3-uau" firstAttribute="top" secondItem="GBb-HG-pD7" secondAttribute="bottom" constant="11" id="x6Y-5t-ns2"/>
                                                                 <constraint firstItem="D1c-di-j6T" firstAttribute="top" secondItem="UIX-rf-3R6" secondAttribute="bottom" constant="3" id="zCK-r7-l6o"/>
@@ -410,7 +394,6 @@
                                                         </collectionViewCellContentView>
                                                         <size key="customSize" width="343" height="230"/>
                                                         <connections>
-                                                            <outlet property="buttonEmpty" destination="HSB-Sl-Nqh" id="eIg-sX-wjp"/>
                                                             <outlet property="emptyImage" destination="fQn-g4-IIX" id="D6T-5K-hWM"/>
                                                             <outlet property="image" destination="kuG-bQ-Mb6" id="SvU-1U-G9y"/>
                                                             <outlet property="rightArrow" destination="ews-w3-uau" id="eCd-m3-Qv8"/>
@@ -1054,11 +1037,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IUS-gu-2tv">
-                                <rect key="frame" x="354" y="20" width="34" height="30"/>
+                                <rect key="frame" x="345" y="20" width="43" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="52W-jr-Zzn"/>
                                 </constraints>
-                                <state key="normal" title="Save"/>
+                                <state key="normal" title="Salvar"/>
                                 <connections>
                                     <action selector="onTap:" destination="csv-ad-38C" eventType="touchUpInside" id="qGj-c0-823"/>
                                 </connections>
@@ -1108,12 +1091,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mwq-kW-Bps">
-                                <rect key="frame" x="13" y="20" width="48" height="30"/>
+                                <rect key="frame" x="13" y="20" width="61" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="48" id="kY9-Q8-sxQ"/>
                                     <constraint firstAttribute="height" constant="30" id="vq9-Tm-cCE"/>
                                 </constraints>
-                                <state key="normal" title="Cancel">
+                                <state key="normal" title="Cancelar">
                                     <color key="titleColor" systemColor="systemRedColor"/>
                                 </state>
                                 <connections>
@@ -1595,7 +1578,7 @@
                                     <action selector="shareButton:" destination="sIP-je-v79" id="6Cg-UG-NrO"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="save" id="2Dt-WN-xey">
+                            <barButtonItem title="Salvar" id="2Dt-WN-xey">
                                 <color key="tintColor" name="Accent"/>
                                 <connections>
                                     <action selector="saveButton:" destination="sIP-je-v79" id="me0-f9-ldM"/>
@@ -1774,12 +1757,12 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyF-bP-Ure">
-                                                <rect key="frame" x="360" y="8" width="34" height="40"/>
+                                                <rect key="frame" x="351" y="8" width="43" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="Xnd-50-2IE"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="34" id="nVD-uL-TVx"/>
                                                 </constraints>
-                                                <state key="normal" title="Save"/>
+                                                <state key="normal" title="Salvar"/>
                                                 <connections>
                                                     <action selector="addAndSave:" destination="8BQ-eE-MAx" eventType="touchUpInside" id="fHo-ae-7F8"/>
                                                 </connections>
@@ -1893,12 +1876,12 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8MO-ZP-Ooq">
-                                                <rect key="frame" x="20" y="13" width="54" height="30"/>
+                                                <rect key="frame" x="20" y="13" width="61" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="3OX-1N-ttQ"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="54" id="MsX-VV-4EG"/>
                                                 </constraints>
-                                                <state key="normal" title="Cancel">
+                                                <state key="normal" title="Cancelar">
                                                     <color key="titleColor" systemColor="systemRedColor"/>
                                                 </state>
                                                 <connections>

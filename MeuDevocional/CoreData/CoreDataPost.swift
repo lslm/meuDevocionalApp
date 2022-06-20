@@ -7,7 +7,9 @@
 import CoreData
 
 class CoreDataStackPost{
-    static var persistentContainer: NSPersistentContainer = {
+    static let shared: CoreDataStackPost = CoreDataStackPost()
+    
+    var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Model")
         container.loadPersistentStores { _, error in
             if let erro = error{
@@ -18,42 +20,55 @@ class CoreDataStackPost{
         return container
     }()
     
-    static var context: NSManagedObjectContext{
+    var context: NSManagedObjectContext{
         return persistentContainer.viewContext
     }
     
-    static func saveContext() throws{
-        if context.hasChanges{
-            try context.save()
+    func saveContext(){
+        let context = persistentContainer.viewContext
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                let nserror = error as NSError
+                fatalError("Problema de contexto: \(nserror), \(nserror.userInfo)")
+            }
         }
     }
     
-    static func createPost(nota: String, backgroundImage: String, data: String, color: String) throws -> Post{
+    func createPost(nota: String, backgroundImage: String, data: String, color: String) -> Post{
         guard let post = NSEntityDescription.insertNewObject(forEntityName: "Post", into: context) as? Post else {preconditionFailure()}
         post.nota = nota
         post.backgroundImage = backgroundImage
         post.data = data
         post.color = color 
         
-        try saveContext()
+        self.saveContext()
         return post
     }
     
-    static func getPost() throws -> [Post] {
-        return try context.fetch(Post.fetchRequest())
+    func getPost() -> [Post] {
+        let fr = NSFetchRequest<Post>(entityName: "Post")
+        do {
+            return try self.persistentContainer.viewContext.fetch(fr)
+        }catch {
+            print(error)
+        }
+        return []
     }
     
-    static func deletePost(post: Post) throws{
-        context.delete(post)
-        deleteWidget()
-        try saveContext()
+    func deletePost(post: Post) throws{
+        self.persistentContainer.viewContext.delete(post)
+        self.deleteWidget()
+        self.saveContext()
     }
     
     ///funcao auxiliar para deletar o motivo selecionado do userDefaults tambem
-    static func deleteWidget(){
+    func deleteWidget(){
         UserDefaultsManager.shared.background = [""]
         UserDefaultsManager.shared.gratidao = [""]
-        let post = try! context.fetch(Post.fetchRequest())
+        do {
+            let post = try context.fetch(Post.fetchRequest())
             ///reseta o vetor do user defaults
             var vetaux: [String] = [""]
             var vetaux2: [String] = [""]
@@ -64,6 +79,9 @@ class CoreDataStackPost{
             ///atualiza o vetor do user defaults
              UserDefaultsManager.shared.gratidao = vetaux
              UserDefaultsManager.shared.background = vetaux2
+        }catch{
+            print("Nao foi possivel excluir widget")
+        }
         //print("gratidao2",UserDefaultsManager.shared.gratidao)
     }
     

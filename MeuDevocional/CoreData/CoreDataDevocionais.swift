@@ -9,10 +9,10 @@ import CoreData
 
 class CoreDataStack{
     
-    public static var shared: CoreDataStack = CoreDataStack()
+    static let shared: CoreDataStack = CoreDataStack()
 
     
-    static var persistentContainer: NSPersistentContainer = {
+    private lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Model")
         container.loadPersistentStores { _, error in
             if let erro = error{
@@ -24,17 +24,23 @@ class CoreDataStack{
     }()
     
     
-    static var context: NSManagedObjectContext{
-        return persistentContainer.viewContext
+    var context: NSManagedObjectContext{
+        persistentContainer.viewContext
     }
     
-    static func saveContext() throws{
-        if context.hasChanges{
-            try context.save()
+    func saveContext(){
+        let context = persistentContainer.viewContext
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                let nserror = error as NSError
+                fatalError("Problema de contexto: \(nserror), \(nserror.userInfo)")
+            }
         }
     }
     
-    static func createDevocional(titulo: String, baseBiblica: String, contextualizacao: String, reflexao: String, conclusao: String, aplicacao1: String, aplicacao2: String, aplicacao3: String, backgroundColor: String, backgroundImage: String, link: String,livro: String,capitulo: String,versiculo: String,data: String) throws -> Devocionais{
+    func createDevocional(titulo: String, baseBiblica: String, contextualizacao: String, reflexao: String, conclusao: String, aplicacao1: String, aplicacao2: String, aplicacao3: String, backgroundColor: String, backgroundImage: String, link: String,livro: String,capitulo: String,versiculo: String,data: String) -> Devocionais{
         guard let devocionais = NSEntityDescription.insertNewObject(forEntityName: "Devocionais", into: context) as? Devocionais else {preconditionFailure()}
         devocionais.titulo = titulo
         devocionais.baseBiblica = baseBiblica
@@ -52,16 +58,22 @@ class CoreDataStack{
         devocionais.versiculo = versiculo
         devocionais.data = data
 
-        try saveContext()
+        self.saveContext()
         return devocionais
     }
     
-    static func getDevocional() throws -> [Devocionais] {
-        return try context.fetch(Devocionais.fetchRequest())
+    func getDevocional() -> [Devocionais] {
+        let fr = NSFetchRequest<Devocionais>(entityName: "Devocionais")
+        do {
+            return try self.persistentContainer.viewContext.fetch(fr)
+        }catch {
+            print(error)
+        }
+        return []
     }
-    static func deleteDevocional(devocionais: Devocionais) throws{
-        context.delete(devocionais)
-        try saveContext()
+    func deleteDevocional(devocionais: Devocionais) throws{
+        self.persistentContainer.viewContext.delete(devocionais)
+        self.saveContext()
     }
 }
 

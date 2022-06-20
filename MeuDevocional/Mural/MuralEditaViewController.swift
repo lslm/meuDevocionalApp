@@ -40,7 +40,7 @@ class MuralEditaViewController: UIViewController {
         super.viewDidLoad()
         
         minhaNotaInput.delegate = self
-        dataPost = try! CoreDataStackPost.getPost()
+        dataPost = CoreDataStackPost.shared.getPost()
         okButton.layer.cornerRadius = 8
         
         ///photo picker
@@ -69,7 +69,7 @@ class MuralEditaViewController: UIViewController {
         dataPost.last?.data =  formatter.string(from: date)
         
         //salvando
-        try? CoreDataStackPost.saveContext()
+        try? CoreDataStackPost.shared.saveContext()
         
         //atualiza a collectionView
         delegate?.didRegister()
@@ -87,7 +87,12 @@ class MuralEditaViewController: UIViewController {
                     [self] action in
                     ///opcoes de cancelamento
                     ///se for uma adicao, exclui o item que tinha adicionado anteriormente
-                    try! CoreDataStackPost.deletePost(post: dataPost.last!)
+                    do{
+                        try CoreDataStackPost.shared.deletePost(post: dataPost.last!)
+                    }catch{
+                        print("nao foi possivel excluir postIt")
+                    }
+                    
                     delegate?.didRegister()
                     self.dismiss(animated: true, completion: nil)
                 }))
@@ -121,7 +126,7 @@ class MuralEditaViewController: UIViewController {
     
     // MARK: Funcao que verifica o userDefaults no mural para os widgets
     func verifWidgets(){
-        let post = try! CoreDataStackPost.getPost()
+        let post = CoreDataStackPost.shared.getPost()
         ///vai preencher o vetor de user Defaults com os postits de gratidao armazenados no coredata
         if post.count-1 != (UserDefaultsManager.shared.gratidao?.count){
             ///reseta o vetor do user defaults
@@ -231,37 +236,3 @@ class MuralEditaViewController: UIViewController {
     
 }
 
-// MARK: Extension TextField
-extension MuralEditaViewController: UITextFieldDelegate{
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    //essa funcao faz com que a tecla return do teclado faca o app aceitar a entrada e o teclado abaixe
-    visualizacaoLabel.text = minhaNotaInput.text
-    textField.resignFirstResponder()
-    return true
-    }
-    
-    //funcao criada para printar o limite de caracteres da palavra chave
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
-           guard let text = textField.text else { return true }
-        let length = text.count + string.count - range.length
-           // create an Integer of 15 - the length of your TextField.text to count down
-           //let count = 15 - length
-            let count = length
-           // set the .text property of your UILabel to the live created String
-           limitText.text =  String(count) + "/100"
-           // if you want to limit to 15 charakters
-           // you need to return true and <= 15
-
-           return length < 100
-       }
-}
-
-extension MuralEditaViewController: ImagePickerDelegate {
-
-    func didSelect(image: UIImage?) {
-        self.visualizacao.image = image
-        self.visualizacao.alpha = 0.6
-        dataPost.last?.backgroundImage = SalvarImagem.saveToFiles(image: self.visualizacao.image)
-    }
-}
