@@ -51,7 +51,7 @@ class MinhaDevocionalViewController: UIViewController,NSFetchedResultsController
         
         ///gesto para excluir a celula se for pressionada
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(sender:)))
-                collectionView.addGestureRecognizer(longPress)
+        collectionView.addGestureRecognizer(longPress)
         
         ///fetch results
         do {
